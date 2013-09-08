@@ -1,5 +1,3 @@
-// Generate fact.ll by calling:
-//  clang -cc1 -emit-llvm fact.c
 unsigned mult(unsigned a, unsigned b) {
   unsigned i, s = 0;
   for (i = 0; i < a; ++i) {
