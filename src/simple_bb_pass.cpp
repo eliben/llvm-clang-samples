@@ -61,7 +61,7 @@ char AllocaSizeDetect::ID = 0;
 
 int main(int argc, char **argv) {
   if (argc < 2) {
-    report_fatal_error("Expected an argument - IR file name");
+    report_fatal_error("Usage: simple_bb_pass <IR file>");
   }
 
   // Parse the input LLVM IR file into a module.
