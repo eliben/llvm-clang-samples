@@ -42,7 +42,10 @@ LLVM_CONFIG_COMMAND = \
 SRCDIR = src
 BUILDDIR = build
 
-all: $(BUILDDIR)/bb_toposort_sccs $(BUILDDIR)/simple_bb_pass
+all: make_builddir $(BUILDDIR)/bb_toposort_sccs $(BUILDDIR)/simple_bb_pass
+
+make_builddir:
+	test -d $(BUILDDIR) || mkdir $(BUILDDIR)
 
 $(BUILDDIR)/simple_bb_pass: $(SRCDIR)/simple_bb_pass.cpp
 	$(CXX) $(CXXFLAGS_LLVM) $^ $(LLVM_CONFIG_COMMAND) -o $@
