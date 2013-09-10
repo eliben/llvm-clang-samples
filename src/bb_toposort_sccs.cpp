@@ -5,6 +5,7 @@
 // Eli Bendersky (eliben@gmail.com)
 // This code is in the public domain
 //------------------------------------------------------------------------------
+#include "llvm/ADT/DenseMap.h"
 #include "llvm/IR/DataLayout.h"
 #include "llvm/IR/Instruction.h"
 #include "llvm/IR/Instructions.h"
@@ -18,6 +19,18 @@
 
 using namespace llvm;
 
+
+template <typename InfoT>
+class EdgeInfo {
+public:
+  EdgeInfo() {}
+
+private:
+  typedef SmallDenseMap<const BasicBlock *, InfoT, 4> BBToInfoMap;
+  typedef DenseMap<const BasicBlock *, BBToInfoMap *> EdgeInfoMap;
+
+  EdgeInfoMap Map;
+};
 
 class AnalyzeBBGraph : public FunctionPass {
 public:
