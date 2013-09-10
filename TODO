@@ -1,0 +1,1 @@
+* make should mkdir build/ if it does not exist

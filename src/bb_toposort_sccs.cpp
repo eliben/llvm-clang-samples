@@ -20,17 +20,17 @@
 using namespace llvm;
 
 
-template <typename InfoT>
-class EdgeInfo {
+class TopoFinder {
 public:
-  EdgeInfo() {}
-
+  void runTopoSort(const Function &F);
 private:
-  typedef SmallDenseMap<const BasicBlock *, InfoT, 4> BBToInfoMap;
-  typedef DenseMap<const BasicBlock *, BBToInfoMap *> EdgeInfoMap;
+  enum Color {WHITE, GREY, BLACK};
+  typedef SmallDenseMap<const BasicBlock *, Color, 4> DestToColorMap;
+  typedef DenseMap<const BasicBlock *, DestToColorMap *> EdgeColorMap;
 
-  EdgeInfoMap Map;
+  EdgeColorMap Map;
 };
+
 
 class AnalyzeBBGraph : public FunctionPass {
 public:
@@ -48,7 +48,6 @@ public:
 };
 
 char AnalyzeBBGraph::ID = 0;
-
 
 int main(int argc, char **argv) {
   if (argc < 2) {
