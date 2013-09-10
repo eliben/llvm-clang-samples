@@ -37,17 +37,19 @@ public:
 
   virtual bool runOnBasicBlock(BasicBlock &BB) {
     const DataLayout &DL = getAnalysis<DataLayout>();
-    for (BasicBlock::iterator ii = BB.begin(), ii_e = BB.end(); ii != ii_e;
-         ++ii) {
+    for (BasicBlock::iterator II = BB.begin(), II_e = BB.end(); II != II_e;
+         ++II) {
       // Iterate over each instruction in the BasicBlock. If the instruction
       // is an alloca, dump its type and query the type's size.
-      if (AllocaInst *allocainst = dyn_cast<AllocaInst>(ii)) {
-        Type *alloctype = allocainst->getAllocatedType();
-        alloctype->print(outs());
-        outs() << " size " << DL.getTypeSizeInBits(alloctype) << " bits\n";
+      if (AllocaInst *Alloca = dyn_cast<AllocaInst>(II)) {
+        Type *AllocType = Alloca->getAllocatedType();
+        AllocType->print(outs());
+        outs() << " size " << DL.getTypeSizeInBits(AllocType) << " bits\n";
       }
     }
 
+    // Return false to signal that the basic block was not modified by this
+    // pass.
     return false;
   }
 
@@ -61,7 +63,8 @@ char AllocaSizeDetect::ID = 0;
 
 int main(int argc, char **argv) {
   if (argc < 2) {
-    report_fatal_error("Usage: simple_bb_pass <IR file>");
+    errs() << "Usage: " << argv[0] << " <IR file>\n";
+    return 1;
   }
 
   // Parse the input LLVM IR file into a module.
