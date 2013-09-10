@@ -20,15 +20,27 @@
 using namespace llvm;
 
 
-class TopoFinder {
+class TopoSorter {
 public:
-  void runTopoSort(const Function &F);
+  void runToposort(const Function &F) {
+    // Initialize the color map by marking all the vertices white.
+    for (Function::const_iterator I = F.begin(), IE = F.end(); I != IE; ++I) {
+      ColorMap[I] = TopoSorter::WHITE;
+    }
+
+    // The BB graph has a single entry vertex from which the other BBs should
+    // be discoverable - the function entry block.
+    recursiveDFSToposort(&F.getEntryBlock());
+  }
 private:
   enum Color {WHITE, GREY, BLACK};
-  typedef SmallDenseMap<const BasicBlock *, Color, 4> DestToColorMap;
-  typedef DenseMap<const BasicBlock *, DestToColorMap *> EdgeColorMap;
+  typedef DenseMap<const BasicBlock *, Color> BBColorMap;
+  typedef SmallVector<const BasicBlock *, 32> BBVector;
+  BBColorMap ColorMap;
+  BBVector SortedBBs;
 
-  EdgeColorMap Map;
+  void recursiveDFSToposort(const BasicBlock *BB) {
+  }
 };
 
 
