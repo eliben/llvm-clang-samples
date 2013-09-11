@@ -1,5 +1,4 @@
 #-------------------------------------------------------------------------------
-#
 # Makefile for building the code samples. Read inline comments for
 # documentation.
 #
@@ -54,5 +53,5 @@ $(BUILDDIR)/bb_toposort_sccs: $(SRCDIR)/bb_toposort_sccs.cpp
 	$(CXX) $(CXXFLAGS_LLVM) $^ $(LLVM_CONFIG_COMMAND) -o $@
 
 clean:
-	rm -rf $(BUILDDIR)/*
+	rm -rf $(BUILDDIR)/* *.dot
 
