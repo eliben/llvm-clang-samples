@@ -20,10 +20,10 @@ i32 size 32 bits
 
 class Test(SamplesTestCase):
     def test_on_fact(self):
-        self.assertSampleOutput('simple_bb_pass', 'fact.ll', OUTPUT_FOR_FACT)
+        self.assertSampleOutput(['simple_bb_pass'], 'fact.ll', OUTPUT_FOR_FACT)
 
     def test_on_types(self):
-        self.assertSampleOutput('simple_bb_pass', 'types.ll', OUTPUT_FOR_TYPES)
+        self.assertSampleOutput(['simple_bb_pass'], 'types.ll', OUTPUT_FOR_TYPES)
 
 if __name__ == '__main__':
   unittest.main()

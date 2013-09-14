@@ -20,11 +20,17 @@ class SamplesTestCase(unittest.TestCase):
         # build and inputs directories as expected.
         self.build_dir = 'build'
         self.inputs_dir = 'inputs'
-    
-    def assertSampleOutput(self, sample, input, expected_out):
-        sample_path = os.path.join(self.build_dir, sample)
+
+    def assertSampleOutput(self, cmd, input, expected_out):
+        """ cmd: a list [sample_name, arg1, arg2...] - the name of the sample
+                 to run, with additional arguments that will be added before
+                 the path to the input file.
+            input: name of a file from the input dir
+            expected_out: expected output as a string
+        """
+        sample_path = os.path.join(self.build_dir, cmd[0])
         input_path = os.path.join(self.inputs_dir, input)
-        rc, stdout = run_exe(sample_path, [input_path])
+        rc, stdout = run_exe(sample_path, cmd[1:] + [input_path])
         self.assertEqual(rc, 0)
         self.assertEqual(stdout, expected_out)
 

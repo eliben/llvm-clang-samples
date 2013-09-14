@@ -1,6 +1,11 @@
 //------------------------------------------------------------------------------
 // bb_toposort_sccs LLVM sample. Demonstrates:
 //
+// * How to implement DFS & topological sort over the control-flow graph (CFG)
+//   of a function.
+// * How to use po_iterator for post-order iteration over basic blocks.
+// * How to use scc_iterator for post-order iteration over strongly-connected
+//   components in the graph of basic blocks.
 //
 // Eli Bendersky (eliben@gmail.com)
 // This code is in the public domain
