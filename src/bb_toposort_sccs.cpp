@@ -20,6 +20,10 @@
 using namespace llvm;
 
 
+// Runs a topological sort on the basic blocks of the given function. Uses
+// the simple recursive DFS from "Introduction to algorithms", with 3-coloring
+// of vertices. The coloring enables detecting cycles in the graph with a simple
+// test.
 class TopoSorter {
 public:
   void runToposort(const Function &F) {
@@ -32,36 +36,44 @@ public:
     // The BB graph has a single entry vertex from which the other BBs should
     // be discoverable - the function entry block.
     bool success = recursiveDFSToposort(&F.getEntryBlock());
-    if (!success) {
+    if (success) {
+      // Now we have all the BBs inside SortedBBs in reverse topological order.
+      for (BBVector::const_reverse_iterator RI = SortedBBs.rbegin(),
+                                            RE = SortedBBs.rend();
+                                            RI != RE; ++RI) {
+        outs() << "  " << (*RI)->getName() << "\n";
+      }
+    } else {
       outs() << "  Sorting failed\n";
-      return;
-    }
-
-    // Now we have all the BBs inside SortedBBs in reverse topological order.
-    for (BBVector::const_reverse_iterator RI = SortedBBs.rbegin(),
-                                          RE = SortedBBs.rend();
-                                          RI != RE; ++RI) {
-      outs() << "  " << (*RI)->getName() << "\n";
     }
   }
 private:
   enum Color {WHITE, GREY, BLACK};
+  // Color marks per vertex (BB).
   typedef DenseMap<const BasicBlock *, Color> BBColorMap;
+  // Collects vertices (BBs) in "finish" order. The first finished vertex is
+  // first, and so on.
   typedef SmallVector<const BasicBlock *, 32> BBVector;
   BBColorMap ColorMap;
   BBVector SortedBBs;
 
+  // Helper function to recursively run topological sort from a given BB.
+  // Returns true if the sort succeeded and false otherwise; topological sort
+  // may fail if, for example, the graph is not a DAG (detected a cycle).
   bool recursiveDFSToposort(const BasicBlock *BB) {
     ColorMap[BB] = TopoSorter::GREY;
+    // For demonstration, using the lowest-level APIs here. A BB's successors
+    // are determined by looking at its terminator instruction.
     const TerminatorInst *TInst = BB->getTerminator();
     for (unsigned I = 0, NSucc = TInst->getNumSuccessors(); I < NSucc; ++I) {
       BasicBlock *Succ = TInst->getSuccessor(I);
       Color SuccColor = ColorMap[Succ];
       if (SuccColor == TopoSorter::WHITE) {
-        bool success = recursiveDFSToposort(Succ);
-        if (!success)
+        if (!recursiveDFSToposort(Succ))
           return false;
       } else if (SuccColor == TopoSorter::GREY) {
+        // This detects a cycle because grey vertices are all ancestors of the
+        // currently explored vertex (in other words, they're "on the stack").
         outs() << "  Detected cycle: edge from " << BB->getName() << 
                   " to " << Succ->getName() << "\n";
         return false;
@@ -86,7 +98,7 @@ public:
   }
 
   // The address of this member is used to uniquely identify the class. This is
-  // used by the LLVM's own RTTI mechanism.
+  // used by LLVM's own RTTI mechanism.
   static char ID;
 };
 

@@ -54,7 +54,7 @@ public:
   }
 
   // The address of this member is used to uniquely identify the class. This is
-  // used by the LLVM's own RTTI mechanism.
+  // used by LLVM's own RTTI mechanism.
   static char ID;
 };
 
