@@ -1,3 +1,4 @@
+import difflib
 import os
 import subprocess
 import unittest
@@ -31,6 +32,14 @@ class SamplesTestCase(unittest.TestCase):
         sample_path = os.path.join(self.build_dir, cmd[0])
         input_path = os.path.join(self.inputs_dir, input)
         rc, stdout = run_exe(sample_path, cmd[1:] + [input_path])
+        stdout = stdout.decode('utf-8')
         self.assertEqual(rc, 0)
-        self.assertEqual(stdout, expected_out)
+        if stdout != expected_out:
+            print('\n!!!!!!!! %s\nDelta (actual vs. expected):' % (
+                cmd + [input]))
+            delta = difflib.Differ().compare(expected_out.splitlines(True),
+                                             stdout.splitlines(True))
+            print(''.join(delta))
+            self.fail('Comparison failed. See delta above ^^^')
+
 
