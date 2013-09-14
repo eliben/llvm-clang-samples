@@ -53,5 +53,5 @@ $(BUILDDIR)/bb_toposort_sccs: $(SRCDIR)/bb_toposort_sccs.cpp
 	$(CXX) $(CXXFLAGS_LLVM) $^ $(LLVM_CONFIG_COMMAND) -o $@
 
 clean:
-	rm -rf $(BUILDDIR)/* *.dot
+	rm -rf $(BUILDDIR)/* *.dot test/*.pyc test/__pycache__
 
