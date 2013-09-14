@@ -6,6 +6,7 @@
 // This code is in the public domain
 //------------------------------------------------------------------------------
 #include "llvm/ADT/DenseMap.h"
+#include "llvm/ADT/PostOrderIterator.h"
 #include "llvm/IR/DataLayout.h"
 #include "llvm/IR/Instruction.h"
 #include "llvm/IR/Instructions.h"
@@ -14,8 +15,10 @@
 #include "llvm/IRReader/IRReader.h"
 #include "llvm/Pass.h"
 #include "llvm/PassManager.h"
+#include "llvm/Support/CFG.h"
 #include "llvm/Support/raw_ostream.h"
 #include "llvm/Support/SourceMgr.h"
+#include <string>
 
 using namespace llvm;
 
@@ -89,30 +92,49 @@ private:
 
 class AnalyzeBBGraph : public FunctionPass {
 public:
-  AnalyzeBBGraph() : FunctionPass(ID) {}
+  AnalyzeBBGraph(const std::string &AnalysisKind) 
+    : FunctionPass(ID), AnalysisKind(AnalysisKind)
+  {}
 
   virtual bool runOnFunction(Function &F) {
-    TopoSorter TS;
-    TS.runToposort(F);
+    if (AnalysisKind == "-topo") {
+      TopoSorter TS;
+      TS.runToposort(F);
+    } else if (AnalysisKind == "-po") {
+      // Use LLVM's post-order iterator to produce a reverse topological sort.
+      // Note that this doesn't detect cycles so if the graph is not a DAG, the
+      // result is not a true topological sort.
+      outs() << "Basic blocks of " << F.getName() << " in post-order:\n";
+      for (po_iterator<BasicBlock *> I = po_begin(&F.getEntryBlock()),
+                                     IE = po_end(&F.getEntryBlock());
+                                     I != IE; ++I) {
+        outs() << "  " << (*I)->getName() << "\n";
+      }                        
+    } else {
+      outs() << "Unknown analysis kind: " << AnalysisKind << "\n";
+    }
     return false;
   }
 
   // The address of this member is used to uniquely identify the class. This is
   // used by LLVM's own RTTI mechanism.
   static char ID;
+private:
+  std::string AnalysisKind;
 };
 
 char AnalyzeBBGraph::ID = 0;
 
 int main(int argc, char **argv) {
-  if (argc < 2) {
-    errs() << "Usage: " << argv[0] << " <IR file>\n";
+  if (argc < 3) {
+    // Using very basic command-line argument parsing here...
+    errs() << "Usage: " << argv[0] << " -[topo|po|scc] <IR file>\n";
     return 1;
   }
 
   // Parse the input LLVM IR file into a module.
   SMDiagnostic Err;
-  Module *Mod = ParseIRFile(argv[1], Err, getGlobalContext());
+  Module *Mod = ParseIRFile(argv[2], Err, getGlobalContext());
   if (!Mod) {
     Err.print(argv[0], errs());
     return 1;
@@ -120,7 +142,7 @@ int main(int argc, char **argv) {
 
   // Create a pass manager and fill it with the passes we want to run.
   PassManager PM;
-  PM.add(new AnalyzeBBGraph());
+  PM.add(new AnalyzeBBGraph(std::string(argv[1])));
   PM.run(*Mod);
 
   return 0;
