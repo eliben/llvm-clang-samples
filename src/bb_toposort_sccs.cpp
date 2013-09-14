@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 #include "llvm/ADT/DenseMap.h"
 #include "llvm/ADT/PostOrderIterator.h"
+#include "llvm/ADT/SCCIterator.h"
 #include "llvm/IR/DataLayout.h"
 #include "llvm/IR/Instruction.h"
 #include "llvm/IR/Instructions.h"
@@ -19,6 +20,7 @@
 #include "llvm/Support/raw_ostream.h"
 #include "llvm/Support/SourceMgr.h"
 #include <string>
+#include <vector>
 
 using namespace llvm;
 
@@ -110,6 +112,23 @@ public:
                                      I != IE; ++I) {
         outs() << "  " << (*I)->getName() << "\n";
       }                        
+    } else if (AnalysisKind == "-scc") {
+      // Use LLVM's Strongly Connected Components (SCCs) iterator to produce
+      // a reverse topological sort of SCCs.
+      outs() << "SCCs for " << F.getName() << " in post-order:\n";
+      for (scc_iterator<Function *> I = scc_begin(&F),
+                                    IE = scc_end(&F);
+                                    I != IE; ++I) {
+        // Obtain the vector of BBs in this SCC and print it out.
+        const std::vector<BasicBlock *> &SCCBBs = *I;
+        outs() << "  SCC: ";
+        for (std::vector<BasicBlock *>::const_iterator BBI = SCCBBs.begin(),
+                                                       BBIE = SCCBBs.end();
+                                                       BBI != BBIE; ++BBI) {
+          outs() << (*BBI)->getName() << "  ";
+        }
+        outs() << "\n";
+      }
     } else {
       outs() << "Unknown analysis kind: " << AnalysisKind << "\n";
     }
