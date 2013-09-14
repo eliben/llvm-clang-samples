@@ -37,7 +37,7 @@ using namespace llvm;
 class TopoSorter {
 public:
   void runToposort(const Function &F) {
-    outs() << "Topological sort of function " << F.getName() << ":\n";
+    outs() << "Topological sort of " << F.getName() << ":\n";
     // Initialize the color map by marking all the vertices white.
     for (Function::const_iterator I = F.begin(), IE = F.end(); I != IE; ++I) {
       ColorMap[I] = TopoSorter::WHITE;

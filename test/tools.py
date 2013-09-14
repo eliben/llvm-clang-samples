@@ -15,6 +15,10 @@ def run_exe(exe_path, args):
     return proc.returncode, proc_stdout
 
 
+def normalized_lines(text):
+    return [line.strip() for line in text.splitlines()]
+
+
 class SamplesTestCase(unittest.TestCase):
     def setUp(self):
         # Assumes it's run from the main directory, so it can find the
@@ -34,12 +38,15 @@ class SamplesTestCase(unittest.TestCase):
         rc, stdout = run_exe(sample_path, cmd[1:] + [input_path])
         stdout = stdout.decode('utf-8')
         self.assertEqual(rc, 0)
-        if stdout != expected_out:
+
+        expected_lines = normalized_lines(expected_out)
+        actual_lines = normalized_lines(stdout)
+
+        if expected_lines != actual_lines:
             print('\n!!!!!!!! %s\nDelta (actual vs. expected):' % (
                 cmd + [input]))
-            delta = difflib.Differ().compare(expected_out.splitlines(True),
-                                             stdout.splitlines(True))
-            print(''.join(delta))
+            delta = difflib.Differ().compare(expected_lines, actual_lines)
+            print('\n'.join(delta))
             self.fail('Comparison failed. See delta above ^^^')
 
 
