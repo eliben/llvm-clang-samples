@@ -11,12 +11,15 @@
 # LLVM_SRC_PATH is the path to the root of the checked out source code. This
 # directory should contain the configure script, the include/ and lib/
 # directories of LLVM, Clang in tools/clang/, etc.
-LLVM_SRC_PATH = $$HOME/llvm/llvm3.3-binaries
+# Alternatively, if you're building vs. a binary download of LLVM, then
+# LLVM_SRC_PATH can point to the main untarred directory.
+LLVM_SRC_PATH = $$HOME/llvm/llvm-3.4-rc1-bin
 # LLVM_SRC_PATH = $$HOME/llvm/llvm_svn_rw
 
 # LLVM_BUILD_PATH is the directory in which you built LLVM - where you ran
 # configure or cmake.
-LLVM_BUILD_PATH = $$HOME/llvm/llvm3.3-binaries
+# For linking vs. a binary build of LLVM, point to the main untarred directory.
+LLVM_BUILD_PATH = $$HOME/llvm/llvm-3.4-rc1-bin
 # LLVM_BUILD_PATH = $$HOME/llvm/build/svn-make-debug
 
 # LLVM_BIN_PATH is the directory where binaries are placed by the LLVM build
@@ -24,7 +27,6 @@ LLVM_BUILD_PATH = $$HOME/llvm/llvm3.3-binaries
 # reflects a debug build with autotools (configure & make).
 LLVM_BIN_PATH = $(LLVM_BUILD_PATH)/bin
 # LLVM_BIN_PATH = $(LLVM_BUILD_PATH)/Debug+Asserts/bin
-
 
 # LLVM has two places with include headers: in the source tree and in the
 # build tree. The latter contains auto-generated headers that were created
@@ -64,4 +66,3 @@ $(BUILDDIR)/bb_toposort_sccs: $(SRCDIR)/bb_toposort_sccs.cpp
 
 clean:
 	rm -rf $(BUILDDIR)/* *.dot test/*.pyc test/__pycache__
-
