@@ -25,15 +25,9 @@ LLVM_BUILD_PATH = $$HOME/llvm/build/svn-make-debug
 # reflects a debug build with autotools (configure & make).
 LLVM_BIN_PATH = $(LLVM_BUILD_PATH)/Debug+Asserts/bin
 
-# LLVM has two places with include headers: in the source tree and in the
-# build tree. The latter contains auto-generated headers that were created
-# during the build process. The following setting should work in all cases
-# on Linux - let me know if it doesn't.
-LLVM_INCLUDES = -I$(LLVM_SRC_PATH)/include -I$(LLVM_BUILD_PATH)/include
-
 # It's recommended that CXX matches the compiler you used to build LLVM itself.
 CXX = g++
-CXXFLAGS_LLVM = -fno-rtti -O0 $(LLVM_INCLUDES)
+CXXFLAGS_LLVM = -fno-rtti -O0
 
 LLVM_CONFIG_COMMAND = \
 		`$(LLVM_BIN_PATH)/llvm-config --cxxflags --libs` \
