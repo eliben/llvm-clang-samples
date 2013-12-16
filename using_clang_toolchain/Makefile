@@ -35,6 +35,7 @@ BUILDDIR := build
 
 all: make_builddir \
 	$(BUILDDIR)/simple \
+	$(BUILDDIR)/exceptions1 \
 	$(BUILDDIR)/simple-from-bitcode \
 	$(BUILDDIR)/cxx11-range-sample
 
@@ -42,6 +43,9 @@ make_builddir:
 	@test -d $(BUILDDIR) || mkdir $(BUILDDIR)
 
 $(BUILDDIR)/simple: simple.cpp
+	$(CLANGXX) $(CXXFLAGS) $^ -o $@
+
+$(BUILDDIR)/exceptions1: exceptions1.cpp
 	$(CLANGXX) $(CXXFLAGS) $^ -o $@
 
 # The following rules split the Clang+LLVM compilation process to discrete
