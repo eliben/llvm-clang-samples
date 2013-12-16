@@ -28,19 +28,52 @@ LLVM_BUILD_PATH = $$HOME/llvm/build/svn-ninja-release
 LLVM_BIN_PATH = $(LLVM_BUILD_PATH)/bin
 
 # It's recommended that CXX matches the compiler you used to build LLVM itself.
-CXX = g++
-CXXFLAGS_LLVM = -fno-rtti -O0
+CXX := g++
+CXXFLAGS_LLVM := -fno-rtti -O0
 
-LLVM_CONFIG_COMMAND = \
+LLVM_CONFIG_COMMAND := \
 		`$(LLVM_BIN_PATH)/llvm-config --cxxflags --libs` \
 		`$(LLVM_BIN_PATH)/llvm-config --ldflags`
 
+CLANG_INCLUDES := \
+	-I$(LLVM_SRC_PATH)/tools/clang/include \
+	-I$(LLVM_BUILD_PATH)/tools/clang/include
+
+# List of Clang libraries to link. The proper -L will be provided by the
+# call to llvm-config
+# Note that I'm using -Wl,--{start|end}-group around the Clang libs; this is
+# because there are circular dependencies that make the correct order difficult
+# to specify and maintain. The linker group options make the linking somewhat
+# slower, but IMHO they're still perfectly fine for tools that link with Clang.
+CLANG_LIBS := \
+	-Wl,--start-group \
+	-lclangAST \
+	-lclangBasic \
+	-lclangDriver \
+	-lclangFrontend \
+	-lclangRewriteFrontend \
+	-lclangStaticAnalyzerFrontend \
+	-lclangTooling \
+	-lclangStaticAnalyzerCheckers \
+	-lclangStaticAnalyzerCore \
+	-lclangParse \
+	-lclangSerialization \
+	-lclangSema \
+	-lclangEdit \
+	-lclangAnalysis \
+	-lclangRewriteCore \
+	-lclangASTMatchers \
+	-lclangLex \
+	-Wl,--end-group
+
 # Internal paths in this project: where to find sources, and where to put
 # build artifacts.
-SRCDIR = src_llvm
-BUILDDIR = build
+SRC_LLVM_DIR := src_llvm
+SRC_CLANG_DIR := src_clang
+BUILDDIR := build
 
 all: make_builddir \
+	$(BUILDDIR)/clang-check \
 	$(BUILDDIR)/bb_toposort_sccs \
 	$(BUILDDIR)/simple_bb_pass \
 	$(BUILDDIR)/access_debug_metadata
@@ -48,14 +81,18 @@ all: make_builddir \
 make_builddir:
 	@test -d $(BUILDDIR) || mkdir $(BUILDDIR)
 
-$(BUILDDIR)/simple_bb_pass: $(SRCDIR)/simple_bb_pass.cpp
+$(BUILDDIR)/simple_bb_pass: $(SRC_LLVM_DIR)/simple_bb_pass.cpp
 	$(CXX) $(CXXFLAGS_LLVM) $^ $(LLVM_CONFIG_COMMAND) -o $@
 
-$(BUILDDIR)/access_debug_metadata: $(SRCDIR)/access_debug_metadata.cpp
+$(BUILDDIR)/access_debug_metadata: $(SRC_LLVM_DIR)/access_debug_metadata.cpp
 	$(CXX) $(CXXFLAGS_LLVM) $^ $(LLVM_CONFIG_COMMAND) -o $@
 
-$(BUILDDIR)/bb_toposort_sccs: $(SRCDIR)/bb_toposort_sccs.cpp
+$(BUILDDIR)/bb_toposort_sccs: $(SRC_LLVM_DIR)/bb_toposort_sccs.cpp
 	$(CXX) $(CXXFLAGS_LLVM) $^ $(LLVM_CONFIG_COMMAND) -o $@
+
+$(BUILDDIR)/clang-check: $(SRC_CLANG_DIR)/ClangCheck.cpp
+	$(CXX) $(CXXFLAGS_LLVM) $(CLANG_INCLUDES) $^ \
+		$(CLANG_LIBS) $(LLVM_CONFIG_COMMAND) -o $@
 
 clean:
 	rm -rf $(BUILDDIR)/* *.dot test/*.pyc test/__pycache__
