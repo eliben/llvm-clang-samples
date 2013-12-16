@@ -17,6 +17,13 @@ upstream trunk, but may sometimes lag behind. Also, note that as more samples
 are added I'll usually add them to ``master`` and will not backport them to
 older branches.
 
+What is where
+-------------
+
+src_llvm/
+    Source code for LLVM-based samples. These typically only require LLVM source
+    to compile and link.
+
 Running tests and tools
 -----------------------
 
