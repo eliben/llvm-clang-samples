@@ -20,18 +20,23 @@ LLVM_BIN_PATH := $(LLVM_BUILD_PATH)/bin
 
 CLANGXX := $(LLVM_BIN_PATH)/clang++
 
-CCFLAGS := -Wall
+CXXFLAGS 		:= -Wall
+CXX11FLAG 	:= -std=c++11
 
 BUILDDIR := build
 
 all: make_builddir \
-			$(BUILDDIR)/simple
+	$(BUILDDIR)/simple \
+	$(BUILDDIR)/cxx11-range-sample
 
 make_builddir:
 	@test -d $(BUILDDIR) || mkdir $(BUILDDIR)
 
 $(BUILDDIR)/simple: simple.cpp
-	$(CLANGXX) $(CCFLAGS) $^ -o $@
+	$(CLANGXX) $(CXXFLAGS) $^ -o $@
+
+$(BUILDDIR)/cxx11-range-sample: cxx11-range-sample.cpp
+	$(CLANGXX) $(CXXFLAGS) $(CXX11FLAG) $^ -o $@
 
 clean:
 	rm -rf $(BUILDDIR)/* *.dot test/*.pyc test/__pycache__
