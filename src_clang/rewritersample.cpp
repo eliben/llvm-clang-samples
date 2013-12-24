@@ -133,28 +133,28 @@ int main(int argc, char *argv[]) {
   TheCompInst.createASTContext();
 
   // A Rewriter helps us manage the code rewriting task.
-  Rewriter TheRewriter;
-  TheRewriter.setSourceMgr(SourceMgr, TheCompInst.getLangOpts());
+  //Rewriter TheRewriter;
+  //TheRewriter.setSourceMgr(SourceMgr, TheCompInst.getLangOpts());
 
-  // Set the main file handled by the source manager to the input file.
-  const FileEntry *FileIn = FileMgr.getFile(argv[1]);
-  SourceMgr.createMainFileID(FileIn);
-  TheCompInst.getDiagnosticClient().BeginSourceFile(
-      TheCompInst.getLangOpts(), &TheCompInst.getPreprocessor());
+  //// Set the main file handled by the source manager to the input file.
+  //const FileEntry *FileIn = FileMgr.getFile(argv[1]);
+  //SourceMgr.createMainFileID(FileIn);
+  //TheCompInst.getDiagnosticClient().BeginSourceFile(
+      //TheCompInst.getLangOpts(), &TheCompInst.getPreprocessor());
 
   // Create an AST consumer instance which is going to get called by
   // ParseAST.
-  MyASTConsumer TheConsumer(TheRewriter);
+  //MyASTConsumer TheConsumer(TheRewriter);
 
   // Parse the file to AST, registering our consumer as the AST consumer.
-  ParseAST(TheCompInst.getPreprocessor(), &TheConsumer,
-           TheCompInst.getASTContext());
+  //ParseAST(TheCompInst.getPreprocessor(), &TheConsumer,
+           //TheCompInst.getASTContext());
 
-  // At this point the rewriter's buffer should be full with the rewritten
-  // file contents.
-  const RewriteBuffer *RewriteBuf =
-      TheRewriter.getRewriteBufferFor(SourceMgr.getMainFileID());
-  llvm::outs() << string(RewriteBuf->begin(), RewriteBuf->end());
+  //// At this point the rewriter's buffer should be full with the rewritten
+  //// file contents.
+  //const RewriteBuffer *RewriteBuf =
+      //TheRewriter.getRewriteBufferFor(SourceMgr.getMainFileID());
+  //llvm::outs() << string(RewriteBuf->begin(), RewriteBuf->end());
 
   return 0;
 }
