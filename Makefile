@@ -29,7 +29,7 @@ LLVM_BIN_PATH = $(LLVM_BUILD_PATH)/bin
 
 # It's recommended that CXX matches the compiler you used to build LLVM itself.
 CXX := g++
-CXXFLAGS_LLVM := -fno-rtti -O0
+CXXFLAGS_LLVM := -fno-rtti -O0 -g
 
 LLVM_CONFIG_COMMAND := \
 		`$(LLVM_BIN_PATH)/llvm-config --cxxflags --libs` \
@@ -73,10 +73,11 @@ SRC_CLANG_DIR := src_clang
 BUILDDIR := build
 
 all: make_builddir \
-	$(BUILDDIR)/clang-check \
 	$(BUILDDIR)/bb_toposort_sccs \
 	$(BUILDDIR)/simple_bb_pass \
-	$(BUILDDIR)/access_debug_metadata
+	$(BUILDDIR)/access_debug_metadata \
+	$(BUILDDIR)/clang-check \
+	$(BUILDDIR)/rewritersample
 
 make_builddir:
 	@test -d $(BUILDDIR) || mkdir $(BUILDDIR)
@@ -91,6 +92,10 @@ $(BUILDDIR)/bb_toposort_sccs: $(SRC_LLVM_DIR)/bb_toposort_sccs.cpp
 	$(CXX) $(CXXFLAGS_LLVM) $^ $(LLVM_CONFIG_COMMAND) -o $@
 
 $(BUILDDIR)/clang-check: $(SRC_CLANG_DIR)/ClangCheck.cpp
+	$(CXX) $(CXXFLAGS_LLVM) $(CLANG_INCLUDES) $^ \
+		$(CLANG_LIBS) $(LLVM_CONFIG_COMMAND) -o $@
+
+$(BUILDDIR)/rewritersample: $(SRC_CLANG_DIR)/rewritersample.cpp
 	$(CXX) $(CXXFLAGS_LLVM) $(CLANG_INCLUDES) $^ \
 		$(CLANG_LIBS) $(LLVM_CONFIG_COMMAND) -o $@
 
