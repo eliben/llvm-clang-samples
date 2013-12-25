@@ -32,7 +32,7 @@ CXX := g++
 CXXFLAGS := -fno-rtti -O0 -g
 
 LLVM_CXXFLAGS := `$(LLVM_BIN_PATH)/llvm-config --cxxflags`
-LLVM_LDFLAGS := `$(LLVM_BIN_PATH)/llvm-config --libs --ldflags` -ldl -lpthread
+LLVM_LDFLAGS := `$(LLVM_BIN_PATH)/llvm-config --ldflags --libs --system-libs`
 
 CLANG_INCLUDES := \
 	-I$(LLVM_SRC_PATH)/tools/clang/include \
