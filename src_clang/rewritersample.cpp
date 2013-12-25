@@ -138,6 +138,10 @@ int main(int argc, char *argv[]) {
 
   //// Set the main file handled by the source manager to the input file.
   const FileEntry *FileIn = FileMgr.getFile(argv[1]);
+  if (!FileIn) {
+    llvm::errs() << "Input file does not exist!\n";
+    return 1;
+  }
   SourceMgr.createMainFileID(FileIn);
   TheCompInst.getDiagnosticClient().BeginSourceFile(
       TheCompInst.getLangOpts(), &TheCompInst.getPreprocessor());
