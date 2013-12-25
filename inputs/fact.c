@@ -13,4 +13,3 @@ unsigned fact(unsigned a) {
     return a * fact(a - 1);
   }
 }
-
