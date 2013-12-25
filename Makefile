@@ -95,9 +95,8 @@ $(BUILDDIR)/clang-check: $(SRC_CLANG_DIR)/ClangCheck.cpp
 		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
 
 $(BUILDDIR)/rewritersample: $(SRC_CLANG_DIR)/rewritersample.cpp
-	echo 1
-	#$(CXX) $(CXXFLAGS_LLVM) $(CLANG_INCLUDES) $^ \
-		#$(CLANG_LIBS) $(LLVM_CONFIG_COMMAND) -o $@
+	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
+		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
 
 clean:
 	rm -rf $(BUILDDIR)/* *.dot test/*.pyc test/__pycache__
