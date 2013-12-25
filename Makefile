@@ -24,16 +24,15 @@ LLVM_BUILD_PATH = $$HOME/llvm/build/svn-make-debug
 # LLVM_BIN_PATH is the directory where binaries are placed by the LLVM build
 # process. It should contain the tools like opt, llc and clang. The default
 # reflects a debug build with autotools (configure & make).
-#LLVM_BIN_PATH = $(LLVM_BUILD_PATH)/Debug+Asserts/bin
-LLVM_BIN_PATH = $(LLVM_BUILD_PATH)/bin
+LLVM_BIN_PATH = $(LLVM_BUILD_PATH)/Debug+Asserts/bin
+#LLVM_BIN_PATH = $(LLVM_BUILD_PATH)/bin
 
 # It's recommended that CXX matches the compiler you used to build LLVM itself.
 CXX := g++
-CXXFLAGS_LLVM := -fno-rtti -O0 -g
+CXXFLAGS := -fno-rtti -O0 -g
 
-LLVM_CONFIG_COMMAND := \
-		`$(LLVM_BIN_PATH)/llvm-config --cxxflags --libs` \
-		`$(LLVM_BIN_PATH)/llvm-config --ldflags`
+LLVM_CXXFLAGS := `$(LLVM_BIN_PATH)/llvm-config --cxxflags`
+LLVM_LDFLAGS := `$(LLVM_BIN_PATH)/llvm-config --libs --ldflags` -ldl -lpthread
 
 CLANG_INCLUDES := \
 	-I$(LLVM_SRC_PATH)/tools/clang/include \
@@ -83,21 +82,22 @@ make_builddir:
 	@test -d $(BUILDDIR) || mkdir $(BUILDDIR)
 
 $(BUILDDIR)/simple_bb_pass: $(SRC_LLVM_DIR)/simple_bb_pass.cpp
-	$(CXX) $(CXXFLAGS_LLVM) $^ $(LLVM_CONFIG_COMMAND) -o $@
+	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $^ $(LLVM_LDFLAGS) -o $@
 
 $(BUILDDIR)/access_debug_metadata: $(SRC_LLVM_DIR)/access_debug_metadata.cpp
-	$(CXX) $(CXXFLAGS_LLVM) $^ $(LLVM_CONFIG_COMMAND) -o $@
+	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $^ $(LLVM_LDFLAGS) -o $@
 
 $(BUILDDIR)/bb_toposort_sccs: $(SRC_LLVM_DIR)/bb_toposort_sccs.cpp
-	$(CXX) $(CXXFLAGS_LLVM) $^ $(LLVM_CONFIG_COMMAND) -o $@
+	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $^ $(LLVM_LDFLAGS) -o $@
 
 $(BUILDDIR)/clang-check: $(SRC_CLANG_DIR)/ClangCheck.cpp
-	$(CXX) $(CXXFLAGS_LLVM) $(CLANG_INCLUDES) $^ \
-		$(CLANG_LIBS) $(LLVM_CONFIG_COMMAND) -o $@
+	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
+		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
 
 $(BUILDDIR)/rewritersample: $(SRC_CLANG_DIR)/rewritersample.cpp
-	$(CXX) $(CXXFLAGS_LLVM) $(CLANG_INCLUDES) $^ \
-		$(CLANG_LIBS) $(LLVM_CONFIG_COMMAND) -o $@
+	echo 1
+	#$(CXX) $(CXXFLAGS_LLVM) $(CLANG_INCLUDES) $^ \
+		#$(CLANG_LIBS) $(LLVM_CONFIG_COMMAND) -o $@
 
 clean:
 	rm -rf $(BUILDDIR)/* *.dot test/*.pyc test/__pycache__
