@@ -82,6 +82,7 @@ BUILDDIR := build
 
 all: make_builddir \
 	$(BUILDDIR)/bb_toposort_sccs \
+	$(BUILDDIR)/simple_module_pass \
 	$(BUILDDIR)/simple_bb_pass \
 	$(BUILDDIR)/access_debug_metadata \
 	$(BUILDDIR)/clang-check \
@@ -96,6 +97,9 @@ make_builddir:
 	@test -d $(BUILDDIR) || mkdir $(BUILDDIR)
 
 $(BUILDDIR)/simple_bb_pass: $(SRC_LLVM_DIR)/simple_bb_pass.cpp
+	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $^ $(LLVM_LDFLAGS) -o $@
+
+$(BUILDDIR)/simple_module_pass: $(SRC_LLVM_DIR)/simple_module_pass.cpp
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $^ $(LLVM_LDFLAGS) -o $@
 
 $(BUILDDIR)/access_debug_metadata: $(SRC_LLVM_DIR)/access_debug_metadata.cpp
