@@ -34,5 +34,5 @@ For running the tests and auxiliary tools (and any other Python scripts in this
 repo), Python 3 is required (I tested with 3.3+). Once the samples are built
 with 'make', just run::
 
-  python3 test/all_tests.py
+  make test
 

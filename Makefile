@@ -87,6 +87,11 @@ all: make_builddir \
 	$(BUILDDIR)/clang-check \
 	$(BUILDDIR)/rewritersample
 
+test:
+	python3 test/all_tests.py
+
+.PHONY: all, test
+
 make_builddir:
 	@test -d $(BUILDDIR) || mkdir $(BUILDDIR)
 
