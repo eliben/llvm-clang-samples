@@ -1,7 +1,7 @@
 LLVM & Clang library usage samples
 ==================================
 
-This is a work in progress. Nothing to see here yet.
+A collection of samples for using LLVM and Clang as libraries.
 
 Branches
 --------
@@ -17,12 +17,27 @@ upstream trunk, but may sometimes lag behind. Also, note that as more samples
 are added I'll usually add them to ``master`` and will not backport them to
 older branches.
 
+In any case, if anything doesn't compile as you'd expect it to, please open
+an issue.
+
 What is where
 -------------
 
 src_llvm/
-    Source code for LLVM-based samples. These typically only require LLVM source
+    Source code for LLVM-based samples. These typically only require LLVM
     to compile and link.
+
+src_clang/
+    Source code for Clang-based samples. These require both LLVM and Clang.
+
+using_clang_toolchain/
+    Some samples of using Clang as a compilation toolchain for C and C++.
+
+inputs/
+    Some input files for the samples and tests.
+
+test/
+    Tests for the samples.
 
 Running tests and tools
 -----------------------
