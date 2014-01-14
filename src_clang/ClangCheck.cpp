@@ -2,7 +2,7 @@
 // This is the source code of the clang-check tool, taken directly from the
 // Clang repository (tools/clang-check/ClangCheck.cpp) to serve as a canary for
 // linking with Clang libraries properly.
-// 
+//
 // See below for the (LLVM) license of this file.
 // Eli Bendersky (eliben@gmail.com)
 //------------------------------------------------------------------------------
