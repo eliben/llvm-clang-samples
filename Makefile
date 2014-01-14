@@ -39,9 +39,11 @@ $(info -----------------------------------------------)
 # It's recommended that CXX matches the compiler you used to build LLVM itself.
 CXX := g++
 CXXFLAGS := -fno-rtti -O0 -g
+PLUGIN_CXXFLAGS := -fpic
 
 LLVM_CXXFLAGS := `$(LLVM_BIN_PATH)/llvm-config --cxxflags`
 LLVM_LDFLAGS := `$(LLVM_BIN_PATH)/llvm-config --ldflags --libs --system-libs`
+PLUGIN_LDFLAGS := -shared
 
 CLANG_INCLUDES := \
 	-I$(LLVM_SRC_PATH)/tools/clang/include \
@@ -86,6 +88,7 @@ all: make_builddir \
 	$(BUILDDIR)/simple_bb_pass \
 	$(BUILDDIR)/access_debug_metadata \
 	$(BUILDDIR)/clang-check \
+	$(BUILDDIR)/plugin_print_funcnames.so \
 	$(BUILDDIR)/rewritersample
 
 test:
@@ -115,6 +118,10 @@ $(BUILDDIR)/clang-check: $(SRC_CLANG_DIR)/ClangCheck.cpp
 $(BUILDDIR)/rewritersample: $(SRC_CLANG_DIR)/rewritersample.cpp
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
 		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
+
+$(BUILDDIR)/plugin_print_funcnames.so: $(SRC_CLANG_DIR)/plugin_print_funcnames.cpp
+	$(CXX) $(PLUGIN_CXXFLAGS) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
+		$(PLUGIN_LDFLAGS) $(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
 
 clean:
 	rm -rf $(BUILDDIR)/* *.dot test/*.pyc test/__pycache__
