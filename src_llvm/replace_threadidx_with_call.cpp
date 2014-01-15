@@ -1,8 +1,11 @@
-// INCOMPLETE SAMPLE
-
 //------------------------------------------------------------------------------
 // replace_threadidx_with_call LLVM sample. Demonstrates:
 //
+// * Detecting a non-trivial instruction pattern (load instruction with a
+//   specific form of getelementptr constant expression address).
+// * Adding new function declarations into the module.
+// * Performing an IR transformation: replacing instructions by other
+//   instructions.
 //
 // Eli Bendersky (eliben@gmail.com)
 // This code is in the public domain
@@ -13,6 +16,7 @@
 #include "llvm/IR/Instructions.h"
 #include "llvm/IR/LLVMContext.h"
 #include "llvm/IR/Module.h"
+#include "llvm/IR/Operator.h"
 #include "llvm/IRReader/IRReader.h"
 #include "llvm/Pass.h"
 #include "llvm/PassManager.h"
@@ -25,8 +29,9 @@ using namespace llvm;
 
 class ReplaceThreadIdxRefs : public FunctionPass {
 public:
-  ReplaceThreadIdxRefs(const Function *Tidx)
-      : TidxRef(Tidx), FunctionPass(ID) {}
+ ReplaceThreadIdxRefs(Function *Tidx, Function *Tidy,
+                      Function *Tidz)
+     : TidxRef(Tidx), TidyRef(Tidy), TidzRef(Tidz), FunctionPass(ID) {}
 
   virtual bool runOnFunction(Function &F) {
     bool Modified = false;
@@ -34,12 +39,52 @@ public:
       BasicBlock *BB = I;
 
       for (BasicBlock::iterator BI = BB->begin(), BE = BB->end();
-           BI != BE; BI++) {
-        if (LoadInst *Load = dyn_cast<LoadInst>(BI)) {
+           BI != BE;) {
+        // Note: taking BI++ out of the for statement is important. Since this
+        // loop may delete the instruction at *BI, this will invalidate the
+        // iterator. So we make sure the iterator is incremented right from
+        // the start and it already points to the next instruction. This way,
+        // removing I from the basic block is harmless.
+        Instruction &I = *BI++;
+
+        // These nested conditions match a specific instruction pattern. We're
+        // looking for a load whose address is a GEP constant expression.
+        if (LoadInst *Load = dyn_cast<LoadInst>(&I)) {
           if (ConstantExpr *CE = dyn_cast<ConstantExpr>(Load->getOperand(0))) {
-            // TODO: detect access to threadIdx at 0 here, and replace by
-            // call to TidxRef
-            Load->dump();
+            if (GEPOperator *GEP = dyn_cast<GEPOperator>(CE)) {
+              Value *Ptr = GEP->getPointerOperand();
+
+              // Only look for accesses to threadIdx with the expected amount of
+              // GEP indices (essentially struct access to threadIdx.<member>.
+              if (Ptr->getName() != "threadIdx" || GEP->getNumIndices() != 2) {
+                continue;
+              }
+
+              // struct access as a GEP has two indices; read the LLVM
+              // documentation on GEPs if this doesn't make sense.
+              if (ConstantInt *CI = dyn_cast<ConstantInt>(GEP->getOperand(2))) {
+                // Choose a function based on the index.
+                uint64_t DimIndex = CI->getZExtValue();
+                Function *TargetFunc;
+                if (DimIndex == 0) {
+                  TargetFunc = TidxRef;
+                } else if (DimIndex == 1) {
+                  TargetFunc = TidyRef;
+                } else if (DimIndex == 2) {
+                  TargetFunc = TidzRef;
+                } else {
+                  report_fatal_error("Invalid index for threadIdx access");
+                }
+
+                // Create a call instruction to the appropriate _tid* function
+                // right before the load and replace the load by it.
+                CallInst *TidFuncCall = CallInst::Create(TargetFunc, "", Load);
+                TidFuncCall->takeName(Load);
+                Load->replaceAllUsesWith(TidFuncCall);
+                Load->eraseFromParent();
+                Modified = true;
+              }
+            }
           }
         }
       }
@@ -48,7 +93,10 @@ public:
     return Modified;
   }
 
-  const Function *TidxRef;
+private:
+  Function *TidxRef;
+  Function *TidyRef;
+  Function *TidzRef;
 
   // The address of this member is used to uniquely identify the class. This is
   // used by LLVM's own RTTI mechanism.
@@ -56,7 +104,6 @@ public:
 };
 
 char ReplaceThreadIdxRefs::ID = 0;
-
 
 int main(int argc, char **argv) {
   if (argc < 2) {
@@ -72,16 +119,23 @@ int main(int argc, char **argv) {
     return 1;
   }
 
-  FunctionType *TidxTy =
+  // Create a function declarations for _tidx, _tidy, _tidz
+  FunctionType *TidFuncTy =
       FunctionType::get(Type::getInt32Ty(Mod->getContext()), false);
-  Function *Tidx = Function::Create(TidxTy, GlobalValue::InternalLinkage,
+  Function *Tidx = Function::Create(TidFuncTy, GlobalValue::InternalLinkage,
       "_tidx", Mod);
-  Mod->getFunction("_tidx")->dump();
+  Function *Tidy = Function::Create(TidFuncTy, GlobalValue::InternalLinkage,
+      "_tidy", Mod);
+  Function *Tidz = Function::Create(TidFuncTy, GlobalValue::InternalLinkage,
+      "_tidz", Mod);
 
   // Create a pass manager and fill it with the passes we want to run.
   PassManager PM;
-  PM.add(new ReplaceThreadIdxRefs(Tidx));
+  PM.add(new ReplaceThreadIdxRefs(Tidx, Tidy, Tidz));
   PM.run(*Mod);
+
+  outs() << "Dumping the module after the pass has run:\n";
+  Mod->dump();
 
   return 0;
 }
