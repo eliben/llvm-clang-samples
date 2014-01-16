@@ -31,7 +31,7 @@ class ReplaceThreadIdxRefs : public FunctionPass {
 public:
  ReplaceThreadIdxRefs(Function *Tidx, Function *Tidy,
                       Function *Tidz)
-     : TidxRef(Tidx), TidyRef(Tidy), TidzRef(Tidz), FunctionPass(ID) {}
+     : FunctionPass(ID), TidxRef(Tidx), TidyRef(Tidy), TidzRef(Tidz) {}
 
   virtual bool runOnFunction(Function &F) {
     bool Modified = false;

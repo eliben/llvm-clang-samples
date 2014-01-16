@@ -1,26 +1,26 @@
-//===- Hello.cpp - Example code from "Writing an LLVM Pass" ---------------===//
+//------------------------------------------------------------------------------
+// hello_pass LLVM sample. Demonstrates:
 //
-//                     The LLVM Compiler Infrastructure
+// * Creating a "plugin" pass loaded dynamically by opt.
+// * Implementing getAnalysisUsage to notify the pass manager about possible
+//   interactions with other passes.
 //
-// This file is distributed under the University of Illinois Open Source
-// License. See LICENSE.TXT for details.
+// Once the .so is built, it can be loaded by opt. For example:
 //
-//===----------------------------------------------------------------------===//
+// $ clang -load build/hello_pass.so -hello_funcs <ir-file> > /dev/null
 //
-// This file implements two versions of the LLVM "Hello World" pass described
-// in docs/WritingAnLLVMPass.html
-//
-//===----------------------------------------------------------------------===//
-
+// Taken from the LLVM distribution with some modifications. LLVM's license
+// applies.
+//------------------------------------------------------------------------------
 #include "llvm/IR/Function.h"
 #include "llvm/Pass.h"
 #include "llvm/Support/raw_ostream.h"
+
 using namespace llvm;
 
-// Hello2 - The second implementation with getAnalysisUsage implemented.
-struct Hello2 : public FunctionPass {
-  static char ID;
-  Hello2() : FunctionPass(ID) {}
+// HelloFuncs - emit the names of functions encountered.
+struct HelloFuncs : public FunctionPass {
+  HelloFuncs() : FunctionPass(ID) {}
 
   virtual bool runOnFunction(Function &F) {
     errs() << "Hello: ";
@@ -32,8 +32,15 @@ struct Hello2 : public FunctionPass {
   virtual void getAnalysisUsage(AnalysisUsage &AU) const {
     AU.setPreservesAll();
   }
+
+  // The address of this member is used to uniquely identify the class. This is
+  // used by LLVM's own RTTI mechanism.
+  static char ID;
 };
 
-char Hello2::ID = 0;
-static RegisterPass<Hello2>
-Y("hello2", "Hello World Pass (with getAnalysisUsage implemented)");
+char HelloFuncs::ID = 0;
+
+// Register our pass with the pass manager in opt. For more information, see:
+// http://llvm.org/docs/WritingAnLLVMPass.html
+static RegisterPass<HelloFuncs>
+X("hello-funcs", "Hello World Pass (with getAnalysisUsage implemented)");
