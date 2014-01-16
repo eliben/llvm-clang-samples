@@ -43,6 +43,7 @@ PLUGIN_CXXFLAGS := -fpic
 
 LLVM_CXXFLAGS := `$(LLVM_BIN_PATH)/llvm-config --cxxflags`
 LLVM_LDFLAGS := `$(LLVM_BIN_PATH)/llvm-config --ldflags --libs --system-libs`
+LLVM_LDFLAGS_NOLIBS := `$(LLVM_BIN_PATH)/llvm-config --ldflags`
 PLUGIN_LDFLAGS := -shared
 
 CLANG_INCLUDES := \
@@ -86,6 +87,7 @@ all: make_builddir \
 	$(BUILDDIR)/bb_toposort_sccs \
 	$(BUILDDIR)/simple_module_pass \
 	$(BUILDDIR)/simple_bb_pass \
+	$(BUILDDIR)/hello_pass.so \
 	$(BUILDDIR)/replace_threadidx_with_call \
 	$(BUILDDIR)/access_debug_metadata \
 	$(BUILDDIR)/clang-check \
@@ -114,6 +116,10 @@ $(BUILDDIR)/access_debug_metadata: $(SRC_LLVM_DIR)/access_debug_metadata.cpp
 
 $(BUILDDIR)/bb_toposort_sccs: $(SRC_LLVM_DIR)/bb_toposort_sccs.cpp
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $^ $(LLVM_LDFLAGS) -o $@
+
+$(BUILDDIR)/hello_pass.so: $(SRC_LLVM_DIR)/hello_pass.cpp
+	$(CXX) $(PLUGIN_CXXFLAGS) $(CXXFLAGS) $(LLVM_CXXFLAGS) \
+		$^ $(PLUGIN_LDFLAGS) $(LLVM_LDFLAGS_NOLIBS) -o $@
 
 $(BUILDDIR)/clang-check: $(SRC_CLANG_DIR)/ClangCheck.cpp
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
