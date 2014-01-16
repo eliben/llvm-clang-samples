@@ -20,6 +20,14 @@ older branches.
 In any case, if anything doesn't compile as you'd expect it to, please open
 an issue.
 
+Last known LLVM build revision for the master branch
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The last upstream LLVM revision I've successfully built the ``master`` branch
+against is r199309. It may build with newer revisions, or it may not. If you
+know it builds successfully with a newer one, please let me know and I'll update
+this note.
+
 What is where
 -------------
 
