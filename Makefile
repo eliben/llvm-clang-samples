@@ -6,8 +6,10 @@
 # This code is in the public domain
 #-------------------------------------------------------------------------------
 
-# The following variables will likely need to be modified, depending on where
-# and how you built LLVM & Clang.
+# The following variables will likely need to be customized, depending on where
+# and how you built LLVM & Clang. They can be overridden by setting them on the
+# make command line: "make VARNAME=VALUE", etc.
+
 # LLVM_SRC_PATH is the path to the root of the checked out source code. This
 # directory should contain the configure script, the include/ and lib/
 # directories of LLVM, Clang in tools/clang/, etc.
@@ -44,8 +46,10 @@ PLUGIN_CXXFLAGS := -fpic
 LLVM_CXXFLAGS := `$(LLVM_BIN_PATH)/llvm-config --cxxflags`
 LLVM_LDFLAGS := `$(LLVM_BIN_PATH)/llvm-config --ldflags --libs --system-libs`
 
-# Plugins shouldn't link LLVM libs statically, because they are already linked
-# into the main executable (opt or clang).
+# Plugins shouldn't link LLVM and Clang libs statically, because they are
+# already linked into the main executable (opt or clang). LLVM doesn't like its
+# libs to be linked more than once because it uses globals for configuration
+# and plugin registration, and these trample over each other.
 LLVM_LDFLAGS_NOLIBS := `$(LLVM_BIN_PATH)/llvm-config --ldflags`
 PLUGIN_LDFLAGS := -shared
 
