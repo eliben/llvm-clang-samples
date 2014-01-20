@@ -59,3 +59,7 @@ with 'make', just run::
 
   make test
 
+Note that it expects to find binaries from the LLVM directory with which the
+samples were built and linked. Look at the ``emit_build_config`` rule in the
+Makefile for more information.
+

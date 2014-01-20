@@ -26,6 +26,24 @@ class SamplesTestCase(unittest.TestCase):
         self.build_dir = 'build'
         self.inputs_dir = 'inputs'
 
+        # Check for a file that was placed by make to tell us where to find the
+        # LLVM binaries.
+        build_config_path = os.path.join(self.build_dir, '_build_config')
+        if not os.path.exists(build_config_path):
+            raise RuntimeError('Unable to find "%s"' % build_config_path)
+        with open(build_config_path) as f:
+            self.llvm_bin_path = f.readline().strip()
+
+    def _compare_output(self, expected_out, actual_out, command=''):
+        expected_lines = normalized_lines(expected_out)
+        actual_lines = normalized_lines(actual_out)
+
+        if expected_lines != actual_lines:
+            print('\n!!!!!!!! %s\nDelta (actual vs. expected):' % command)
+            delta = difflib.Differ().compare(expected_lines, actual_lines)
+            print('\n'.join(delta))
+            self.fail('Comparison failed. See delta above ^^^')
+
     def assertSampleOutput(self, cmd, input, expected_out):
         """ cmd: a list [sample_name, arg1, arg2...] - the name of the sample
                  to run, with additional arguments that will be added before
@@ -38,15 +56,18 @@ class SamplesTestCase(unittest.TestCase):
         rc, stdout = run_exe(sample_path, cmd[1:] + [input_path])
         stdout = stdout.decode('utf-8')
         self.assertEqual(rc, 0)
+        self._compare_output(expected_out, stdout,
+            command='{} {}'.format(cmd, input))
 
-        expected_lines = normalized_lines(expected_out)
-        actual_lines = normalized_lines(stdout)
-
-        if expected_lines != actual_lines:
-            print('\n!!!!!!!! %s\nDelta (actual vs. expected):' % (
-                cmd + [input]))
-            delta = difflib.Differ().compare(expected_lines, actual_lines)
-            print('\n'.join(delta))
-            self.fail('Comparison failed. See delta above ^^^')
+    def assertOptPluginOutput(self, plugin, optargs, input, expected_out):
+        opt_path = os.path.join(self.llvm_bin_path, 'opt')
+        input_path = os.path.join(self.inputs_dir, input)
+        plugin = os.path.join(self.build_dir, plugin)
+        optargs = ['-load', plugin, '--disable-output'] + optargs + [input_path]
+        rc, stdout = run_exe(opt_path, optargs)
+        stdout = stdout.decode('utf-8')
+        self.assertEqual(rc, 0)
+        self._compare_output(expected_out, stdout,
+            command=optargs)
 
 

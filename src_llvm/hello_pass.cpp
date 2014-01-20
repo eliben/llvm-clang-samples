@@ -7,7 +7,7 @@
 //
 // Once the .so is built, it can be loaded by opt. For example:
 //
-// $ clang -load build/hello_pass.so -hello_funcs <ir-file> > /dev/null
+// $ opt -load build/hello_pass.so -hello-funcs <ir-file> > /dev/null
 //
 // Taken from the LLVM distribution with some modifications. LLVM's license
 // applies.
@@ -23,8 +23,8 @@ struct HelloFuncs : public FunctionPass {
   HelloFuncs() : FunctionPass(ID) {}
 
   virtual bool runOnFunction(Function &F) {
-    errs() << "Hello: ";
-    errs().write_escaped(F.getName()) << '\n';
+    outs() << "Hello: ";
+    outs().write_escaped(F.getName()) << '\n';
     return false;
   }
 

@@ -90,7 +90,9 @@ SRC_LLVM_DIR := src_llvm
 SRC_CLANG_DIR := src_clang
 BUILDDIR := build
 
+.PHONY: all
 all: make_builddir \
+	emit_build_config \
 	$(BUILDDIR)/bb_toposort_sccs \
 	$(BUILDDIR)/simple_module_pass \
 	$(BUILDDIR)/simple_bb_pass \
@@ -101,11 +103,15 @@ all: make_builddir \
 	$(BUILDDIR)/plugin_print_funcnames.so \
 	$(BUILDDIR)/rewritersample
 
-test:
+.PHONY: test
+test: emit_build_config
 	python3 test/all_tests.py
 
-.PHONY: all, test
+.PHONY: emit_build_config
+emit_build_config: make_builddir
+	@echo $(LLVM_BIN_PATH) > $(BUILDDIR)/_build_config
 
+.PHONY: make_builddir
 make_builddir:
 	@test -d $(BUILDDIR) || mkdir $(BUILDDIR)
 
@@ -140,5 +146,6 @@ $(BUILDDIR)/plugin_print_funcnames.so: $(SRC_CLANG_DIR)/plugin_print_funcnames.c
 	$(CXX) $(PLUGIN_CXXFLAGS) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
 		$(PLUGIN_LDFLAGS) $(LLVM_LDFLAGS_NOLIBS) -o $@
 
+.PHONY: clean
 clean:
 	rm -rf $(BUILDDIR)/* *.dot test/*.pyc test/__pycache__
