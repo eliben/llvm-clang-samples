@@ -29,14 +29,14 @@
 #include "clang/Driver/Options.h"
 #include "clang/Frontend/ASTConsumers.h"
 #include "clang/Frontend/CompilerInstance.h"
-#include "clang/StaticAnalyzer/Frontend/FrontendActions.h"
 #include "clang/Rewrite/Frontend/FixItRewriter.h"
 #include "clang/Rewrite/Frontend/FrontendActions.h"
+#include "clang/StaticAnalyzer/Frontend/FrontendActions.h"
 #include "clang/Tooling/CommonOptionsParser.h"
 #include "clang/Tooling/Tooling.h"
+#include "llvm/Option/OptTable.h"
 #include "llvm/Support/Path.h"
 #include "llvm/Support/Signals.h"
-#include "llvm/Option/OptTable.h"
 
 using namespace clang::driver;
 using namespace clang::tooling;
@@ -59,7 +59,7 @@ static cl::extrahelp MoreHelp(
 );
 
 static cl::OptionCategory ClangCheckCategory("clang-check options");
-static OwningPtr<opt::OptTable> Options(createDriverOptTable());
+static std::unique_ptr<opt::OptTable> Options(createDriverOptTable());
 static cl::opt<bool>
 ASTDump("ast-dump", cl::desc(Options->getOptionHelpText(options::OPT_ast_dump)),
         cl::cat(ClangCheckCategory));
@@ -105,7 +105,7 @@ public:
     FixWhatYouCan = ::FixWhatYouCan;
   }
 
-  std::string RewriteFilename(const std::string& filename, int &fd) {
+  std::string RewriteFilename(const std::string& filename, int &fd) override {
     assert(llvm::sys::path::is_absolute(filename) &&
            "clang-fixit expects absolute paths only.");
 
@@ -132,15 +132,15 @@ public:
       : clang::FixItRewriter(Diags, SourceMgr, LangOpts, FixItOpts) {
   }
 
-  virtual bool IncludeInDiagnosticCounts() const { return false; }
+  bool IncludeInDiagnosticCounts() const override { return false; }
 };
 
 /// \brief Subclasses \c clang::FixItAction so that we can install the custom
 /// \c FixItRewriter.
 class FixItAction : public clang::FixItAction {
 public:
-  virtual bool BeginSourceFileAction(clang::CompilerInstance& CI,
-                                     StringRef Filename) {
+  bool BeginSourceFileAction(clang::CompilerInstance &CI,
+                             StringRef Filename) override {
     FixItOpts.reset(new FixItOptions);
     Rewriter.reset(new FixItRewriter(CI.getDiagnostics(), CI.getSourceManager(),
                                      CI.getLangOpts(), FixItOpts.get()));
@@ -161,7 +161,7 @@ public:
   }
 
   virtual CommandLineArguments
-  Adjust(const CommandLineArguments &Args) LLVM_OVERRIDE {
+  Adjust(const CommandLineArguments &Args) override {
     CommandLineArguments Return(Args);
 
     CommandLineArguments::iterator I;
