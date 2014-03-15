@@ -7,6 +7,9 @@
 // * Performing an IR transformation: replacing instructions by other
 //   instructions.
 //
+// Note: this is not a complete transformation for CUDA's special globals, but
+// a much simplified example.
+//
 // Eli Bendersky (eliben@gmail.com)
 // This code is in the public domain
 //------------------------------------------------------------------------------
