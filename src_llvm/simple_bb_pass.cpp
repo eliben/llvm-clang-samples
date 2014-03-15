@@ -32,11 +32,11 @@ public:
     // By implementing this method, we can specify to the pass manager which
     // passes are required by this pass so it makes sure to run them in the
     // right order.
-    AU.addRequired<DataLayout>();
+    AU.addRequired<DataLayoutPass>();
   }
 
   virtual bool runOnBasicBlock(BasicBlock &BB) {
-    const DataLayout &DL = getAnalysis<DataLayout>();
+    const DataLayout &DL = getAnalysis<DataLayoutPass>().getDataLayout();
     for (BasicBlock::iterator II = BB.begin(), II_e = BB.end(); II != II_e;
          ++II) {
       // Iterate over each instruction in the BasicBlock. If the instruction
@@ -78,7 +78,7 @@ int main(int argc, char **argv) {
   // Create a pass manager and fill it with the passes we want to run. Add a
   // DataLayout pass because we use its analysis results.
   PassManager PM;
-  PM.add(new DataLayout(Mod));
+  PM.add(new DataLayoutPass(Mod));
   PM.add(new AllocaSizeDetect());
   PM.run(*Mod);
 
