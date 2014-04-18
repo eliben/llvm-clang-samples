@@ -1,11 +1,13 @@
-//-------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 //
-// rewritersample.cpp: Source-to-source transformation sample with Clang,
-// using Rewriter - the code rewriting interface.
+// Clang rewriter sample. Demonstrates:
+//
+// * How to use RecursiveASTVisitor to find interesting AST nodes.
+// * How to use the Rewriter API to rewrite the source code.
 //
 // Eli Bendersky (eliben@gmail.com)
 // This code is in the public domain
-//
+//------------------------------------------------------------------------------
 #include <cstdio>
 #include <string>
 #include <sstream>
@@ -74,7 +76,7 @@ public:
 
       // And after
       stringstream SSAfter;
-      SSAfter << "\n// End function " << FuncName << "\n";
+      SSAfter << "\n// End function " << FuncName;
       ST = FuncBody->getLocEnd().getLocWithOffset(1);
       TheRewriter.InsertText(ST, SSAfter.str(), true, true);
     }
