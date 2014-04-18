@@ -28,7 +28,6 @@
 #include "llvm/Support/raw_ostream.h"
 
 using namespace clang;
-using namespace std;
 
 // By implementing RecursiveASTVisitor, we can specify which AST nodes
 // we're interested in by overriding relevant methods.
@@ -61,21 +60,21 @@ public:
 
       // Type name as string
       QualType QT = f->getReturnType();
-      string TypeStr = QT.getAsString();
+      std::string TypeStr = QT.getAsString();
 
       // Function name
       DeclarationName DeclName = f->getNameInfo().getName();
-      string FuncName = DeclName.getAsString();
+      std::string FuncName = DeclName.getAsString();
 
       // Add comment before
-      stringstream SSBefore;
+      std::stringstream SSBefore;
       SSBefore << "// Begin function " << FuncName << " returning " << TypeStr
                << "\n";
       SourceLocation ST = f->getSourceRange().getBegin();
       TheRewriter.InsertText(ST, SSBefore.str(), true, true);
 
       // And after
-      stringstream SSAfter;
+      std::stringstream SSAfter;
       SSAfter << "\n// End function " << FuncName;
       ST = FuncBody->getLocEnd().getLocWithOffset(1);
       TheRewriter.InsertText(ST, SSAfter.str(), true, true);
@@ -134,7 +133,7 @@ int main(int argc, char *argv[]) {
   FileManager &FileMgr = TheCompInst.getFileManager();
   TheCompInst.createSourceManager(FileMgr);
   SourceManager &SourceMgr = TheCompInst.getSourceManager();
-  TheCompInst.createPreprocessor(TU_Module); // BB: no idea why...
+  TheCompInst.createPreprocessor(TU_Module);
   TheCompInst.createASTContext();
 
   // A Rewriter helps us manage the code rewriting task.
@@ -159,7 +158,7 @@ int main(int argc, char *argv[]) {
   // file contents.
   const RewriteBuffer *RewriteBuf =
       TheRewriter.getRewriteBufferFor(SourceMgr.getMainFileID());
-  llvm::outs() << string(RewriteBuf->begin(), RewriteBuf->end());
+  llvm::outs() << std::string(RewriteBuf->begin(), RewriteBuf->end());
 
   return 0;
 }
