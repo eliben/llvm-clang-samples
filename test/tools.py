@@ -10,8 +10,9 @@ def run_exe(exe_path, args):
         returns a pair: rc, stdout_str
     """
     popen_cmd = [exe_path] + args
-    proc = subprocess.Popen(popen_cmd, stdout=subprocess.PIPE)
-    proc_stdout = proc.communicate()[0]
+    proc = subprocess.Popen(popen_cmd, stdout=subprocess.PIPE,
+                                       stderr=subprocess.PIPE)
+    proc_stdout, _ = proc.communicate()
     return proc.returncode, proc_stdout
 
 
@@ -70,4 +71,11 @@ class SamplesTestCase(unittest.TestCase):
         self._compare_output(expected_out, stdout,
             command=optargs)
 
-
+    def assertClangToolOutput(self, cmd, input, expected_out):
+        sample_path = os.path.join(self.build_dir, cmd[0])
+        input_path = os.path.join(self.inputs_dir, input)
+        rc, stdout = run_exe(sample_path, cmd[1:] + [input_path] + ['--'])
+        stdout = stdout.decode('utf-8')
+        self.assertEqual(rc, 0)
+        self._compare_output(expected_out, stdout,
+            command='{} {}'.format(cmd, input))
