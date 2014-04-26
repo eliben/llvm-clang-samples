@@ -1,5 +1,4 @@
 //------------------------------------------------------------------------------
-//
 // Clang rewriter sample. Demonstrates:
 //
 // * How to use RecursiveASTVisitor to find interesting AST nodes.

@@ -1,10 +1,17 @@
-#include <cstdio>
-#include <string>
+//------------------------------------------------------------------------------
+// Tooling sample. Demonstrates:
+//
+// * How to write a simple source tool using libTooling.
+// * How to use RecursiveASTVisitor to find interesting AST nodes.
+// * How to use the Rewriter API to rewrite the source code.
+//
+// Eli Bendersky (eliben@gmail.com)
+// This code is in the public domain
+//------------------------------------------------------------------------------
 #include <sstream>
+#include <string>
 
-#include "clang/Driver/Options.h"
 #include "clang/AST/AST.h"
-#include "clang/AST/ASTContext.h"
 #include "clang/AST/ASTConsumer.h"
 #include "clang/AST/RecursiveASTVisitor.h"
 #include "clang/Frontend/ASTConsumers.h"
@@ -13,6 +20,8 @@
 #include "clang/Tooling/CommonOptionsParser.h"
 #include "clang/Tooling/Tooling.h"
 #include "clang/Rewrite/Core/Rewriter.h"
+#include "llvm/Support/Format.h"
+#include "llvm/Support/raw_ostream.h"
 
 namespace cl = llvm::cl;
 using namespace clang;
@@ -21,6 +30,8 @@ using namespace clang::tooling;
 
 static cl::OptionCategory ToolingSampleCategory("Tooling Sample");
 
+// By implementing RecursiveASTVisitor, we can specify which AST nodes
+// we're interested in by overriding relevant methods.
 class MyASTVisitor : public RecursiveASTVisitor<MyASTVisitor> {
 public:
   MyASTVisitor(Rewriter &R) : TheRewriter(R) {}
@@ -96,38 +107,38 @@ private:
   MyASTVisitor Visitor;
 };
 
+// For each source file provided to the tool, a new FrontendAction is created.
 class MyFrontendAction : public ASTFrontendAction {
 public:
-  MyFrontendAction(Rewriter &R) : TheRewriter(R) {}
-  virtual ASTConsumer *CreateASTConsumer(CompilerInstance &CI, StringRef file) {
+  MyFrontendAction() {}
+  void EndSourceFileAction() override {
+    SourceManager &SM = TheRewriter.getSourceMgr();
+    llvm::errs() << "** EndSourceFileAction for: "
+                 << SM.getFileEntryForID(SM.getMainFileID())->getName() << "\n";
+
+    // Now emit the rewritten buffer.
+    TheRewriter.getEditBuffer(SM.getMainFileID()).write(llvm::outs());
+  }
+
+  ASTConsumer *CreateASTConsumer(CompilerInstance &CI,
+                                 StringRef file) override {
+    llvm::errs() << "** Creating AST consumer for: " << file << "\n";
     TheRewriter.setSourceMgr(CI.getSourceManager(), CI.getLangOpts());
     return new MyASTConsumer(TheRewriter);
   }
 
 private:
-  Rewriter &TheRewriter;
-};
-
-class MyFrontendActionFactory : public FrontendActionFactory {
-public:
-  MyFrontendActionFactory(Rewriter &R) : TheRewriter(R) {}
-  FrontendAction *create() override {
-    return new MyFrontendAction(TheRewriter);
-  }
-
-private:
-  Rewriter &TheRewriter;
+  Rewriter TheRewriter;
 };
 
 int main(int argc, const char **argv) {
   CommonOptionsParser op(argc, argv, ToolingSampleCategory);
   ClangTool Tool(op.getCompilations(), op.getSourcePathList());
 
-  Rewriter R;
-
-  int result = Tool.run(new MyFrontendActionFactory(R));
-
-  R.getEditBuffer(R.getSourceMgr().getMainFileID()).write(llvm::outs());
-
-  return result;
+  // ClangTool::run accepts a FrontendActionFactory, which is then used to
+  // create new objects implementing the FrontendAction interface. Here we use
+  // the helper newFrontendActionFactory to create a default factory that will
+  // return a new MyFrontendAction object every time.
+  // To further customize this, we could create our own factory class.
+  return Tool.run(newFrontendActionFactory<MyFrontendAction>());
 }
