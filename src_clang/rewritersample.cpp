@@ -84,8 +84,6 @@ public:
   }
 
 private:
-  void AddBraces(Stmt *s);
-
   Rewriter &TheRewriter;
 };
 
