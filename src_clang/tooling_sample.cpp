@@ -96,7 +96,7 @@ public:
 
   // Override the method that gets called for each parsed top-level
   // declaration.
-  virtual bool HandleTopLevelDecl(DeclGroupRef DR) {
+  bool HandleTopLevelDecl(DeclGroupRef DR) override {
     for (DeclGroupRef::iterator b = DR.begin(), e = DR.end(); b != e; ++b)
       // Traverse the declaration using our AST visitor.
       Visitor.TraverseDecl(*b);
