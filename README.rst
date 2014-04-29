@@ -47,6 +47,18 @@ inputs/
 test/
     Tests for the samples.
 
+Building the samples
+--------------------
+
+A complete ``Makefile`` for Linux is included in the repository. Read the
+documentation at its top; it explains how to configure the build to find your
+local LLVM & Clang installation/build.
+
+Note that LLVM & Clang use modern C++11 constructs and require a fairly
+up-to-date compiler and standard C++ library to build.
+`This blog post <http://eli.thegreenplace.net/2014/01/16/building-gcc-4-8-from-source-on-ubunu-12-04/>`_
+may be useful if you don't have a modern C++ compiler on your machine.
+
 Running tests and tools
 -----------------------
 
@@ -62,4 +74,3 @@ with 'make', just run::
 Note that it expects to find binaries from the LLVM directory with which the
 samples were built and linked. Look at the ``emit_build_config`` rule in the
 Makefile for more information.
-
