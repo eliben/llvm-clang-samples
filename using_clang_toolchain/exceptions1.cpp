@@ -11,10 +11,10 @@ void foo(int i) {
 int main(int argc, char** argv) {
   try {
     foo(argc);
-  } catch (std::exception& e) {
+  }
+  catch (std::exception& e) {
     std::cerr << "Got exception: " << e.what() << std::endl;
   }
-  
+
   return 0;
 }
-

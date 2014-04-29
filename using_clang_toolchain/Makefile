@@ -36,6 +36,7 @@ BUILDDIR := build
 all: make_builddir \
 	$(BUILDDIR)/simple \
 	$(BUILDDIR)/exceptions1 \
+	$(BUILDDIR)/template-inst \
 	$(BUILDDIR)/simple-from-bitcode \
 	$(BUILDDIR)/cxx11-range-sample
 
@@ -64,6 +65,9 @@ $(BUILDDIR)/simple-from-bitcode: $(BUILDDIR)/simple-from-bitcode.o
 	$(LD) $^ -o $@
 
 $(BUILDDIR)/cxx11-range-sample: cxx11-range-sample.cpp
+	$(CLANGXX) $(CXXFLAGS) $(CXX11FLAG) $^ -o $@
+
+$(BUILDDIR)/template-inst: template-inst.cpp
 	$(CLANGXX) $(CXXFLAGS) $(CXX11FLAG) $^ -o $@
 
 clean:
