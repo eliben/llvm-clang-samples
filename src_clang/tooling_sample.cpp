@@ -20,15 +20,13 @@
 #include "clang/Tooling/CommonOptionsParser.h"
 #include "clang/Tooling/Tooling.h"
 #include "clang/Rewrite/Core/Rewriter.h"
-#include "llvm/Support/Format.h"
 #include "llvm/Support/raw_ostream.h"
 
-namespace cl = llvm::cl;
 using namespace clang;
 using namespace clang::driver;
 using namespace clang::tooling;
 
-static cl::OptionCategory ToolingSampleCategory("Tooling Sample");
+static llvm::cl::OptionCategory ToolingSampleCategory("Tooling Sample");
 
 // By implementing RecursiveASTVisitor, we can specify which AST nodes
 // we're interested in by overriding relevant methods.
