@@ -140,5 +140,5 @@ int main(int argc, const char **argv) {
   // the helper newFrontendActionFactory to create a default factory that will
   // return a new MyFrontendAction object every time.
   // To further customize this, we could create our own factory class.
-  return Tool.run(newFrontendActionFactory<MyFrontendAction>());
+  return Tool.run(newFrontendActionFactory<MyFrontendAction>().get());
 }
