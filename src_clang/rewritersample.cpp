@@ -139,7 +139,8 @@ int main(int argc, char *argv[]) {
 
   // Set the main file handled by the source manager to the input file.
   const FileEntry *FileIn = FileMgr.getFile(argv[1]);
-  SourceMgr.createMainFileID(FileIn);
+  SourceMgr.setMainFileID(
+      SourceMgr.createFileID(FileIn, SourceLocation(), SrcMgr::C_User));
   TheCompInst.getDiagnosticClient().BeginSourceFile(
       TheCompInst.getLangOpts(), &TheCompInst.getPreprocessor());
 
