@@ -47,6 +47,9 @@ inputs/
 test/
     Tests for the samples.
 
+libclang_samples/
+    EXPERIMENTAL: use at your own peril.
+
 Building the samples
 --------------------
 
