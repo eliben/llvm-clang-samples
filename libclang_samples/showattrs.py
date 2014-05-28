@@ -4,7 +4,6 @@ import clang.cindex
 from clang.cindex import CursorKind
 
 def visitor(cursor):
-
     children = list(cursor.get_children())
 
     for child in children:
