@@ -1,3 +1,4 @@
+import pprint
 import sys
 import clang.cindex
 
@@ -12,11 +13,13 @@ def visitor(cursor):
   for child in children:
     visitor(child)
 
-#def callexpr_visitor(node, parent, userdata):
-    #if node.kind == clang.cindex.CursorKind.CALL_EXPR:
-    #return 2 # means continue visiting recursively
-
 index = clang.cindex.Index.create()
-tu = index.parse(sys.argv[1])
+# Parse as C++
+tu = index.parse(sys.argv[1], args=['-x', 'c++'])
 
-visitor(tu.cursor)
+diagnostics = list(tu.diagnostics)
+if len(diagnostics) > 0:
+    print 'There were parse errors'
+    pprint.pprint(diagnostics)
+else:
+    visitor(tu.cursor)

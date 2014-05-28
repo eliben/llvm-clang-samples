@@ -1,10 +1,3 @@
-int main()
-{
-    bar();
-    if (foo())
-        bar();
-}
-
 bool foo()
 {
     return true;
@@ -17,3 +10,9 @@ void bar()
         foo();
 }
 
+int main()
+{
+    bar();
+    if (foo())
+        bar();
+}
