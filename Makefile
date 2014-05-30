@@ -38,7 +38,9 @@ $(info Using LLVM_BUILD_PATH = $(LLVM_BUILD_PATH))
 $(info Using LLVM_BIN_PATH = $(LLVM_BIN_PATH))
 $(info -----------------------------------------------)
 
-# It's recommended that CXX matches the compiler you used to build LLVM itself.
+# CXX has to be a fairly modern C++ compiler that supports C++11. gcc 4.8 and
+# higher or Clang 3.2 and higher are recommended. Best of all, if you build LLVM
+# from sources, use the same compiler you built LLVM with.
 CXX := g++
 CXXFLAGS := -fno-rtti -O0 -g
 PLUGIN_CXXFLAGS := -fpic
