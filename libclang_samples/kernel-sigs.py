@@ -16,7 +16,9 @@ def handle_function_decl(fdecl_cursor):
     # Look at param decls
     for c in children:
         if c.kind == CursorKind.PARM_DECL:
-            print '>>', c.spelling, c.type.spelling
+            print '>> param "{0}" with type "{1}" [{2}, canonical = {3}]'.format(
+                    c.spelling, c.type.spelling, c.type.kind.name,
+                    c.type.get_canonical().spelling)
 
 
 index = clang.cindex.Index.create()
