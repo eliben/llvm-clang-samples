@@ -19,13 +19,6 @@ def handle_function_decl(fdecl_cursor):
             print '>>', c.spelling, c.type.spelling
 
 
-def visitor(cursor):
-    if cursor.kind == CursorKind.FUNCTION_DECL:
-        handle_function_decl(cursor)
-
-    for child in cursor.get_children():
-        visitor(child)
-
 index = clang.cindex.Index.create()
 # Parse as CUDA
 tu = index.parse(sys.argv[1], args=['-x', 'cuda'])
@@ -35,4 +28,6 @@ if len(diagnostics) > 0:
     print 'There were parse errors'
     pprint.pprint(diagnostics)
 else:
-    visitor(tu.cursor)
+    for c in tu.cursor.walk_preorder():
+        if c.kind == CursorKind.FUNCTION_DECL:
+            handle_function_decl(c)
