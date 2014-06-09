@@ -3,3 +3,5 @@ void foo(int* a, int *b) {
     b[0] = 2;
   }
 }
+
+void bar(float x, float y); // just a declaration
