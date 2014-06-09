@@ -108,7 +108,6 @@ all: make_builddir \
 	$(BUILDDIR)/remove-cstr-calls \
 	$(BUILDDIR)/rewritersample \
 	$(BUILDDIR)/tooling_sample \
-	$(BUILDDIR)/matchers_sample \
 	$(BUILDDIR)/plugin_print_funcnames.so
 
 
@@ -150,10 +149,6 @@ $(BUILDDIR)/clang-check: $(SRC_CLANG_DIR)/ClangCheck.cpp
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
 		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
 
-$(BUILDDIR)/remove-cstr-calls: $(SRC_CLANG_DIR)/experimental/RemoveCStrCalls.cpp
-	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
-		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
-
 $(BUILDDIR)/rewritersample: $(SRC_CLANG_DIR)/rewritersample.cpp
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
 		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
@@ -162,13 +157,30 @@ $(BUILDDIR)/tooling_sample: $(SRC_CLANG_DIR)/tooling_sample.cpp
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
 		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
 
+$(BUILDDIR)/plugin_print_funcnames.so: $(SRC_CLANG_DIR)/plugin_print_funcnames.cpp
+	$(CXX) $(PLUGIN_CXXFLAGS) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
+		$(PLUGIN_LDFLAGS) $(LLVM_LDFLAGS_NOLIBS) -o $@
+
+# Experimental tools - use at your own peril.
+#
+.PHONY: experimental_tools
+experimental_tools: make_builddir \
+	emit_build_config \
+	$(BUILDDIR)/remove-cstr-calls \
+	$(BUILDDIR)/toplevel_decls \
+	$(BUILDDIR)/matchers_sample
+
+$(BUILDDIR)/remove-cstr-calls: $(SRC_CLANG_DIR)/experimental/RemoveCStrCalls.cpp
+	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
+		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
+
 $(BUILDDIR)/matchers_sample: $(SRC_CLANG_DIR)/experimental/matchers_sample.cpp
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
 		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
 
-$(BUILDDIR)/plugin_print_funcnames.so: $(SRC_CLANG_DIR)/plugin_print_funcnames.cpp
-	$(CXX) $(PLUGIN_CXXFLAGS) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
-		$(PLUGIN_LDFLAGS) $(LLVM_LDFLAGS_NOLIBS) -o $@
+$(BUILDDIR)/toplevel_decls: $(SRC_CLANG_DIR)/experimental/toplevel_decls.cpp
+	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
+		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
 
 .PHONY: clean
 clean:
