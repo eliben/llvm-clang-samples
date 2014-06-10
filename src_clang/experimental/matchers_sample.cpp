@@ -5,8 +5,12 @@
 #include "clang/AST/AST.h"
 #include "clang/ASTMatchers/ASTMatchers.h"
 #include "clang/ASTMatchers/ASTMatchFinder.h"
-#include "clang/Frontend/FrontendActions.h"
+#include "clang/Basic/DiagnosticOptions.h"
+#include "clang/Basic/FileManager.h"
+#include "clang/Basic/SourceManager.h"
 #include "clang/Frontend/CompilerInstance.h"
+#include "clang/Frontend/FrontendActions.h"
+#include "clang/Frontend/TextDiagnosticPrinter.h"
 #include "clang/Tooling/CommonOptionsParser.h"
 #include "clang/Tooling/Refactoring.h"
 #include "clang/Tooling/Tooling.h"
@@ -25,9 +29,20 @@ public:
   IfStmtHandler(Replacements *Replace) : Replace(Replace) {}
 
   virtual void run(const MatchFinder::MatchResult &Result) {
-    if (const IfStmt *FS = Result.Nodes.getNodeAs<clang::IfStmt>("ifStmt"))
-      FS->dump();
+    if (const IfStmt *IfS = Result.Nodes.getNodeAs<clang::IfStmt>("ifStmt")) {
+      const Stmt *Then = IfS->getThen();
+      Replacement Rep(*(Result.SourceManager), Then->getLocStart(), 0,
+                      "// the 'if' part\n");
+      Replace->insert(Rep);
+
+      if (const Stmt *Else = IfS->getElse()) {
+        Replacement Rep(*(Result.SourceManager), Else->getLocStart(), 0,
+                        "// the 'else' part\n");
+        Replace->insert(Rep);
+      }
+    }
   }
+
 private:
   Replacements *Replace;
 };
@@ -37,9 +52,11 @@ public:
   FuncDefHandler(Replacements *Replace) : Replace(Replace) {}
 
   virtual void run(const MatchFinder::MatchResult &Result) {
-    if (const FunctionDecl *FS = Result.Nodes.getNodeAs<clang::FunctionDecl>("funcDef"))
+    if (const FunctionDecl *FS =
+            Result.Nodes.getNodeAs<clang::FunctionDecl>("funcDef"))
       FS->dump();
   }
+
 private:
   Replacements *Replace;
 };
@@ -56,5 +73,22 @@ int main(int argc, const char **argv) {
   Finder.addMatcher(functionDecl(isDefinition()).bind("funcDef"),
                     &HandlerForFuncDef);
 
-  return Tool.run(newFrontendActionFactory(&Finder).get());
+  if (int Result = Tool.run(newFrontendActionFactory(&Finder).get())) {
+    return Result;
+  }
+
+  LangOptions DefaultLangOptions;
+  IntrusiveRefCntPtr<DiagnosticOptions> DiagOpts = new DiagnosticOptions();
+  TextDiagnosticPrinter DiagnosticPrinter(llvm::errs(), &*DiagOpts);
+  DiagnosticsEngine Diagnostics(
+      IntrusiveRefCntPtr<DiagnosticIDs>(new DiagnosticIDs()), &*DiagOpts,
+      &DiagnosticPrinter, false);
+  SourceManager Sources(Diagnostics, Tool.getFiles());
+
+  Rewriter Rewrite(Sources, DefaultLangOptions);
+  Tool.applyAllReplacements(Rewrite);
+
+  Rewrite.getEditBuffer(Sources.getMainFileID()).write(llvm::outs());
+
+  return 0;
 }
