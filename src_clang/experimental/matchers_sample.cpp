@@ -8,6 +8,7 @@
 #include "clang/Frontend/FrontendActions.h"
 #include "clang/Frontend/CompilerInstance.h"
 #include "clang/Tooling/CommonOptionsParser.h"
+#include "clang/Tooling/Refactoring.h"
 #include "clang/Tooling/Tooling.h"
 #include "clang/Rewrite/Core/Rewriter.h"
 #include "llvm/Support/raw_ostream.h"
@@ -21,27 +22,36 @@ static llvm::cl::OptionCategory ToolingSampleCategory("Tooling Sample");
 
 class IfStmtHandler : public MatchFinder::MatchCallback {
 public:
+  IfStmtHandler(Replacements *Replace) : Replace(Replace) {}
+
   virtual void run(const MatchFinder::MatchResult &Result) {
     if (const IfStmt *FS = Result.Nodes.getNodeAs<clang::IfStmt>("ifStmt"))
       FS->dump();
   }
+private:
+  Replacements *Replace;
 };
 
 class FuncDefHandler : public MatchFinder::MatchCallback {
 public:
+  FuncDefHandler(Replacements *Replace) : Replace(Replace) {}
+
   virtual void run(const MatchFinder::MatchResult &Result) {
     if (const FunctionDecl *FS = Result.Nodes.getNodeAs<clang::FunctionDecl>("funcDef"))
       FS->dump();
   }
+private:
+  Replacements *Replace;
 };
 
 int main(int argc, const char **argv) {
   CommonOptionsParser op(argc, argv, ToolingSampleCategory);
-  ClangTool Tool(op.getCompilations(), op.getSourcePathList());
+  RefactoringTool Tool(op.getCompilations(), op.getSourcePathList());
+
+  IfStmtHandler HandlerForIf(&Tool.getReplacements());
+  FuncDefHandler HandlerForFuncDef(&Tool.getReplacements());
 
   MatchFinder Finder;
-  IfStmtHandler HandlerForIf;
-  FuncDefHandler HandlerForFuncDef;
   Finder.addMatcher(ifStmt().bind("ifStmt"), &HandlerForIf);
   Finder.addMatcher(functionDecl(isDefinition()).bind("funcDef"),
                     &HandlerForFuncDef);
