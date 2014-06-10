@@ -88,7 +88,13 @@ int main(int argc, const char **argv) {
   Rewriter Rewrite(Sources, DefaultLangOptions);
   Tool.applyAllReplacements(Rewrite);
 
-  Rewrite.getEditBuffer(Sources.getMainFileID()).write(llvm::outs());
+  for (Rewriter::buffer_iterator I = Rewrite.buffer_begin(),
+                                 E = Rewrite.buffer_end();
+       I != E; ++I) {
+    const FileEntry *Entry = Sources.getFileEntryForID(I->first);
+    llvm::outs() << "Rewrite buffer for file: " << Entry->getName() << "\n";
+    I->second.write(llvm::outs());
+  }
 
   return 0;
 }
