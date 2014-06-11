@@ -18,8 +18,20 @@ __attribute__((global)) void ker2(unsigned* uarr, intptr iarr) {
 void foobar() {
 }
 
-int booga;
+
+template <typename T>
+void bazinga(T* k) {
+}
+
+int booga, chuppa;
 
 struct St {
   int b;
+
+  void joe(int ii, float ff) {
+  	bazinga(&ii);
+  	bazinga(&ff);
+  }
 };
+
+

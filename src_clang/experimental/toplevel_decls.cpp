@@ -32,6 +32,17 @@ public:
     }
     return true;
   }
+
+  void HandleTranslationUnit(ASTContext &Context) {
+    llvm::errs() << "********* The whole TU *************\n";
+    Context.getTranslationUnitDecl()->dump();
+
+    llvm::errs() << "****** going over the decls stored in it:\n";
+    for (auto *D : Context.getTranslationUnitDecl()->decls()) {
+      llvm::errs() << "Decl in the TU:\n";
+      D->dump();
+    }
+  }
 };
 
 // For each source file provided to the tool, a new FrontendAction is created.
