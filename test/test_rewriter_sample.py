@@ -10,6 +10,8 @@ void foo(int* a, int *b) {
   }
 }
 // End function foo
+
+void bar(float x, float y); // just a declaration
 '''
 
 PROG = 'rewritersample'
