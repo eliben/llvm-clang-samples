@@ -65,6 +65,7 @@ int main(int argc, const char **argv) {
   CommonOptionsParser op(argc, argv, ToolingSampleCategory);
   RefactoringTool Tool(op.getCompilations(), op.getSourcePathList());
 
+  // Set up AST matcher callbacks.
   IfStmtHandler HandlerForIf(&Tool.getReplacements());
   FuncDefHandler HandlerForFuncDef(&Tool.getReplacements());
 
@@ -73,21 +74,28 @@ int main(int argc, const char **argv) {
   Finder.addMatcher(functionDecl(isDefinition()).bind("funcDef"),
                     &HandlerForFuncDef);
 
+  // Run the tool and collect a list of replacements. We could call runAndSave,
+  // which would destructively overwrite the files with their new contents.
+  // However, for demonstration purposes it's interesting to print out the
+  // would-be contents of the rewritten files instead of actually rewriting
+  // them.
   if (int Result = Tool.run(newFrontendActionFactory(&Finder).get())) {
     return Result;
   }
 
-  LangOptions DefaultLangOptions;
+  // We need a SourceManager to set up the Rewriter.
   IntrusiveRefCntPtr<DiagnosticOptions> DiagOpts = new DiagnosticOptions();
-  TextDiagnosticPrinter DiagnosticPrinter(llvm::errs(), &*DiagOpts);
   DiagnosticsEngine Diagnostics(
       IntrusiveRefCntPtr<DiagnosticIDs>(new DiagnosticIDs()), &*DiagOpts,
-      &DiagnosticPrinter, false);
+      new TextDiagnosticPrinter(llvm::errs(), &*DiagOpts), true);
   SourceManager Sources(Diagnostics, Tool.getFiles());
 
-  Rewriter Rewrite(Sources, DefaultLangOptions);
+  // Apply all replacements to a rewriter.
+  Rewriter Rewrite(Sources, LangOptions());
   Tool.applyAllReplacements(Rewrite);
 
+  // Query the rewriter for all the files it has rewritten, dumping their new
+  // contents to stdout.
   for (Rewriter::buffer_iterator I = Rewrite.buffer_begin(),
                                  E = Rewrite.buffer_end();
        I != E; ++I) {
