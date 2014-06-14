@@ -29,7 +29,6 @@
 
 using namespace llvm;
 
-
 // Runs a topological sort on the basic blocks of the given function. Uses
 // the simple recursive DFS from "Introduction to algorithms", with 3-coloring
 // of vertices. The coloring enables detecting cycles in the graph with a simple
@@ -50,15 +49,20 @@ public:
       // Now we have all the BBs inside SortedBBs in reverse topological order.
       for (BBVector::const_reverse_iterator RI = SortedBBs.rbegin(),
                                             RE = SortedBBs.rend();
-                                            RI != RE; ++RI) {
+           RI != RE; ++RI) {
         outs() << "  " << (*RI)->getName() << "\n";
       }
     } else {
       outs() << "  Sorting failed\n";
     }
   }
+
 private:
-  enum Color {WHITE, GREY, BLACK};
+  enum Color {
+    WHITE,
+    GREY,
+    BLACK
+  };
   // Color marks per vertex (BB).
   typedef DenseMap<const BasicBlock *, Color> BBColorMap;
   // Collects vertices (BBs) in "finish" order. The first finished vertex is
@@ -84,8 +88,8 @@ private:
       } else if (SuccColor == TopoSorter::GREY) {
         // This detects a cycle because grey vertices are all ancestors of the
         // currently explored vertex (in other words, they're "on the stack").
-        outs() << "  Detected cycle: edge from " << BB->getName() << 
-                  " to " << Succ->getName() << "\n";
+        outs() << "  Detected cycle: edge from " << BB->getName() << " to "
+               << Succ->getName() << "\n";
         return false;
       }
     }
@@ -96,12 +100,10 @@ private:
   }
 };
 
-
 class AnalyzeBBGraph : public FunctionPass {
 public:
-  AnalyzeBBGraph(const std::string &AnalysisKind) 
-    : FunctionPass(ID), AnalysisKind(AnalysisKind)
-  {}
+  AnalyzeBBGraph(const std::string &AnalysisKind)
+      : FunctionPass(ID), AnalysisKind(AnalysisKind) {}
 
   virtual bool runOnFunction(Function &F) {
     if (AnalysisKind == "-topo") {
@@ -114,22 +116,21 @@ public:
       outs() << "Basic blocks of " << F.getName() << " in post-order:\n";
       for (po_iterator<BasicBlock *> I = po_begin(&F.getEntryBlock()),
                                      IE = po_end(&F.getEntryBlock());
-                                     I != IE; ++I) {
+           I != IE; ++I) {
         outs() << "  " << (*I)->getName() << "\n";
-      }                        
+      }
     } else if (AnalysisKind == "-scc") {
       // Use LLVM's Strongly Connected Components (SCCs) iterator to produce
       // a reverse topological sort of SCCs.
       outs() << "SCCs for " << F.getName() << " in post-order:\n";
-      for (scc_iterator<Function *> I = scc_begin(&F),
-                                    IE = scc_end(&F);
-                                    I != IE; ++I) {
+      for (scc_iterator<Function *> I = scc_begin(&F), IE = scc_end(&F);
+           I != IE; ++I) {
         // Obtain the vector of BBs in this SCC and print it out.
         const std::vector<BasicBlock *> &SCCBBs = *I;
         outs() << "  SCC: ";
         for (std::vector<BasicBlock *>::const_iterator BBI = SCCBBs.begin(),
                                                        BBIE = SCCBBs.end();
-                                                       BBI != BBIE; ++BBI) {
+             BBI != BBIE; ++BBI) {
           outs() << (*BBI)->getName() << "  ";
         }
         outs() << "\n";
@@ -143,6 +144,7 @@ public:
   // The address of this member is used to uniquely identify the class. This is
   // used by LLVM's own RTTI mechanism.
   static char ID;
+
 private:
   std::string AnalysisKind;
 };

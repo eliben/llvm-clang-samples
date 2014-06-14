@@ -48,7 +48,6 @@ public:
 
 char GVNames::ID = 0;
 
-
 int main(int argc, char **argv) {
   if (argc < 2) {
     errs() << "Usage: " << argv[0] << " <IR file>\n";

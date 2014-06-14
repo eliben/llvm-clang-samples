@@ -55,8 +55,7 @@ static cl::extrahelp MoreHelp(
     "\n"
     "\tNote, that path/in/subtree and current directory should follow the\n"
     "\trules described above.\n"
-    "\n"
-);
+    "\n");
 
 static cl::OptionCategory ClangCheckCategory("clang-check options");
 static std::unique_ptr<opt::OptTable> Options(createDriverOptTable());
@@ -101,18 +100,16 @@ namespace {
 // into a header file and reuse that.
 class FixItOptions : public clang::FixItOptions {
 public:
-  FixItOptions() {
-    FixWhatYouCan = ::FixWhatYouCan;
-  }
+  FixItOptions() { FixWhatYouCan = ::FixWhatYouCan; }
 
-  std::string RewriteFilename(const std::string& filename, int &fd) override {
+  std::string RewriteFilename(const std::string &filename, int &fd) override {
     assert(llvm::sys::path::is_absolute(filename) &&
            "clang-fixit expects absolute paths only.");
 
     // We don't need to do permission checking here since clang will diagnose
     // any I/O errors itself.
 
-    fd = -1;  // No file descriptor for file.
+    fd = -1; // No file descriptor for file.
 
     return filename;
   }
@@ -125,12 +122,11 @@ public:
 /// successfully fixing all errors.
 class FixItRewriter : public clang::FixItRewriter {
 public:
-  FixItRewriter(clang::DiagnosticsEngine& Diags,
-                clang::SourceManager& SourceMgr,
-                const clang::LangOptions& LangOpts,
-                clang::FixItOptions* FixItOpts)
-      : clang::FixItRewriter(Diags, SourceMgr, LangOpts, FixItOpts) {
-  }
+  FixItRewriter(clang::DiagnosticsEngine &Diags,
+                clang::SourceManager &SourceMgr,
+                const clang::LangOptions &LangOpts,
+                clang::FixItOptions *FixItOpts)
+      : clang::FixItRewriter(Diags, SourceMgr, LangOpts, FixItOpts) {}
 
   bool IncludeInDiagnosticCounts() const override { return false; }
 };
@@ -148,17 +144,18 @@ public:
   }
 };
 
-class InsertAdjuster: public clang::tooling::ArgumentsAdjuster {
+class InsertAdjuster : public clang::tooling::ArgumentsAdjuster {
 public:
-  enum Position { BEGIN, END };
+  enum Position {
+    BEGIN,
+    END
+  };
 
   InsertAdjuster(const CommandLineArguments &Extra, Position Pos)
-    : Extra(Extra), Pos(Pos) {
-  }
+      : Extra(Extra), Pos(Pos) {}
 
   InsertAdjuster(const char *Extra, Position Pos)
-    : Extra(1, std::string(Extra)), Pos(Pos) {
-  }
+      : Extra(1, std::string(Extra)), Pos(Pos) {}
 
   virtual CommandLineArguments
   Adjust(const CommandLineArguments &Args) override {
@@ -210,18 +207,18 @@ int main(int argc, const char **argv) {
   Tool.clearArgumentsAdjusters();
   Tool.appendArgumentsAdjuster(new ClangStripOutputAdjuster());
   if (ArgsAfter.size() > 0) {
-    Tool.appendArgumentsAdjuster(new InsertAdjuster(ArgsAfter,
-          InsertAdjuster::END));
+    Tool.appendArgumentsAdjuster(
+        new InsertAdjuster(ArgsAfter, InsertAdjuster::END));
   }
   if (ArgsBefore.size() > 0) {
-    Tool.appendArgumentsAdjuster(new InsertAdjuster(ArgsBefore,
-          InsertAdjuster::BEGIN));
+    Tool.appendArgumentsAdjuster(
+        new InsertAdjuster(ArgsBefore, InsertAdjuster::BEGIN));
   }
 
   // Running the analyzer requires --analyze. Other modes can work with the
   // -fsyntax-only option.
   Tool.appendArgumentsAdjuster(new InsertAdjuster(
-        Analyze ? "--analyze" : "-fsyntax-only", InsertAdjuster::BEGIN));
+      Analyze ? "--analyze" : "-fsyntax-only", InsertAdjuster::BEGIN));
 
   clang_check::ClangCheckActionFactory CheckFactory;
   std::unique_ptr<FrontendActionFactory> FrontendFactory;

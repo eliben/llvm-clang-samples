@@ -21,20 +21,17 @@
 
 using namespace llvm;
 
-
 // Helper method for converting LLVM entities that support the print() method
 // to a string.
-template <typename T>
-static std::string ToString(const T *Obj) {
+template <typename T> static std::string ToString(const T *Obj) {
   std::string S;
   raw_string_ostream OS(S);
   Obj->print(OS);
   return OS.str();
 }
 
-
 class AnalyzeGEPPass : public BasicBlockPass {
- public:
+public:
   AnalyzeGEPPass() : BasicBlockPass(ID) {}
 
   virtual bool runOnBasicBlock(BasicBlock &BB) {

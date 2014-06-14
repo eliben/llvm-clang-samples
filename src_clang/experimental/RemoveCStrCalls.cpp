@@ -113,12 +113,10 @@ static bool needParensAfterUnaryOperator(const Expr &ExprNode) {
     return true;
   }
   if (const CXXOperatorCallExpr *op =
-      dyn_cast<CXXOperatorCallExpr>(&ExprNode)) {
-    return op->getNumArgs() == 2 &&
-        op->getOperator() != OO_PlusPlus &&
-        op->getOperator() != OO_MinusMinus &&
-        op->getOperator() != OO_Call &&
-        op->getOperator() != OO_Subscript;
+          dyn_cast<CXXOperatorCallExpr>(&ExprNode)) {
+    return op->getNumArgs() == 2 && op->getOperator() != OO_PlusPlus &&
+           op->getOperator() != OO_MinusMinus && op->getOperator() != OO_Call &&
+           op->getOperator() != OO_Subscript;
   }
   return false;
 }
@@ -126,16 +124,17 @@ static bool needParensAfterUnaryOperator(const Expr &ExprNode) {
 // Format a pointer to an expression: prefix with '*' but simplify
 // when it already begins with '&'.  Return empty string on failure.
 static std::string formatDereference(const SourceManager &SourceManager,
-                              const Expr &ExprNode) {
+                                     const Expr &ExprNode) {
   if (const clang::UnaryOperator *Op =
-      dyn_cast<clang::UnaryOperator>(&ExprNode)) {
+          dyn_cast<clang::UnaryOperator>(&ExprNode)) {
     if (Op->getOpcode() == UO_AddrOf) {
       // Strip leading '&'.
       return getText(SourceManager, *Op->getSubExpr()->IgnoreParens());
     }
   }
   const std::string Text = getText(SourceManager, ExprNode);
-  if (Text.empty()) return std::string();
+  if (Text.empty())
+    return std::string();
   // Add leading '*'.
   if (needParensAfterUnaryOperator(ExprNode)) {
     return std::string("*(") + Text + ")";
@@ -145,31 +144,28 @@ static std::string formatDereference(const SourceManager &SourceManager,
 
 namespace {
 class FixCStrCall : public ast_matchers::MatchFinder::MatchCallback {
- public:
-  FixCStrCall(tooling::Replacements *Replace)
-      : Replace(Replace) {}
+public:
+  FixCStrCall(tooling::Replacements *Replace) : Replace(Replace) {}
 
   virtual void run(const ast_matchers::MatchFinder::MatchResult &Result) {
-    const CallExpr *Call =
-        Result.Nodes.getStmtAs<CallExpr>("call");
-    const Expr *Arg =
-        Result.Nodes.getStmtAs<Expr>("arg");
-    const bool Arrow =
-        Result.Nodes.getStmtAs<MemberExpr>("member")->isArrow();
+    const CallExpr *Call = Result.Nodes.getStmtAs<CallExpr>("call");
+    const Expr *Arg = Result.Nodes.getStmtAs<Expr>("arg");
+    const bool Arrow = Result.Nodes.getStmtAs<MemberExpr>("member")->isArrow();
     // Replace the "call" node with the "arg" node, prefixed with '*'
     // if the call was using '->' rather than '.'.
-    const std::string ArgText = Arrow ?
-        formatDereference(*Result.SourceManager, *Arg) :
-        getText(*Result.SourceManager, *Arg);
-    if (ArgText.empty()) return;
+    const std::string ArgText =
+        Arrow ? formatDereference(*Result.SourceManager, *Arg)
+              : getText(*Result.SourceManager, *Arg);
+    if (ArgText.empty())
+      return;
 
     Replacement Rep(*Result.SourceManager, Call, ArgText);
     llvm::errs() << "-- Replacement:\n";
     llvm::errs() << Rep.toString() << "\n";
-    //Replace->insert(Replacement(*Result.SourceManager, Call, ArgText));
+    // Replace->insert(Replacement(*Result.SourceManager, Call, ArgText));
   }
 
- private:
+private:
   tooling::Replacements *Replace;
 };
 } // end namespace
@@ -182,14 +178,11 @@ const char *StringCStrMethod =
     "::std::basic_string<char, std::char_traits<char>, std::allocator<char> >"
     "::c_str";
 
-cl::opt<std::string> BuildPath(
-  cl::Positional,
-  cl::desc("<build-path>"));
+cl::opt<std::string> BuildPath(cl::Positional, cl::desc("<build-path>"));
 
-cl::list<std::string> SourcePaths(
-  cl::Positional,
-  cl::desc("<source0> [... <sourceN>]"),
-  cl::OneOrMore);
+cl::list<std::string> SourcePaths(cl::Positional,
+                                  cl::desc("<source0> [... <sourceN>]"),
+                                  cl::OneOrMore);
 
 int main(int argc, const char **argv) {
   llvm::sys::PrintStackTraceOnErrorSignal();
@@ -199,10 +192,10 @@ int main(int argc, const char **argv) {
   if (!Compilations) {
     std::string ErrorMessage;
     Compilations.reset(
-           CompilationDatabase::loadFromDirectory(BuildPath, ErrorMessage));
+        CompilationDatabase::loadFromDirectory(BuildPath, ErrorMessage));
     if (!Compilations)
       llvm::report_fatal_error(ErrorMessage);
-    }
+  }
   tooling::RefactoringTool Tool(*Compilations, SourcePaths);
   ast_matchers::MatchFinder Finder;
   FixCStrCall Callback(&Tool.getReplacements());
@@ -215,16 +208,13 @@ int main(int argc, const char **argv) {
           // constructor of string instead (or the compiler might share
           // the string object).
           hasArgument(
-              0,
-              id("call", memberCallExpr(
-                  callee(id("member", memberExpr())),
-                  callee(methodDecl(hasName(StringCStrMethod))),
-                  on(id("arg", expr()))))),
+              0, id("call", memberCallExpr(
+                                callee(id("member", memberExpr())),
+                                callee(methodDecl(hasName(StringCStrMethod))),
+                                on(id("arg", expr()))))),
           // The second argument is the alloc object which must not be
           // present explicitly.
-          hasArgument(
-              1,
-              defaultArgExpr())),
+          hasArgument(1, defaultArgExpr())),
       &Callback);
   Finder.addMatcher(
       constructExpr(
@@ -232,9 +222,9 @@ int main(int argc, const char **argv) {
           // wrt. string types and they internally make a StringRef
           // referring to the argument.  Passing a string directly to
           // them is preferred to passing a char pointer.
-          hasDeclaration(methodDecl(anyOf(
-              hasName("::llvm::StringRef::StringRef"),
-              hasName("::llvm::Twine::Twine")))),
+          hasDeclaration(
+              methodDecl(anyOf(hasName("::llvm::StringRef::StringRef"),
+                               hasName("::llvm::Twine::Twine")))),
           argumentCountIs(1),
           // The only argument must have the form x.c_str() or p->c_str()
           // where the method is string::c_str().  StringRef also has
@@ -242,12 +232,10 @@ int main(int argc, const char **argv) {
           // strlen), so we can construct StringRef from the string
           // directly.
           hasArgument(
-              0,
-              id("call", memberCallExpr(
-                  callee(id("member", memberExpr())),
-                  callee(methodDecl(hasName(StringCStrMethod))),
-                  on(id("arg", expr())))))),
+              0, id("call", memberCallExpr(
+                                callee(id("member", memberExpr())),
+                                callee(methodDecl(hasName(StringCStrMethod))),
+                                on(id("arg", expr())))))),
       &Callback);
   return Tool.runAndSave(newFrontendActionFactory(&Finder).get());
 }
-

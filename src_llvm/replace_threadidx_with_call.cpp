@@ -32,17 +32,15 @@ using namespace llvm;
 
 class ReplaceThreadIdxRefs : public FunctionPass {
 public:
- ReplaceThreadIdxRefs(Function *Tidx, Function *Tidy,
-                      Function *Tidz)
-     : FunctionPass(ID), TidxRef(Tidx), TidyRef(Tidy), TidzRef(Tidz) {}
+  ReplaceThreadIdxRefs(Function *Tidx, Function *Tidy, Function *Tidz)
+      : FunctionPass(ID), TidxRef(Tidx), TidyRef(Tidy), TidzRef(Tidz) {}
 
   virtual bool runOnFunction(Function &F) {
     bool Modified = false;
     for (Function::iterator I = F.begin(); I != F.end(); I++) {
       BasicBlock *BB = I;
 
-      for (BasicBlock::iterator BI = BB->begin(), BE = BB->end();
-           BI != BE;) {
+      for (BasicBlock::iterator BI = BB->begin(), BE = BB->end(); BI != BE;) {
         // Note: taking BI++ out of the for statement is important. Since this
         // loop may delete the instruction at *BI, this will invalidate the
         // iterator. So we make sure the iterator is incremented right from
@@ -125,12 +123,12 @@ int main(int argc, char **argv) {
   // Create a function declarations for _tidx, _tidy, _tidz
   FunctionType *TidFuncTy =
       FunctionType::get(Type::getInt32Ty(Mod->getContext()), false);
-  Function *Tidx = Function::Create(TidFuncTy, GlobalValue::InternalLinkage,
-      "_tidx", Mod);
-  Function *Tidy = Function::Create(TidFuncTy, GlobalValue::InternalLinkage,
-      "_tidy", Mod);
-  Function *Tidz = Function::Create(TidFuncTy, GlobalValue::InternalLinkage,
-      "_tidz", Mod);
+  Function *Tidx =
+      Function::Create(TidFuncTy, GlobalValue::InternalLinkage, "_tidx", Mod);
+  Function *Tidy =
+      Function::Create(TidFuncTy, GlobalValue::InternalLinkage, "_tidy", Mod);
+  Function *Tidz =
+      Function::Create(TidFuncTy, GlobalValue::InternalLinkage, "_tidz", Mod);
 
   // Create a pass manager and fill it with the passes we want to run.
   PassManager PM;
