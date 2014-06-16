@@ -105,7 +105,6 @@ all: make_builddir \
 	$(BUILDDIR)/replace_threadidx_with_call \
 	$(BUILDDIR)/access_debug_metadata \
 	$(BUILDDIR)/clang-check \
-	$(BUILDDIR)/remove-cstr-calls \
 	$(BUILDDIR)/rewritersample \
 	$(BUILDDIR)/tooling_sample \
 	$(BUILDDIR)/plugin_print_funcnames.so
