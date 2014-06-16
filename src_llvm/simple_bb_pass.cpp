@@ -23,7 +23,6 @@
 
 using namespace llvm;
 
-
 class AllocaSizeDetect : public BasicBlockPass {
 public:
   AllocaSizeDetect() : BasicBlockPass(ID) {}
@@ -59,7 +58,6 @@ public:
 };
 
 char AllocaSizeDetect::ID = 0;
-
 
 int main(int argc, char **argv) {
   if (argc < 2) {

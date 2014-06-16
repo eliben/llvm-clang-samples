@@ -1,5 +1,12 @@
-// INCOMPLETE SAMPLE - USE AT YOUR OWN PERIL
-#include <sstream>
+//------------------------------------------------------------------------------
+// AST matching sample. Demonstrates:
+//
+// * How to write a libTooling tool using AST matchers.
+// * How to use the Rewriter API to rewrite the source code.
+//
+// Eli Bendersky (eliben@gmail.com)
+// This code is in the public domain
+//------------------------------------------------------------------------------
 #include <string>
 
 #include "clang/AST/AST.h"
@@ -29,6 +36,7 @@ public:
   IfStmtHandler(Replacements *Replace) : Replace(Replace) {}
 
   virtual void run(const MatchFinder::MatchResult &Result) {
+    // The matched 'if' statement was bound to 'ifStmt'.
     if (const IfStmt *IfS = Result.Nodes.getNodeAs<clang::IfStmt>("ifStmt")) {
       const Stmt *Then = IfS->getThen();
       Replacement Rep(*(Result.SourceManager), Then->getLocStart(), 0,

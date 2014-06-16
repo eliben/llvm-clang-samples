@@ -31,7 +31,8 @@ int main(int argc, char **argv) {
 
   // Go over all named mdnodes in the module
   for (Module::named_metadata_iterator I = Mod->named_metadata_begin(),
-       E = Mod->named_metadata_end(); I != E; ++I) {
+                                       E = Mod->named_metadata_end();
+       I != E; ++I) {
     outs() << "Found MDNode:\n";
     I->dump();
 

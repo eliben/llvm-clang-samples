@@ -40,7 +40,7 @@ protected:
   }
 
   bool ParseArgs(const CompilerInstance &CI,
-                 const std::vector<std::string>& args) {
+                 const std::vector<std::string> &args) {
     for (unsigned i = 0, e = args.size(); i != e; ++i) {
       llvm::errs() << "PrintFunctionNames arg = " << args[i] << "\n";
 
@@ -58,12 +58,10 @@ protected:
 
     return true;
   }
-  void PrintHelp(llvm::raw_ostream& ros) {
+  void PrintHelp(llvm::raw_ostream &ros) {
     ros << "Help for PrintFunctionNames plugin goes here\n";
   }
-
 };
-
 }
 
 static FrontendPluginRegistry::Add<PrintFunctionNamesAction>

@@ -80,4 +80,3 @@ int main(int argc, const char **argv) {
   // To further customize this, we could create our own factory class.
   return Tool.run(newFrontendActionFactory<MyFrontendAction>().get());
 }
-
