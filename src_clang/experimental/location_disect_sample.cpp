@@ -37,13 +37,26 @@ public:
         auto *callee = KernelCall->getCallee();
         llvm::errs() << "@@@@ Callee:\n";
         callee->dump();
-        llvm::errs() << "  Location:\n";
+
+        const SourceManager *SM = Result.SourceManager;
+        const LangOptions &LOpts = Result.Context->getLangOpts();
+
         // Note: a SourceLocation points to a token
-        callee->getLocStart().dump(*(Result.SourceManager));
+        llvm::errs() << "  Callee location:\n";
+        callee->getLocStart().dump(*SM);
         llvm::errs() << "  token length at location: "
-                     << Lexer::MeasureTokenLength(
-                            callee->getLocStart(), *(Result.SourceManager),
-                            Result.Context->getLangOpts()) << "\n";
+                     << Lexer::MeasureTokenLength(callee->getLocStart(), *SM,
+                                                  LOpts) << "\n";
+
+        for (const auto *Arg : KernelCall->arguments()) {
+          llvm::errs() << "  argument location:\n";
+          llvm::errs() << "    start: ";
+          Arg->getLocStart().dump(*SM);
+          llvm::errs() << "\n";
+          llvm::errs() << "    end: ";
+          Arg->getLocEnd().dump(*SM);
+          llvm::errs() << "\n";
+        }
       }
     }
   }
