@@ -60,7 +60,11 @@ public:
 
   ASTConsumer *CreateASTConsumer(CompilerInstance &CI,
                                  StringRef file) override {
+    SourceManager &SM = CI.getSourceManager();
     llvm::errs() << "** Creating AST consumer for: " << file << "\n";
+    llvm::errs() << "  Main file ID: "
+                 << SM.getFileEntryForID(SM.getMainFileID())->getName() << "\n";
+    SM.PrintStats();
     TheRewriter.setSourceMgr(CI.getSourceManager(), CI.getLangOpts());
     return new MyASTConsumer(TheRewriter);
   }
