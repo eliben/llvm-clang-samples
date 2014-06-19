@@ -53,12 +53,36 @@ public:
           llvm::errs() << "    start: ";
           Arg->getLocStart().dump(*SM);
           llvm::errs() << "\n";
+
+          Token tokbefore = GetTokenBefore(*SM, Arg->getLocStart());
+          llvm::errs() << "   token before this arg is: " << tokbefore.getName() << " at location ";
+          tokbefore.getLocation().dump(*SM);
+          llvm::errs() << "\n";
+
           llvm::errs() << "    end: ";
           Arg->getLocEnd().dump(*SM);
           llvm::errs() << "\n";
         }
       }
     }
+  }
+
+  clang::Token GetTokenBefore(const clang::SourceManager &sources,
+                              clang::SourceLocation loc) {
+    clang::Token token;
+    token.setKind(clang::tok::unknown);
+    clang::LangOptions lang_options;
+    loc = loc.getLocWithOffset(-1);
+    while (loc != sources.getLocForStartOfFile(sources.getFileID(loc))) {
+      loc = clang::Lexer::GetBeginningOfToken(loc, sources, lang_options);
+      if (!clang::Lexer::getRawToken(loc, token, sources, lang_options)) {
+        if (!token.is(clang::tok::comment)) {
+          break;
+        }
+      }
+      loc = loc.getLocWithOffset(-1);
+    }
+    return token;
   }
 
 private:
