@@ -1,5 +1,4 @@
 # This requires Python 3.4
-from collections import namedtuple
 import enum
 import html
 import io
@@ -17,6 +16,26 @@ HTML_OUTPUT_TEMPLATE = r'''
         white-space: nowrap;
     }}
 
+    a:link {{
+        text-decoration: underline;
+        color: inherit;
+    }}
+
+    a:visited {{
+        text-decoration: underline;
+        color: inherit;
+    }}
+
+    a:hover {{
+        text-decoration: underline;
+        color: #FFFFFF;
+    }}
+
+    a:active {{
+        text-decoration: underline;
+        color: #FFFFFF;
+    }}
+
     .ansi-bold {{
         font-weight: bold;
     }}
@@ -26,7 +45,7 @@ HTML_OUTPUT_TEMPLATE = r'''
     }}
 
     .ansi-red {{
-        color: #c22727;
+        color: #d23737;
     }}
 
     .ansi-green {{
@@ -76,7 +95,11 @@ class Color(enum.Enum):
     WHITE = 37
 
 
-Token = namedtuple('Token', 'text style')
+class Token:
+    def __init__(self, text, style):
+        self.text = text
+        self.style = style
+
 
 class Style:
     def __init__(self, color=Color.WHITE, bold=False):
@@ -87,7 +110,7 @@ class Style:
         return 'Style<color={}, bold={}>'.format(self.color, self.bold)
 
 
-ANSI_PATTERN = re.compile(b'\x1b\\[([^m]+)m')
+ANSI_PATTERN = re.compile(rb'\x1b\[([^m]+)m')
 
 
 def tokenize_line(line):
@@ -125,6 +148,34 @@ def tokenize_line(line):
     return toks
 
 
+# Link injections happens on HTML level - everything is a string now.
+ADDR_PATTERN = re.compile(r'0x[0-9a-fA-F]+')
+
+def inject_links(html_line_chunks):
+    first_addr = True
+    for i, chunk in enumerate(html_line_chunks):
+        match = ADDR_PATTERN.search(chunk)
+        if match:
+            anchorname = 'anchor_' + match.group()
+            if first_addr:
+                # The first address encountered in the line is the address of
+                # the node the line describes. This becomes a link anchor.
+                #print(tok.text[match.start():match.end()], file=sys.stderr)
+                html_line_chunks[i] = (
+                    chunk[:match.start()] +
+                    '<a id="' + anchorname + '"></a>' +
+                    chunk[match.start():])
+                first_addr = False
+            else:
+                # All other addresses refer to other nodes. These become links
+                # to anchors.
+                html_line_chunks[i] = (
+                    chunk[:match.start()] +
+                    '<a href="#' + anchorname + '">' +
+                    chunk[match.start():match.end()] + '</a>' +
+                    chunk[match.end():])
+
+
 def htmlize(input):
     """HTML-ize the input text, producing output.
 
@@ -134,7 +185,8 @@ def htmlize(input):
     html_lines = []
     for text_line in input:
         html_line_chunks = []
-        for tok in tokenize_line(text_line):
+        tokens = tokenize_line(text_line)
+        for tok in tokens:
             style = tok.style
             klass = 'ansi-{}'.format(style.color.name.lower())
             if style.bold:
@@ -143,6 +195,7 @@ def htmlize(input):
                     klass=klass,
                     text=html.escape(tok.text.decode('ascii'))))
         html_line_chunks.append('<br/>')
+        inject_links(html_line_chunks)
         html_lines.append(''.join(html_line_chunks))
     return HTML_OUTPUT_TEMPLATE.format(lines='\n'.join(html_lines))
 
@@ -150,12 +203,6 @@ def htmlize(input):
 def main():
     with open(sys.argv[1], 'rb') as file:
         print(htmlize(file))
-        #firstline = file.readline()
-        #print(firstline)
-        #print('----')
-        #toks = tokenize_line(firstline)
-        #pprint.pprint(toks)
-    #print(HTML_OUTPUT_TEMPLATE)
 
 
 if __name__ == '__main__':
