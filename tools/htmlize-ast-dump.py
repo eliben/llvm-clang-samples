@@ -5,10 +5,69 @@ import html
 import io
 import pprint
 import re
+import sys
+
+# Template for full HTML output.
+HTML_OUTPUT_TEMPLATE = r'''
+<html>
+<head>
+    <style>
+    html * {{
+        background-color: black;
+        white-space: nowrap;
+    }}
+
+    .ansi-bold {{
+        font-weight: bold;
+    }}
+
+    .ansi-black {{
+        color: #000000;
+    }}
+
+    .ansi-red {{
+        color: #c22727;
+    }}
+
+    .ansi-green {{
+        color: #17b217;
+    }}
+
+    .ansi-yellow {{
+        color: #b26717;
+    }}
+
+    .ansi-blue {{
+        color: #2727c2;
+    }}
+
+    .ansi-magenta {{
+        color: #b217b2;
+    }}
+
+    .ansi-cyan {{
+        color: #17b2b2;
+    }}
+
+    .ansi-white {{
+        color: #f2f2f2;
+    }}
+    </style>
+</head>
+<body>
+<code>
+{lines}
+</code>
+</body>
+</html>
+'''
+
+SPAN_TEMPLATE = r'<span class="{klass}">{text}</span>'
+
 
 class Color(enum.Enum):
     BLACK = 30
-    READ = 31
+    RED = 31
     GREEN = 32
     YELLOW = 33
     BLUE = 34
@@ -72,23 +131,31 @@ def htmlize(input):
     input: stream / file-like object with textual AST dump.
     Returns a string with HTML-ized dump.
     """
-    outstream = io.StringIO()
-
-    while True:
-        c = input.read(1)
-        if len(c) < 1:
-            # Input is finished, we're done.
-            return outstream.getvalue()
-
+    html_lines = []
+    for text_line in input:
+        html_line_chunks = []
+        for tok in tokenize_line(text_line):
+            style = tok.style
+            klass = 'ansi-{}'.format(style.color.name.lower())
+            if style.bold:
+                klass += ' ansi-bold'
+            html_line_chunks.append(SPAN_TEMPLATE.format(
+                    klass=klass,
+                    text=html.escape(tok.text.decode('ascii'))))
+        html_line_chunks.append('<br/>')
+        html_lines.append(''.join(html_line_chunks))
+    return HTML_OUTPUT_TEMPLATE.format(lines='\n'.join(html_lines))
 
 
 def main():
-    with open('/tmp/2', 'rb') as file:
-        firstline = file.readline()
-        print(firstline)
-        print('----')
-        toks = tokenize_line(firstline)
-        pprint.pprint(toks)
+    with open(sys.argv[1], 'rb') as file:
+        print(htmlize(file))
+        #firstline = file.readline()
+        #print(firstline)
+        #print('----')
+        #toks = tokenize_line(firstline)
+        #pprint.pprint(toks)
+    #print(HTML_OUTPUT_TEMPLATE)
 
 
 if __name__ == '__main__':
