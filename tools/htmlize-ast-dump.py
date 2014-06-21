@@ -114,21 +114,15 @@ ANSI_PATTERN = re.compile(rb'\x1b\[([^m]+)m')
 
 
 def tokenize_line(line):
-    # List of tokens accumulated while tokenizing the line.
-    toks = []
-
     # The end pos of the last pattern match.
     last_end = 0
 
     # Current style
     cur_style = Style()
 
-    def add_token(text):
-        toks.append(Token(text, cur_style))
-
     for match in ANSI_PATTERN.finditer(line):
         preceding_text = line[last_end:match.start()]
-        add_token(preceding_text)
+        yield Token(preceding_text, cur_style)
         last_end = match.end()
 
         # Set the current style according to the ANSI code in the match.
@@ -144,8 +138,7 @@ def tokenize_line(line):
                 cur_style.color = Color(ansi_code)
 
     leftover_text = line[last_end:]
-    add_token(leftover_text)
-    return toks
+    yield Token(leftover_text, cur_style)
 
 
 # Link injections happens on HTML level - everything is a string now.
@@ -185,8 +178,7 @@ def htmlize(input):
     html_lines = []
     for text_line in input:
         html_line_chunks = []
-        tokens = tokenize_line(text_line)
-        for tok in tokens:
+        for tok in tokenize_line(text_line):
             style = tok.style
             klass = 'ansi-{}'.format(style.color.name.lower())
             if style.bold:
@@ -201,8 +193,12 @@ def htmlize(input):
 
 
 def main():
-    with open(sys.argv[1], 'rb') as file:
-        print(htmlize(file))
+    try:
+        input_stream = (open(sys.argv[1], 'rb') if len(sys.argv) > 1 else
+                        io.BufferedReader(sys.stdin.buffer))
+        print(htmlize(input_stream))
+    finally:
+        input_stream.close()
 
 
 if __name__ == '__main__':
