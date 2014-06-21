@@ -17,22 +17,21 @@ using namespace clang::tooling;
 
 static llvm::cl::OptionCategory ToolingSampleCategory("Tooling Sample");
 
-// Implementation of the ASTConsumer interface for reading an AST produced
-// by the Clang parser.
 class MyASTConsumer : public ASTConsumer {
 public:
   MyASTConsumer(Rewriter &R) {}
 
-  // Override the method that gets called for each parsed top-level
-  // declaration.
+  // This gets called *while the source is being parsed* - the full AST does not
+  // exist yet.
   bool HandleTopLevelDecl(DeclGroupRef DR) override {
     for (DeclGroupRef::iterator b = DR.begin(), e = DR.end(); b != e; ++b) {
-      llvm::errs() << "This is a toplevel decl!\n";
-      (*b)->dump();
+      //llvm::errs() << "This is a toplevel decl!\n";
+      //(*b)->dump();
     }
     return true;
   }
 
+  // This gets called only when the full TU is completely parsed.
   void HandleTranslationUnit(ASTContext &Context) {
     llvm::errs() << "********* The whole TU *************\n";
     Context.getTranslationUnitDecl()->dump();
@@ -41,11 +40,13 @@ public:
     for (auto *D : Context.getTranslationUnitDecl()->decls()) {
       llvm::errs() << "Decl in the TU:\n";
       D->dump();
+      llvm::errs() << "Its start location is: '"
+                   << D->getLocStart().printToString(Context.getSourceManager())
+                   << "'\n";
     }
   }
 };
 
-// For each source file provided to the tool, a new FrontendAction is created.
 class MyFrontendAction : public ASTFrontendAction {
 public:
   MyFrontendAction() {}
@@ -55,7 +56,7 @@ public:
                  << SM.getFileEntryForID(SM.getMainFileID())->getName() << "\n";
 
     // Now emit the rewritten buffer.
-    TheRewriter.getEditBuffer(SM.getMainFileID()).write(llvm::outs());
+    //TheRewriter.getEditBuffer(SM.getMainFileID()).write(llvm::outs());
   }
 
   ASTConsumer *CreateASTConsumer(CompilerInstance &CI,
@@ -72,11 +73,5 @@ private:
 int main(int argc, const char **argv) {
   CommonOptionsParser op(argc, argv, ToolingSampleCategory);
   ClangTool Tool(op.getCompilations(), op.getSourcePathList());
-
-  // ClangTool::run accepts a FrontendActionFactory, which is then used to
-  // create new objects implementing the FrontendAction interface. Here we use
-  // the helper newFrontendActionFactory to create a default factory that will
-  // return a new MyFrontendAction object every time.
-  // To further customize this, we could create our own factory class.
   return Tool.run(newFrontendActionFactory<MyFrontendAction>().get());
 }
