@@ -105,7 +105,6 @@ all: make_builddir \
 	$(BUILDDIR)/replace_threadidx_with_call \
 	$(BUILDDIR)/access_debug_metadata \
 	$(BUILDDIR)/clang-check \
-	$(BUILDDIR)/remove-cstr-calls \
 	$(BUILDDIR)/rewritersample \
 	$(BUILDDIR)/tooling_sample \
 	$(BUILDDIR)/plugin_print_funcnames.so
@@ -168,13 +167,18 @@ experimental_tools: make_builddir \
 	emit_build_config \
 	$(BUILDDIR)/remove-cstr-calls \
 	$(BUILDDIR)/toplevel_decls \
-	$(BUILDDIR)/matchers_sample
+	$(BUILDDIR)/matchers_sample \
+	$(BUILDDIR)/location_disect_sample
 
 $(BUILDDIR)/remove-cstr-calls: $(SRC_CLANG_DIR)/experimental/RemoveCStrCalls.cpp
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
 		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
 
 $(BUILDDIR)/matchers_sample: $(SRC_CLANG_DIR)/experimental/matchers_sample.cpp
+	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
+		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
+
+$(BUILDDIR)/location_disect_sample: $(SRC_CLANG_DIR)/experimental/location_disect_sample.cpp
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
 		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
 

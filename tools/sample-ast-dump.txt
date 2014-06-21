@@ -1,0 +1,1081 @@
+[0;34m[0m[0;1;32mTranslationUnitDecl[0m[0;33m 0x3511670[0m <[0;33m<invalid sloc>[0m> [0;33m<invalid sloc>[0m
+[0;34m|-[0m[0;1;32mTypedefDecl[0m[0;33m 0x3511bb0[0m <[0;33m<invalid sloc>[0m> [0;33m<invalid sloc>[0m implicit[0;1;36m __int128_t[0m [0;32m'__int128'[0m
+[0;34m|-[0m[0;1;32mTypedefDecl[0m[0;33m 0x3511c10[0m <[0;33m<invalid sloc>[0m> [0;33m<invalid sloc>[0m implicit[0;1;36m __uint128_t[0m [0;32m'unsigned __int128'[0m
+[0;34m|-[0m[0;1;32mTypedefDecl[0m[0;33m 0x3511fd0[0m <[0;33m<invalid sloc>[0m> [0;33m<invalid sloc>[0m implicit[0;1;36m __builtin_va_list[0m [0;32m'__va_list_tag [1]'[0m
+[0;34m|-[0m[0;1;32mCXXRecordDecl[0m[0;33m 0x3512020[0m <[0;33mcuda.h:23:9[0m, [0;33mcol:40[0m> [0;33mcol:9[0m struct definition
+[0;34m| |-[0m[0;1;32mFieldDecl[0m[0;33m 0x3512140[0m <[0;33mcol:18[0m, [0;33mcol:31[0m> [0;33mcol:31[0m referenced[0;1;36m x[0m [0;32m'unsigned int'[0m
+[0;34m| |-[0m[0;1;32mFieldDecl[0m[0;33m 0x35121a0[0m <[0;33mcol:18[0m, [0;33mcol:34[0m> [0;33mcol:34[0m[0;1;36m y[0m [0;32m'unsigned int'[0m
+[0;34m| `-[0m[0;1;32mFieldDecl[0m[0;33m 0x3512200[0m <[0;33mcol:18[0m, [0;33mcol:37[0m> [0;33mcol:37[0m[0;1;36m z[0m [0;32m'unsigned int'[0m
+[0;34m|-[0m[0;1;32mTypedefDecl[0m[0;33m 0x35122c0[0m <[0;33mcol:1[0m, [0;33mcol:42[0m> [0;33mcol:42[0m[0;1;36m uint3[0m [0;32m'struct uint3':'uint3'[0m
+[0;34m|-[0m[0;1;32mCXXRecordDecl[0m[0;33m 0x3512320[0m <[0;33mline:25:1[0m, [0;33mline:29:1[0m> [0;33mline:25:8[0m struct[0;1;36m dim3[0m definition
+[0;34m| |-[0m[0;1;32mCXXRecordDecl[0m[0;33m 0x3545440[0m <[0;33mcol:1[0m, [0;33mcol:8[0m> [0;33mcol:8[0m implicit struct[0;1;36m dim3[0m
+[0;34m| |-[0m[0;1;32mFieldDecl[0m[0;33m 0x35454e0[0m <[0;33mline:26:3[0m, [0;33mcol:16[0m> [0;33mcol:16[0m referenced[0;1;36m x[0m [0;32m'unsigned int'[0m
+[0;34m| |-[0m[0;1;32mFieldDecl[0m[0;33m 0x3545540[0m <[0;33mcol:3[0m, [0;33mcol:19[0m> [0;33mcol:19[0m referenced[0;1;36m y[0m [0;32m'unsigned int'[0m
+[0;34m| |-[0m[0;1;32mFieldDecl[0m[0;33m 0x35455a0[0m <[0;33mcol:3[0m, [0;33mcol:22[0m> [0;33mcol:22[0m referenced[0;1;36m z[0m [0;32m'unsigned int'[0m
+[0;34m| |-[0m[0;1;32mCXXConstructorDecl[0m[0;33m 0x3545800[0m <[0;33mline:17:18[0m, [0;33mline:28:27[0m> [0;33mline:27:23[0m used[0;1;36m dim3[0m [0;32m'void (unsigned int, unsigned int, unsigned int)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3545620[0m <[0;33mcol:28[0m, [0;33mcol:37[0m> [0;33mcol:37[0m used[0;1;36m x[0m [0;32m'unsigned int'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3545690[0m <[0;33mcol:40[0m, [0;33mcol:53[0m> [0;33mcol:49[0m used[0;1;36m y[0m [0;32m'unsigned int'[0m
+[0;34m| | | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3545948[0m <[0;33mcol:53[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mIntegralCast[0m>
+[0;34m| | |   `-[0m[0;1;35mIntegerLiteral[0m[0;33m 0x3545928[0m <[0;33mcol:53[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m[0;1;36m 1[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3545700[0m <[0;33mcol:56[0m, [0;33mcol:69[0m> [0;33mcol:65[0m used[0;1;36m z[0m [0;32m'unsigned int'[0m
+[0;34m| | | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3545980[0m <[0;33mcol:69[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mIntegralCast[0m>
+[0;34m| | |   `-[0m[0;1;35mIntegerLiteral[0m[0;33m 0x3545960[0m <[0;33mcol:69[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m[0;1;36m 1[0m
+[0;34m| | |-[0mCXXCtorInitializer [0;1;32mField[0m[0;33m 0x35454e0[0m[0;1;36m 'x'[0m [0;32m'unsigned int'[0m
+[0;34m| | | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3545a20[0m <[0;33mline:28:11[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35459c8[0m <[0;33mcol:11[0m> [0;32m'unsigned int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3545620[0m[0;1;36m 'x'[0m [0;32m'unsigned int'[0m
+[0;34m| | |-[0mCXXCtorInitializer [0;1;32mField[0m[0;33m 0x3545540[0m[0;1;36m 'y'[0m [0;32m'unsigned int'[0m
+[0;34m| | | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3545ac0[0m <[0;33mcol:17[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3545a68[0m <[0;33mcol:17[0m> [0;32m'unsigned int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3545690[0m[0;1;36m 'y'[0m [0;32m'unsigned int'[0m
+[0;34m| | |-[0mCXXCtorInitializer [0;1;32mField[0m[0;33m 0x35455a0[0m[0;1;36m 'z'[0m [0;32m'unsigned int'[0m
+[0;34m| | | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3545b60[0m <[0;33mcol:23[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3545b08[0m <[0;33mcol:23[0m> [0;32m'unsigned int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3545700[0m[0;1;36m 'z'[0m [0;32m'unsigned int'[0m
+[0;34m| | |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3545bc0[0m <[0;33mcol:26[0m, [0;33mcol:27[0m>
+[0;34m| | |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x35458d0[0m <[0;33mline:6:35[0m>
+[0;34m| | `-[0m[0;1;34mCUDAHostAttr[0m[0;33m 0x3545910[0m <[0;33mline:17:33[0m>
+[0;34m| |-[0m[0;1;32mCXXConstructorDecl[0m[0;33m 0x35619a0[0m <[0;33mline:25:8[0m> [0;33mcol:8[0m implicit used[0;1;36m dim3[0m [0;32m'void (const struct dim3 &) throw()'[0m inline
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3561ae0[0m <[0;33mcol:8[0m> [0;33mcol:8[0m used [0;32m'const struct dim3 &'[0m
+[0;34m| | |-[0mCXXCtorInitializer [0;1;32mField[0m[0;33m 0x35454e0[0m[0;1;36m 'x'[0m [0;32m'unsigned int'[0m
+[0;34m| | | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3563e08[0m <[0;33mcol:8[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | | | `-[0m[0;1;35mMemberExpr[0m[0;33m 0x3563dd8[0m <[0;33mcol:8[0m> [0;32m'const unsigned int'[0m[0;36m lvalue[0m[0;36m[0m .x[0;33m 0x35454e0[0m
+[0;34m| | | |   `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3563db0[0m <[0;33mcol:8[0m> [0;32m'const struct dim3'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3561ae0[0m[0;1;36m ''[0m [0;32m'const struct dim3 &'[0m
+[0;34m| | |-[0mCXXCtorInitializer [0;1;32mField[0m[0;33m 0x3545540[0m[0;1;36m 'y'[0m [0;32m'unsigned int'[0m
+[0;34m| | | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3563ea0[0m <[0;33mcol:8[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | | | `-[0m[0;1;35mMemberExpr[0m[0;33m 0x3563e70[0m <[0;33mcol:8[0m> [0;32m'const unsigned int'[0m[0;36m lvalue[0m[0;36m[0m .y[0;33m 0x3545540[0m
+[0;34m| | | |   `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3563e48[0m <[0;33mcol:8[0m> [0;32m'const struct dim3'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3561ae0[0m[0;1;36m ''[0m [0;32m'const struct dim3 &'[0m
+[0;34m| | |-[0mCXXCtorInitializer [0;1;32mField[0m[0;33m 0x35455a0[0m[0;1;36m 'z'[0m [0;32m'unsigned int'[0m
+[0;34m| | | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3563f38[0m <[0;33mcol:8[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | | | `-[0m[0;1;35mMemberExpr[0m[0;33m 0x3563f08[0m <[0;33mcol:8[0m> [0;32m'const unsigned int'[0m[0;36m lvalue[0m[0;36m[0m .z[0;33m 0x35455a0[0m
+[0;34m| | | |   `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3563ee0[0m <[0;33mcol:8[0m> [0;32m'const struct dim3'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3561ae0[0m[0;1;36m ''[0m [0;32m'const struct dim3 &'[0m
+[0;34m| | `-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3563f90[0m <[0;33mcol:8[0m>
+[0;34m| `-[0m[0;1;32mCXXDestructorDecl[0m[0;33m 0x3561c20[0m <[0;33mcol:8[0m> [0;33mcol:8[0m implicit used[0;1;36m ~dim3[0m [0;32m'void (void) throw()'[0m inline
+[0;34m|   `-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3563d30[0m <[0;33mcol:8[0m>
+[0;34m|-[0m[0;1;32mTypedefDecl[0m[0;33m 0x3545c40[0m <[0;33mline:31:1[0m, [0;33mcol:15[0m> [0;33mcol:15[0m[0;1;36m float2[0m [0;32m'float __attribute__((ext_vector_type(2)))'[0m
+[0;34m|-[0m[0;1;32mTypedefDecl[0m[0;33m 0x3545cf0[0m <[0;33mline:32:1[0m, [0;33mcol:15[0m> [0;33mcol:15[0m[0;1;36m float4[0m [0;32m'float __attribute__((ext_vector_type(4)))'[0m
+[0;34m|-[0m[0;1;32mTypedefDecl[0m[0;33m 0x3545da0[0m <[0;33mline:33:1[0m, [0;33mcol:16[0m> [0;33mcol:16[0m[0;1;36m double2[0m [0;32m'double __attribute__((ext_vector_type(2)))'[0m
+[0;34m|-[0m[0;1;32mVarDecl[0m[0;33m 0x3545e20[0m <[0;33mline:35:1[0m, [0;33mcol:39[0m> [0;33mcol:39[0m used[0;1;36m threadIdx[0m [0;32m'const uint3':'const uint3'[0m extern
+[0;34m|-[0m[0;1;32mVarDecl[0m[0;33m 0x3545e90[0m <[0;33mline:36:1[0m, [0;33mcol:39[0m> [0;33mcol:39[0m[0;1;36m blockIdx[0m [0;32m'const uint3':'const uint3'[0m extern
+[0;34m|-[0m[0;1;32mVarDecl[0m[0;33m 0x3545f00[0m <[0;33mline:37:1[0m, [0;33mcol:38[0m> [0;33mcol:38[0m[0;1;36m blockDim[0m [0;32m'const struct dim3'[0m extern
+[0;34m|-[0m[0;1;32mVarDecl[0m[0;33m 0x3545f70[0m <[0;33mline:38:1[0m, [0;33mcol:38[0m> [0;33mcol:38[0m[0;1;36m gridDim[0m [0;32m'const struct dim3'[0m extern
+[0;34m|-[0m[0;1;32mVarDecl[0m[0;33m 0x3545fe0[0m <[0;33mline:39:1[0m, [0;33mcol:37[0m> [0;33mcol:37[0m[0;1;36m warpSize[0m [0;32m'const int'[0m extern
+[0;34m|-[0m[0;1;32mLinkageSpecDecl[0m[0;33m 0x35460f0[0m <[0;33mline:41:1[0m, [0;33mline:98:1[0m> [0;33mline:41:8[0m C
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3546210[0m <[0;33mline:6:20[0m, [0;33mline:64:35[0m> [0;33mcol:18[0m used[0;1;36m __nv_expf[0m [0;32m'float (float)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3546150[0m <[0;33mcol:28[0m, [0;33mcol:34[0m> [0;33mcol:34[0m[0;1;36m f[0m [0;32m'float'[0m
+[0;34m| | `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x35462c0[0m <[0;33mline:6:35[0m>
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x354d940[0m <[0;33mcol:20[0m, [0;33mline:65:40[0m> [0;33mcol:18[0m[0;1;36m __nv_fast_expf[0m [0;32m'float (float)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3546310[0m <[0;33mcol:33[0m, [0;33mcol:39[0m> [0;33mcol:39[0m[0;1;36m f[0m [0;32m'float'[0m
+[0;34m| | `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x354d9f0[0m <[0;33mline:6:35[0m>
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x354db80[0m <[0;33mcol:20[0m, [0;33mline:67:44[0m> [0;33mcol:18[0m used[0;1;36m __nv_powf[0m [0;32m'float (float, float)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354da40[0m <[0;33mcol:28[0m, [0;33mcol:34[0m> [0;33mcol:34[0m[0;1;36m x[0m [0;32m'float'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354dab0[0m <[0;33mcol:37[0m, [0;33mcol:43[0m> [0;33mcol:43[0m[0;1;36m y[0m [0;32m'float'[0m
+[0;34m| | `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x354dc30[0m <[0;33mline:6:35[0m>
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x354dd80[0m <[0;33mcol:20[0m, [0;33mline:68:49[0m> [0;33mcol:18[0m used[0;1;36m __nv_fast_powf[0m [0;32m'float (float, float)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354dc80[0m <[0;33mcol:33[0m, [0;33mcol:39[0m> [0;33mcol:39[0m[0;1;36m x[0m [0;32m'float'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354dcf0[0m <[0;33mcol:42[0m, [0;33mcol:48[0m> [0;33mcol:48[0m[0;1;36m y[0m [0;32m'float'[0m
+[0;34m| | `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x354de30[0m <[0;33mline:6:35[0m>
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x354df80[0m <[0;33mcol:20[0m, [0;33mline:70:47[0m> [0;33mcol:18[0m used[0;1;36m __nv_fdiv_rn[0m [0;32m'float (float, float)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354de80[0m <[0;33mcol:31[0m, [0;33mcol:37[0m> [0;33mcol:37[0m[0;1;36m x[0m [0;32m'float'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354def0[0m <[0;33mcol:40[0m, [0;33mcol:46[0m> [0;33mcol:46[0m[0;1;36m y[0m [0;32m'float'[0m
+[0;34m| | `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x354e030[0m <[0;33mline:6:35[0m>
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x354e180[0m <[0;33mcol:20[0m, [0;33mline:71:53[0m> [0;33mcol:18[0m used[0;1;36m __nv_fast_fdividef[0m [0;32m'float (float, float)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354e080[0m <[0;33mcol:37[0m, [0;33mcol:43[0m> [0;33mcol:43[0m[0;1;36m x[0m [0;32m'float'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354e0f0[0m <[0;33mcol:46[0m, [0;33mcol:52[0m> [0;33mcol:52[0m[0;1;36m y[0m [0;32m'float'[0m
+[0;34m| | `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x354e230[0m <[0;33mline:6:35[0m>
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x354e300[0m <[0;33mcol:20[0m, [0;33mline:73:36[0m> [0;33mcol:18[0m used[0;1;36m __nv_sqrtf[0m [0;32m'float (float)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354e280[0m <[0;33mcol:29[0m, [0;33mcol:35[0m> [0;33mcol:35[0m[0;1;36m x[0m [0;32m'float'[0m
+[0;34m| | `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x354e3b0[0m <[0;33mline:6:35[0m>
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x354e540[0m <[0;33mcol:20[0m, [0;33mline:75:37[0m> [0;33mcol:16[0m used[0;1;36m __nv_max[0m [0;32m'int (int, int)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354e400[0m <[0;33mcol:25[0m, [0;33mcol:29[0m> [0;33mcol:29[0m[0;1;36m x[0m [0;32m'int'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354e470[0m <[0;33mcol:32[0m, [0;33mcol:36[0m> [0;33mcol:36[0m[0;1;36m y[0m [0;32m'int'[0m
+[0;34m| | `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x354e5f0[0m <[0;33mline:6:35[0m>
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x354e780[0m <[0;33mcol:20[0m, [0;33mline:76:65[0m> [0;33mcol:25[0m used[0;1;36m __nv_umax[0m [0;32m'unsigned int (unsigned int, unsigned int)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354e640[0m <[0;33mcol:35[0m, [0;33mcol:48[0m> [0;33mcol:48[0m[0;1;36m x[0m [0;32m'unsigned int'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354e6b0[0m <[0;33mcol:51[0m, [0;33mcol:64[0m> [0;33mcol:64[0m[0;1;36m y[0m [0;32m'unsigned int'[0m
+[0;34m| | `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x354e830[0m <[0;33mline:6:35[0m>
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x354ea20[0m <[0;33mcol:20[0m, [0;33mline:77:57[0m> [0;33mcol:22[0m used[0;1;36m __nv_llmax[0m [0;32m'long long (long long, long long)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354e880[0m <[0;33mcol:33[0m, [0;33mcol:43[0m> [0;33mcol:43[0m[0;1;36m x[0m [0;32m'long long'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354e950[0m <[0;33mcol:46[0m, [0;33mcol:56[0m> [0;33mcol:56[0m[0;1;36m y[0m [0;32m'long long'[0m
+[0;34m| | `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x354ead0[0m <[0;33mline:6:35[0m>
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x354ec60[0m <[0;33mcol:20[0m, [0;33mline:79:63[0m> [0;33mline:78:31[0m used[0;1;36m __nv_ullmax[0m [0;32m'unsigned long long (unsigned long long, unsigned long long)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354eb20[0m <[0;33mcol:43[0m, [0;33mcol:62[0m> [0;33mcol:62[0m[0;1;36m x[0m [0;32m'unsigned long long'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354eb90[0m <[0;33mline:79:43[0m, [0;33mcol:62[0m> [0;33mcol:62[0m[0;1;36m y[0m [0;32m'unsigned long long'[0m
+[0;34m| | `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x354ed10[0m <[0;33mline:6:35[0m>
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x354eea0[0m <[0;33mcol:20[0m, [0;33mline:80:47[0m> [0;33mcol:19[0m used[0;1;36m __nv_fmax[0m [0;32m'double (double, double)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354ed60[0m <[0;33mcol:29[0m, [0;33mcol:36[0m> [0;33mcol:36[0m[0;1;36m x[0m [0;32m'double'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354edd0[0m <[0;33mcol:39[0m, [0;33mcol:46[0m> [0;33mcol:46[0m[0;1;36m y[0m [0;32m'double'[0m
+[0;34m| | `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x354ef50[0m <[0;33mline:6:35[0m>
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x354f0a0[0m <[0;33mcol:20[0m, [0;33mline:81:45[0m> [0;33mcol:18[0m used[0;1;36m __nv_fmaxf[0m [0;32m'float (float, float)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354efa0[0m <[0;33mcol:29[0m, [0;33mcol:35[0m> [0;33mcol:35[0m[0;1;36m x[0m [0;32m'float'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354f010[0m <[0;33mcol:38[0m, [0;33mcol:44[0m> [0;33mcol:44[0m[0;1;36m y[0m [0;32m'float'[0m
+[0;34m| | `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x354f150[0m <[0;33mline:6:35[0m>
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x354f2a0[0m <[0;33mcol:20[0m, [0;33mline:83:37[0m> [0;33mcol:16[0m used[0;1;36m __nv_min[0m [0;32m'int (int, int)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354f1a0[0m <[0;33mcol:25[0m, [0;33mcol:29[0m> [0;33mcol:29[0m[0;1;36m x[0m [0;32m'int'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354f210[0m <[0;33mcol:32[0m, [0;33mcol:36[0m> [0;33mcol:36[0m[0;1;36m y[0m [0;32m'int'[0m
+[0;34m| | `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x354f350[0m <[0;33mline:6:35[0m>
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x354f4a0[0m <[0;33mcol:20[0m, [0;33mline:84:65[0m> [0;33mcol:25[0m used[0;1;36m __nv_umin[0m [0;32m'unsigned int (unsigned int, unsigned int)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354f3a0[0m <[0;33mcol:35[0m, [0;33mcol:48[0m> [0;33mcol:48[0m[0;1;36m x[0m [0;32m'unsigned int'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354f410[0m <[0;33mcol:51[0m, [0;33mcol:64[0m> [0;33mcol:64[0m[0;1;36m y[0m [0;32m'unsigned int'[0m
+[0;34m| | `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x354f550[0m <[0;33mline:6:35[0m>
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x354f6a0[0m <[0;33mcol:20[0m, [0;33mline:85:57[0m> [0;33mcol:22[0m used[0;1;36m __nv_llmin[0m [0;32m'long long (long long, long long)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354f5a0[0m <[0;33mcol:33[0m, [0;33mcol:43[0m> [0;33mcol:43[0m[0;1;36m x[0m [0;32m'long long'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354f610[0m <[0;33mcol:46[0m, [0;33mcol:56[0m> [0;33mcol:56[0m[0;1;36m y[0m [0;32m'long long'[0m
+[0;34m| | `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x354f750[0m <[0;33mline:6:35[0m>
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x354f8a0[0m <[0;33mcol:20[0m, [0;33mline:87:63[0m> [0;33mline:86:31[0m used[0;1;36m __nv_ullmin[0m [0;32m'unsigned long long (unsigned long long, unsigned long long)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354f7a0[0m <[0;33mcol:43[0m, [0;33mcol:62[0m> [0;33mcol:62[0m[0;1;36m x[0m [0;32m'unsigned long long'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354f810[0m <[0;33mline:87:43[0m, [0;33mcol:62[0m> [0;33mcol:62[0m[0;1;36m y[0m [0;32m'unsigned long long'[0m
+[0;34m| | `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x354fc70[0m <[0;33mline:6:35[0m>
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x354fdc0[0m <[0;33mcol:20[0m, [0;33mline:88:47[0m> [0;33mcol:19[0m used[0;1;36m __nv_fmin[0m [0;32m'double (double, double)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354fcc0[0m <[0;33mcol:29[0m, [0;33mcol:36[0m> [0;33mcol:36[0m[0;1;36m x[0m [0;32m'double'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354fd30[0m <[0;33mcol:39[0m, [0;33mcol:46[0m> [0;33mcol:46[0m[0;1;36m y[0m [0;32m'double'[0m
+[0;34m| | `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x354fe70[0m <[0;33mline:6:35[0m>
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x354ffc0[0m <[0;33mcol:20[0m, [0;33mline:89:45[0m> [0;33mcol:18[0m used[0;1;36m __nv_fminf[0m [0;32m'float (float, float)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354fec0[0m <[0;33mcol:29[0m, [0;33mcol:35[0m> [0;33mcol:35[0m[0;1;36m x[0m [0;32m'float'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x354ff30[0m <[0;33mcol:38[0m, [0;33mcol:44[0m> [0;33mcol:44[0m[0;1;36m y[0m [0;32m'float'[0m
+[0;34m| | `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x3550070[0m <[0;33mline:6:35[0m>
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3550180[0m <[0;33mcol:20[0m, [0;33mline:91:30[0m> [0;33mcol:16[0m used[0;1;36m __nv_abs[0m [0;32m'int (int)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x35500c0[0m <[0;33mcol:25[0m, [0;33mcol:29[0m> [0;33mcol:29[0m[0;1;36m x[0m [0;32m'int'[0m
+[0;34m| | `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x3550230[0m <[0;33mline:6:35[0m>
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3550340[0m <[0;33mcol:20[0m, [0;33mline:92:44[0m> [0;33mcol:22[0m used[0;1;36m __nv_llabs[0m [0;32m'long long (long long)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3550280[0m <[0;33mcol:33[0m, [0;33mcol:43[0m> [0;33mcol:43[0m[0;1;36m x[0m [0;32m'long long'[0m
+[0;34m| | `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x35503f0[0m <[0;33mline:6:35[0m>
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3550500[0m <[0;33mcol:20[0m, [0;33mline:93:37[0m> [0;33mcol:19[0m used[0;1;36m __nv_fabs[0m [0;32m'double (double)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3550440[0m <[0;33mcol:29[0m, [0;33mcol:36[0m> [0;33mcol:36[0m[0;1;36m x[0m [0;32m'double'[0m
+[0;34m| | `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x35505b0[0m <[0;33mline:6:35[0m>
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3550680[0m <[0;33mcol:20[0m, [0;33mline:94:36[0m> [0;33mcol:18[0m used[0;1;36m __nv_fabsf[0m [0;32m'float (float)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3550600[0m <[0;33mcol:29[0m, [0;33mcol:35[0m> [0;33mcol:35[0m[0;1;36m x[0m [0;32m'float'[0m
+[0;34m| | `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x3550730[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3550840[0m <[0;33mcol:20[0m, [0;33mline:96:36[0m> [0;33mcol:16[0m used[0;1;36m __nv_finitef[0m [0;32m'int (float)'[0m
+[0;34m|   |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3550780[0m <[0;33mcol:29[0m, [0;33mcol:35[0m> [0;33mcol:35[0m[0;1;36m x[0m [0;32m'float'[0m
+[0;34m|   `-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x35508f0[0m <[0;33mline:6:35[0m>
+[0;34m|-[0m[0;1;32mEmptyDecl[0m[0;33m 0x3550930[0m <[0;33mline:98:2[0m> [0;33mcol:2[0m
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x35509e0[0m <[0;33mline:21:25[0m, [0;33mline:106:1[0m> [0;33mline:100:34[0m[0;1;36m expf[0m [0;32m'float (float)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3550960[0m <[0;33mcol:39[0m, [0;33mcol:45[0m> [0;33mcol:45[0m used[0;1;36m f[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3550c38[0m <[0;33mcol:48[0m, [0;33mline:106:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x3550c18[0m <[0;33mline:104:3[0m, [0;33mcol:21[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x3550bd0[0m <[0;33mcol:10[0m, [0;33mcol:21[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3550bb8[0m <[0;33mcol:10[0m> [0;32m'float (*)(float)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3550b68[0m <[0;33mcol:10[0m> [0;32m'float (float)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x3546210[0m[0;1;36m '__nv_expf'[0m [0;32m'float (float)'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3550c00[0m <[0;33mcol:20[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3550b40[0m <[0;33mcol:20[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3550960[0m[0;1;36m 'f'[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x3550a90[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x3550ad0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3551ba0[0m <[0;33mcol:25[0m, [0;33mline:110:1[0m> [0;33mline:108:34[0m[0;1;36m __powf[0m [0;32m'float (float, float)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3551aa0[0m <[0;33mcol:41[0m, [0;33mcol:47[0m> [0;33mcol:47[0m used[0;1;36m x[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3551b10[0m <[0;33mcol:50[0m, [0;33mcol:56[0m> [0;33mcol:56[0m used[0;1;36m y[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3551e48[0m <[0;33mcol:59[0m, [0;33mline:110:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x3551e28[0m <[0;33mline:109:3[0m, [0;33mcol:29[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x3551dc0[0m <[0;33mcol:10[0m, [0;33mcol:29[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3551da8[0m <[0;33mcol:10[0m> [0;32m'float (*)(float, float)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3551d50[0m <[0;33mcol:10[0m> [0;32m'float (float, float)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354dd80[0m[0;1;36m '__nv_fast_powf'[0m [0;32m'float (float, float)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3551df8[0m <[0;33mcol:25[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3551d00[0m <[0;33mcol:25[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3551aa0[0m[0;1;36m 'x'[0m [0;32m'float'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3551e10[0m <[0;33mcol:28[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3551d28[0m <[0;33mcol:28[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3551b10[0m[0;1;36m 'y'[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x3551c50[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x3551c90[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3551f80[0m <[0;33mcol:25[0m, [0;33mline:118:1[0m> [0;33mline:112:34[0m[0;1;36m powf[0m [0;32m'float (float, float)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3551e80[0m <[0;33mcol:39[0m, [0;33mcol:45[0m> [0;33mcol:45[0m used[0;1;36m x[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3551ef0[0m <[0;33mcol:48[0m, [0;33mcol:54[0m> [0;33mcol:54[0m used[0;1;36m y[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x35521f8[0m <[0;33mcol:57[0m, [0;33mline:118:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x35521d8[0m <[0;33mline:116:3[0m, [0;33mcol:24[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x3552170[0m <[0;33mcol:10[0m, [0;33mcol:24[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3552158[0m <[0;33mcol:10[0m> [0;32m'float (*)(float, float)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3552130[0m <[0;33mcol:10[0m> [0;32m'float (float, float)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354db80[0m[0;1;36m '__nv_powf'[0m [0;32m'float (float, float)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35521a8[0m <[0;33mcol:20[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35520e0[0m <[0;33mcol:20[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3551e80[0m[0;1;36m 'x'[0m [0;32m'float'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35521c0[0m <[0;33mcol:23[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3552108[0m <[0;33mcol:23[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3551ef0[0m[0;1;36m 'y'[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x3552030[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x3552070[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3552330[0m <[0;33mcol:25[0m, [0;33mline:122:1[0m> [0;33mline:120:34[0m[0;1;36m __fdividef[0m [0;32m'float (float, float)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3552230[0m <[0;33mcol:45[0m, [0;33mcol:51[0m> [0;33mcol:51[0m used[0;1;36m x[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x35522a0[0m <[0;33mcol:54[0m, [0;33mcol:60[0m> [0;33mcol:60[0m used[0;1;36m y[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x35525a8[0m <[0;33mcol:63[0m, [0;33mline:122:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x3552588[0m <[0;33mline:121:3[0m, [0;33mcol:33[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x3552520[0m <[0;33mcol:10[0m, [0;33mcol:33[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3552508[0m <[0;33mcol:10[0m> [0;32m'float (*)(float, float)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35524e0[0m <[0;33mcol:10[0m> [0;32m'float (float, float)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354e180[0m[0;1;36m '__nv_fast_fdividef'[0m [0;32m'float (float, float)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3552558[0m <[0;33mcol:29[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3552490[0m <[0;33mcol:29[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3552230[0m[0;1;36m 'x'[0m [0;32m'float'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3552570[0m <[0;33mcol:32[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35524b8[0m <[0;33mcol:32[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x35522a0[0m[0;1;36m 'y'[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x35523e0[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x3552420[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x35526e0[0m <[0;33mcol:25[0m, [0;33mline:130:1[0m> [0;33mline:124:34[0m[0;1;36m fdividef[0m [0;32m'float (float, float)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x35525e0[0m <[0;33mcol:43[0m, [0;33mcol:49[0m> [0;33mcol:49[0m used[0;1;36m x[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3552650[0m <[0;33mcol:52[0m, [0;33mcol:58[0m> [0;33mcol:58[0m used[0;1;36m y[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3552958[0m <[0;33mcol:61[0m, [0;33mline:130:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x3552938[0m <[0;33mline:128:3[0m, [0;33mcol:27[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x35528d0[0m <[0;33mcol:10[0m, [0;33mcol:27[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35528b8[0m <[0;33mcol:10[0m> [0;32m'float (*)(float, float)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3552890[0m <[0;33mcol:10[0m> [0;32m'float (float, float)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354df80[0m[0;1;36m '__nv_fdiv_rn'[0m [0;32m'float (float, float)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3552908[0m <[0;33mcol:23[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3552840[0m <[0;33mcol:23[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x35525e0[0m[0;1;36m 'x'[0m [0;32m'float'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3552920[0m <[0;33mcol:26[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3552868[0m <[0;33mcol:26[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3552650[0m[0;1;36m 'y'[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x3552790[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x35527d0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3552ab0[0m <[0;33mcol:25[0m, [0;33mline:134:72[0m> [0;33mcol:34[0m[0;1;36m sqrt[0m [0;32m'float (float)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3552990[0m <[0;33mcol:39[0m, [0;33mcol:45[0m> [0;33mcol:45[0m used[0;1;36m x[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3552ce0[0m <[0;33mcol:48[0m, [0;33mcol:72[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x3552cc0[0m <[0;33mcol:50[0m, [0;33mcol:69[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x3552c78[0m <[0;33mcol:57[0m, [0;33mcol:69[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3552c60[0m <[0;33mcol:57[0m> [0;32m'float (*)(float)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3552c38[0m <[0;33mcol:57[0m> [0;32m'float (float)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354e300[0m[0;1;36m '__nv_sqrtf'[0m [0;32m'float (float)'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3552ca8[0m <[0;33mcol:68[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3552c10[0m <[0;33mcol:68[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3552990[0m[0;1;36m 'x'[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x3552b60[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x3552ba0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3552e10[0m <[0;33mcol:25[0m, [0;33mline:138:75[0m> [0;33mcol:32[0m[0;1;36m max[0m [0;32m'int (int, int)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3552d10[0m <[0;33mcol:36[0m, [0;33mcol:40[0m> [0;33mcol:40[0m used[0;1;36m x[0m [0;32m'int'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3552d80[0m <[0;33mcol:43[0m, [0;33mcol:47[0m> [0;33mcol:47[0m used[0;1;36m y[0m [0;32m'int'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x35530b8[0m <[0;33mcol:50[0m, [0;33mcol:75[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x3553098[0m <[0;33mcol:52[0m, [0;33mcol:72[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x3553030[0m <[0;33mcol:59[0m, [0;33mcol:72[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3553018[0m <[0;33mcol:59[0m> [0;32m'int (*)(int, int)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3552fc0[0m <[0;33mcol:59[0m> [0;32m'int (int, int)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354e540[0m[0;1;36m '__nv_max'[0m [0;32m'int (int, int)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3553068[0m <[0;33mcol:68[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3552f70[0m <[0;33mcol:68[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3552d10[0m[0;1;36m 'x'[0m [0;32m'int'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3553080[0m <[0;33mcol:71[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3552f98[0m <[0;33mcol:71[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3552d80[0m[0;1;36m 'y'[0m [0;32m'int'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x3552ec0[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x3552f00[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x35531f0[0m <[0;33mcol:25[0m, [0;33mline:142:1[0m> [0;33mline:140:41[0m[0;1;36m max[0m [0;32m'unsigned int (unsigned int, unsigned int)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x35530f0[0m <[0;33mcol:45[0m, [0;33mcol:58[0m> [0;33mcol:58[0m used[0;1;36m x[0m [0;32m'unsigned int'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3553160[0m <[0;33mcol:61[0m, [0;33mcol:74[0m> [0;33mcol:74[0m used[0;1;36m y[0m [0;32m'unsigned int'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3553498[0m <[0;33mcol:77[0m, [0;33mline:142:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x3553478[0m <[0;33mline:141:3[0m, [0;33mcol:24[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x3553410[0m <[0;33mcol:10[0m, [0;33mcol:24[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35533f8[0m <[0;33mcol:10[0m> [0;32m'unsigned int (*)(unsigned int, unsigned int)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35533a0[0m <[0;33mcol:10[0m> [0;32m'unsigned int (unsigned int, unsigned int)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354e780[0m[0;1;36m '__nv_umax'[0m [0;32m'unsigned int (unsigned int, unsigned int)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3553448[0m <[0;33mcol:20[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3553350[0m <[0;33mcol:20[0m> [0;32m'unsigned int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x35530f0[0m[0;1;36m 'x'[0m [0;32m'unsigned int'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3553460[0m <[0;33mcol:23[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3553378[0m <[0;33mcol:23[0m> [0;32m'unsigned int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3553160[0m[0;1;36m 'y'[0m [0;32m'unsigned int'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x35532a0[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x35532e0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3553610[0m <[0;33mcol:25[0m, [0;33mline:146:1[0m> [0;33mline:144:42[0m[0;1;36m max[0m [0;32m'unsigned int (int, unsigned int)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x35534d0[0m <[0;33mcol:46[0m, [0;33mcol:50[0m> [0;33mcol:50[0m used[0;1;36m x[0m [0;32m'int'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3553540[0m <[0;33mcol:53[0m, [0;33mcol:66[0m> [0;33mcol:66[0m used[0;1;36m y[0m [0;32m'unsigned int'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x35538d8[0m <[0;33mcol:69[0m, [0;33mline:146:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x35538b8[0m <[0;33mline:145:3[0m, [0;33mcol:38[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x3553868[0m <[0;33mcol:10[0m, [0;33mcol:38[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3553850[0m <[0;33mcol:10[0m> [0;32m'unsigned int (*)(unsigned int, unsigned int)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3553828[0m <[0;33mcol:10[0m> [0;32m'unsigned int (unsigned int, unsigned int)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354e780[0m[0;1;36m '__nv_umax'[0m [0;32m'unsigned int (unsigned int, unsigned int)'[0m
+[0;34m| |     |-[0m[0;1;35mCStyleCastExpr[0m[0;33m 0x35537d8[0m <[0;33mcol:20[0m, [0;33mcol:34[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mNoOp[0m>
+[0;34m| |     | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35537c0[0m <[0;33mcol:34[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mIntegralCast[0m>
+[0;34m| |     |   `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35537a8[0m <[0;33mcol:34[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     |     `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3553770[0m <[0;33mcol:34[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x35534d0[0m[0;1;36m 'x'[0m [0;32m'int'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35538a0[0m <[0;33mcol:37[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3553800[0m <[0;33mcol:37[0m> [0;32m'unsigned int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3553540[0m[0;1;36m 'y'[0m [0;32m'unsigned int'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x35536c0[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x3553700[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3554ad0[0m <[0;33mcol:25[0m, [0;33mline:150:1[0m> [0;33mline:148:41[0m[0;1;36m max[0m [0;32m'unsigned int (unsigned int, int)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3553910[0m <[0;33mcol:45[0m, [0;33mcol:58[0m> [0;33mcol:58[0m used[0;1;36m x[0m [0;32m'unsigned int'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3553980[0m <[0;33mcol:61[0m, [0;33mcol:65[0m> [0;33mcol:65[0m used[0;1;36m y[0m [0;32m'int'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3554d98[0m <[0;33mcol:68[0m, [0;33mline:150:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x3554d78[0m <[0;33mline:149:3[0m, [0;33mcol:38[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x3554d28[0m <[0;33mcol:10[0m, [0;33mcol:38[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3554d10[0m <[0;33mcol:10[0m> [0;32m'unsigned int (*)(unsigned int, unsigned int)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3554ce8[0m <[0;33mcol:10[0m> [0;32m'unsigned int (unsigned int, unsigned int)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354e780[0m[0;1;36m '__nv_umax'[0m [0;32m'unsigned int (unsigned int, unsigned int)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3554d60[0m <[0;33mcol:20[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3554c30[0m <[0;33mcol:20[0m> [0;32m'unsigned int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3553910[0m[0;1;36m 'x'[0m [0;32m'unsigned int'[0m
+[0;34m| |     `-[0m[0;1;35mCStyleCastExpr[0m[0;33m 0x3554cc0[0m <[0;33mcol:23[0m, [0;33mcol:37[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mNoOp[0m>
+[0;34m| |       `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3554ca8[0m <[0;33mcol:37[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mIntegralCast[0m>
+[0;34m| |         `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3554c90[0m <[0;33mcol:37[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |           `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3554c58[0m <[0;33mcol:37[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3553980[0m[0;1;36m 'y'[0m [0;32m'int'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x3554b80[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x3554bc0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3554ed0[0m <[0;33mcol:25[0m, [0;33mline:154:1[0m> [0;33mline:152:38[0m[0;1;36m max[0m [0;32m'long long (long long, long long)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3554dd0[0m <[0;33mcol:42[0m, [0;33mcol:52[0m> [0;33mcol:52[0m used[0;1;36m x[0m [0;32m'long long'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3554e40[0m <[0;33mcol:55[0m, [0;33mcol:65[0m> [0;33mcol:65[0m used[0;1;36m y[0m [0;32m'long long'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3555178[0m <[0;33mcol:68[0m, [0;33mline:154:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x3555158[0m <[0;33mline:153:3[0m, [0;33mcol:25[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x35550f0[0m <[0;33mcol:10[0m, [0;33mcol:25[0m> [0;32m'long long'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35550d8[0m <[0;33mcol:10[0m> [0;32m'long long (*)(long long, long long)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3555080[0m <[0;33mcol:10[0m> [0;32m'long long (long long, long long)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354ea20[0m[0;1;36m '__nv_llmax'[0m [0;32m'long long (long long, long long)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3555128[0m <[0;33mcol:21[0m> [0;32m'long long'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3555030[0m <[0;33mcol:21[0m> [0;32m'long long'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3554dd0[0m[0;1;36m 'x'[0m [0;32m'long long'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3555140[0m <[0;33mcol:24[0m> [0;32m'long long'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3555058[0m <[0;33mcol:24[0m> [0;32m'long long'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3554e40[0m[0;1;36m 'y'[0m [0;32m'long long'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x3554f80[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x3554fc0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x35552b0[0m <[0;33mcol:25[0m, [0;33mline:159:1[0m> [0;33mline:156:47[0m[0;1;36m max[0m [0;32m'unsigned long long (unsigned long long, unsigned long long)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x35551b0[0m <[0;33mcol:51[0m, [0;33mcol:70[0m> [0;33mcol:70[0m used[0;1;36m x[0m [0;32m'unsigned long long'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3555220[0m <[0;33mline:157:51[0m, [0;33mcol:70[0m> [0;33mcol:70[0m used[0;1;36m y[0m [0;32m'unsigned long long'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3555558[0m <[0;33mcol:73[0m, [0;33mline:159:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x3555538[0m <[0;33mline:158:3[0m, [0;33mcol:26[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x35554d0[0m <[0;33mcol:10[0m, [0;33mcol:26[0m> [0;32m'unsigned long long'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35554b8[0m <[0;33mcol:10[0m> [0;32m'unsigned long long (*)(unsigned long long, unsigned long long)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3555460[0m <[0;33mcol:10[0m> [0;32m'unsigned long long (unsigned long long, unsigned long long)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354ec60[0m[0;1;36m '__nv_ullmax'[0m [0;32m'unsigned long long (unsigned long long, unsigned long long)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3555508[0m <[0;33mcol:22[0m> [0;32m'unsigned long long'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3555410[0m <[0;33mcol:22[0m> [0;32m'unsigned long long'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x35551b0[0m[0;1;36m 'x'[0m [0;32m'unsigned long long'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3555520[0m <[0;33mcol:25[0m> [0;32m'unsigned long long'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3555438[0m <[0;33mcol:25[0m> [0;32m'unsigned long long'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3555220[0m[0;1;36m 'y'[0m [0;32m'unsigned long long'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x3555360[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x35553a0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x35556d0[0m <[0;33mcol:25[0m, [0;33mline:164:1[0m> [0;33mline:161:47[0m[0;1;36m max[0m [0;32m'unsigned long long (long long, unsigned long long)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3555590[0m <[0;33mcol:51[0m, [0;33mcol:61[0m> [0;33mcol:61[0m used[0;1;36m x[0m [0;32m'long long'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3555600[0m <[0;33mline:162:51[0m, [0;33mcol:70[0m> [0;33mcol:70[0m used[0;1;36m y[0m [0;32m'unsigned long long'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3555998[0m <[0;33mcol:73[0m, [0;33mline:164:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x3555978[0m <[0;33mline:163:3[0m, [0;33mcol:46[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x3555928[0m <[0;33mcol:10[0m, [0;33mcol:46[0m> [0;32m'unsigned long long'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3555910[0m <[0;33mcol:10[0m> [0;32m'unsigned long long (*)(unsigned long long, unsigned long long)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35558e8[0m <[0;33mcol:10[0m> [0;32m'unsigned long long (unsigned long long, unsigned long long)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354ec60[0m[0;1;36m '__nv_ullmax'[0m [0;32m'unsigned long long (unsigned long long, unsigned long long)'[0m
+[0;34m| |     |-[0m[0;1;35mCStyleCastExpr[0m[0;33m 0x3555898[0m <[0;33mcol:22[0m, [0;33mcol:42[0m> [0;32m'unsigned long long'[0m[0;36m[0m[0;36m[0m <[0;31mNoOp[0m>
+[0;34m| |     | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3555880[0m <[0;33mcol:42[0m> [0;32m'unsigned long long'[0m[0;36m[0m[0;36m[0m <[0;31mIntegralCast[0m>
+[0;34m| |     |   `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3555868[0m <[0;33mcol:42[0m> [0;32m'long long'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     |     `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3555830[0m <[0;33mcol:42[0m> [0;32m'long long'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3555590[0m[0;1;36m 'x'[0m [0;32m'long long'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3555960[0m <[0;33mcol:45[0m> [0;32m'unsigned long long'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35558c0[0m <[0;33mcol:45[0m> [0;32m'unsigned long long'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3555600[0m[0;1;36m 'y'[0m [0;32m'unsigned long long'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x3555780[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x35557c0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3555b50[0m <[0;33mcol:25[0m, [0;33mline:169:1[0m> [0;33mline:166:47[0m[0;1;36m max[0m [0;32m'unsigned long long (unsigned long long, long long)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x35559d0[0m <[0;33mcol:51[0m, [0;33mcol:70[0m> [0;33mcol:70[0m used[0;1;36m x[0m [0;32m'unsigned long long'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3555a40[0m <[0;33mline:167:51[0m, [0;33mcol:61[0m> [0;33mcol:61[0m used[0;1;36m y[0m [0;32m'long long'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3555e18[0m <[0;33mcol:64[0m, [0;33mline:169:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x3555df8[0m <[0;33mline:168:3[0m, [0;33mcol:46[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x3555da8[0m <[0;33mcol:10[0m, [0;33mcol:46[0m> [0;32m'unsigned long long'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3555d90[0m <[0;33mcol:10[0m> [0;32m'unsigned long long (*)(unsigned long long, unsigned long long)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3555d68[0m <[0;33mcol:10[0m> [0;32m'unsigned long long (unsigned long long, unsigned long long)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354ec60[0m[0;1;36m '__nv_ullmax'[0m [0;32m'unsigned long long (unsigned long long, unsigned long long)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3555de0[0m <[0;33mcol:22[0m> [0;32m'unsigned long long'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3555cb0[0m <[0;33mcol:22[0m> [0;32m'unsigned long long'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x35559d0[0m[0;1;36m 'x'[0m [0;32m'unsigned long long'[0m
+[0;34m| |     `-[0m[0;1;35mCStyleCastExpr[0m[0;33m 0x3555d40[0m <[0;33mcol:25[0m, [0;33mcol:45[0m> [0;32m'unsigned long long'[0m[0;36m[0m[0;36m[0m <[0;31mNoOp[0m>
+[0;34m| |       `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3555d28[0m <[0;33mcol:45[0m> [0;32m'unsigned long long'[0m[0;36m[0m[0;36m[0m <[0;31mIntegralCast[0m>
+[0;34m| |         `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3555d10[0m <[0;33mcol:45[0m> [0;32m'long long'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |           `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3555cd8[0m <[0;33mcol:45[0m> [0;32m'long long'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3555a40[0m[0;1;36m 'y'[0m [0;32m'long long'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x3555c00[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x3555c40[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3555f50[0m <[0;33mcol:25[0m, [0;33mline:173:1[0m> [0;33mline:171:35[0m[0;1;36m max[0m [0;32m'double (double, double)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3555e50[0m <[0;33mcol:39[0m, [0;33mcol:46[0m> [0;33mcol:46[0m used[0;1;36m x[0m [0;32m'double'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3555ec0[0m <[0;33mcol:49[0m, [0;33mcol:56[0m> [0;33mcol:56[0m used[0;1;36m y[0m [0;32m'double'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x35561f8[0m <[0;33mcol:59[0m, [0;33mline:173:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x35561d8[0m <[0;33mline:172:3[0m, [0;33mcol:24[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x3556170[0m <[0;33mcol:10[0m, [0;33mcol:24[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3556158[0m <[0;33mcol:10[0m> [0;32m'double (*)(double, double)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3556100[0m <[0;33mcol:10[0m> [0;32m'double (double, double)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354eea0[0m[0;1;36m '__nv_fmax'[0m [0;32m'double (double, double)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35561a8[0m <[0;33mcol:20[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35560b0[0m <[0;33mcol:20[0m> [0;32m'double'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3555e50[0m[0;1;36m 'x'[0m [0;32m'double'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35561c0[0m <[0;33mcol:23[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35560d8[0m <[0;33mcol:23[0m> [0;32m'double'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3555ec0[0m[0;1;36m 'y'[0m [0;32m'double'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x3556000[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x3556040[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3556330[0m <[0;33mcol:25[0m, [0;33mline:177:1[0m> [0;33mline:175:34[0m[0;1;36m max[0m [0;32m'float (float, float)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3556230[0m <[0;33mcol:38[0m, [0;33mcol:44[0m> [0;33mcol:44[0m used[0;1;36m x[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x35562a0[0m <[0;33mcol:47[0m, [0;33mcol:53[0m> [0;33mcol:53[0m used[0;1;36m y[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x35565a8[0m <[0;33mcol:56[0m, [0;33mline:177:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x3556588[0m <[0;33mline:176:3[0m, [0;33mcol:25[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x3556520[0m <[0;33mcol:10[0m, [0;33mcol:25[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3556508[0m <[0;33mcol:10[0m> [0;32m'float (*)(float, float)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35564e0[0m <[0;33mcol:10[0m> [0;32m'float (float, float)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354f0a0[0m[0;1;36m '__nv_fmaxf'[0m [0;32m'float (float, float)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3556558[0m <[0;33mcol:21[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3556490[0m <[0;33mcol:21[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3556230[0m[0;1;36m 'x'[0m [0;32m'float'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3556570[0m <[0;33mcol:24[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35564b8[0m <[0;33mcol:24[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x35562a0[0m[0;1;36m 'y'[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x35563e0[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x3556420[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3556720[0m <[0;33mcol:25[0m, [0;33mline:181:1[0m> [0;33mline:179:35[0m[0;1;36m max[0m [0;32m'double (double, float)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x35565e0[0m <[0;33mcol:39[0m, [0;33mcol:46[0m> [0;33mcol:46[0m used[0;1;36m x[0m [0;32m'double'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3556650[0m <[0;33mcol:49[0m, [0;33mcol:55[0m> [0;33mcol:55[0m used[0;1;36m y[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x35569e8[0m <[0;33mcol:58[0m, [0;33mline:181:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x35569c8[0m <[0;33mline:180:3[0m, [0;33mcol:32[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x3556978[0m <[0;33mcol:10[0m, [0;33mcol:32[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3556960[0m <[0;33mcol:10[0m> [0;32m'double (*)(double, double)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3556938[0m <[0;33mcol:10[0m> [0;32m'double (double, double)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354eea0[0m[0;1;36m '__nv_fmax'[0m [0;32m'double (double, double)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35569b0[0m <[0;33mcol:20[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3556880[0m <[0;33mcol:20[0m> [0;32m'double'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x35565e0[0m[0;1;36m 'x'[0m [0;32m'double'[0m
+[0;34m| |     `-[0m[0;1;35mCStyleCastExpr[0m[0;33m 0x3556910[0m <[0;33mcol:23[0m, [0;33mcol:31[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m <[0;31mNoOp[0m>
+[0;34m| |       `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35568f8[0m <[0;33mcol:31[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m <[0;31mFloatingCast[0m>
+[0;34m| |         `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35568e0[0m <[0;33mcol:31[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |           `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35568a8[0m <[0;33mcol:31[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3556650[0m[0;1;36m 'y'[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x35567d0[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x3556810[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x35577d0[0m <[0;33mcol:25[0m, [0;33mline:185:1[0m> [0;33mline:183:35[0m[0;1;36m max[0m [0;32m'double (float, double)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3556a20[0m <[0;33mcol:39[0m, [0;33mcol:45[0m> [0;33mcol:45[0m used[0;1;36m x[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3557700[0m <[0;33mcol:48[0m, [0;33mcol:55[0m> [0;33mcol:55[0m used[0;1;36m y[0m [0;32m'double'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3557a98[0m <[0;33mcol:58[0m, [0;33mline:185:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x3557a78[0m <[0;33mline:184:3[0m, [0;33mcol:32[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x3557a28[0m <[0;33mcol:10[0m, [0;33mcol:32[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3557a10[0m <[0;33mcol:10[0m> [0;32m'double (*)(double, double)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35579e8[0m <[0;33mcol:10[0m> [0;32m'double (double, double)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354eea0[0m[0;1;36m '__nv_fmax'[0m [0;32m'double (double, double)'[0m
+[0;34m| |     |-[0m[0;1;35mCStyleCastExpr[0m[0;33m 0x3557998[0m <[0;33mcol:20[0m, [0;33mcol:28[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m <[0;31mNoOp[0m>
+[0;34m| |     | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3557980[0m <[0;33mcol:28[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m <[0;31mFloatingCast[0m>
+[0;34m| |     |   `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3557968[0m <[0;33mcol:28[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     |     `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3557930[0m <[0;33mcol:28[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3556a20[0m[0;1;36m 'x'[0m [0;32m'float'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3557a60[0m <[0;33mcol:31[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35579c0[0m <[0;33mcol:31[0m> [0;32m'double'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3557700[0m[0;1;36m 'y'[0m [0;32m'double'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x3557880[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x35578c0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3557bd0[0m <[0;33mcol:25[0m, [0;33mline:191:1[0m> [0;33mline:189:35[0m[0;1;36m fmax[0m [0;32m'double (double, double)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3557ad0[0m <[0;33mcol:40[0m, [0;33mcol:47[0m> [0;33mcol:47[0m used[0;1;36m x[0m [0;32m'double'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3557b40[0m <[0;33mcol:50[0m, [0;33mcol:57[0m> [0;33mcol:57[0m used[0;1;36m y[0m [0;32m'double'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3557e48[0m <[0;33mcol:60[0m, [0;33mline:191:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x3557e28[0m <[0;33mline:190:3[0m, [0;33mcol:24[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x3557dc0[0m <[0;33mcol:10[0m, [0;33mcol:24[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3557da8[0m <[0;33mcol:10[0m> [0;32m'double (*)(double, double)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3557d80[0m <[0;33mcol:10[0m> [0;32m'double (double, double)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354eea0[0m[0;1;36m '__nv_fmax'[0m [0;32m'double (double, double)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3557df8[0m <[0;33mcol:20[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3557d30[0m <[0;33mcol:20[0m> [0;32m'double'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3557ad0[0m[0;1;36m 'x'[0m [0;32m'double'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3557e10[0m <[0;33mcol:23[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3557d58[0m <[0;33mcol:23[0m> [0;32m'double'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3557b40[0m[0;1;36m 'y'[0m [0;32m'double'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x3557c80[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x3557cc0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3557f80[0m <[0;33mcol:25[0m, [0;33mline:195:1[0m> [0;33mline:193:34[0m[0;1;36m fmaxf[0m [0;32m'float (float, float)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3557e80[0m <[0;33mcol:40[0m, [0;33mcol:46[0m> [0;33mcol:46[0m used[0;1;36m x[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3557ef0[0m <[0;33mcol:49[0m, [0;33mcol:55[0m> [0;33mcol:55[0m used[0;1;36m y[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x35581f8[0m <[0;33mcol:58[0m, [0;33mline:195:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x35581d8[0m <[0;33mline:194:3[0m, [0;33mcol:25[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x3558170[0m <[0;33mcol:10[0m, [0;33mcol:25[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3558158[0m <[0;33mcol:10[0m> [0;32m'float (*)(float, float)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3558130[0m <[0;33mcol:10[0m> [0;32m'float (float, float)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354f0a0[0m[0;1;36m '__nv_fmaxf'[0m [0;32m'float (float, float)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35581a8[0m <[0;33mcol:21[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35580e0[0m <[0;33mcol:21[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3557e80[0m[0;1;36m 'x'[0m [0;32m'float'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35581c0[0m <[0;33mcol:24[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3558108[0m <[0;33mcol:24[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3557ef0[0m[0;1;36m 'y'[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x3558030[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x3558070[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3558330[0m <[0;33mcol:25[0m, [0;33mline:199:75[0m> [0;33mcol:32[0m[0;1;36m min[0m [0;32m'int (int, int)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3558230[0m <[0;33mcol:36[0m, [0;33mcol:40[0m> [0;33mcol:40[0m used[0;1;36m x[0m [0;32m'int'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x35582a0[0m <[0;33mcol:43[0m, [0;33mcol:47[0m> [0;33mcol:47[0m used[0;1;36m y[0m [0;32m'int'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x35585a8[0m <[0;33mcol:50[0m, [0;33mcol:75[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x3558588[0m <[0;33mcol:52[0m, [0;33mcol:72[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x3558520[0m <[0;33mcol:59[0m, [0;33mcol:72[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3558508[0m <[0;33mcol:59[0m> [0;32m'int (*)(int, int)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35584e0[0m <[0;33mcol:59[0m> [0;32m'int (int, int)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354f2a0[0m[0;1;36m '__nv_min'[0m [0;32m'int (int, int)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3558558[0m <[0;33mcol:68[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3558490[0m <[0;33mcol:68[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3558230[0m[0;1;36m 'x'[0m [0;32m'int'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3558570[0m <[0;33mcol:71[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35584b8[0m <[0;33mcol:71[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x35582a0[0m[0;1;36m 'y'[0m [0;32m'int'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x35583e0[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x3558420[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3558710[0m <[0;33mcol:25[0m, [0;33mline:203:1[0m> [0;33mline:201:41[0m[0;1;36m min[0m [0;32m'unsigned int (unsigned int, unsigned int)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x35585e0[0m <[0;33mcol:45[0m, [0;33mcol:58[0m> [0;33mcol:58[0m used[0;1;36m x[0m [0;32m'unsigned int'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3558650[0m <[0;33mcol:61[0m, [0;33mcol:74[0m> [0;33mcol:74[0m used[0;1;36m y[0m [0;32m'unsigned int'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3558988[0m <[0;33mcol:77[0m, [0;33mline:203:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x3558968[0m <[0;33mline:202:3[0m, [0;33mcol:24[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x3558900[0m <[0;33mcol:10[0m, [0;33mcol:24[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35588e8[0m <[0;33mcol:10[0m> [0;32m'unsigned int (*)(unsigned int, unsigned int)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35588c0[0m <[0;33mcol:10[0m> [0;32m'unsigned int (unsigned int, unsigned int)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354f4a0[0m[0;1;36m '__nv_umin'[0m [0;32m'unsigned int (unsigned int, unsigned int)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3558938[0m <[0;33mcol:20[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3558870[0m <[0;33mcol:20[0m> [0;32m'unsigned int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x35585e0[0m[0;1;36m 'x'[0m [0;32m'unsigned int'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3558950[0m <[0;33mcol:23[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3558898[0m <[0;33mcol:23[0m> [0;32m'unsigned int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3558650[0m[0;1;36m 'y'[0m [0;32m'unsigned int'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x35587c0[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x3558800[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3558ac0[0m <[0;33mcol:25[0m, [0;33mline:207:1[0m> [0;33mline:205:41[0m[0;1;36m min[0m [0;32m'unsigned int (int, unsigned int)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x35589c0[0m <[0;33mcol:45[0m, [0;33mcol:49[0m> [0;33mcol:49[0m used[0;1;36m x[0m [0;32m'int'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3558a30[0m <[0;33mcol:52[0m, [0;33mcol:65[0m> [0;33mcol:65[0m used[0;1;36m y[0m [0;32m'unsigned int'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3558d88[0m <[0;33mcol:68[0m, [0;33mline:207:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x3558d68[0m <[0;33mline:206:3[0m, [0;33mcol:38[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x3558d18[0m <[0;33mcol:10[0m, [0;33mcol:38[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3558d00[0m <[0;33mcol:10[0m> [0;32m'unsigned int (*)(unsigned int, unsigned int)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3558cd8[0m <[0;33mcol:10[0m> [0;32m'unsigned int (unsigned int, unsigned int)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354f4a0[0m[0;1;36m '__nv_umin'[0m [0;32m'unsigned int (unsigned int, unsigned int)'[0m
+[0;34m| |     |-[0m[0;1;35mCStyleCastExpr[0m[0;33m 0x3558c88[0m <[0;33mcol:20[0m, [0;33mcol:34[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mNoOp[0m>
+[0;34m| |     | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3558c70[0m <[0;33mcol:34[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mIntegralCast[0m>
+[0;34m| |     |   `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3558c58[0m <[0;33mcol:34[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     |     `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3558c20[0m <[0;33mcol:34[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x35589c0[0m[0;1;36m 'x'[0m [0;32m'int'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3558d50[0m <[0;33mcol:37[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3558cb0[0m <[0;33mcol:37[0m> [0;32m'unsigned int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3558a30[0m[0;1;36m 'y'[0m [0;32m'unsigned int'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x3558b70[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x3558bb0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3558ec0[0m <[0;33mcol:25[0m, [0;33mline:211:1[0m> [0;33mline:209:41[0m[0;1;36m min[0m [0;32m'unsigned int (unsigned int, int)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3558dc0[0m <[0;33mcol:45[0m, [0;33mcol:58[0m> [0;33mcol:58[0m used[0;1;36m x[0m [0;32m'unsigned int'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3558e30[0m <[0;33mcol:61[0m, [0;33mcol:65[0m> [0;33mcol:65[0m used[0;1;36m y[0m [0;32m'int'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3559188[0m <[0;33mcol:68[0m, [0;33mline:211:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x3559168[0m <[0;33mline:210:3[0m, [0;33mcol:38[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x3559118[0m <[0;33mcol:10[0m, [0;33mcol:38[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3559100[0m <[0;33mcol:10[0m> [0;32m'unsigned int (*)(unsigned int, unsigned int)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35590d8[0m <[0;33mcol:10[0m> [0;32m'unsigned int (unsigned int, unsigned int)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354f4a0[0m[0;1;36m '__nv_umin'[0m [0;32m'unsigned int (unsigned int, unsigned int)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3559150[0m <[0;33mcol:20[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3559020[0m <[0;33mcol:20[0m> [0;32m'unsigned int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3558dc0[0m[0;1;36m 'x'[0m [0;32m'unsigned int'[0m
+[0;34m| |     `-[0m[0;1;35mCStyleCastExpr[0m[0;33m 0x35590b0[0m <[0;33mcol:23[0m, [0;33mcol:37[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mNoOp[0m>
+[0;34m| |       `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3559098[0m <[0;33mcol:37[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mIntegralCast[0m>
+[0;34m| |         `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3559080[0m <[0;33mcol:37[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |           `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3559048[0m <[0;33mcol:37[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3558e30[0m[0;1;36m 'y'[0m [0;32m'int'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x3558f70[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x3558fb0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x35592c0[0m <[0;33mcol:25[0m, [0;33mline:215:1[0m> [0;33mline:213:38[0m[0;1;36m min[0m [0;32m'long long (long long, long long)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x35591c0[0m <[0;33mcol:42[0m, [0;33mcol:52[0m> [0;33mcol:52[0m used[0;1;36m x[0m [0;32m'long long'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3559230[0m <[0;33mcol:55[0m, [0;33mcol:65[0m> [0;33mcol:65[0m used[0;1;36m y[0m [0;32m'long long'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3559538[0m <[0;33mcol:68[0m, [0;33mline:215:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x3559518[0m <[0;33mline:214:3[0m, [0;33mcol:25[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x35594b0[0m <[0;33mcol:10[0m, [0;33mcol:25[0m> [0;32m'long long'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3559498[0m <[0;33mcol:10[0m> [0;32m'long long (*)(long long, long long)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3559470[0m <[0;33mcol:10[0m> [0;32m'long long (long long, long long)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354f6a0[0m[0;1;36m '__nv_llmin'[0m [0;32m'long long (long long, long long)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35594e8[0m <[0;33mcol:21[0m> [0;32m'long long'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3559420[0m <[0;33mcol:21[0m> [0;32m'long long'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x35591c0[0m[0;1;36m 'x'[0m [0;32m'long long'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3559500[0m <[0;33mcol:24[0m> [0;32m'long long'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3559448[0m <[0;33mcol:24[0m> [0;32m'long long'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3559230[0m[0;1;36m 'y'[0m [0;32m'long long'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x3559370[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x35593b0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3559670[0m <[0;33mcol:25[0m, [0;33mline:220:1[0m> [0;33mline:217:47[0m[0;1;36m min[0m [0;32m'unsigned long long (unsigned long long, unsigned long long)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3559570[0m <[0;33mcol:51[0m, [0;33mcol:70[0m> [0;33mcol:70[0m used[0;1;36m x[0m [0;32m'unsigned long long'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x35595e0[0m <[0;33mline:218:51[0m, [0;33mcol:70[0m> [0;33mcol:70[0m used[0;1;36m y[0m [0;32m'unsigned long long'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x355a108[0m <[0;33mcol:73[0m, [0;33mline:220:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x355a0e8[0m <[0;33mline:219:3[0m, [0;33mcol:26[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x355a080[0m <[0;33mcol:10[0m, [0;33mcol:26[0m> [0;32m'unsigned long long'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355a068[0m <[0;33mcol:10[0m> [0;32m'unsigned long long (*)(unsigned long long, unsigned long long)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355a040[0m <[0;33mcol:10[0m> [0;32m'unsigned long long (unsigned long long, unsigned long long)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354f8a0[0m[0;1;36m '__nv_ullmin'[0m [0;32m'unsigned long long (unsigned long long, unsigned long long)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355a0b8[0m <[0;33mcol:22[0m> [0;32m'unsigned long long'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3559ff0[0m <[0;33mcol:22[0m> [0;32m'unsigned long long'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3559570[0m[0;1;36m 'x'[0m [0;32m'unsigned long long'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355a0d0[0m <[0;33mcol:25[0m> [0;32m'unsigned long long'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355a018[0m <[0;33mcol:25[0m> [0;32m'unsigned long long'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x35595e0[0m[0;1;36m 'y'[0m [0;32m'unsigned long long'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x3559f40[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x3559f80[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x355a240[0m <[0;33mcol:25[0m, [0;33mline:225:1[0m> [0;33mline:222:47[0m[0;1;36m min[0m [0;32m'unsigned long long (long long, unsigned long long)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355a140[0m <[0;33mcol:51[0m, [0;33mcol:61[0m> [0;33mcol:61[0m used[0;1;36m x[0m [0;32m'long long'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355a1b0[0m <[0;33mline:223:51[0m, [0;33mcol:70[0m> [0;33mcol:70[0m used[0;1;36m y[0m [0;32m'unsigned long long'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x355a508[0m <[0;33mcol:73[0m, [0;33mline:225:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x355a4e8[0m <[0;33mline:224:3[0m, [0;33mcol:46[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x355a498[0m <[0;33mcol:10[0m, [0;33mcol:46[0m> [0;32m'unsigned long long'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355a480[0m <[0;33mcol:10[0m> [0;32m'unsigned long long (*)(unsigned long long, unsigned long long)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355a458[0m <[0;33mcol:10[0m> [0;32m'unsigned long long (unsigned long long, unsigned long long)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354f8a0[0m[0;1;36m '__nv_ullmin'[0m [0;32m'unsigned long long (unsigned long long, unsigned long long)'[0m
+[0;34m| |     |-[0m[0;1;35mCStyleCastExpr[0m[0;33m 0x355a408[0m <[0;33mcol:22[0m, [0;33mcol:42[0m> [0;32m'unsigned long long'[0m[0;36m[0m[0;36m[0m <[0;31mNoOp[0m>
+[0;34m| |     | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355a3f0[0m <[0;33mcol:42[0m> [0;32m'unsigned long long'[0m[0;36m[0m[0;36m[0m <[0;31mIntegralCast[0m>
+[0;34m| |     |   `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355a3d8[0m <[0;33mcol:42[0m> [0;32m'long long'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     |     `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355a3a0[0m <[0;33mcol:42[0m> [0;32m'long long'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x355a140[0m[0;1;36m 'x'[0m [0;32m'long long'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355a4d0[0m <[0;33mcol:45[0m> [0;32m'unsigned long long'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355a430[0m <[0;33mcol:45[0m> [0;32m'unsigned long long'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x355a1b0[0m[0;1;36m 'y'[0m [0;32m'unsigned long long'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x355a2f0[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x355a330[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x355a640[0m <[0;33mcol:25[0m, [0;33mline:230:1[0m> [0;33mline:227:47[0m[0;1;36m min[0m [0;32m'unsigned long long (unsigned long long, long long)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355a540[0m <[0;33mcol:51[0m, [0;33mcol:70[0m> [0;33mcol:70[0m used[0;1;36m x[0m [0;32m'unsigned long long'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355a5b0[0m <[0;33mline:228:51[0m, [0;33mcol:61[0m> [0;33mcol:61[0m used[0;1;36m y[0m [0;32m'long long'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x355a908[0m <[0;33mcol:64[0m, [0;33mline:230:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x355a8e8[0m <[0;33mline:229:3[0m, [0;33mcol:46[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x355a898[0m <[0;33mcol:10[0m, [0;33mcol:46[0m> [0;32m'unsigned long long'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355a880[0m <[0;33mcol:10[0m> [0;32m'unsigned long long (*)(unsigned long long, unsigned long long)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355a858[0m <[0;33mcol:10[0m> [0;32m'unsigned long long (unsigned long long, unsigned long long)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354f8a0[0m[0;1;36m '__nv_ullmin'[0m [0;32m'unsigned long long (unsigned long long, unsigned long long)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355a8d0[0m <[0;33mcol:22[0m> [0;32m'unsigned long long'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355a7a0[0m <[0;33mcol:22[0m> [0;32m'unsigned long long'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x355a540[0m[0;1;36m 'x'[0m [0;32m'unsigned long long'[0m
+[0;34m| |     `-[0m[0;1;35mCStyleCastExpr[0m[0;33m 0x355a830[0m <[0;33mcol:25[0m, [0;33mcol:45[0m> [0;32m'unsigned long long'[0m[0;36m[0m[0;36m[0m <[0;31mNoOp[0m>
+[0;34m| |       `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355a818[0m <[0;33mcol:45[0m> [0;32m'unsigned long long'[0m[0;36m[0m[0;36m[0m <[0;31mIntegralCast[0m>
+[0;34m| |         `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355a800[0m <[0;33mcol:45[0m> [0;32m'long long'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |           `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355a7c8[0m <[0;33mcol:45[0m> [0;32m'long long'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x355a5b0[0m[0;1;36m 'y'[0m [0;32m'long long'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x355a6f0[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x355a730[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x355aa40[0m <[0;33mcol:25[0m, [0;33mline:234:1[0m> [0;33mline:232:35[0m[0;1;36m min[0m [0;32m'double (double, double)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355a940[0m <[0;33mcol:39[0m, [0;33mcol:46[0m> [0;33mcol:46[0m used[0;1;36m x[0m [0;32m'double'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355a9b0[0m <[0;33mcol:49[0m, [0;33mcol:56[0m> [0;33mcol:56[0m used[0;1;36m y[0m [0;32m'double'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x355acb8[0m <[0;33mcol:59[0m, [0;33mline:234:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x355ac98[0m <[0;33mline:233:3[0m, [0;33mcol:24[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x355ac30[0m <[0;33mcol:10[0m, [0;33mcol:24[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355ac18[0m <[0;33mcol:10[0m> [0;32m'double (*)(double, double)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355abf0[0m <[0;33mcol:10[0m> [0;32m'double (double, double)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354fdc0[0m[0;1;36m '__nv_fmin'[0m [0;32m'double (double, double)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355ac68[0m <[0;33mcol:20[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355aba0[0m <[0;33mcol:20[0m> [0;32m'double'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x355a940[0m[0;1;36m 'x'[0m [0;32m'double'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355ac80[0m <[0;33mcol:23[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355abc8[0m <[0;33mcol:23[0m> [0;32m'double'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x355a9b0[0m[0;1;36m 'y'[0m [0;32m'double'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x355aaf0[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x355ab30[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x355adf0[0m <[0;33mcol:25[0m, [0;33mline:238:1[0m> [0;33mline:236:34[0m[0;1;36m min[0m [0;32m'float (float, float)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355acf0[0m <[0;33mcol:38[0m, [0;33mcol:44[0m> [0;33mcol:44[0m used[0;1;36m x[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355ad60[0m <[0;33mcol:47[0m, [0;33mcol:53[0m> [0;33mcol:53[0m used[0;1;36m y[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x355b0b0[0m <[0;33mcol:56[0m, [0;33mline:238:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x355b090[0m <[0;33mline:237:3[0m, [0;33mcol:25[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x355b028[0m <[0;33mcol:10[0m, [0;33mcol:25[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355b010[0m <[0;33mcol:10[0m> [0;32m'float (*)(float, float)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355afe8[0m <[0;33mcol:10[0m> [0;32m'float (float, float)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354ffc0[0m[0;1;36m '__nv_fminf'[0m [0;32m'float (float, float)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355b060[0m <[0;33mcol:21[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355af98[0m <[0;33mcol:21[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x355acf0[0m[0;1;36m 'x'[0m [0;32m'float'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355b078[0m <[0;33mcol:24[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355afc0[0m <[0;33mcol:24[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x355ad60[0m[0;1;36m 'y'[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x355aea0[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x355aee0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x355b1e0[0m <[0;33mcol:25[0m, [0;33mline:242:1[0m> [0;33mline:240:35[0m[0;1;36m min[0m [0;32m'double (double, float)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355b0e0[0m <[0;33mcol:39[0m, [0;33mcol:46[0m> [0;33mcol:46[0m used[0;1;36m x[0m [0;32m'double'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355b150[0m <[0;33mcol:49[0m, [0;33mcol:55[0m> [0;33mcol:55[0m used[0;1;36m y[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x355b4a8[0m <[0;33mcol:58[0m, [0;33mline:242:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x355b488[0m <[0;33mline:241:3[0m, [0;33mcol:32[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x355b438[0m <[0;33mcol:10[0m, [0;33mcol:32[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355b420[0m <[0;33mcol:10[0m> [0;32m'double (*)(double, double)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355b3f8[0m <[0;33mcol:10[0m> [0;32m'double (double, double)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354fdc0[0m[0;1;36m '__nv_fmin'[0m [0;32m'double (double, double)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355b470[0m <[0;33mcol:20[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355b340[0m <[0;33mcol:20[0m> [0;32m'double'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x355b0e0[0m[0;1;36m 'x'[0m [0;32m'double'[0m
+[0;34m| |     `-[0m[0;1;35mCStyleCastExpr[0m[0;33m 0x355b3d0[0m <[0;33mcol:23[0m, [0;33mcol:31[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m <[0;31mNoOp[0m>
+[0;34m| |       `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355b3b8[0m <[0;33mcol:31[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m <[0;31mFloatingCast[0m>
+[0;34m| |         `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355b3a0[0m <[0;33mcol:31[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |           `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355b368[0m <[0;33mcol:31[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x355b150[0m[0;1;36m 'y'[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x355b290[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x355b2d0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x355b5e0[0m <[0;33mcol:25[0m, [0;33mline:246:1[0m> [0;33mline:244:35[0m[0;1;36m min[0m [0;32m'double (float, double)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355b4e0[0m <[0;33mcol:39[0m, [0;33mcol:45[0m> [0;33mcol:45[0m used[0;1;36m x[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355b550[0m <[0;33mcol:48[0m, [0;33mcol:55[0m> [0;33mcol:55[0m used[0;1;36m y[0m [0;32m'double'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x355b8a8[0m <[0;33mcol:58[0m, [0;33mline:246:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x355b888[0m <[0;33mline:245:3[0m, [0;33mcol:32[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x355b838[0m <[0;33mcol:10[0m, [0;33mcol:32[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355b820[0m <[0;33mcol:10[0m> [0;32m'double (*)(double, double)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355b7f8[0m <[0;33mcol:10[0m> [0;32m'double (double, double)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354fdc0[0m[0;1;36m '__nv_fmin'[0m [0;32m'double (double, double)'[0m
+[0;34m| |     |-[0m[0;1;35mCStyleCastExpr[0m[0;33m 0x355b7a8[0m <[0;33mcol:20[0m, [0;33mcol:28[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m <[0;31mNoOp[0m>
+[0;34m| |     | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355b790[0m <[0;33mcol:28[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m <[0;31mFloatingCast[0m>
+[0;34m| |     |   `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355b778[0m <[0;33mcol:28[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     |     `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355b740[0m <[0;33mcol:28[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x355b4e0[0m[0;1;36m 'x'[0m [0;32m'float'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355b870[0m <[0;33mcol:31[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355b7d0[0m <[0;33mcol:31[0m> [0;32m'double'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x355b550[0m[0;1;36m 'y'[0m [0;32m'double'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x355b690[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x355b6d0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x355b9e0[0m <[0;33mcol:25[0m, [0;33mline:252:1[0m> [0;33mline:250:35[0m[0;1;36m fmin[0m [0;32m'double (double, double)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355b8e0[0m <[0;33mcol:40[0m, [0;33mcol:47[0m> [0;33mcol:47[0m used[0;1;36m x[0m [0;32m'double'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355b950[0m <[0;33mcol:50[0m, [0;33mcol:57[0m> [0;33mcol:57[0m used[0;1;36m y[0m [0;32m'double'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x355bc58[0m <[0;33mcol:60[0m, [0;33mline:252:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x355bc38[0m <[0;33mline:251:3[0m, [0;33mcol:24[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x355bbd0[0m <[0;33mcol:10[0m, [0;33mcol:24[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355bbb8[0m <[0;33mcol:10[0m> [0;32m'double (*)(double, double)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355bb90[0m <[0;33mcol:10[0m> [0;32m'double (double, double)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354fdc0[0m[0;1;36m '__nv_fmin'[0m [0;32m'double (double, double)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355bc08[0m <[0;33mcol:20[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355bb40[0m <[0;33mcol:20[0m> [0;32m'double'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x355b8e0[0m[0;1;36m 'x'[0m [0;32m'double'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355bc20[0m <[0;33mcol:23[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355bb68[0m <[0;33mcol:23[0m> [0;32m'double'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x355b950[0m[0;1;36m 'y'[0m [0;32m'double'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x355ba90[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x355bad0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x355bd90[0m <[0;33mcol:25[0m, [0;33mline:256:1[0m> [0;33mline:254:34[0m[0;1;36m fminf[0m [0;32m'float (float, float)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355bc90[0m <[0;33mcol:40[0m, [0;33mcol:46[0m> [0;33mcol:46[0m used[0;1;36m x[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355bd00[0m <[0;33mcol:49[0m, [0;33mcol:55[0m> [0;33mcol:55[0m used[0;1;36m y[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x355c828[0m <[0;33mcol:58[0m, [0;33mline:256:1[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x355c808[0m <[0;33mline:255:3[0m, [0;33mcol:25[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x355c7a0[0m <[0;33mcol:10[0m, [0;33mcol:25[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355c788[0m <[0;33mcol:10[0m> [0;32m'float (*)(float, float)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355c760[0m <[0;33mcol:10[0m> [0;32m'float (float, float)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x354ffc0[0m[0;1;36m '__nv_fminf'[0m [0;32m'float (float, float)'[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355c7d8[0m <[0;33mcol:21[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355bef0[0m <[0;33mcol:21[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x355bc90[0m[0;1;36m 'x'[0m [0;32m'float'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355c7f0[0m <[0;33mcol:24[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355bf18[0m <[0;33mcol:24[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x355bd00[0m[0;1;36m 'y'[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x355be40[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x355be80[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x355c8e0[0m <[0;33mcol:25[0m, [0;33mline:260:65[0m> [0;33mcol:32[0m[0;1;36m abs[0m [0;32m'int (int)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355c860[0m <[0;33mcol:36[0m, [0;33mcol:40[0m> [0;33mcol:40[0m used[0;1;36m x[0m [0;32m'int'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x355cb38[0m <[0;33mcol:43[0m, [0;33mcol:65[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x355cb18[0m <[0;33mcol:45[0m, [0;33mcol:62[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x355cad0[0m <[0;33mcol:52[0m, [0;33mcol:62[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355cab8[0m <[0;33mcol:52[0m> [0;32m'int (*)(int)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355ca68[0m <[0;33mcol:52[0m> [0;32m'int (int)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x3550180[0m[0;1;36m '__nv_abs'[0m [0;32m'int (int)'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355cb00[0m <[0;33mcol:61[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355ca40[0m <[0;33mcol:61[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x355c860[0m[0;1;36m 'x'[0m [0;32m'int'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x355c990[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x355c9d0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x355cbf0[0m <[0;33mcol:25[0m, [0;33mline:262:79[0m> [0;33mcol:38[0m[0;1;36m abs[0m [0;32m'long long (long long)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355cb70[0m <[0;33mcol:42[0m, [0;33mcol:52[0m> [0;33mcol:52[0m used[0;1;36m x[0m [0;32m'long long'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x355ce48[0m <[0;33mcol:55[0m, [0;33mcol:79[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x355ce28[0m <[0;33mcol:57[0m, [0;33mcol:76[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x355cde0[0m <[0;33mcol:64[0m, [0;33mcol:76[0m> [0;32m'long long'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355cdc8[0m <[0;33mcol:64[0m> [0;32m'long long (*)(long long)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355cd78[0m <[0;33mcol:64[0m> [0;32m'long long (long long)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x3550340[0m[0;1;36m '__nv_llabs'[0m [0;32m'long long (long long)'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355ce10[0m <[0;33mcol:75[0m> [0;32m'long long'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355cd50[0m <[0;33mcol:75[0m> [0;32m'long long'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x355cb70[0m[0;1;36m 'x'[0m [0;32m'long long'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x355cca0[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x355cce0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x355cf00[0m <[0;33mcol:25[0m, [0;33mline:264:72[0m> [0;33mcol:35[0m[0;1;36m abs[0m [0;32m'double (double)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355ce80[0m <[0;33mcol:39[0m, [0;33mcol:46[0m> [0;33mcol:46[0m used[0;1;36m x[0m [0;32m'double'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x355d158[0m <[0;33mcol:49[0m, [0;33mcol:72[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x355d138[0m <[0;33mcol:51[0m, [0;33mcol:69[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x355d0f0[0m <[0;33mcol:58[0m, [0;33mcol:69[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355d0d8[0m <[0;33mcol:58[0m> [0;32m'double (*)(double)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355d088[0m <[0;33mcol:58[0m> [0;32m'double (double)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x3550500[0m[0;1;36m '__nv_fabs'[0m [0;32m'double (double)'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355d120[0m <[0;33mcol:68[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355d060[0m <[0;33mcol:68[0m> [0;32m'double'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x355ce80[0m[0;1;36m 'x'[0m [0;32m'double'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x355cfb0[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x355cff0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x355d210[0m <[0;33mcol:25[0m, [0;33mline:266:71[0m> [0;33mcol:34[0m[0;1;36m abs[0m [0;32m'float (float)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355d190[0m <[0;33mcol:38[0m, [0;33mcol:44[0m> [0;33mcol:44[0m used[0;1;36m x[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x355d440[0m <[0;33mcol:47[0m, [0;33mcol:71[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x355d420[0m <[0;33mcol:49[0m, [0;33mcol:68[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x355d3d8[0m <[0;33mcol:56[0m, [0;33mcol:68[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355d3c0[0m <[0;33mcol:56[0m> [0;32m'float (*)(float)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355d398[0m <[0;33mcol:56[0m> [0;32m'float (float)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x3550680[0m[0;1;36m '__nv_fabsf'[0m [0;32m'float (float)'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355d408[0m <[0;33mcol:67[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355d370[0m <[0;33mcol:67[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x355d190[0m[0;1;36m 'x'[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x355d2c0[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x355d300[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x355d4f0[0m <[0;33mcol:25[0m, [0;33mline:268:73[0m> [0;33mcol:35[0m[0;1;36m fabs[0m [0;32m'double (double)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355d470[0m <[0;33mcol:40[0m, [0;33mcol:47[0m> [0;33mcol:47[0m used[0;1;36m x[0m [0;32m'double'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x355d720[0m <[0;33mcol:50[0m, [0;33mcol:73[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x355d700[0m <[0;33mcol:52[0m, [0;33mcol:70[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x355d6b8[0m <[0;33mcol:59[0m, [0;33mcol:70[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355d6a0[0m <[0;33mcol:59[0m> [0;32m'double (*)(double)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355d678[0m <[0;33mcol:59[0m> [0;32m'double (double)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x3550500[0m[0;1;36m '__nv_fabs'[0m [0;32m'double (double)'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355d6e8[0m <[0;33mcol:69[0m> [0;32m'double'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355d650[0m <[0;33mcol:69[0m> [0;32m'double'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x355d470[0m[0;1;36m 'x'[0m [0;32m'double'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x355d5a0[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x355d5e0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x355d7f0[0m <[0;33mcol:25[0m, [0;33mline:270:72[0m> [0;33mcol:34[0m[0;1;36m fabs[0m [0;32m'float (float)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355d770[0m <[0;33mcol:39[0m, [0;33mcol:45[0m> [0;33mcol:45[0m used[0;1;36m x[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x355da20[0m <[0;33mcol:48[0m, [0;33mcol:72[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x355da00[0m <[0;33mcol:50[0m, [0;33mcol:69[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x355d9b8[0m <[0;33mcol:57[0m, [0;33mcol:69[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355d9a0[0m <[0;33mcol:57[0m> [0;32m'float (*)(float)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355d978[0m <[0;33mcol:57[0m> [0;32m'float (float)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x3550680[0m[0;1;36m '__nv_fabsf'[0m [0;32m'float (float)'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355d9e8[0m <[0;33mcol:68[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355d950[0m <[0;33mcol:68[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x355d770[0m[0;1;36m 'x'[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x355d8a0[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x355d8e0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x355dad0[0m <[0;33mcol:25[0m, [0;33mline:273:76[0m> [0;33mcol:32[0m[0;1;36m isfinite[0m [0;32m'int (float)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355da50[0m <[0;33mcol:41[0m, [0;33mcol:47[0m> [0;33mcol:47[0m used[0;1;36m x[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x355dd28[0m <[0;33mcol:50[0m, [0;33mcol:76[0m>
+[0;34m| | `-[0m[0;1;35mReturnStmt[0m[0;33m 0x355dd08[0m <[0;33mcol:52[0m, [0;33mcol:73[0m>
+[0;34m| |   `-[0m[0;1;35mCallExpr[0m[0;33m 0x355dcc0[0m <[0;33mcol:59[0m, [0;33mcol:73[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355dca8[0m <[0;33mcol:59[0m> [0;32m'int (*)(float)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355dc58[0m <[0;33mcol:59[0m> [0;32m'int (float)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x3550840[0m[0;1;36m '__nv_finitef'[0m [0;32m'int (float)'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355dcf0[0m <[0;33mcol:72[0m> [0;32m'float'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x355dc30[0m <[0;33mcol:72[0m> [0;32m'float'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x355da50[0m[0;1;36m 'x'[0m [0;32m'float'[0m
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x355db80[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x355dbc0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x355dde0[0m <[0;33mcol:25[0m, [0;33mline:282:1[0m> [0;33mline:280:32[0m[0;1;36m __syncthreads_count[0m [0;32m'int (int)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355dd60[0m <[0;33mcol:52[0m, [0;33mcol:56[0m> [0;33mcol:56[0m used[0;1;36m predicate[0m [0;32m'int'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x355dfa8[0m <[0;33mcol:67[0m, [0;33mline:282:1[0m>
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x355de90[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x355ded0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x355e050[0m <[0;33mcol:25[0m, [0;33mline:286:1[0m> [0;33mline:284:32[0m[0;1;36m __syncthreads_and[0m [0;32m'int (int)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355dfd0[0m <[0;33mcol:50[0m, [0;33mcol:54[0m> [0;33mcol:54[0m used[0;1;36m predicate[0m [0;32m'int'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x355e1d0[0m <[0;33mcol:65[0m, [0;33mline:286:1[0m>
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x355e100[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x355e140[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x355e280[0m <[0;33mcol:25[0m, [0;33mline:290:1[0m> [0;33mline:288:32[0m[0;1;36m __syncthreads_or[0m [0;32m'int (int)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355e200[0m <[0;33mcol:49[0m, [0;33mcol:53[0m> [0;33mcol:53[0m used[0;1;36m predicate[0m [0;32m'int'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x355e400[0m <[0;33mcol:64[0m, [0;33mline:290:1[0m>
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x355e330[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x355e370[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x355e470[0m <[0;33mcol:25[0m, [0;33mline:295:78[0m> [0;33mcol:33[0m[0;1;36m __threadfence_block[0m [0;32m'void (void)'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x355e5b8[0m <[0;33mcol:55[0m, [0;33mcol:78[0m>
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x355e510[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x355e550[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x355e5f0[0m <[0;33mcol:25[0m, [0;33mline:297:71[0m> [0;33mcol:33[0m[0;1;36m __threadfence[0m [0;32m'void (void)'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x355e738[0m <[0;33mcol:49[0m, [0;33mcol:71[0m>
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x355e690[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x355e6d0[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x355f790[0m <[0;33mcol:25[0m, [0;33mline:299:79[0m> [0;33mcol:33[0m[0;1;36m __threadfence_system[0m [0;32m'void (void)'[0m
+[0;34m| |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x355f8d8[0m <[0;33mcol:56[0m, [0;33mcol:79[0m>
+[0;34m| |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x355f830[0m <[0;33mline:6:35[0m>
+[0;34m| `-[0m[0;1;34mAlwaysInlineAttr[0m[0;33m 0x355f870[0m <[0;33mline:21:40[0m> always_inline
+[0;34m|-[0m[0;1;32mLinkageSpecDecl[0m[0;33m 0x355f920[0m <[0;33mline:445:1[0m, [0;33mcol:62[0m> [0;33mcol:8[0m C
+[0;34m| `-[0m[0;1;32mFunctionDecl[0m[0;33m 0x355fa70[0m <[0;33mline:6:20[0m, [0;33mline:445:59[0m> [0;33mcol:29[0m[0;1;36m printf[0m [0;32m'int (const char *, ...)'[0m
+[0;34m|   |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355f9b0[0m <[0;33mcol:36[0m, [0;33mcol:48[0m> [0;33mcol:48[0m[0;1;36m format[0m [0;32m'const char *'[0m
+[0;34m|   |-[0m[0;1;34mCUDADeviceAttr[0m[0;33m 0x355fb20[0m <[0;33mline:6:35[0m>
+[0;34m|   `-[0m[0;1;34mFormatAttr[0m[0;33m 0x355fb60[0m <[0;33mline:445:29[0m> Implicit printf 1 2
+[0;34m|-[0m[0;1;32mCXXRecordDecl[0m[0;33m 0x355fb90[0m <[0;33mline:449:9[0m, [0;33mcol:16[0m> [0;33mcol:16[0m struct[0;1;36m cudaStream[0m
+[0;34m|-[0m[0;1;32mTypedefDecl[0m[0;33m 0x355fcf0[0m <[0;33mcol:1[0m, [0;33mcol:28[0m> [0;33mcol:28[0m[0;1;36m cudaStream_t[0m [0;32m'struct cudaStream *'[0m
+[0;34m|-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3560070[0m <[0;33mline:451:1[0m, [0;33mline:452:46[0m> [0;33mline:451:5[0m used[0;1;36m cudaConfigureCall[0m [0;32m'int (struct dim3, struct dim3, unsigned int, cudaStream_t)'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355fd60[0m <[0;33mcol:23[0m, [0;33mcol:28[0m> [0;33mcol:28[0m[0;1;36m grid_size[0m [0;32m'struct dim3'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355fdd0[0m <[0;33mcol:39[0m, [0;33mcol:44[0m> [0;33mcol:44[0m[0;1;36m block_size[0m [0;32m'struct dim3'[0m
+[0;34m| |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355fe40[0m <[0;33mcol:56[0m, [0;33mcol:79[0m> [0;33mcol:65[0m[0;1;36m shared_size[0m [0;32m'unsigned int'[0m
+[0;34m| | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355feb8[0m <[0;33mcol:79[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mIntegralCast[0m>
+[0;34m| |   `-[0m[0;1;35mIntegerLiteral[0m[0;33m 0x355fe98[0m <[0;33mcol:79[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m[0;1;36m 0[0m
+[0;34m| `-[0m[0;1;32mParmVarDecl[0m[0;33m 0x355ff00[0m <[0;33mline:452:23[0m, [0;33mcol:45[0m> [0;33mcol:36[0m[0;1;36m stream[0m [0;32m'cudaStream_t':'struct cudaStream *'[0m
+[0;34m|   `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x355ff78[0m <[0;33mcol:45[0m> [0;32m'cudaStream_t':'struct cudaStream *'[0m[0;36m[0m[0;36m[0m <[0;31mNullToPointer[0m>
+[0;34m|     `-[0m[0;1;35mIntegerLiteral[0m[0;33m 0x355ff58[0m <[0;33mcol:45[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m[0;1;36m 0[0m
+[0;34m|-[0m[0;1;32mFunctionTemplateDecl[0m[0;33m 0x35603d0[0m <[0;33m/tmp/simple-templated-kernel.cu:29:1[0m, [0;33mline:38:1[0m> [0;33mline:30:30[0m[0;1;36m staticReverse[0m
+[0;34m| |-[0m[0;1;32mNonTypeTemplateParmDecl[0m[0;33m 0x3560140[0m <[0;33mline:29:11[0m, [0;33mcol:15[0m> [0;33mcol:15[0m referenced [0;32m'int'[0m[0;1;36m SHARED_SIZE[0m
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3560330[0m <[0;33mline:30:1[0m, [0;33mline:38:1[0m> [0;33mline:30:30[0m[0;1;36m staticReverse[0m [0;32m'void (int *, int)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x35601f0[0m <[0;33mcol:44[0m, [0;33mcol:49[0m> [0;33mcol:49[0m referenced[0;1;36m d[0m [0;32m'int *'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3560260[0m <[0;33mcol:52[0m, [0;33mcol:56[0m> [0;33mcol:56[0m referenced[0;1;36m n[0m [0;32m'int'[0m
+[0;34m| | |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3561410[0m <[0;33mline:31:1[0m, [0;33mline:38:1[0m>
+[0;34m| | | |-[0m[0;1;35mDeclStmt[0m[0;33m 0x35605a0[0m <[0;33mcuda.h:18:20[0m, [0;33m/tmp/simple-templated-kernel.cu:32:32[0m>
+[0;34m| | | | `-[0m[0;1;32mVarDecl[0m[0;33m 0x3560500[0m <[0;33mcuda.h:18:20[0m, [0;33m/tmp/simple-templated-kernel.cu:32:31[0m> [0;33mcol:18[0m referenced[0;1;36m s[0m [0;32m'int [SHARED_SIZE]'[0m static
+[0;34m| | | |   `-[0m[0;1;34mCUDASharedAttr[0m[0;33m 0x3560560[0m <[0;33mcuda.h:18:35[0m>
+[0;34m| | | |-[0m[0;1;35mDeclStmt[0m[0;33m 0x3560770[0m <[0;33m/tmp/simple-templated-kernel.cu:33:3[0m, [0;33mcol:22[0m>
+[0;34m| | | | `-[0m[0;1;32mVarDecl[0m[0;33m 0x35605d0[0m <[0;33mcol:3[0m, [0;33mcol:21[0m> [0;33mcol:7[0m referenced[0;1;36m t[0m [0;32m'int'[0m
+[0;34m| | | |   `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3560698[0m <[0;33mcol:11[0m, [0;33mcol:21[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mIntegralCast[0m>
+[0;34m| | | |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3560680[0m <[0;33mcol:11[0m, [0;33mcol:21[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | | |       `-[0m[0;1;35mMemberExpr[0m[0;33m 0x3560650[0m <[0;33mcol:11[0m, [0;33mcol:21[0m> [0;32m'const unsigned int'[0m[0;36m lvalue[0m[0;36m[0m .x[0;33m 0x3512140[0m
+[0;34m| | | |         `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3560628[0m <[0;33mcol:11[0m> [0;32m'const uint3':'const uint3'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3545e20[0m[0;1;36m 'threadIdx'[0m [0;32m'const uint3':'const uint3'[0m
+[0;34m| | | |-[0m[0;1;35mDeclStmt[0m[0;33m 0x3561118[0m <[0;33mline:34:3[0m, [0;33mcol:17[0m>
+[0;34m| | | | `-[0m[0;1;32mVarDecl[0m[0;33m 0x3560fd0[0m <[0;33mcol:3[0m, [0;33mcol:16[0m> [0;33mcol:7[0m referenced[0;1;36m tr[0m [0;32m'int'[0m
+[0;34m| | | |   `-[0m[0;1;35mBinaryOperator[0m[0;33m 0x35610f0[0m <[0;33mcol:12[0m, [0;33mcol:16[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m '-'
+[0;34m| | | |     |-[0m[0;1;35mBinaryOperator[0m[0;33m 0x35610a8[0m <[0;33mcol:12[0m, [0;33mcol:14[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m '-'
+[0;34m| | | |     | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3561078[0m <[0;33mcol:12[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | | |     | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3561028[0m <[0;33mcol:12[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3560260[0m[0;1;36m 'n'[0m [0;32m'int'[0m
+[0;34m| | | |     | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3561090[0m <[0;33mcol:14[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | | |     |   `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3561050[0m <[0;33mcol:14[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x35605d0[0m[0;1;36m 't'[0m [0;32m'int'[0m
+[0;34m| | | |     `-[0m[0;1;35mIntegerLiteral[0m[0;33m 0x35610d0[0m <[0;33mcol:16[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m[0;1;36m 1[0m
+[0;34m| | | |-[0m[0;1;35mBinaryOperator[0m[0;33m 0x3561250[0m <[0;33mline:35:3[0m, [0;33mcol:13[0m> [0;32m'<dependent type>'[0m[0;36m[0m[0;36m[0m '='
+[0;34m| | | | |-[0m[0;1;35mArraySubscriptExpr[0m[0;33m 0x3561180[0m <[0;33mcol:3[0m, [0;33mcol:6[0m> [0;32m'<dependent type>'[0m[0;36m lvalue[0m[0;36m[0m
+[0;34m| | | | | |-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3561130[0m <[0;33mcol:3[0m> [0;32m'int [SHARED_SIZE]'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3560500[0m[0;1;36m 's'[0m [0;32m'int [SHARED_SIZE]'[0m
+[0;34m| | | | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3561158[0m <[0;33mcol:5[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x35605d0[0m[0;1;36m 't'[0m [0;32m'int'[0m
+[0;34m| | | | `-[0m[0;1;35mArraySubscriptExpr[0m[0;33m 0x3561228[0m <[0;33mcol:10[0m, [0;33mcol:13[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m
+[0;34m| | | |   |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35611f8[0m <[0;33mcol:10[0m> [0;32m'int *'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | | |   | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35611a8[0m <[0;33mcol:10[0m> [0;32m'int *'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x35601f0[0m[0;1;36m 'd'[0m [0;32m'int *'[0m
+[0;34m| | | |   `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3561210[0m <[0;33mcol:12[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | | |     `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35611d0[0m <[0;33mcol:12[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x35605d0[0m[0;1;36m 't'[0m [0;32m'int'[0m
+[0;34m| | | `-[0m[0;1;35mBinaryOperator[0m[0;33m 0x35613e8[0m <[0;33mline:37:3[0m, [0;33mcol:14[0m> [0;32m'<dependent type>'[0m[0;36m[0m[0;36m[0m '='
+[0;34m| | |   |-[0m[0;1;35mArraySubscriptExpr[0m[0;33m 0x3561348[0m <[0;33mcol:3[0m, [0;33mcol:6[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m
+[0;34m| | |   | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3561318[0m <[0;33mcol:3[0m> [0;32m'int *'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | |   | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35612c8[0m <[0;33mcol:3[0m> [0;32m'int *'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x35601f0[0m[0;1;36m 'd'[0m [0;32m'int *'[0m
+[0;34m| | |   | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3561330[0m <[0;33mcol:5[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | |   |   `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35612f0[0m <[0;33mcol:5[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x35605d0[0m[0;1;36m 't'[0m [0;32m'int'[0m
+[0;34m| | |   `-[0m[0;1;35mArraySubscriptExpr[0m[0;33m 0x35613c0[0m <[0;33mcol:10[0m, [0;33mcol:14[0m> [0;32m'<dependent type>'[0m[0;36m lvalue[0m[0;36m[0m
+[0;34m| | |     |-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3561370[0m <[0;33mcol:10[0m> [0;32m'int [SHARED_SIZE]'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3560500[0m[0;1;36m 's'[0m [0;32m'int [SHARED_SIZE]'[0m
+[0;34m| | |     `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3561398[0m <[0;33mcol:12[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3560fd0[0m[0;1;36m 'tr'[0m [0;32m'int'[0m
+[0;34m| | `-[0m[0;1;34mCUDAGlobalAttr[0m[0;33m 0x3560430[0m <[0;33mline:30:16[0m>
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3566800[0m <[0;33mcol:1[0m, [0;33mline:38:1[0m> [0;33mline:30:30[0m used[0;1;36m staticReverse[0m [0;32m'void (int *, int)'[0m
+[0;34m| | |-[0mTemplateArgument integral 4
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3566740[0m <[0;33mcol:44[0m, [0;33mcol:49[0m> [0;33mcol:49[0m used[0;1;36m d[0m [0;32m'int *'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x35667a0[0m <[0;33mcol:52[0m, [0;33mcol:56[0m> [0;33mcol:56[0m used[0;1;36m n[0m [0;32m'int'[0m
+[0;34m| | |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x35670e0[0m <[0;33mline:31:1[0m, [0;33mline:38:1[0m>
+[0;34m| | | |-[0m[0;1;35mDeclStmt[0m[0;33m 0x3566bc0[0m <[0;33mcuda.h:18:20[0m, [0;33m/tmp/simple-templated-kernel.cu:32:32[0m>
+[0;34m| | | | `-[0m[0;1;32mVarDecl[0m[0;33m 0x3566b20[0m <[0;33mcuda.h:18:20[0m, [0;33m/tmp/simple-templated-kernel.cu:32:31[0m> [0;33mcol:18[0m used[0;1;36m s[0m [0;32m'int [4]'[0m static
+[0;34m| | | |   `-[0m[0;1;34mCUDASharedAttr[0m[0;33m 0x3566b80[0m <[0;33mcuda.h:18:35[0m>
+[0;34m| | | |-[0m[0;1;35mDeclStmt[0m[0;33m 0x3566c68[0m <[0;33m/tmp/simple-templated-kernel.cu:33:3[0m, [0;33mcol:22[0m>
+[0;34m| | | | `-[0m[0;1;32mVarDecl[0m[0;33m 0x3566be0[0m <[0;33mcol:3[0m, [0;33mcol:21[0m> [0;33mcol:7[0m used[0;1;36m t[0m [0;32m'int'[0m
+[0;34m| | | |   `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3566c50[0m <[0;33mcol:11[0m, [0;33mcol:21[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mIntegralCast[0m>
+[0;34m| | | |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3566c38[0m <[0;33mcol:11[0m, [0;33mcol:21[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | | |       `-[0m[0;1;35mMemberExpr[0m[0;33m 0x3560650[0m <[0;33mcol:11[0m, [0;33mcol:21[0m> [0;32m'const unsigned int'[0m[0;36m lvalue[0m[0;36m[0m .x[0;33m 0x3512140[0m
+[0;34m| | | |         `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3560628[0m <[0;33mcol:11[0m> [0;32m'const uint3':'const uint3'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3545e20[0m[0;1;36m 'threadIdx'[0m [0;32m'const uint3':'const uint3'[0m
+[0;34m| | | |-[0m[0;1;35mDeclStmt[0m[0;33m 0x3566da8[0m <[0;33mline:34:3[0m, [0;33mcol:17[0m>
+[0;34m| | | | `-[0m[0;1;32mVarDecl[0m[0;33m 0x3566c80[0m <[0;33mcol:3[0m, [0;33mcol:16[0m> [0;33mcol:7[0m used[0;1;36m tr[0m [0;32m'int'[0m
+[0;34m| | | |   `-[0m[0;1;35mBinaryOperator[0m[0;33m 0x3566d80[0m <[0;33mcol:12[0m, [0;33mcol:16[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m '-'
+[0;34m| | | |     |-[0m[0;1;35mBinaryOperator[0m[0;33m 0x3566d58[0m <[0;33mcol:12[0m, [0;33mcol:14[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m '-'
+[0;34m| | | |     | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3566d28[0m <[0;33mcol:12[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | | |     | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3566cd8[0m <[0;33mcol:12[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x35667a0[0m[0;1;36m 'n'[0m [0;32m'int'[0m
+[0;34m| | | |     | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3566d40[0m <[0;33mcol:14[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | | |     |   `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3566d00[0m <[0;33mcol:14[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3566be0[0m[0;1;36m 't'[0m [0;32m'int'[0m
+[0;34m| | | |     `-[0m[0;1;35mIntegerLiteral[0m[0;33m 0x35610d0[0m <[0;33mcol:16[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m[0;1;36m 1[0m
+[0;34m| | | |-[0m[0;1;35mBinaryOperator[0m[0;33m 0x3566f28[0m <[0;33mline:35:3[0m, [0;33mcol:13[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m '='
+[0;34m| | | | |-[0m[0;1;35mArraySubscriptExpr[0m[0;33m 0x3566e40[0m <[0;33mcol:3[0m, [0;33mcol:6[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m
+[0;34m| | | | | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3566e10[0m <[0;33mcol:3[0m> [0;32m'int *'[0m[0;36m[0m[0;36m[0m <[0;31mArrayToPointerDecay[0m>
+[0;34m| | | | | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3566dc0[0m <[0;33mcol:3[0m> [0;32m'int [4]'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3566b20[0m[0;1;36m 's'[0m [0;32m'int [4]'[0m
+[0;34m| | | | | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3566e28[0m <[0;33mcol:5[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | | | |   `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3566de8[0m <[0;33mcol:5[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3566be0[0m[0;1;36m 't'[0m [0;32m'int'[0m
+[0;34m| | | | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3566f10[0m <[0;33mcol:10[0m, [0;33mcol:13[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | | |   `-[0m[0;1;35mArraySubscriptExpr[0m[0;33m 0x3566ee8[0m <[0;33mcol:10[0m, [0;33mcol:13[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m
+[0;34m| | | |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3566eb8[0m <[0;33mcol:10[0m> [0;32m'int *'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | | |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3566e68[0m <[0;33mcol:10[0m> [0;32m'int *'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3566740[0m[0;1;36m 'd'[0m [0;32m'int *'[0m
+[0;34m| | | |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3566ed0[0m <[0;33mcol:12[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | | |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3566e90[0m <[0;33mcol:12[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3566be0[0m[0;1;36m 't'[0m [0;32m'int'[0m
+[0;34m| | | `-[0m[0;1;35mBinaryOperator[0m[0;33m 0x35670b8[0m <[0;33mline:37:3[0m, [0;33mcol:14[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m '='
+[0;34m| | |   |-[0m[0;1;35mArraySubscriptExpr[0m[0;33m 0x3566fd0[0m <[0;33mcol:3[0m, [0;33mcol:6[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m
+[0;34m| | |   | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3566fa0[0m <[0;33mcol:3[0m> [0;32m'int *'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | |   | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3566f50[0m <[0;33mcol:3[0m> [0;32m'int *'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3566740[0m[0;1;36m 'd'[0m [0;32m'int *'[0m
+[0;34m| | |   | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3566fb8[0m <[0;33mcol:5[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | |   |   `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3566f78[0m <[0;33mcol:5[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3566be0[0m[0;1;36m 't'[0m [0;32m'int'[0m
+[0;34m| | |   `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35670a0[0m <[0;33mcol:10[0m, [0;33mcol:14[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | |     `-[0m[0;1;35mArraySubscriptExpr[0m[0;33m 0x3567078[0m <[0;33mcol:10[0m, [0;33mcol:14[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m
+[0;34m| | |       |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3567048[0m <[0;33mcol:10[0m> [0;32m'int *'[0m[0;36m[0m[0;36m[0m <[0;31mArrayToPointerDecay[0m>
+[0;34m| | |       | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3566ff8[0m <[0;33mcol:10[0m> [0;32m'int [4]'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3566b20[0m[0;1;36m 's'[0m [0;32m'int [4]'[0m
+[0;34m| | |       `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3567060[0m <[0;33mcol:12[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| | |         `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3567020[0m <[0;33mcol:12[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3566c80[0m[0;1;36m 'tr'[0m [0;32m'int'[0m
+[0;34m| | `-[0m[0;1;34mCUDAGlobalAttr[0m[0;33m 0x3566910[0m <[0;33mline:30:16[0m>
+[0;34m| `-[0m[0;1;32mFunctionDecl[0m[0;33m 0x35677d0[0m <[0;33mcol:1[0m, [0;33mline:38:1[0m> [0;33mline:30:30[0m used[0;1;36m staticReverse[0m [0;32m'void (int *, int)'[0m
+[0;34m|   |-[0mTemplateArgument integral 128
+[0;34m|   |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3567710[0m <[0;33mcol:44[0m, [0;33mcol:49[0m> [0;33mcol:49[0m used[0;1;36m d[0m [0;32m'int *'[0m
+[0;34m|   |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3567770[0m <[0;33mcol:52[0m, [0;33mcol:56[0m> [0;33mcol:56[0m used[0;1;36m n[0m [0;32m'int'[0m
+[0;34m|   |-[0m[0;1;35mCompoundStmt[0m[0;33m 0x35680b0[0m <[0;33mline:31:1[0m, [0;33mline:38:1[0m>
+[0;34m|   | |-[0m[0;1;35mDeclStmt[0m[0;33m 0x3567b90[0m <[0;33mcuda.h:18:20[0m, [0;33m/tmp/simple-templated-kernel.cu:32:32[0m>
+[0;34m|   | | `-[0m[0;1;32mVarDecl[0m[0;33m 0x3567af0[0m <[0;33mcuda.h:18:20[0m, [0;33m/tmp/simple-templated-kernel.cu:32:31[0m> [0;33mcol:18[0m used[0;1;36m s[0m [0;32m'int [128]'[0m static
+[0;34m|   | |   `-[0m[0;1;34mCUDASharedAttr[0m[0;33m 0x3567b50[0m <[0;33mcuda.h:18:35[0m>
+[0;34m|   | |-[0m[0;1;35mDeclStmt[0m[0;33m 0x3567c38[0m <[0;33m/tmp/simple-templated-kernel.cu:33:3[0m, [0;33mcol:22[0m>
+[0;34m|   | | `-[0m[0;1;32mVarDecl[0m[0;33m 0x3567bb0[0m <[0;33mcol:3[0m, [0;33mcol:21[0m> [0;33mcol:7[0m used[0;1;36m t[0m [0;32m'int'[0m
+[0;34m|   | |   `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3567c20[0m <[0;33mcol:11[0m, [0;33mcol:21[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mIntegralCast[0m>
+[0;34m|   | |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3567c08[0m <[0;33mcol:11[0m, [0;33mcol:21[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m|   | |       `-[0m[0;1;35mMemberExpr[0m[0;33m 0x3560650[0m <[0;33mcol:11[0m, [0;33mcol:21[0m> [0;32m'const unsigned int'[0m[0;36m lvalue[0m[0;36m[0m .x[0;33m 0x3512140[0m
+[0;34m|   | |         `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3560628[0m <[0;33mcol:11[0m> [0;32m'const uint3':'const uint3'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3545e20[0m[0;1;36m 'threadIdx'[0m [0;32m'const uint3':'const uint3'[0m
+[0;34m|   | |-[0m[0;1;35mDeclStmt[0m[0;33m 0x3567d78[0m <[0;33mline:34:3[0m, [0;33mcol:17[0m>
+[0;34m|   | | `-[0m[0;1;32mVarDecl[0m[0;33m 0x3567c50[0m <[0;33mcol:3[0m, [0;33mcol:16[0m> [0;33mcol:7[0m used[0;1;36m tr[0m [0;32m'int'[0m
+[0;34m|   | |   `-[0m[0;1;35mBinaryOperator[0m[0;33m 0x3567d50[0m <[0;33mcol:12[0m, [0;33mcol:16[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m '-'
+[0;34m|   | |     |-[0m[0;1;35mBinaryOperator[0m[0;33m 0x3567d28[0m <[0;33mcol:12[0m, [0;33mcol:14[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m '-'
+[0;34m|   | |     | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3567cf8[0m <[0;33mcol:12[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m|   | |     | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3567ca8[0m <[0;33mcol:12[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3567770[0m[0;1;36m 'n'[0m [0;32m'int'[0m
+[0;34m|   | |     | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3567d10[0m <[0;33mcol:14[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m|   | |     |   `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3567cd0[0m <[0;33mcol:14[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3567bb0[0m[0;1;36m 't'[0m [0;32m'int'[0m
+[0;34m|   | |     `-[0m[0;1;35mIntegerLiteral[0m[0;33m 0x35610d0[0m <[0;33mcol:16[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m[0;1;36m 1[0m
+[0;34m|   | |-[0m[0;1;35mBinaryOperator[0m[0;33m 0x3567ef8[0m <[0;33mline:35:3[0m, [0;33mcol:13[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m '='
+[0;34m|   | | |-[0m[0;1;35mArraySubscriptExpr[0m[0;33m 0x3567e10[0m <[0;33mcol:3[0m, [0;33mcol:6[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m
+[0;34m|   | | | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3567de0[0m <[0;33mcol:3[0m> [0;32m'int *'[0m[0;36m[0m[0;36m[0m <[0;31mArrayToPointerDecay[0m>
+[0;34m|   | | | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3567d90[0m <[0;33mcol:3[0m> [0;32m'int [128]'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3567af0[0m[0;1;36m 's'[0m [0;32m'int [128]'[0m
+[0;34m|   | | | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3567df8[0m <[0;33mcol:5[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m|   | | |   `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3567db8[0m <[0;33mcol:5[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3567bb0[0m[0;1;36m 't'[0m [0;32m'int'[0m
+[0;34m|   | | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3567ee0[0m <[0;33mcol:10[0m, [0;33mcol:13[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m|   | |   `-[0m[0;1;35mArraySubscriptExpr[0m[0;33m 0x3567eb8[0m <[0;33mcol:10[0m, [0;33mcol:13[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m
+[0;34m|   | |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3567e88[0m <[0;33mcol:10[0m> [0;32m'int *'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m|   | |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3567e38[0m <[0;33mcol:10[0m> [0;32m'int *'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3567710[0m[0;1;36m 'd'[0m [0;32m'int *'[0m
+[0;34m|   | |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3567ea0[0m <[0;33mcol:12[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m|   | |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3567e60[0m <[0;33mcol:12[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3567bb0[0m[0;1;36m 't'[0m [0;32m'int'[0m
+[0;34m|   | `-[0m[0;1;35mBinaryOperator[0m[0;33m 0x3568088[0m <[0;33mline:37:3[0m, [0;33mcol:14[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m '='
+[0;34m|   |   |-[0m[0;1;35mArraySubscriptExpr[0m[0;33m 0x3567fa0[0m <[0;33mcol:3[0m, [0;33mcol:6[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m
+[0;34m|   |   | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3567f70[0m <[0;33mcol:3[0m> [0;32m'int *'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m|   |   | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3567f20[0m <[0;33mcol:3[0m> [0;32m'int *'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3567710[0m[0;1;36m 'd'[0m [0;32m'int *'[0m
+[0;34m|   |   | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3567f88[0m <[0;33mcol:5[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m|   |   |   `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3567f48[0m <[0;33mcol:5[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3567bb0[0m[0;1;36m 't'[0m [0;32m'int'[0m
+[0;34m|   |   `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3568070[0m <[0;33mcol:10[0m, [0;33mcol:14[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m|   |     `-[0m[0;1;35mArraySubscriptExpr[0m[0;33m 0x3568048[0m <[0;33mcol:10[0m, [0;33mcol:14[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m
+[0;34m|   |       |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3568018[0m <[0;33mcol:10[0m> [0;32m'int *'[0m[0;36m[0m[0;36m[0m <[0;31mArrayToPointerDecay[0m>
+[0;34m|   |       | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3567fc8[0m <[0;33mcol:10[0m> [0;32m'int [128]'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3567af0[0m[0;1;36m 's'[0m [0;32m'int [128]'[0m
+[0;34m|   |       `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3568030[0m <[0;33mcol:12[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m|   |         `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3567ff0[0m <[0;33mcol:12[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3567c50[0m[0;1;36m 'tr'[0m [0;32m'int'[0m
+[0;34m|   `-[0m[0;1;34mCUDAGlobalAttr[0m[0;33m 0x35678e0[0m <[0;33mline:30:16[0m>
+[0;34m|-[0m[0;1;32mFunctionTemplateDecl[0m[0;33m 0x3561700[0m <[0;33mline:40:1[0m, [0;33mline:43:1[0m> [0;33mline:41:6[0m[0;1;36m device_caller[0m
+[0;34m| |-[0m[0;1;32mNonTypeTemplateParmDecl[0m[0;33m 0x3561460[0m <[0;33mline:40:11[0m, [0;33mcol:15[0m> [0;33mcol:15[0m referenced [0;32m'int'[0m[0;1;36m SHARED_SIZE[0m
+[0;34m| |-[0m[0;1;32mNonTypeTemplateParmDecl[0m[0;33m 0x35614d0[0m <[0;33mcol:28[0m, [0;33mcol:32[0m> [0;33mcol:32[0m referenced [0;32m'int'[0m[0;1;36m DIM[0m
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3561660[0m <[0;33mline:41:1[0m, [0;33mline:43:1[0m> [0;33mline:41:6[0m[0;1;36m device_caller[0m [0;32m'void (int *, int)'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3561560[0m <[0;33mcol:20[0m, [0;33mcol:25[0m> [0;33mcol:25[0m referenced[0;1;36m d[0m [0;32m'int *'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x35615d0[0m <[0;33mcol:28[0m, [0;33mcol:32[0m> [0;33mcol:32[0m referenced[0;1;36m n[0m [0;32m'int'[0m
+[0;34m| | `-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3561f78[0m <[0;33mcol:35[0m, [0;33mline:43:1[0m>
+[0;34m| |   `-[0m[0;1;35mCUDAKernelCallExpr[0m[0;33m 0x3561f38[0m <[0;33mline:42:3[0m, [0;33mcol:46[0m> [0;32m'<dependent type>'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mUnresolvedLookupExpr[0m[0;33m 0x3561780[0m <[0;33mcol:3[0m, [0;33mcol:28[0m> [0;32m'<dependent type>'[0m[0;36m lvalue[0m[0;36m[0m (no ADL) = 'staticReverse'[0;33m 0x35603d0[0m
+[0;34m| |     |-[0m[0;1;35mCallExpr[0m[0;33m 0x3561910[0m <[0;33mcol:29[0m, [0;33mcol:38[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35618f8[0m <[0;33mcol:29[0m> [0;32m'int (*)(struct dim3, struct dim3, unsigned int, cudaStream_t)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3561870[0m <[0;33mcol:29[0m> [0;32m'int (struct dim3, struct dim3, unsigned int, cudaStream_t)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x3560070[0m[0;1;36m 'cudaConfigureCall'[0m [0;32m'int (struct dim3, struct dim3, unsigned int, cudaStream_t)'[0m
+[0;34m| |     | |-[0m[0;1;35mCXXConstructExpr[0m[0;33m 0x3561d38[0m <[0;33mcol:32[0m> [0;32m'struct dim3'[0m[0;36m[0m[0;36m[0m [0;32m'void (const struct dim3 &) throw()'[0m elidable
+[0;34m| |     | | `-[0m[0;1;35mMaterializeTemporaryExpr[0m[0;33m 0x3561d20[0m <[0;33mcol:32[0m> [0;32m'const struct dim3'[0m[0;36m lvalue[0m[0;36m[0m
+[0;34m| |     | |   `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3561d08[0m <[0;33mcol:32[0m> [0;32m'const struct dim3'[0m[0;36m[0m[0;36m[0m <[0;31mNoOp[0m>
+[0;34m| |     | |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3561be0[0m <[0;33mcol:32[0m> [0;32m'struct dim3'[0m[0;36m[0m[0;36m[0m <[0;31mConstructorConversion[0m>
+[0;34m| |     | |       `-[0m[0;1;35mCXXConstructExpr[0m[0;33m 0x3561b98[0m <[0;33mcol:32[0m> [0;32m'struct dim3'[0m[0;36m[0m[0;36m[0m [0;32m'void (unsigned int, unsigned int, unsigned int)'[0m
+[0;34m| |     | |         |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3561b40[0m <[0;33mcol:32[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mIntegralCast[0m>
+[0;34m| |     | |         | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3561820[0m <[0;33mcol:32[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m [0;1;32mNonTypeTemplateParm[0m[0;33m 0x35614d0[0m[0;1;36m 'DIM'[0m [0;32m'int'[0m
+[0;34m| |     | |         |-[0m[0;1;35mCXXDefaultArgExpr[0m[0;33m 0x3561b58[0m <[0;33m<invalid sloc>[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     | |         `-[0m[0;1;35mCXXDefaultArgExpr[0m[0;33m 0x3561b78[0m <[0;33m<invalid sloc>[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     | |-[0m[0;1;35mCXXConstructExpr[0m[0;33m 0x3561e70[0m <[0;33mcol:37[0m> [0;32m'struct dim3'[0m[0;36m[0m[0;36m[0m [0;32m'void (const struct dim3 &) throw()'[0m elidable
+[0;34m| |     | | `-[0m[0;1;35mMaterializeTemporaryExpr[0m[0;33m 0x3561e58[0m <[0;33mcol:37[0m> [0;32m'const struct dim3'[0m[0;36m lvalue[0m[0;36m[0m
+[0;34m| |     | |   `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3561e40[0m <[0;33mcol:37[0m> [0;32m'const struct dim3'[0m[0;36m[0m[0;36m[0m <[0;31mNoOp[0m>
+[0;34m| |     | |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3561e28[0m <[0;33mcol:37[0m> [0;32m'struct dim3'[0m[0;36m[0m[0;36m[0m <[0;31mConstructorConversion[0m>
+[0;34m| |     | |       `-[0m[0;1;35mCXXConstructExpr[0m[0;33m 0x3561de0[0m <[0;33mcol:37[0m> [0;32m'struct dim3'[0m[0;36m[0m[0;36m[0m [0;32m'void (unsigned int, unsigned int, unsigned int)'[0m
+[0;34m| |     | |         |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3561d88[0m <[0;33mcol:37[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mIntegralCast[0m>
+[0;34m| |     | |         | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3561d70[0m <[0;33mcol:37[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | |         |   `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3561848[0m <[0;33mcol:37[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x35615d0[0m[0;1;36m 'n'[0m [0;32m'int'[0m
+[0;34m| |     | |         |-[0m[0;1;35mCXXDefaultArgExpr[0m[0;33m 0x3561da0[0m <[0;33m<invalid sloc>[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     | |         `-[0m[0;1;35mCXXDefaultArgExpr[0m[0;33m 0x3561dc0[0m <[0;33m<invalid sloc>[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     | |-[0m[0;1;35mCXXDefaultArgExpr[0m[0;33m 0x3561ea8[0m <[0;33m<invalid sloc>[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     | `-[0m[0;1;35mCXXDefaultArgExpr[0m[0;33m 0x3561ec8[0m <[0;33m<invalid sloc>[0m> [0;32m'cudaStream_t':'struct cudaStream *'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3561ee8[0m <[0;33mcol:42[0m> [0;32m'int *'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3561560[0m[0;1;36m 'd'[0m [0;32m'int *'[0m
+[0;34m| |     `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3561f10[0m <[0;33mcol:45[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x35615d0[0m[0;1;36m 'n'[0m [0;32m'int'[0m
+[0;34m| |-[0m[0;1;32mFunctionDecl[0m[0;33m 0x35631f0[0m <[0;33mline:41:1[0m, [0;33mline:43:1[0m> [0;33mline:41:6[0m used[0;1;36m device_caller[0m [0;32m'void (int *, int)'[0m
+[0;34m| | |-[0mTemplateArgument integral 4
+[0;34m| | |-[0mTemplateArgument integral 1
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3562ea0[0m <[0;33mcol:20[0m, [0;33mcol:25[0m> [0;33mcol:25[0m used[0;1;36m d[0m [0;32m'int *'[0m
+[0;34m| | |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3562f00[0m <[0;33mcol:28[0m, [0;33mcol:32[0m> [0;33mcol:32[0m used[0;1;36m n[0m [0;32m'int'[0m
+[0;34m| | `-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3566a50[0m <[0;33mcol:35[0m, [0;33mline:43:1[0m>
+[0;34m| |   `-[0m[0;1;35mCUDAKernelCallExpr[0m[0;33m 0x35669e0[0m <[0;33mline:42:3[0m, [0;33mcol:46[0m> [0;32m'void'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35669c8[0m <[0;33mcol:3[0m, [0;33mcol:28[0m> [0;32m'void (*)(int *, int)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3566950[0m <[0;33mcol:3[0m, [0;33mcol:28[0m> [0;32m'void (int *, int)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x3566800[0m[0;1;36m 'staticReverse'[0m [0;32m'void (int *, int)'[0m ([0;1;32mFunctionTemplate[0m[0;33m 0x35603d0[0m[0;1;36m 'staticReverse'[0m)
+[0;34m| |     |-[0m[0;1;35mCallExpr[0m[0;33m 0x3563c18[0m <[0;33mcol:29[0m, [0;33mcol:38[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3563c00[0m <[0;33mcol:29[0m> [0;32m'int (*)(struct dim3, struct dim3, unsigned int, cudaStream_t)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m| |     | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3561870[0m <[0;33mcol:29[0m> [0;32m'int (struct dim3, struct dim3, unsigned int, cudaStream_t)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x3560070[0m[0;1;36m 'cudaConfigureCall'[0m [0;32m'int (struct dim3, struct dim3, unsigned int, cudaStream_t)'[0m
+[0;34m| |     | |-[0m[0;1;35mCXXConstructExpr[0m[0;33m 0x3563fe8[0m <[0;33mcol:32[0m> [0;32m'struct dim3'[0m[0;36m[0m[0;36m[0m [0;32m'void (const struct dim3 &) throw()'[0m elidable
+[0;34m| |     | | `-[0m[0;1;35mMaterializeTemporaryExpr[0m[0;33m 0x3563d98[0m <[0;33mcol:32[0m> [0;32m'const struct dim3'[0m[0;36m lvalue[0m[0;36m[0m
+[0;34m| |     | |   `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3563d80[0m <[0;33mcol:32[0m> [0;32m'const struct dim3'[0m[0;36m[0m[0;36m[0m <[0;31mNoOp[0m>
+[0;34m| |     | |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3563d18[0m <[0;33mcol:32[0m> [0;32m'struct dim3'[0m[0;36m[0m[0;36m[0m <[0;31mConstructorConversion[0m>
+[0;34m| |     | |       `-[0m[0;1;35mCXXConstructExpr[0m[0;33m 0x3563cd0[0m <[0;33mcol:32[0m> [0;32m'struct dim3'[0m[0;36m[0m[0;36m[0m [0;32m'void (unsigned int, unsigned int, unsigned int)'[0m
+[0;34m| |     | |         |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3563c78[0m <[0;33mcol:32[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mIntegralCast[0m>
+[0;34m| |     | |         | `-[0m[0;1;35mSubstNonTypeTemplateParmExpr[0m[0;33m 0x3563bb0[0m <[0;33mcol:32[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     | |         |   `-[0m[0;1;35mIntegerLiteral[0m[0;33m 0x3563b90[0m <[0;33mcol:32[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m[0;1;36m 1[0m
+[0;34m| |     | |         |-[0m[0;1;35mCXXDefaultArgExpr[0m[0;33m 0x3563c90[0m <[0;33m<invalid sloc>[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     | |         `-[0m[0;1;35mCXXDefaultArgExpr[0m[0;33m 0x3563cb0[0m <[0;33m<invalid sloc>[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     | |-[0m[0;1;35mCXXConstructExpr[0m[0;33m 0x3564120[0m <[0;33mcol:37[0m> [0;32m'struct dim3'[0m[0;36m[0m[0;36m[0m [0;32m'void (const struct dim3 &) throw()'[0m elidable
+[0;34m| |     | | `-[0m[0;1;35mMaterializeTemporaryExpr[0m[0;33m 0x3564108[0m <[0;33mcol:37[0m> [0;32m'const struct dim3'[0m[0;36m lvalue[0m[0;36m[0m
+[0;34m| |     | |   `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35640f0[0m <[0;33mcol:37[0m> [0;32m'const struct dim3'[0m[0;36m[0m[0;36m[0m <[0;31mNoOp[0m>
+[0;34m| |     | |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35640d8[0m <[0;33mcol:37[0m> [0;32m'struct dim3'[0m[0;36m[0m[0;36m[0m <[0;31mConstructorConversion[0m>
+[0;34m| |     | |       `-[0m[0;1;35mCXXConstructExpr[0m[0;33m 0x3564090[0m <[0;33mcol:37[0m> [0;32m'struct dim3'[0m[0;36m[0m[0;36m[0m [0;32m'void (unsigned int, unsigned int, unsigned int)'[0m
+[0;34m| |     | |         |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3564038[0m <[0;33mcol:37[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mIntegralCast[0m>
+[0;34m| |     | |         | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3564020[0m <[0;33mcol:37[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | |         |   `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3563bd8[0m <[0;33mcol:37[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3562f00[0m[0;1;36m 'n'[0m [0;32m'int'[0m
+[0;34m| |     | |         |-[0m[0;1;35mCXXDefaultArgExpr[0m[0;33m 0x3564050[0m <[0;33m<invalid sloc>[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     | |         `-[0m[0;1;35mCXXDefaultArgExpr[0m[0;33m 0x3564070[0m <[0;33m<invalid sloc>[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     | |-[0m[0;1;35mCXXDefaultArgExpr[0m[0;33m 0x3564158[0m <[0;33m<invalid sloc>[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     | `-[0m[0;1;35mCXXDefaultArgExpr[0m[0;33m 0x3564178[0m <[0;33m<invalid sloc>[0m> [0;32m'cudaStream_t':'struct cudaStream *'[0m[0;36m[0m[0;36m[0m
+[0;34m| |     |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3566a20[0m <[0;33mcol:42[0m> [0;32m'int *'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |     | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3564198[0m <[0;33mcol:42[0m> [0;32m'int *'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3562ea0[0m[0;1;36m 'd'[0m [0;32m'int *'[0m
+[0;34m| |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3566a38[0m <[0;33mcol:45[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m| |       `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35641c0[0m <[0;33mcol:45[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3562f00[0m[0;1;36m 'n'[0m [0;32m'int'[0m
+[0;34m| `-[0m[0;1;32mFunctionDecl[0m[0;33m 0x35637d0[0m <[0;33mline:41:1[0m, [0;33mline:43:1[0m> [0;33mline:41:6[0m used[0;1;36m device_caller[0m [0;32m'void (int *, int)'[0m
+[0;34m|   |-[0mTemplateArgument integral 128
+[0;34m|   |-[0mTemplateArgument integral 1
+[0;34m|   |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3563710[0m <[0;33mcol:20[0m, [0;33mcol:25[0m> [0;33mcol:25[0m used[0;1;36m d[0m [0;32m'int *'[0m
+[0;34m|   |-[0m[0;1;32mParmVarDecl[0m[0;33m 0x3563770[0m <[0;33mcol:28[0m, [0;33mcol:32[0m> [0;33mcol:32[0m used[0;1;36m n[0m [0;32m'int'[0m
+[0;34m|   `-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3567a20[0m <[0;33mcol:35[0m, [0;33mline:43:1[0m>
+[0;34m|     `-[0m[0;1;35mCUDAKernelCallExpr[0m[0;33m 0x35679b0[0m <[0;33mline:42:3[0m, [0;33mcol:46[0m> [0;32m'void'[0m[0;36m[0m[0;36m[0m
+[0;34m|       |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3567998[0m <[0;33mcol:3[0m, [0;33mcol:28[0m> [0;32m'void (*)(int *, int)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m|       | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3567920[0m <[0;33mcol:3[0m, [0;33mcol:28[0m> [0;32m'void (int *, int)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x35677d0[0m[0;1;36m 'staticReverse'[0m [0;32m'void (int *, int)'[0m ([0;1;32mFunctionTemplate[0m[0;33m 0x35603d0[0m[0;1;36m 'staticReverse'[0m)
+[0;34m|       |-[0m[0;1;35mCallExpr[0m[0;33m 0x3567290[0m <[0;33mcol:29[0m, [0;33mcol:38[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m
+[0;34m|       | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3567278[0m <[0;33mcol:29[0m> [0;32m'int (*)(struct dim3, struct dim3, unsigned int, cudaStream_t)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m|       | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3561870[0m <[0;33mcol:29[0m> [0;32m'int (struct dim3, struct dim3, unsigned int, cudaStream_t)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x3560070[0m[0;1;36m 'cudaConfigureCall'[0m [0;32m'int (struct dim3, struct dim3, unsigned int, cudaStream_t)'[0m
+[0;34m|       | |-[0m[0;1;35mCXXConstructExpr[0m[0;33m 0x35673d8[0m <[0;33mcol:32[0m> [0;32m'struct dim3'[0m[0;36m[0m[0;36m[0m [0;32m'void (const struct dim3 &) throw()'[0m elidable
+[0;34m|       | | `-[0m[0;1;35mMaterializeTemporaryExpr[0m[0;33m 0x35673c0[0m <[0;33mcol:32[0m> [0;32m'const struct dim3'[0m[0;36m lvalue[0m[0;36m[0m
+[0;34m|       | |   `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35673a8[0m <[0;33mcol:32[0m> [0;32m'const struct dim3'[0m[0;36m[0m[0;36m[0m <[0;31mNoOp[0m>
+[0;34m|       | |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3567390[0m <[0;33mcol:32[0m> [0;32m'struct dim3'[0m[0;36m[0m[0;36m[0m <[0;31mConstructorConversion[0m>
+[0;34m|       | |       `-[0m[0;1;35mCXXConstructExpr[0m[0;33m 0x3567348[0m <[0;33mcol:32[0m> [0;32m'struct dim3'[0m[0;36m[0m[0;36m[0m [0;32m'void (unsigned int, unsigned int, unsigned int)'[0m
+[0;34m|       | |         |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35672f0[0m <[0;33mcol:32[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mIntegralCast[0m>
+[0;34m|       | |         | `-[0m[0;1;35mSubstNonTypeTemplateParmExpr[0m[0;33m 0x3567228[0m <[0;33mcol:32[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m
+[0;34m|       | |         |   `-[0m[0;1;35mIntegerLiteral[0m[0;33m 0x3567208[0m <[0;33mcol:32[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m[0;1;36m 1[0m
+[0;34m|       | |         |-[0m[0;1;35mCXXDefaultArgExpr[0m[0;33m 0x3567308[0m <[0;33m<invalid sloc>[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m
+[0;34m|       | |         `-[0m[0;1;35mCXXDefaultArgExpr[0m[0;33m 0x3567328[0m <[0;33m<invalid sloc>[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m
+[0;34m|       | |-[0m[0;1;35mCXXConstructExpr[0m[0;33m 0x3567510[0m <[0;33mcol:37[0m> [0;32m'struct dim3'[0m[0;36m[0m[0;36m[0m [0;32m'void (const struct dim3 &) throw()'[0m elidable
+[0;34m|       | | `-[0m[0;1;35mMaterializeTemporaryExpr[0m[0;33m 0x35674f8[0m <[0;33mcol:37[0m> [0;32m'const struct dim3'[0m[0;36m lvalue[0m[0;36m[0m
+[0;34m|       | |   `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35674e0[0m <[0;33mcol:37[0m> [0;32m'const struct dim3'[0m[0;36m[0m[0;36m[0m <[0;31mNoOp[0m>
+[0;34m|       | |     `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35674c8[0m <[0;33mcol:37[0m> [0;32m'struct dim3'[0m[0;36m[0m[0;36m[0m <[0;31mConstructorConversion[0m>
+[0;34m|       | |       `-[0m[0;1;35mCXXConstructExpr[0m[0;33m 0x3567480[0m <[0;33mcol:37[0m> [0;32m'struct dim3'[0m[0;36m[0m[0;36m[0m [0;32m'void (unsigned int, unsigned int, unsigned int)'[0m
+[0;34m|       | |         |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3567428[0m <[0;33mcol:37[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m <[0;31mIntegralCast[0m>
+[0;34m|       | |         | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3567410[0m <[0;33mcol:37[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m|       | |         |   `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3567250[0m <[0;33mcol:37[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3563770[0m[0;1;36m 'n'[0m [0;32m'int'[0m
+[0;34m|       | |         |-[0m[0;1;35mCXXDefaultArgExpr[0m[0;33m 0x3567440[0m <[0;33m<invalid sloc>[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m
+[0;34m|       | |         `-[0m[0;1;35mCXXDefaultArgExpr[0m[0;33m 0x3567460[0m <[0;33m<invalid sloc>[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m
+[0;34m|       | |-[0m[0;1;35mCXXDefaultArgExpr[0m[0;33m 0x3567548[0m <[0;33m<invalid sloc>[0m> [0;32m'unsigned int'[0m[0;36m[0m[0;36m[0m
+[0;34m|       | `-[0m[0;1;35mCXXDefaultArgExpr[0m[0;33m 0x3567568[0m <[0;33m<invalid sloc>[0m> [0;32m'cudaStream_t':'struct cudaStream *'[0m[0;36m[0m[0;36m[0m
+[0;34m|       |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35679f0[0m <[0;33mcol:42[0m> [0;32m'int *'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m|       | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35675b0[0m <[0;33mcol:42[0m> [0;32m'int *'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3563710[0m[0;1;36m 'd'[0m [0;32m'int *'[0m
+[0;34m|       `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3567a08[0m <[0;33mcol:45[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m|         `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35675d8[0m <[0;33mcol:45[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mParmVar[0m[0;33m 0x3563770[0m[0;1;36m 'n'[0m [0;32m'int'[0m
+[0;34m`-[0m[0;1;32mFunctionDecl[0m[0;33m 0x3562080[0m <[0;33mline:45:1[0m, [0;33mline:77:1[0m> [0;33mline:45:5[0m[0;1;36m main[0m [0;32m'int (void)'[0m
+[0;34m  `-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3563a58[0m <[0;33mline:46:1[0m, [0;33mline:77:1[0m>
+[0;34m    |-[0m[0;1;35mDeclStmt[0m[0;33m 0x3562258[0m <[0;33mline:47:3[0m, [0;33mcol:19[0m>
+[0;34m    | `-[0m[0;1;32mVarDecl[0m[0;33m 0x3562190[0m <[0;33mcol:3[0m, [0;33mcol:17[0m> [0;33mcol:13[0m referenced[0;1;36m n[0m [0;32m'const int'[0m
+[0;34m    |   `-[0m[0;1;35mIntegerLiteral[0m[0;33m 0x35621e8[0m <[0;33mcol:17[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m[0;1;36m 64[0m
+[0;34m    |-[0m[0;1;35mDeclStmt[0m[0;33m 0x3562508[0m <[0;33mline:48:3[0m, [0;33mcol:23[0m>
+[0;34m    | |-[0m[0;1;32mVarDecl[0m[0;33m 0x3562310[0m <[0;33mcol:3[0m, [0;33mcol:10[0m> [0;33mcol:7[0m used[0;1;36m a[0m [0;32m'int [64]'[0m
+[0;34m    | |-[0m[0;1;32mVarDecl[0m[0;33m 0x35623d0[0m <[0;33mcol:3[0m, [0;33mcol:16[0m> [0;33mcol:13[0m used[0;1;36m r[0m [0;32m'int [64]'[0m
+[0;34m    | `-[0m[0;1;32mVarDecl[0m[0;33m 0x3562490[0m <[0;33mcol:3[0m, [0;33mcol:22[0m> [0;33mcol:19[0m used[0;1;36m d[0m [0;32m'int [64]'[0m
+[0;34m    |-[0m[0;1;35mForStmt[0m[0;33m 0x3562aa0[0m <[0;33mline:50:3[0m, [0;33mline:54:3[0m>
+[0;34m    | |-[0m[0;1;35mDeclStmt[0m[0;33m 0x35625a8[0m <[0;33mline:50:8[0m, [0;33mcol:17[0m>
+[0;34m    | | `-[0m[0;1;32mVarDecl[0m[0;33m 0x3562530[0m <[0;33mcol:8[0m, [0;33mcol:16[0m> [0;33mcol:12[0m used[0;1;36m i[0m [0;32m'int'[0m
+[0;34m    | |   `-[0m[0;1;35mIntegerLiteral[0m[0;33m 0x3562588[0m <[0;33mcol:16[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m[0;1;36m 0[0m
+[0;34m    | |-[0m[0;34m<<<NULL>>>[0m
+[0;34m    | |-[0m[0;1;35mBinaryOperator[0m[0;33m 0x3562640[0m <[0;33mcol:19[0m, [0;33mcol:23[0m> [0;32m'_Bool'[0m[0;36m[0m[0;36m[0m '<'
+[0;34m    | | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3562610[0m <[0;33mcol:19[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m    | | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35625c0[0m <[0;33mcol:19[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3562530[0m[0;1;36m 'i'[0m [0;32m'int'[0m
+[0;34m    | | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3562628[0m <[0;33mcol:23[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m    | |   `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35625e8[0m <[0;33mcol:23[0m> [0;32m'const int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3562190[0m[0;1;36m 'n'[0m [0;32m'const int'[0m
+[0;34m    | |-[0m[0;1;35mUnaryOperator[0m[0;33m 0x3562690[0m <[0;33mcol:26[0m, [0;33mcol:27[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m postfix '++'
+[0;34m    | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3562668[0m <[0;33mcol:26[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3562530[0m[0;1;36m 'i'[0m [0;32m'int'[0m
+[0;34m    | `-[0m[0;1;35mCompoundStmt[0m[0;33m 0x3562a70[0m <[0;33mcol:31[0m, [0;33mline:54:3[0m>
+[0;34m    |   |-[0m[0;1;35mBinaryOperator[0m[0;33m 0x3562798[0m <[0;33mline:51:5[0m, [0;33mcol:12[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m '='
+[0;34m    |   | |-[0m[0;1;35mArraySubscriptExpr[0m[0;33m 0x3562730[0m <[0;33mcol:5[0m, [0;33mcol:8[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m
+[0;34m    |   | | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3562700[0m <[0;33mcol:5[0m> [0;32m'int *'[0m[0;36m[0m[0;36m[0m <[0;31mArrayToPointerDecay[0m>
+[0;34m    |   | | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35626b0[0m <[0;33mcol:5[0m> [0;32m'int [64]'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3562310[0m[0;1;36m 'a'[0m [0;32m'int [64]'[0m
+[0;34m    |   | | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3562718[0m <[0;33mcol:7[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m    |   | |   `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35626d8[0m <[0;33mcol:7[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3562530[0m[0;1;36m 'i'[0m [0;32m'int'[0m
+[0;34m    |   | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3562780[0m <[0;33mcol:12[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m    |   |   `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3562758[0m <[0;33mcol:12[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3562530[0m[0;1;36m 'i'[0m [0;32m'int'[0m
+[0;34m    |   |-[0m[0;1;35mBinaryOperator[0m[0;33m 0x3562958[0m <[0;33mline:52:5[0m, [0;33mcol:16[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m '='
+[0;34m    |   | |-[0m[0;1;35mArraySubscriptExpr[0m[0;33m 0x3562840[0m <[0;33mcol:5[0m, [0;33mcol:8[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m
+[0;34m    |   | | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3562810[0m <[0;33mcol:5[0m> [0;32m'int *'[0m[0;36m[0m[0;36m[0m <[0;31mArrayToPointerDecay[0m>
+[0;34m    |   | | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35627c0[0m <[0;33mcol:5[0m> [0;32m'int [64]'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x35623d0[0m[0;1;36m 'r'[0m [0;32m'int [64]'[0m
+[0;34m    |   | | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3562828[0m <[0;33mcol:7[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m    |   | |   `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35627e8[0m <[0;33mcol:7[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3562530[0m[0;1;36m 'i'[0m [0;32m'int'[0m
+[0;34m    |   | `-[0m[0;1;35mBinaryOperator[0m[0;33m 0x3562930[0m <[0;33mcol:12[0m, [0;33mcol:16[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m '-'
+[0;34m    |   |   |-[0m[0;1;35mBinaryOperator[0m[0;33m 0x35628e8[0m <[0;33mcol:12[0m, [0;33mcol:14[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m '-'
+[0;34m    |   |   | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35628b8[0m <[0;33mcol:12[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m    |   |   | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3562868[0m <[0;33mcol:12[0m> [0;32m'const int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3562190[0m[0;1;36m 'n'[0m [0;32m'const int'[0m
+[0;34m    |   |   | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35628d0[0m <[0;33mcol:14[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m    |   |   |   `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3562890[0m <[0;33mcol:14[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3562530[0m[0;1;36m 'i'[0m [0;32m'int'[0m
+[0;34m    |   |   `-[0m[0;1;35mIntegerLiteral[0m[0;33m 0x3562910[0m <[0;33mcol:16[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m[0;1;36m 1[0m
+[0;34m    |   `-[0m[0;1;35mBinaryOperator[0m[0;33m 0x3562a48[0m <[0;33mline:53:5[0m, [0;33mcol:12[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m '='
+[0;34m    |     |-[0m[0;1;35mArraySubscriptExpr[0m[0;33m 0x3562a00[0m <[0;33mcol:5[0m, [0;33mcol:8[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m
+[0;34m    |     | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35629d0[0m <[0;33mcol:5[0m> [0;32m'int *'[0m[0;36m[0m[0;36m[0m <[0;31mArrayToPointerDecay[0m>
+[0;34m    |     | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3562980[0m <[0;33mcol:5[0m> [0;32m'int [64]'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3562490[0m[0;1;36m 'd'[0m [0;32m'int [64]'[0m
+[0;34m    |     | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35629e8[0m <[0;33mcol:7[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m    |     |   `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35629a8[0m <[0;33mcol:7[0m> [0;32m'int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3562530[0m[0;1;36m 'i'[0m [0;32m'int'[0m
+[0;34m    |     `-[0m[0;1;35mIntegerLiteral[0m[0;33m 0x3562a28[0m <[0;33mcol:12[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m[0;1;36m 0[0m
+[0;34m    |-[0m[0;1;35mDeclStmt[0m[0;33m 0x3562b58[0m <[0;33mline:56:3[0m, [0;33mcol:11[0m>
+[0;34m    | `-[0m[0;1;32mVarDecl[0m[0;33m 0x3562b00[0m <[0;33mcol:3[0m, [0;33mcol:8[0m> [0;33mcol:8[0m used[0;1;36m d_d[0m [0;32m'int *'[0m
+[0;34m    |-[0m[0;1;35mCallExpr[0m[0;33m 0x3563400[0m <[0;33mline:62:3[0m, [0;33mcol:29[0m> [0;32m'void'[0m[0;36m[0m[0;36m[0m
+[0;34m    | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35633e8[0m <[0;33mcol:3[0m, [0;33mcol:21[0m> [0;32m'void (*)(int *, int)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m    | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3563310[0m <[0;33mcol:3[0m, [0;33mcol:21[0m> [0;32m'void (int *, int)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x35631f0[0m[0;1;36m 'device_caller'[0m [0;32m'void (int *, int)'[0m ([0;1;32mFunctionTemplate[0m[0;33m 0x3561700[0m[0;1;36m 'device_caller'[0m)
+[0;34m    | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3563438[0m <[0;33mcol:23[0m> [0;32m'int *'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m    | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3562c80[0m <[0;33mcol:23[0m> [0;32m'int *'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3562b00[0m[0;1;36m 'd_d'[0m [0;32m'int *'[0m
+[0;34m    | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3563450[0m <[0;33mcol:28[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m    |   `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3562ca8[0m <[0;33mcol:28[0m> [0;32m'const int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3562190[0m[0;1;36m 'n'[0m [0;32m'const int'[0m
+[0;34m    |-[0m[0;1;35mCallExpr[0m[0;33m 0x35639b0[0m <[0;33mline:67:3[0m, [0;33mcol:31[0m> [0;32m'void'[0m[0;36m[0m[0;36m[0m
+[0;34m    | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3563998[0m <[0;33mcol:3[0m, [0;33mcol:23[0m> [0;32m'void (*)(int *, int)'[0m[0;36m[0m[0;36m[0m <[0;31mFunctionToPointerDecay[0m>
+[0;34m    | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35638f0[0m <[0;33mcol:3[0m, [0;33mcol:23[0m> [0;32m'void (int *, int)'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mFunction[0m[0;33m 0x35637d0[0m[0;1;36m 'device_caller'[0m [0;32m'void (int *, int)'[0m ([0;1;32mFunctionTemplate[0m[0;33m 0x3561700[0m[0;1;36m 'device_caller'[0m)
+[0;34m    | |-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x35639e8[0m <[0;33mcol:25[0m> [0;32m'int *'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m    | | `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x3563578[0m <[0;33mcol:25[0m> [0;32m'int *'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3562b00[0m[0;1;36m 'd_d'[0m [0;32m'int *'[0m
+[0;34m    | `-[0m[0;1;35mImplicitCastExpr[0m[0;33m 0x3563a00[0m <[0;33mcol:30[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m <[0;31mLValueToRValue[0m>
+[0;34m    |   `-[0m[0;1;35mDeclRefExpr[0m[0;33m 0x35635a0[0m <[0;33mcol:30[0m> [0;32m'const int'[0m[0;36m lvalue[0m[0;36m[0m [0;1;32mVar[0m[0;33m 0x3562190[0m[0;1;36m 'n'[0m [0;32m'const int'[0m
+[0;34m    `-[0m[0;1;35mReturnStmt[0m[0;33m 0x3563a38[0m <[0;33mline:76:3[0m, [0;33mcol:10[0m>
+[0;34m      `-[0m[0;1;35mIntegerLiteral[0m[0;33m 0x3563a18[0m <[0;33mcol:10[0m> [0;32m'int'[0m[0;36m[0m[0;36m[0m[0;1;36m 0[0m
