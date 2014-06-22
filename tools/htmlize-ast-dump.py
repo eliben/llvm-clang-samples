@@ -1,4 +1,14 @@
-# This requires Python 3.4
+#-------------------------------------------------------------------------------
+# htmlize-ast-dump.py: Turn a Clang AST dump (-ast-dump) into cross-linked HTML.
+#
+# Run with --help for usage information.
+#
+# Note: this script requires Python 3.4
+#
+# Eli Bendersky (eliben@gmail.com)
+# This code is in the public domain
+#-------------------------------------------------------------------------------
+import argparse
 import enum
 import html
 import io
@@ -6,7 +16,8 @@ import pprint
 import re
 import sys
 
-# Template for full HTML output.
+# Template for full HTML output. This template is filled in with .format;
+# therefore, '{' and '}'s need to be escaped.
 HTML_OUTPUT_TEMPLATE = r'''
 <html>
 <head>
@@ -85,6 +96,8 @@ SPAN_TEMPLATE = r'<span class="{klass}">{text}</span>'
 
 
 class Color(enum.Enum):
+    """Colors with values corresponding to the ANSI codes.
+    """
     BLACK = 30
     RED = 31
     GREEN = 32
@@ -95,6 +108,8 @@ class Color(enum.Enum):
     WHITE = 37
 
 
+# Input is broken to tokens. A token is a piece of text with the style that
+# applies to it.
 class Token:
     def __init__(self, text, style):
         self.text = text
@@ -114,6 +129,8 @@ ANSI_PATTERN = re.compile(rb'\x1b\[([^m]+)m')
 
 
 def tokenize_line(line):
+    """Produce (yield) a stream of tokens from an input line.
+    """
     # The end pos of the last pattern match.
     last_end = 0
 
@@ -193,8 +210,17 @@ def htmlize(input):
 
 
 def main():
+    argparser = argparse.ArgumentParser(
+        description='HTML output is emitted to stdout')
+    argparser.add_argument('dump_file',
+                           help='AST dump file, "-" for reading from stdin')
+    args = argparser.parse_args()
+
     try:
-        input_stream = (open(sys.argv[1], 'rb') if len(sys.argv) > 1 else
+        # Argh: it would be nice to use argparse's FileType to do this
+        # automatically, but unfortunately it's broken for binary mode
+        # (http://bugs.python.org/issue14156)
+        input_stream = (open(sys.argv[1], 'rb') if args.dump_file != '-' else
                         io.BufferedReader(sys.stdin.buffer))
         print(htmlize(input_stream))
     finally:
