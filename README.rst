@@ -38,9 +38,6 @@ src_llvm/
 src_clang/
     Source code for Clang-based samples. These require both LLVM and Clang.
 
-src_clang/libclang_samples/
-    EXPERIMENTAL: use at your own peril.
-
 using_clang_toolchain/
     Some samples of using Clang as a compilation toolchain for C and C++.
 
