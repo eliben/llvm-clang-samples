@@ -27,6 +27,13 @@ HTML_OUTPUT_TEMPLATE = r'''
         white-space: nowrap;
     }}
 
+    .my-pre {{
+        line-height: 0.8;
+        padding: 0px 0px;
+        font-family: Consolas,monospace;
+        font-size: 80%;
+    }}
+
     a:link {{
         text-decoration: underline;
         color: inherit;
@@ -49,45 +56,54 @@ HTML_OUTPUT_TEMPLATE = r'''
 
     .ansi-bold {{
         font-weight: bold;
+        white-space: pre;
     }}
 
     .ansi-black {{
         color: #000000;
+        white-space: pre;
     }}
 
     .ansi-red {{
         color: #d23737;
+        white-space: pre;
     }}
 
     .ansi-green {{
         color: #17b217;
+        white-space: pre;
     }}
 
     .ansi-yellow {{
         color: #b26717;
+        white-space: pre;
     }}
 
     .ansi-blue {{
         color: #2727c2;
+        white-space: pre;
     }}
 
     .ansi-magenta {{
         color: #b217b2;
+        white-space: pre;
     }}
 
     .ansi-cyan {{
         color: #17b2b2;
+        white-space: pre;
     }}
 
     .ansi-white {{
         color: #f2f2f2;
+        white-space: pre;
     }}
     </style>
 </head>
 <body>
-<code>
+<pre class="my-pre">
 {lines}
-</code>
+</pre>
 </body>
 </html>
 '''
