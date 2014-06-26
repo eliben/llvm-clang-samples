@@ -190,7 +190,8 @@ def inject_links(html_line_chunks):
                 html_line_chunks[i] = (
                     chunk[:match.start()] +
                     '<a id="' + anchorname + '"></a>' +
-                    chunk[match.start():])
+                    '<a href="#javascript:void(0)">' +
+                    chunk[match.start():] + '</a>')
                 first_addr = False
             else:
                 # All other addresses refer to other nodes. These become links
