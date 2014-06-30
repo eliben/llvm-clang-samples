@@ -24,6 +24,27 @@ using namespace clang::tooling;
 
 static llvm::cl::OptionCategory ToolingSampleCategory("Tooling Sample");
 
+clang::Token GetTokenAfterLocation(clang::SourceLocation loc,
+                                   const clang::SourceManager &source_manager) {
+  clang::Token token;
+  token.setKind(clang::tok::unknown);
+  clang::LangOptions lang_options;
+  loc = loc.getLocWithOffset(1);
+  while (loc !=
+         source_manager.getLocForEndOfFile(source_manager.getFileID(loc))) {
+    if (!clang::Lexer::getRawToken(loc, token, source_manager, lang_options)) {
+      if (!token.is(clang::tok::comment)) {
+        break;
+      }
+      loc = clang::Lexer::getLocForEndOfToken(token.getLocation(), /*Offset=*/0,
+                                              source_manager, lang_options);
+    } else {
+      loc = loc.getLocWithOffset(1);
+    }
+  }
+  return token;
+}
+
 class CallExprHandler : public MatchFinder::MatchCallback {
 public:
   CallExprHandler(Replacements *Replace) : Replace(Replace) {}
@@ -63,6 +84,20 @@ public:
           Arg->getLocEnd().dump(*SM);
           llvm::errs() << "\n";
         }
+      } else {
+        // Experiment to play with source locations.
+        const SourceManager *SM = Result.SourceManager;
+        SourceLocation loc_call = Call->getLocStart();
+        llvm::errs() << "Call loc: " << loc_call.printToString(*SM) << "\n";
+        Token t = GetTokenAfterLocation(loc_call, *SM);
+        llvm::errs() << " tok: " << t.getName()
+                     << " raw_id: " << t.getRawIdentifier()
+                     << " loc=" << t.getLocation().printToString(*SM) << "\n";
+        t = GetTokenAfterLocation(
+            t.getLocation().getLocWithOffset(t.getLength()), *SM);
+        llvm::errs() << " tok: " << t.getName()
+                     << " raw_id: " << t.getRawIdentifier()
+                     << " loc=" << t.getLocation().printToString(*SM) << "\n";
       }
     }
   }
