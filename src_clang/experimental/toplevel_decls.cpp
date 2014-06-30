@@ -25,7 +25,7 @@ public:
   // exist yet.
   bool HandleTopLevelDecl(DeclGroupRef DR) override {
     for (DeclGroupRef::iterator b = DR.begin(), e = DR.end(); b != e; ++b) {
-      //llvm::errs() << "This is a toplevel decl!\n";
+      // llvm::errs() << "This is a toplevel decl!\n";
       //(*b)->dump();
     }
     return true;
@@ -56,7 +56,7 @@ public:
                  << SM.getFileEntryForID(SM.getMainFileID())->getName() << "\n";
 
     // Now emit the rewritten buffer.
-    //TheRewriter.getEditBuffer(SM.getMainFileID()).write(llvm::outs());
+    // TheRewriter.getEditBuffer(SM.getMainFileID()).write(llvm::outs());
   }
 
   ASTConsumer *CreateASTConsumer(CompilerInstance &CI,

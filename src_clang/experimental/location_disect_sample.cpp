@@ -76,7 +76,8 @@ public:
           llvm::errs() << "\n";
 
           Token tokbefore = GetTokenBefore(*SM, Arg->getLocStart());
-          llvm::errs() << "   token before this arg is: " << tokbefore.getName() << " at location ";
+          llvm::errs() << "   token before this arg is: " << tokbefore.getName()
+                       << " at location ";
           tokbefore.getLocation().dump(*SM);
           llvm::errs() << "\n";
 
