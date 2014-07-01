@@ -41,7 +41,7 @@ HTML_OUTPUT_TEMPLATE = r'''
         bottom: 0;
         height: 25%;
         overflow: scroll;
-        background-color: #131313;    
+        background-color: #131313;
     }}
 
     #nav_title {{
@@ -171,9 +171,9 @@ JS_CODE = r'''
         } else {
             parent_name = nav_data[parent_id]['name']
             contents += '<li>Parent: ' + parent_name + ' ' +
-                        MakeAnchorLink(parent_id) + '</li>\n';    
+                        MakeAnchorLink(parent_id) + '</li>\n';
         }
-        
+
         contents += '<li>Children:'
 
         if (nav_entry['children'].length == 0) {
@@ -290,7 +290,7 @@ def make_anchor_target(addr):
     anchorname = 'anchor_' + addr
     return '<a id="' + anchorname + '"></a>'
 
-    
+
 def inject_links(html_line_chunks):
     first_addr = True
     for i, chunk in enumerate(html_line_chunks):
@@ -342,11 +342,11 @@ def analyze_line(tokens):
                 name_parts.append(t)
         itok += 1
     name = ' '.join(name_parts)
-        
+
     # Here itok is either past the end of the list, or it points to the ID.
     id = tokens[itok].text.strip() if itok < len(tokens) else ''
     itok += 1
-    
+
     # Gather all uses
     uses = []
     while itok < len(tokens):
@@ -379,14 +379,14 @@ def prepare_nav_data(line_info):
                         'nesting_level': nesting_level,
                         'parent': None, 'children': []}
         return nav_data[id]
-        
+
     # Keep a stack of parents. The topmost parent on the stack is the one
     # collecting the current children, and their parent ID is mapped to it. The
     # stack is popped when the nesting level decreases (popped until the topmost
     # parent has a lower nesting level). Every entry is eventually pushed onto
     # the stack because it may have children.
-    assert len(line_info) > 0 
-    assert line_info[0][2] == 0, "Expect top-level entry at nesting level 0" 
+    assert len(line_info) > 0
+    assert line_info[0][2] == 0, "Expect top-level entry at nesting level 0"
 
     # Initialize the parent stack to the first entry
     parent_stack = [new_data_entry(line_info[0])]
@@ -415,7 +415,6 @@ def prepare_nav_data(line_info):
             nav_data[used_id]['users'].append(id)
 
     return nav_data
-    #pprint.pprint(nav_data)
 
 
 def htmlize(input):
