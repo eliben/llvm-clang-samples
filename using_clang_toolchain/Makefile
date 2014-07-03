@@ -18,12 +18,12 @@ LLVM_BUILD_PATH = $$HOME/llvm/build/svn-make-debug
 LLVM_BIN_PATH = $(LLVM_BUILD_PATH)/Debug+Asserts/bin
 #LLVM_BIN_PATH := $(LLVM_BUILD_PATH)/bin
 
-CLANGXX 	:= $(LLVM_BIN_PATH)/clang++
-LLC 		:= $(LLVM_BIN_PATH)/llc
-LD			:= $(LLVM_BIN_PATH)/clang++
+CLANGXX  := $(LLVM_BIN_PATH)/clang++
+LLC      := $(LLVM_BIN_PATH)/llc
+LD       := $(LLVM_BIN_PATH)/clang++
 
-CXXFLAGS 	:= -Wall
-CXX11FLAG 	:= -std=c++11
+CXXFLAGS  := -Wall
+CXX11FLAG := -std=c++11
 
 define colorecho
 	@tput setaf 6
