@@ -8,6 +8,7 @@
 // This code is in the public domain
 //------------------------------------------------------------------------------
 #include <cstdio>
+#include <memory>
 #include <string>
 #include <sstream>
 
@@ -120,7 +121,7 @@ int main(int argc, char *argv[]) {
   lo.CPlusPlus = 1;
 
   // Initialize target info with the default triple for our platform.
-  TargetOptions *TO = new TargetOptions();
+  auto TO = std::make_shared<TargetOptions>();
   TO->Triple = llvm::sys::getDefaultTargetTriple();
   TargetInfo *TI =
       TargetInfo::CreateTargetInfo(TheCompInst.getDiagnostics(), TO);
