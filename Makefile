@@ -79,7 +79,7 @@ CLANG_LIBS := \
 	-lclangSema \
 	-lclangEdit \
 	-lclangASTMatchers \
-	-lclangRewriteCore \
+	-lclangRewrite \
 	-lclangRewriteFrontend \
 	-lclangStaticAnalyzerFrontend \
 	-lclangStaticAnalyzerCheckers \
@@ -168,6 +168,7 @@ experimental_tools: make_builddir \
 	$(BUILDDIR)/remove-cstr-calls \
 	$(BUILDDIR)/toplevel_decls \
 	$(BUILDDIR)/matchers_sample \
+	$(BUILDDIR)/matchers_rewriter \
 	$(BUILDDIR)/location_disect_sample
 
 $(BUILDDIR)/remove-cstr-calls: $(SRC_CLANG_DIR)/experimental/RemoveCStrCalls.cpp
@@ -175,6 +176,10 @@ $(BUILDDIR)/remove-cstr-calls: $(SRC_CLANG_DIR)/experimental/RemoveCStrCalls.cpp
 		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
 
 $(BUILDDIR)/matchers_sample: $(SRC_CLANG_DIR)/experimental/matchers_sample.cpp
+	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
+		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
+
+$(BUILDDIR)/matchers_rewriter: $(SRC_CLANG_DIR)/experimental/matchers_rewriter.cpp
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
 		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
 
