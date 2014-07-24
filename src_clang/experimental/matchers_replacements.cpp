@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------
-// AST matching sample. Demonstrates:
+// Using AST matchers with RefactoringTool. Demonstrates:
 //
-// * How to write a libTooling tool using AST matchers.
-// * How to use the Rewriter API to rewrite the source code.
+// * How to use Replacements to collect replacements in a matcher instead of
+//   directly applying fixes to a Rewriter.
 //
 // Eli Bendersky (eliben@gmail.com)
 // This code is in the public domain
@@ -55,32 +55,15 @@ private:
   Replacements *Replace;
 };
 
-class FuncDefHandler : public MatchFinder::MatchCallback {
-public:
-  FuncDefHandler(Replacements *Replace) : Replace(Replace) {}
-
-  virtual void run(const MatchFinder::MatchResult &Result) {
-    if (const FunctionDecl *FS =
-            Result.Nodes.getNodeAs<clang::FunctionDecl>("funcDef"))
-      FS->dump();
-  }
-
-private:
-  Replacements *Replace;
-};
-
 int main(int argc, const char **argv) {
   CommonOptionsParser op(argc, argv, ToolingSampleCategory);
   RefactoringTool Tool(op.getCompilations(), op.getSourcePathList());
 
   // Set up AST matcher callbacks.
   IfStmtHandler HandlerForIf(&Tool.getReplacements());
-  FuncDefHandler HandlerForFuncDef(&Tool.getReplacements());
 
   MatchFinder Finder;
   Finder.addMatcher(ifStmt().bind("ifStmt"), &HandlerForIf);
-  Finder.addMatcher(functionDecl(isDefinition()).bind("funcDef"),
-                    &HandlerForFuncDef);
 
   // Run the tool and collect a list of replacements. We could call runAndSave,
   // which would destructively overwrite the files with their new contents.
