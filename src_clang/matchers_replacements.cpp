@@ -12,8 +12,6 @@
 #include "clang/AST/AST.h"
 #include "clang/ASTMatchers/ASTMatchers.h"
 #include "clang/ASTMatchers/ASTMatchFinder.h"
-#include "clang/Basic/DiagnosticOptions.h"
-#include "clang/Basic/FileManager.h"
 #include "clang/Basic/SourceManager.h"
 #include "clang/Frontend/TextDiagnosticPrinter.h"
 #include "clang/Tooling/CommonOptionsParser.h"

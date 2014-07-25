@@ -5,3 +5,9 @@ void foo(int* a, int *b) {
 }
 
 void bar(float x, float y); // just a declaration
+
+void bang(int* a, int v) {
+    for (int i = 0; i < v; ++i) {
+        a[i] -= i;
+    }
+}
