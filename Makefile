@@ -177,7 +177,6 @@ experimental_tools: make_builddir \
 	emit_build_config \
 	$(BUILDDIR)/remove-cstr-calls \
 	$(BUILDDIR)/toplevel_decls \
-	$(BUILDDIR)/matchers_replacements \
 	$(BUILDDIR)/location_disect_sample
 
 $(BUILDDIR)/remove-cstr-calls: $(SRC_CLANG_DIR)/experimental/RemoveCStrCalls.cpp
