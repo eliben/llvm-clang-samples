@@ -54,7 +54,6 @@ public:
   IncrementForLoopHandler(Rewriter &Rewrite) : Rewrite(Rewrite) {}
 
   virtual void run(const MatchFinder::MatchResult &Result) {
-    // const ForStmt *FS = Result.Nodes.getStmtAs<ForStmt>("forLoop");
     const VarDecl *IncVar = Result.Nodes.getNodeAs<VarDecl>("incVarName");
     Rewrite.InsertText(IncVar->getLocStart(), "/* increment */", true, true);
   }
@@ -76,7 +75,6 @@ public:
     // to 0, < comparison in the codition and an increment. For example:
     //
     //  for (int i = 0; i < N; ++i)
-    //
     Matcher.addMatcher(
         forStmt(hasLoopInit(declStmt(hasSingleDecl(
                     varDecl(hasInitializer(integerLiteral(equals(0))))

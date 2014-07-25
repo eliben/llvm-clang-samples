@@ -24,7 +24,7 @@ using namespace clang::ast_matchers;
 using namespace clang::driver;
 using namespace clang::tooling;
 
-static llvm::cl::OptionCategory ToolingSampleCategory("Tooling Sample");
+static llvm::cl::OptionCategory ToolingSampleCategory("Matcher Sample");
 
 class IfStmtHandler : public MatchFinder::MatchCallback {
 public:
