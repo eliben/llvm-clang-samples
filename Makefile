@@ -177,6 +177,7 @@ experimental_tools: make_builddir \
 	emit_build_config \
 	$(BUILDDIR)/remove-cstr-calls \
 	$(BUILDDIR)/toplevel_decls \
+	$(BUILDDIR)/try_matcher \
 	$(BUILDDIR)/location_disect_sample
 
 $(BUILDDIR)/remove-cstr-calls: $(SRC_CLANG_DIR)/experimental/RemoveCStrCalls.cpp
@@ -188,6 +189,10 @@ $(BUILDDIR)/location_disect_sample: $(SRC_CLANG_DIR)/experimental/location_disec
 		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
 
 $(BUILDDIR)/toplevel_decls: $(SRC_CLANG_DIR)/experimental/toplevel_decls.cpp
+	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
+		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
+
+$(BUILDDIR)/try_matcher: $(SRC_CLANG_DIR)/experimental/try_matcher.cpp
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
 		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
 
