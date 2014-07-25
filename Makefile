@@ -106,6 +106,8 @@ all: make_builddir \
 	$(BUILDDIR)/access_debug_metadata \
 	$(BUILDDIR)/clang-check \
 	$(BUILDDIR)/rewritersample \
+	$(BUILDDIR)/matchers_replacements \
+	$(BUILDDIR)/matchers_rewriter \
 	$(BUILDDIR)/tooling_sample \
 	$(BUILDDIR)/plugin_print_funcnames.so
 
@@ -156,6 +158,14 @@ $(BUILDDIR)/tooling_sample: $(SRC_CLANG_DIR)/tooling_sample.cpp
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
 		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
 
+$(BUILDDIR)/matchers_replacements: $(SRC_CLANG_DIR)/matchers_replacements.cpp
+	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
+		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
+
+$(BUILDDIR)/matchers_rewriter: $(SRC_CLANG_DIR)/matchers_rewriter.cpp
+	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
+		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
+
 $(BUILDDIR)/plugin_print_funcnames.so: $(SRC_CLANG_DIR)/plugin_print_funcnames.cpp
 	$(CXX) $(PLUGIN_CXXFLAGS) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
 		$(PLUGIN_LDFLAGS) $(LLVM_LDFLAGS_NOLIBS) -o $@
@@ -168,18 +178,9 @@ experimental_tools: make_builddir \
 	$(BUILDDIR)/remove-cstr-calls \
 	$(BUILDDIR)/toplevel_decls \
 	$(BUILDDIR)/matchers_replacements \
-	$(BUILDDIR)/matchers_rewriter \
 	$(BUILDDIR)/location_disect_sample
 
 $(BUILDDIR)/remove-cstr-calls: $(SRC_CLANG_DIR)/experimental/RemoveCStrCalls.cpp
-	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
-		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
-
-$(BUILDDIR)/matchers_replacements: $(SRC_CLANG_DIR)/experimental/matchers_replacements.cpp
-	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
-		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
-
-$(BUILDDIR)/matchers_rewriter: $(SRC_CLANG_DIR)/experimental/matchers_rewriter.cpp
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
 		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
 
