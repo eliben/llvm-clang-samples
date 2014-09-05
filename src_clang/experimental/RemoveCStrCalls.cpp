@@ -191,8 +191,8 @@ int main(int argc, const char **argv) {
   cl::ParseCommandLineOptions(argc, argv);
   if (!Compilations) {
     std::string ErrorMessage;
-    Compilations.reset(
-        CompilationDatabase::loadFromDirectory(BuildPath, ErrorMessage));
+    Compilations =
+        CompilationDatabase::loadFromDirectory(BuildPath, ErrorMessage);
     if (!Compilations)
       llvm::report_fatal_error(ErrorMessage);
   }

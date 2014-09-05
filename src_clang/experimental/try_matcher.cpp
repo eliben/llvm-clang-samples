@@ -60,9 +60,9 @@ struct MyASTConsumer : public ASTConsumer {
 struct MyFrontendAction : public ASTFrontendAction {
 public:
   MyFrontendAction() {}
-  ASTConsumer *CreateASTConsumer(CompilerInstance &CI,
-                                 StringRef file) override {
-    return new MyASTConsumer();
+  std::unique_ptr<ASTConsumer> CreateASTConsumer(CompilerInstance &CI,
+                                                 StringRef file) override {
+    return llvm::make_unique<MyASTConsumer>();
   }
 };
 
