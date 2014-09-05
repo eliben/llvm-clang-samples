@@ -43,4 +43,4 @@ char HelloFuncs::ID = 0;
 // Register our pass with the pass manager in opt. For more information, see:
 // http://llvm.org/docs/WritingAnLLVMPass.html
 static RegisterPass<HelloFuncs>
-X("hello-funcs", "Hello World Pass (with getAnalysisUsage implemented)");
+    X("hello-funcs", "Hello World Pass (with getAnalysisUsage implemented)");

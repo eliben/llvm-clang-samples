@@ -58,11 +58,7 @@ public:
   }
 
 private:
-  enum Color {
-    WHITE,
-    GREY,
-    BLACK
-  };
+  enum Color { WHITE, GREY, BLACK };
   // Color marks per vertex (BB).
   typedef DenseMap<const BasicBlock *, Color> BBColorMap;
   // Collects vertices (BBs) in "finish" order. The first finished vertex is
@@ -160,7 +156,7 @@ int main(int argc, char **argv) {
 
   // Parse the input LLVM IR file into a module.
   SMDiagnostic Err;
-  Module *Mod = ParseIRFile(argv[2], Err, getGlobalContext());
+  std::unique_ptr<Module> Mod(parseIRFile(argv[2], Err, getGlobalContext()));
   if (!Mod) {
     Err.print(argv[0], errs());
     return 1;
