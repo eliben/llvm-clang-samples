@@ -35,8 +35,9 @@ public:
 
 class PrintFunctionNamesAction : public PluginASTAction {
 protected:
-  ASTConsumer *CreateASTConsumer(CompilerInstance &CI, llvm::StringRef) {
-    return new PrintFunctionsConsumer();
+  std::unique_ptr<ASTConsumer> CreateASTConsumer(CompilerInstance &CI,
+                                                 llvm::StringRef) {
+    return llvm::make_unique<PrintFunctionsConsumer>();
   }
 
   bool ParseArgs(const CompilerInstance &CI,
@@ -65,4 +66,4 @@ protected:
 }
 
 static FrontendPluginRegistry::Add<PrintFunctionNamesAction>
-X("print-fns", "print function names");
+    X("print-fns", "print function names");

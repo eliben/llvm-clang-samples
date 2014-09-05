@@ -120,11 +120,11 @@ public:
     TheRewriter.getEditBuffer(SM.getMainFileID()).write(llvm::outs());
   }
 
-  ASTConsumer *CreateASTConsumer(CompilerInstance &CI,
-                                 StringRef file) override {
+  std::unique_ptr<ASTConsumer> CreateASTConsumer(CompilerInstance &CI,
+                                                 StringRef file) override {
     llvm::errs() << "** Creating AST consumer for: " << file << "\n";
     TheRewriter.setSourceMgr(CI.getSourceManager(), CI.getLangOpts());
-    return new MyASTConsumer(TheRewriter);
+    return llvm::make_unique<MyASTConsumer>(TheRewriter);
   }
 
 private:
