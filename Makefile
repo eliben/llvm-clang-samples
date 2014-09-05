@@ -1,5 +1,5 @@
 #-------------------------------------------------------------------------------
-# Makefile for building the code samples. Read inline comments for
+# Sample makefile for building the code samples. Read inline comments for
 # documentation.
 #
 # Eli Bendersky (eliben@gmail.com)
@@ -22,7 +22,9 @@ LLVM_SRC_PATH := $$HOME/llvm/llvm_svn_rw
 # For linking vs. a binary build of LLVM, point to the main untarred directory.
 # LLVM_BIN_PATH is the directory where binaries are placed by the LLVM build
 # process. It should contain the tools like opt, llc and clang. The default
-# reflects a debug build with autotools (configure & make).
+# reflects a debug build with autotools (configure & make), and needs to be
+# changed when a Ninja build is used (see below for example). For linking vs. a
+# binary build of LLVM, point it to the bin/ directory.
 LLVM_BUILD_PATH := $$HOME/llvm/build/svn-make-debug
 LLVM_BIN_PATH := $(LLVM_BUILD_PATH)/Debug+Asserts/bin
 
@@ -110,7 +112,6 @@ all: make_builddir \
 	$(BUILDDIR)/matchers_rewriter \
 	$(BUILDDIR)/tooling_sample \
 	$(BUILDDIR)/plugin_print_funcnames.so
-
 
 .PHONY: test
 test: emit_build_config
