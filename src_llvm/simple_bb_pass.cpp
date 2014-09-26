@@ -76,7 +76,7 @@ int main(int argc, char **argv) {
   // Create a pass manager and fill it with the passes we want to run. Add a
   // DataLayout pass because we use its analysis results.
   PassManager PM;
-  PM.add(new DataLayoutPass(Mod.get()));
+  PM.add(new DataLayoutPass());
   PM.add(new AllocaSizeDetect());
   PM.run(*Mod);
 
