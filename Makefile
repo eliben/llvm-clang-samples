@@ -87,6 +87,7 @@ CLANG_LIBS := \
 	-lclangStaticAnalyzerCheckers \
 	-lclangStaticAnalyzerCore \
 	-lclangSerialization \
+	-lclangToolingCore \
 	-lclangTooling \
 	-Wl,--end-group
 
@@ -176,9 +177,13 @@ $(BUILDDIR)/plugin_print_funcnames.so: $(SRC_CLANG_DIR)/plugin_print_funcnames.c
 .PHONY: experimental_tools
 experimental_tools: make_builddir \
 	emit_build_config \
+	$(BUILDDIR)/loop_info \
 	$(BUILDDIR)/remove-cstr-calls \
 	$(BUILDDIR)/toplevel_decls \
 	$(BUILDDIR)/try_matcher
+
+$(BUILDDIR)/loop_info: $(SRC_LLVM_DIR)/experimental/loop_info.cpp
+	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $^ $(LLVM_LDFLAGS) -o $@
 
 $(BUILDDIR)/remove-cstr-calls: $(SRC_CLANG_DIR)/experimental/RemoveCStrCalls.cpp
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
