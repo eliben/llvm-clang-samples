@@ -69,4 +69,4 @@ attributes #0 = { nounwind "less-precise-fpmad"="false" "no-frame-pointer-elim"=
 
 !llvm.ident = !{!0}
 
-!0 = metadata !{metadata !"clang version 3.5 (199390)"}
+!0 = !{!"clang version 3.5 (199390)"}

@@ -97,4 +97,4 @@ attributes #1 = { "less-precise-fpmad"="false" "no-frame-pointer-elim"="true" "n
 
 !llvm.ident = !{!0}
 
-!0 = metadata !{metadata !"clang version 3.5.0 (trunk 209901)"}
+!0 = !{!"clang version 3.5.0 (trunk 209901)"}
