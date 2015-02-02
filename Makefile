@@ -102,7 +102,6 @@ all: make_builddir \
 	emit_build_config \
 	$(BUILDDIR)/bb_toposort_sccs \
 	$(BUILDDIR)/simple_module_pass \
-	$(BUILDDIR)/build_llvm_ir \
 	$(BUILDDIR)/simple_bb_pass \
 	$(BUILDDIR)/analyze_geps \
 	$(BUILDDIR)/hello_pass.so \
@@ -137,9 +136,6 @@ $(BUILDDIR)/replace_threadidx_with_call: $(SRC_LLVM_DIR)/replace_threadidx_with_
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $^ $(LLVM_LDFLAGS) -o $@
 
 $(BUILDDIR)/simple_module_pass: $(SRC_LLVM_DIR)/simple_module_pass.cpp
-	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $^ $(LLVM_LDFLAGS) -o $@
-
-$(BUILDDIR)/build_llvm_ir: $(SRC_LLVM_DIR)/build_llvm_ir.cpp
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $^ $(LLVM_LDFLAGS) -o $@
 
 $(BUILDDIR)/access_debug_metadata: $(SRC_LLVM_DIR)/access_debug_metadata.cpp
@@ -182,11 +178,15 @@ $(BUILDDIR)/plugin_print_funcnames.so: $(SRC_CLANG_DIR)/plugin_print_funcnames.c
 experimental_tools: make_builddir \
 	emit_build_config \
 	$(BUILDDIR)/loop_info \
+	$(BUILDDIR)/build_llvm_ir \
 	$(BUILDDIR)/remove-cstr-calls \
 	$(BUILDDIR)/toplevel_decls \
 	$(BUILDDIR)/try_matcher
 
 $(BUILDDIR)/loop_info: $(SRC_LLVM_DIR)/experimental/loop_info.cpp
+	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $^ $(LLVM_LDFLAGS) -o $@
+
+$(BUILDDIR)/build_llvm_ir: $(SRC_LLVM_DIR)/experimental/build_llvm_ir.cpp
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $^ $(LLVM_LDFLAGS) -o $@
 
 $(BUILDDIR)/remove-cstr-calls: $(SRC_CLANG_DIR)/experimental/RemoveCStrCalls.cpp
