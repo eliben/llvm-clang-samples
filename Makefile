@@ -102,6 +102,7 @@ all: make_builddir \
 	emit_build_config \
 	$(BUILDDIR)/bb_toposort_sccs \
 	$(BUILDDIR)/simple_module_pass \
+	$(BUILDDIR)/build_llvm_ir \
 	$(BUILDDIR)/simple_bb_pass \
 	$(BUILDDIR)/analyze_geps \
 	$(BUILDDIR)/hello_pass.so \
@@ -136,6 +137,9 @@ $(BUILDDIR)/replace_threadidx_with_call: $(SRC_LLVM_DIR)/replace_threadidx_with_
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $^ $(LLVM_LDFLAGS) -o $@
 
 $(BUILDDIR)/simple_module_pass: $(SRC_LLVM_DIR)/simple_module_pass.cpp
+	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $^ $(LLVM_LDFLAGS) -o $@
+
+$(BUILDDIR)/build_llvm_ir: $(SRC_LLVM_DIR)/build_llvm_ir.cpp
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $^ $(LLVM_LDFLAGS) -o $@
 
 $(BUILDDIR)/access_debug_metadata: $(SRC_LLVM_DIR)/access_debug_metadata.cpp
