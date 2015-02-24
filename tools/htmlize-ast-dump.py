@@ -324,13 +324,17 @@ def analyze_line(tokens):
     """
     assert(len(tokens) > 2)
 
-    # The nesting level is always the first token
-    nesting = tokens[1].text
+    # The top-level TranslationUnitDecl node has no nesting
+    if tokens[1].text.startswith('Translation'):
+        nesting = ''
+        itok = 1
+    else:
+        nesting = tokens[1].text
+        itok = 2
 
     # The name is a concat of the following non-empty tokens, until something
     # that looks like the ID is encountered, or the line ends.
     name_parts = []
-    itok = 2
     while itok < len(tokens):
         t = tokens[itok].text.strip()
         if len(t) > 0:
@@ -412,7 +416,8 @@ def prepare_nav_data(line_info):
     # Finally, add 'users' fields to all entries. This is an inversion of 'uses'
     for id, entry in nav_data.items():
         for used_id in entry['uses']:
-            nav_data[used_id]['users'].append(id)
+            if used_id in nav_data:
+                nav_data[used_id]['users'].append(id)
 
     return nav_data
 
@@ -465,6 +470,8 @@ def main():
         input_stream = (open(sys.argv[1], 'rb') if args.dump_file != '-' else
                         io.BufferedReader(sys.stdin.buffer))
         print(htmlize(input_stream))
+        #tokens = list(tokenize_line(l) for l in input_stream)
+        #print(list(tokens[0]))
     finally:
         input_stream.close()
 
