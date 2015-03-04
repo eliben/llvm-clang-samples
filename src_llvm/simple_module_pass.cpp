@@ -9,11 +9,11 @@
 // Eli Bendersky (eliben@gmail.com)
 // This code is in the public domain
 //------------------------------------------------------------------------------
+#include "llvm/IR/LegacyPassManager.h"
 #include "llvm/IR/LLVMContext.h"
 #include "llvm/IR/Module.h"
 #include "llvm/IRReader/IRReader.h"
 #include "llvm/Pass.h"
-#include "llvm/PassManager.h"
 #include "llvm/Support/raw_ostream.h"
 #include "llvm/Support/SourceMgr.h"
 
@@ -63,7 +63,7 @@ int main(int argc, char **argv) {
   }
 
   // Create a pass manager and fill it with the passes we want to run.
-  PassManager PM;
+  legacy::PassManager PM;
   PM.add(new GVNames());
   PM.run(*Mod);
 
