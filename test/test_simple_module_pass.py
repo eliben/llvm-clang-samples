@@ -16,4 +16,3 @@ class TestSimpleModulePass(SamplesTestCase):
 
 if __name__ == '__main__':
   unittest.main()
-
