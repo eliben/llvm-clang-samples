@@ -12,9 +12,7 @@ i32 size 32 bits
 '''
 
 OUTPUT_FOR_TYPES = '''\
-%struct.mystruct* size 64 bits
 %struct.mystruct = type { double, i8, i32, [10 x i8] } size 256 bits
-i32 size 32 bits
 '''
 
 PROG = 'simple_bb_pass'

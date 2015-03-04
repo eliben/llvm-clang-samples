@@ -15,26 +15,26 @@ define i32 @mult(i32 %a, i32 %b) #0 {
   br label %3
 
 ; <label>:3                                       ; preds = %11, %0
-  %4 = load i32* %i, align 4
-  %5 = load i32* %1, align 4
+  %4 = load i32, i32* %i, align 4
+  %5 = load i32, i32* %1, align 4
   %6 = icmp ult i32 %4, %5
   br i1 %6, label %7, label %14
 
 ; <label>:7                                       ; preds = %3
-  %8 = load i32* %2, align 4
-  %9 = load i32* %s, align 4
+  %8 = load i32, i32* %2, align 4
+  %9 = load i32, i32* %s, align 4
   %10 = add i32 %9, %8
   store i32 %10, i32* %s, align 4
   br label %11
 
 ; <label>:11                                      ; preds = %7
-  %12 = load i32* %i, align 4
+  %12 = load i32, i32* %i, align 4
   %13 = add i32 %12, 1
   store i32 %13, i32* %i, align 4
   br label %3
 
 ; <label>:14                                      ; preds = %3
-  %15 = load i32* %s, align 4
+  %15 = load i32, i32* %s, align 4
   ret i32 %15
 }
 
@@ -43,7 +43,7 @@ define i32 @fact(i32 %a) #0 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
   store i32 %a, i32* %2, align 4
-  %3 = load i32* %2, align 4
+  %3 = load i32, i32* %2, align 4
   %4 = icmp ule i32 %3, 1
   br i1 %4, label %5, label %6
 
@@ -52,8 +52,8 @@ define i32 @fact(i32 %a) #0 {
   br label %12
 
 ; <label>:6                                       ; preds = %0
-  %7 = load i32* %2, align 4
-  %8 = load i32* %2, align 4
+  %7 = load i32, i32* %2, align 4
+  %8 = load i32, i32* %2, align 4
   %9 = sub i32 %8, 1
   %10 = call i32 @fact(i32 %9)
   %11 = mul i32 %7, %10
@@ -61,7 +61,7 @@ define i32 @fact(i32 %a) #0 {
   br label %12
 
 ; <label>:12                                      ; preds = %6, %5
-  %13 = load i32* %1
+  %13 = load i32, i32* %1
   ret i32 %13
 }
 
