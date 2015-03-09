@@ -10,6 +10,7 @@
 # configure or cmake.
 # For linking vs. a binary build of LLVM, point to the main untarred directory.
 LLVM_BUILD_PATH = $$HOME/llvm/build/svn-make-debug
+#LLVM_BUILD_PATH := $$HOME/llvm/build/gh-ninja-debug
 #LLVM_BUILD_PATH := $$HOME/llvm/build/svn-ninja-release
 
 # LLVM_BIN_PATH is the directory where binaries are placed by the LLVM build
@@ -65,6 +66,10 @@ $(BUILDDIR)/simple-from-bitcode: $(BUILDDIR)/simple-from-bitcode.o
 
 $(BUILDDIR)/cxx11-range-sample: cxx11-range-sample.cpp
 	$(CLANGXX) $(CXXFLAGS) $(CXX11FLAG) $^ -o $@
+
+# Not adding this one to 'all' because it generates warnings
+$(BUILDDIR)/warn_in_macro: warn_in_macro.cpp
+	$(CLANGXX) $(CXXFLAGS) $^ -o $@
 
 clean:
 	rm -rf $(BUILDDIR)/* *.dot test/*.pyc test/__pycache__
