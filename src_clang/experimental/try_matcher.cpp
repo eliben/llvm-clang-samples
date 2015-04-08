@@ -74,12 +74,21 @@ struct IfStmtHandler : public MatchFinder::MatchCallback {
   }
 };
 
+struct StuffDumper : public MatchFinder::MatchCallback {
+  virtual void run(const MatchFinder::MatchResult &Result) {
+    auto *d = Result.Nodes.getNodeAs<Decl>("stuff");
+    d->dump();
+  }
+};
+
 int main(int argc, const char **argv) {
   CommonOptionsParser op(argc, argv, ToolingSampleCategory);
   ClangTool Tool(op.getCompilations(), op.getSourcePathList());
 
   // Set up AST matcher callbacks.
   IfStmtHandler HandlerForIf;
+  StuffDumper HandlerForStuff;
+
   MatchFinder Finder;
   const TypeMatcher AnyType = anything();
 
@@ -91,6 +100,10 @@ int main(int argc, const char **argv) {
           hasLHS(ignoringParenImpCasts(declRefExpr(
               to(varDecl(hasType(pointsTo(AnyType))).bind("lhs")))))))),
       &HandlerForIf);
+
+  Finder.addMatcher(
+      namespaceDecl(hasName("Vroom")).bind("stuff"),
+      &HandlerForStuff);
 
   llvm::outs() << "Running tool with RecursiveASTVisitor\n";
   Tool.run(newFrontendActionFactory<MyFrontendAction>().get());

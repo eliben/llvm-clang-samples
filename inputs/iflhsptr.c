@@ -5,3 +5,4 @@ int foo(int* p, int v) {
     return v - 1;
   }
 }
+
