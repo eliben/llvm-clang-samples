@@ -101,8 +101,13 @@ int main(int argc, const char **argv) {
               to(varDecl(hasType(pointsTo(AnyType))).bind("lhs")))))))),
       &HandlerForIf);
 
+  // Match a namespace named Vroom
+  //Finder.addMatcher(
+      //namespaceDecl(hasName("Vroom")).bind("stuff"),
+      //&HandlerForStuff);
+
   Finder.addMatcher(
-      namespaceDecl(hasName("Vroom")).bind("stuff"),
+      functionDecl(hasAncestor(namespaceDecl(hasName("Vroom")))).bind("stuff"),
       &HandlerForStuff);
 
   llvm::outs() << "Running tool with RecursiveASTVisitor\n";

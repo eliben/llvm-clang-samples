@@ -4,6 +4,8 @@ namespace Vroom {
   int foobar(int i) {
     return i * 2;
   }
+
+  constexpr double dodo();
 };
 
 namespace Swing {
