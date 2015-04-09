@@ -1,4 +1,5 @@
 //------------------------------------------------------------------------------
+#include <set>
 #include <string>
 
 #include "clang/AST/AST.h"
@@ -11,6 +12,21 @@
 #include "clang/Tooling/CommonOptionsParser.h"
 #include "clang/Tooling/Tooling.h"
 #include "llvm/Support/raw_ostream.h"
+
+namespace clang {
+namespace ast_matchers {
+
+// AST matcher for names in a given set
+AST_MATCHER_P(clang::NamedDecl, NameInSet, std::set<std::string>,
+              nameset) {
+  if (auto id = Node.getIdentifier()) {
+    return nameset.count(id->getName().str()) > 0;
+  }
+  return false;
+}
+
+}  // namespace ast_matchers
+}  // namespace clang
 
 using namespace clang;
 using namespace clang::ast_matchers;
@@ -106,9 +122,18 @@ int main(int argc, const char **argv) {
       //namespaceDecl(hasName("Vroom")).bind("stuff"),
       //&HandlerForStuff);
 
-  Finder.addMatcher(
-      functionDecl(hasAncestor(namespaceDecl(hasName("Vroom")))).bind("stuff"),
-      &HandlerForStuff);
+  // Match all function declarations in namespace Vroom
+  //Finder.addMatcher(
+      //functionDecl(hasAncestor(namespaceDecl(hasName("Vroom")))).bind("stuff"),
+      //&HandlerForStuff);
+
+  std::set<std::string> nameset{"foo2", "bar3", "kwa4"};
+
+  // all functions with names from nameset and in namespace Vroom
+  Finder.addMatcher(functionDecl(NameInSet(nameset),
+                                 hasAncestor(namespaceDecl(hasName("Vroom"))))
+                        .bind("stuff"),
+                    &HandlerForStuff);
 
   llvm::outs() << "Running tool with RecursiveASTVisitor\n";
   Tool.run(newFrontendActionFactory<MyFrontendAction>().get());

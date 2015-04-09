@@ -6,6 +6,9 @@ namespace Vroom {
   }
 
   constexpr double dodo();
+
+  float bar3();
+  double foo2();
 };
 
 namespace Swing {
