@@ -23,29 +23,40 @@ constexpr float foo2(float f) {
   return 2.2+f;
 }
 
+float joe = foo2(45.4f);
+
+namespace Sambusak {
+
+constexpr double foo2(double d) {
+  return d * 2.2;
+}
+
+}
+
 }
 
 int iii = ns::foo2(10);
 float fla = ns::foo2(4.4f);
+double dla = ns::Sambusak::foo2(4.4);
 
-template <typename T>
-class Foo : public detail::Base{
- public:
+//template <typename T>
+//class Foo : public detail::Base{
+ //public:
 
-  typedef typename T::zoo_type arg_type;
+  //typedef typename T::zoo_type arg_type;
 
-  Foo(char c) : iguana(c) { f = 0.9; }
+  //Foo(char c) : iguana(c) { f = 0.9; }
 
-  Foo(arg_type i_, float f_) : kak(i_), iguana(ns::foo2(i_)), f(f_) {}
+  //Foo(arg_type i_, float f_) : kak(i_), iguana(ns::foo2(i_)), f(f_) {}
 
-  Foo() : detail::Base(), iguana(1) {}
+  //Foo() : detail::Base(), iguana(1) {}
 
- private:
-  int kak;
-  int iguana;
-  float f;
+ //private:
+  //int kak;
+  //int iguana;
+  //float f;
 
-  struct Faborz {
-  } faborz;
-};
+  //struct Faborz {
+  //} faborz;
+//};
 

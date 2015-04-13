@@ -48,6 +48,7 @@ class MyASTVisitor : public RecursiveASTVisitor<MyASTVisitor> {
     llvm::errs() << "I see a CallExpr\n";
     E->dump();
 
+
     Expr *callee = E->getCallee();
 
     if (ImplicitCastExpr *ica = llvm::dyn_cast<ImplicitCastExpr>(callee)) {
@@ -59,6 +60,20 @@ class MyASTVisitor : public RecursiveASTVisitor<MyASTVisitor> {
       dref->dump();
 
       NamedDecl *d = dref->getFoundDecl();
+      ASTContext &Context = d->getASTContext();
+      SourceManager &SM = Context.getSourceManager();
+
+      if (dref->hasQualifier()) {
+        llvm::errs() << "  has qualifier in name.\n";
+        NestedNameSpecifierLoc lc = dref->getQualifierLoc();
+
+        llvm::errs() << "    begin loc: " << lc.getBeginLoc().printToString(SM)
+                     << "\n";
+        llvm::errs() << "    end loc: " << lc.getEndLoc().printToString(SM)
+                     << "\n";
+      }
+
+
 
       if (UsingShadowDecl *sh = llvm::dyn_cast<UsingShadowDecl>(d)) {
         NamedDecl *td = sh->getTargetDecl();
