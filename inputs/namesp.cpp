@@ -9,7 +9,17 @@ namespace Vroom {
 
   float bar3();
   double foo2();
+
+  float bolly();
+
+  struct Joe {
+    double bar3();
+  };
 };
+
+
+int bolly();
+
 
 namespace Swing {
   constexpr float juju = 2.0;
@@ -17,4 +27,11 @@ namespace Swing {
   float foobar(float i) {
     return i * 2;
   }
+
+  using ::bolly;
+};
+
+
+namespace blagonda {
+  using Vroom::bolly;
 };

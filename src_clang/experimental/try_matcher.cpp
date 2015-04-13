@@ -9,6 +9,7 @@
 #include "clang/ASTMatchers/ASTMatchFinder.h"
 #include "clang/Basic/SourceManager.h"
 #include "clang/Frontend/FrontendActions.h"
+#include "clang/Lex/Lexer.h"
 #include "clang/Tooling/CommonOptionsParser.h"
 #include "clang/Tooling/Tooling.h"
 #include "llvm/Support/raw_ostream.h"
@@ -37,29 +38,67 @@ static llvm::cl::OptionCategory ToolingSampleCategory("Matcher Sample");
 
 // The visitor approach
 class MyASTVisitor : public RecursiveASTVisitor<MyASTVisitor> {
-public:
-  bool VisitIfStmt(IfStmt *s) {
-    if (const BinaryOperator *BinOP =
-            llvm::dyn_cast<BinaryOperator>(s->getCond())) {
-      if (BinOP->getOpcode() == BO_EQ) {
-        const Expr *LHS = BinOP->getLHS();
-        if (const ImplicitCastExpr *Cast =
-                llvm::dyn_cast<ImplicitCastExpr>(LHS)) {
-          LHS = Cast->getSubExpr();
-        }
+ public:
+  void FoundRealDecl(const NamedDecl *D) {
+    llvm::errs() << "**== found real decl: " << D->getQualifiedNameAsString()
+                 << "\n";
+  }
 
-        if (const DeclRefExpr *DeclRef = llvm::dyn_cast<DeclRefExpr>(LHS)) {
-          if (const VarDecl *Var =
-                  llvm::dyn_cast<VarDecl>(DeclRef->getDecl())) {
-            if (Var->getType()->isPointerType()) {
-              Var->dump();
-            }
-          }
-        }
+  bool VisitCallExpr(CallExpr *E) {
+    llvm::errs() << "I see a CallExpr\n";
+    E->dump();
+
+    Expr *callee = E->getCallee();
+
+    if (ImplicitCastExpr *ica = llvm::dyn_cast<ImplicitCastExpr>(callee)) {
+      callee = ica->getSubExpr();
+    }
+
+    if (DeclRefExpr *dref = llvm::dyn_cast<DeclRefExpr>(callee)) {
+      llvm::errs() << "declref:\n";
+      dref->dump();
+
+      NamedDecl *d = dref->getFoundDecl();
+
+      if (UsingShadowDecl *sh = llvm::dyn_cast<UsingShadowDecl>(d)) {
+        NamedDecl *td = sh->getTargetDecl();
+        FoundRealDecl(td);
+        //d->dump();
+      } else {
+        FoundRealDecl(d);
+        //d->dump();
+      }
+    } else if (UnresolvedLookupExpr *ule = dyn_cast<UnresolvedLookupExpr>(callee)) {
+      llvm::errs() << "unresolved\n";
+      for (const auto *d : ule->decls()) {
+        FoundRealDecl(d);
       }
     }
+
     return true;
   }
+  //bool VisitIfStmt(IfStmt *s) {
+    //if (const BinaryOperator *BinOP =
+            //llvm::dyn_cast<BinaryOperator>(s->getCond())) {
+      //if (BinOP->getOpcode() == BO_EQ) {
+        //const Expr *LHS = BinOP->getLHS();
+        //if (const ImplicitCastExpr *Cast =
+                //llvm::dyn_cast<ImplicitCastExpr>(LHS)) {
+          //LHS = Cast->getSubExpr();
+        //}
+
+        //if (const DeclRefExpr *DeclRef = llvm::dyn_cast<DeclRefExpr>(LHS)) {
+          //if (const VarDecl *Var =
+                  //llvm::dyn_cast<VarDecl>(DeclRef->getDecl())) {
+            //if (Var->getType()->isPointerType()) {
+              ////Var->dump();
+            //}
+          //}
+        //}
+      //}
+    //}
+    //return true;
+  //}
 };
 
 struct MyASTConsumer : public ASTConsumer {
@@ -97,6 +136,77 @@ struct StuffDumper : public MatchFinder::MatchCallback {
   }
 };
 
+clang::Token GetTokenBeforeLocation(clang::SourceLocation loc,
+                                    const clang::ASTContext& ast_context) {
+  clang::Token token;
+  token.setKind(clang::tok::unknown);
+  clang::LangOptions lang_options = ast_context.getLangOpts();
+  const clang::SourceManager& source_manager = ast_context.getSourceManager();
+  clang::SourceLocation file_start_loc =
+      source_manager.getLocForStartOfFile(source_manager.getFileID(loc));
+  loc = loc.getLocWithOffset(-1);
+  while (loc != file_start_loc) {
+    loc = clang::Lexer::GetBeginningOfToken(loc, source_manager, lang_options);
+    if (!clang::Lexer::getRawToken(loc, token, source_manager, lang_options)) {
+      if (!token.is(clang::tok::comment)) {
+        break;
+      }
+    }
+    loc = loc.getLocWithOffset(-1);
+  }
+  return token;
+}
+
+struct StuffExaminer : public MatchFinder::MatchCallback {
+  virtual void run(const MatchFinder::MatchResult &Result) {
+    auto *d = Result.Nodes.getNodeAs<CXXConstructorDecl>("stuff");
+    if (d) {
+      if (d->getNumCtorInitializers() > 0) {
+        const CXXCtorInitializer *firstinit = *d->init_begin();
+        if (!firstinit->isWritten()) {
+          llvm::errs() << "firstinit not written; skipping\n";
+          return;
+        }
+        if (firstinit->isBaseInitializer()) {
+          TypeLoc basetypeloc = firstinit->getBaseClassLoc();
+          llvm::errs() << "firstinit as base loc: "
+                       << basetypeloc.getBeginLoc().printToString(
+                              *Result.SourceManager) << "\n";
+        }
+        SourceLocation initloc = firstinit->getSourceLocation();
+        llvm::errs() << "firstinit loc: "
+                     << initloc.printToString(*Result.SourceManager) << "\n";
+        SourceRange initrange = firstinit->getSourceRange();
+        llvm::errs() << "firstinit range from "
+                     << initrange.getBegin().printToString(
+                            *Result.SourceManager) << "\n";
+        llvm::errs() << "firstinit range to "
+                     << initrange.getEnd().printToString(
+                            *Result.SourceManager) << "\n";
+
+        SourceLocation start = firstinit->getLParenLoc();
+        llvm::errs() << "firstinit start: "
+                     << start.printToString(*Result.SourceManager) << "\n";
+        Token tok_id = GetTokenBeforeLocation(start, *Result.Context);
+        llvm::errs() << "  tok_id: "
+                     << tok_id.getLocation().printToString(
+                            *Result.SourceManager) << "\n";
+        Token tok_colon =
+            GetTokenBeforeLocation(tok_id.getLocation(), *Result.Context);
+        llvm::errs() << "  tok_colon: "
+                     << tok_colon.getLocation().printToString(
+                            *Result.SourceManager) << "\n";
+
+        const CXXCtorInitializer *lastinit = *d->init_rbegin();
+        SourceLocation end = lastinit->getRParenLoc();
+        llvm::errs() << "lastinit end: "
+                     << end.printToString(*Result.SourceManager) << "\n";
+        //init->getInit()->dump();
+      }
+    }
+  }
+};
+
 int main(int argc, const char **argv) {
   CommonOptionsParser op(argc, argv, ToolingSampleCategory);
   ClangTool Tool(op.getCompilations(), op.getSourcePathList());
@@ -104,6 +214,7 @@ int main(int argc, const char **argv) {
   // Set up AST matcher callbacks.
   IfStmtHandler HandlerForIf;
   StuffDumper HandlerForStuff;
+  StuffExaminer HandlerExaminer;
 
   MatchFinder Finder;
   const TypeMatcher AnyType = anything();
@@ -130,10 +241,23 @@ int main(int argc, const char **argv) {
   std::set<std::string> nameset{"foo2", "bar3", "kwa4"};
 
   // all functions with names from nameset and in namespace Vroom
-  Finder.addMatcher(functionDecl(NameInSet(nameset),
-                                 hasAncestor(namespaceDecl(hasName("Vroom"))))
-                        .bind("stuff"),
-                    &HandlerForStuff);
+  //Finder.addMatcher(functionDecl(NameInSet(nameset),
+                                 //hasAncestor(namespaceDecl(hasName("Vroom"))),
+                                 //unless(methodDecl()))
+                        //.bind("stuff"),
+                    //&HandlerForStuff);
+
+  // All using declarations for name 'bolly'
+  //Finder.addMatcher(
+      //usingDecl(hasAnyUsingShadowDecl(hasName("bolly"))).bind("stuff"),
+      //&HandlerForStuff);
+
+  //Finder.addMatcher(functionDecl().bind("stuff"), &HandlerExaminer);
+  Finder.addMatcher(
+      constructorDecl(hasAnyConstructorInitializer(withInitializer(
+                          callExpr(callee(functionDecl(NameInSet(nameset)))))))
+          .bind("stuff"),
+      &HandlerForStuff);
 
   llvm::outs() << "Running tool with RecursiveASTVisitor\n";
   Tool.run(newFrontendActionFactory<MyFrontendAction>().get());
