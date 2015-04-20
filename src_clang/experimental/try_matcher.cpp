@@ -73,8 +73,6 @@ class MyASTVisitor : public RecursiveASTVisitor<MyASTVisitor> {
                      << "\n";
       }
 
-
-
       if (UsingShadowDecl *sh = llvm::dyn_cast<UsingShadowDecl>(d)) {
         NamedDecl *td = sh->getTargetDecl();
         FoundRealDecl(td);
@@ -85,9 +83,23 @@ class MyASTVisitor : public RecursiveASTVisitor<MyASTVisitor> {
       }
     } else if (UnresolvedLookupExpr *ule = dyn_cast<UnresolvedLookupExpr>(callee)) {
       llvm::errs() << "unresolved\n";
+      ASTContext* Context;
+      SourceManager* SM;
       for (const auto *d : ule->decls()) {
         FoundRealDecl(d);
+        Context = &d->getASTContext();
+        SM = &Context->getSourceManager();
       }
+      llvm::errs() << "    begin loc: " << ule->getLocStart().printToString(*SM)
+                   << "\n";
+      llvm::errs() << "    end loc: " << ule->getLocEnd().printToString(*SM)
+                   << "\n";
+
+      NestedNameSpecifierLoc ll = ule->getQualifierLoc();
+      llvm::errs() << "    nested begin loc: "
+                   << ll.getBeginLoc().printToString(*SM) << "\n";
+      llvm::errs() << "    nested end loc: "
+                   << ll.getEndLoc().printToString(*SM) << "\n";
     }
 
     return true;
