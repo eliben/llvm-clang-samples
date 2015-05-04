@@ -39,6 +39,11 @@ int iii = ns::foo2(10);
 float fla = ns::foo2(4.4f);
 double dla = ns::Sambusak::foo2(4.4);
 
+void bbbb() {
+  auto func = ns::Sambusak::foo2;
+  int k = func(10);
+}
+
 template <typename T>
 class Foo : public detail::Base{
  public:
