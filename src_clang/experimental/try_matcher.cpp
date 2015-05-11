@@ -36,6 +36,14 @@ using namespace clang::tooling;
 
 static llvm::cl::OptionCategory ToolingSampleCategory("Matcher Sample");
 
+//string SourceRangeAsString(const clang::SourceRange& range,
+                           //const clang::SourceManager& source_manager) {
+  //return "SourceRange [begin=" +
+         //ast_utils::AsString(range.getBegin().printToString(source_manager)) +
+         //",  end=" +
+         //ast_utils::AsString(range.getEnd().printToString(source_manager)) +
+         //"]";
+//}
 // The visitor approach
 class MyASTVisitor : public RecursiveASTVisitor<MyASTVisitor> {
  public:
@@ -163,6 +171,17 @@ struct StuffDumper : public MatchFinder::MatchCallback {
   }
 };
 
+struct RecordDumper : public MatchFinder::MatchCallback {
+  virtual void run(const MatchFinder::MatchResult &Result) {
+    auto *d = Result.Nodes.getNodeAs<TypeLoc>("stuff");
+    SourceLocation locstart = d->getLocStart();
+    llvm::errs() << "*\n";
+    llvm::errs() << " start: " << locstart.printToString(*Result.SourceManager) << "\n";
+    SourceLocation locend = d->getLocEnd();
+    llvm::errs() << " end: " << locend.printToString(*Result.SourceManager) << "\n";
+  }
+};
+
 clang::Token GetTokenBeforeLocation(clang::SourceLocation loc,
                                     const clang::ASTContext& ast_context) {
   clang::Token token;
@@ -248,12 +267,12 @@ int main(int argc, const char **argv) {
 
   // Find an 'if' expression with a '==' comparison, the left-hand-side of which
   // is a variable of pointer type.
-  Finder.addMatcher(
-      ifStmt(hasCondition(binaryOperator(
-          hasOperatorName("=="),
-          hasLHS(ignoringParenImpCasts(declRefExpr(
-              to(varDecl(hasType(pointsTo(AnyType))).bind("lhs")))))))),
-      &HandlerForIf);
+  //Finder.addMatcher(
+      //ifStmt(hasCondition(binaryOperator(
+          //hasOperatorName("=="),
+          //hasLHS(ignoringParenImpCasts(declRefExpr(
+              //to(varDecl(hasType(pointsTo(AnyType))).bind("lhs")))))))),
+      //&HandlerForIf);
 
   // Match a namespace named Vroom
   //Finder.addMatcher(
@@ -280,11 +299,22 @@ int main(int argc, const char **argv) {
       //&HandlerForStuff);
 
   //Finder.addMatcher(functionDecl().bind("stuff"), &HandlerExaminer);
+  //Finder.addMatcher(
+      //constructorDecl(hasAnyConstructorInitializer(withInitializer(
+                          //callExpr(callee(functionDecl(NameInSet(nameset)))))))
+          //.bind("stuff"),
+      //&HandlerForStuff);
+      //
+  RecordDumper HandlerForRecords;
+
   Finder.addMatcher(
-      constructorDecl(hasAnyConstructorInitializer(withInitializer(
-                          callExpr(callee(functionDecl(NameInSet(nameset)))))))
+      loc(templateSpecializationType(hasDeclaration(namedDecl(hasName("Frob::Homer")))))
           .bind("stuff"),
-      &HandlerForStuff);
+      &HandlerForRecords);
+
+  //DeclarationMatcher ClassHomer = recordDecl(hasName("Homer"));
+  //Finder.addMatcher(varDecl(hasType(ClassHomer)).bind("stuff"),
+                    //&HandlerForRecords);
 
   llvm::outs() << "Running tool with RecursiveASTVisitor\n";
   Tool.run(newFrontendActionFactory<MyFrontendAction>().get());
