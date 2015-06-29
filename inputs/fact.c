@@ -1,6 +1,6 @@
 unsigned mult(unsigned a, unsigned b) {
-  unsigned i, s = 0;
-  for (i = 0; i < a; ++i) {
+  unsigned s = 0;
+  for (int i = 0; i < a; ++i) {
     s += b;
   }
   return s;
