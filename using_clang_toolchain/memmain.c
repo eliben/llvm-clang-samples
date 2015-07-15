@@ -12,7 +12,8 @@ int main(int argc, char** argv) {
     buf[i] = i;
   }
 
-  memmove_caller(&buf[4], &buf[0], 10);
+  memmove_caller(&buf[4], &buf[0], 0);
+  //memmove_caller(&buf[1], &buf[5], 0);
 
   for (size_t i = 0; i < 30; ++i) {
     printf("0x%x ", buf[i]);

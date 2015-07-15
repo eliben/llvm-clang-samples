@@ -23,6 +23,7 @@ CLANG    := $(LLVM_BIN_PATH)/clang
 CLANGXX  := $(LLVM_BIN_PATH)/clang++
 LLVMLINK := $(LLVM_BIN_PATH)/llvm-link
 LLC      := $(LLVM_BIN_PATH)/llc
+OPT 		 := $(LLVM_BIN_PATH)/opt
 LD       := $(LLVM_BIN_PATH)/clang++
 
 CFLAGS    := -std=c99 -Wall
