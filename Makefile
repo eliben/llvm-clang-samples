@@ -13,8 +13,11 @@
 # LLVM_SRC_PATH is the path to the root of the checked out source code. This
 # directory should contain the configure script, the include/ and lib/
 # directories of LLVM, Clang in tools/clang/, etc.
-# Alternatively, if you're building vs. a binary download of LLVM, then
-# LLVM_SRC_PATH can point to the main untarred directory.
+#
+# Alternatively, if you're building vs. a binary distribution of LLVM
+# (downloaded from llvm.org), then LLVM_SRC_PATH can point to the main untarred
+# directory of the binary download (the directory that has bin/, lib/, include/
+# and other directories inside).
 LLVM_SRC_PATH := $$HOME/llvm/llvm_svn_rw
 
 # LLVM_BUILD_PATH is the directory in which you built LLVM - where you ran
@@ -57,6 +60,8 @@ LLVM_LDFLAGS := `$(LLVM_BIN_PATH)/llvm-config --ldflags --libs --system-libs`
 LLVM_LDFLAGS_NOLIBS := `$(LLVM_BIN_PATH)/llvm-config --ldflags`
 PLUGIN_LDFLAGS := -shared
 
+# These are required when compiling vs. a source distribution of Clang. For
+# binary distributions llvm-config --cxxflags gives the right path.
 CLANG_INCLUDES := \
 	-I$(LLVM_SRC_PATH)/tools/clang/include \
 	-I$(LLVM_BUILD_PATH)/tools/clang/include
