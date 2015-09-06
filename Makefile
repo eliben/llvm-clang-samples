@@ -46,6 +46,9 @@ $(info -----------------------------------------------)
 # CXX has to be a fairly modern C++ compiler that supports C++11. gcc 4.8 and
 # higher or Clang 3.2 and higher are recommended. Best of all, if you build LLVM
 # from sources, use the same compiler you built LLVM with.
+# Note: starting with release 3.7, llvm-config will inject flags that gcc may
+# not support (for example '-Wcovered-switch-default'). If you run into this
+# problem, build with CXX set to a modern clang++ binary instead of g++.
 CXX := g++
 CXXFLAGS := -fno-rtti -O0 -g
 PLUGIN_CXXFLAGS := -fpic
