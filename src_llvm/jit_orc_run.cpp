@@ -88,6 +88,8 @@ private:
   std::vector<ModuleHandleT> ModuleHandles;
 };
 
+typedef double (*FooTy)(double, double);
+
 int main(int argc, char **argv) {
   if (argc < 2) {
     errs() << "Usage: " << argv[0] << " <IR file>\n";
@@ -108,6 +110,15 @@ int main(int argc, char **argv) {
 
   SimpleOrcJIT JIT;
   JIT.addModule(std::move(Mod));
+
+  orc::JITSymbol FooSym = JIT.findSymbol("foo");
+  if (!FooSym) {
+    errs() << "Unable to find symbol 'foo' in module";
+    return 1;
+  }
+
+  FooTy FooPtr = reinterpret_cast<FooTy>(FooSym.getAddress());
+  outs() << "foo(2.0, 3.0) = " << FooPtr(2.0, 3.0) << "\n";
 
   return 0;
 }
