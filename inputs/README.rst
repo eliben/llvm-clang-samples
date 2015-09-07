@@ -5,5 +5,5 @@ LLVM IR is in .ll files; if an .ll file has a corresponding .c file, then the
 
 For an optimized version, the following can be used::
 
-    clang -O3 -c -emit-llvm z.c -o - | llvm-dis
+    clang -O3 -c -emit-llvm z.c -S -o -
 

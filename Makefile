@@ -112,6 +112,7 @@ all: make_builddir \
 	$(BUILDDIR)/simple_module_pass \
 	$(BUILDDIR)/simple_bb_pass \
 	$(BUILDDIR)/analyze_geps \
+	$(BUILDDIR)/jit_orc_run \
 	$(BUILDDIR)/hello_pass.so \
 	$(BUILDDIR)/replace_threadidx_with_call \
 	$(BUILDDIR)/access_debug_metadata \
@@ -138,6 +139,9 @@ $(BUILDDIR)/simple_bb_pass: $(SRC_LLVM_DIR)/simple_bb_pass.cpp
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $^ $(LLVM_LDFLAGS) -o $@
 
 $(BUILDDIR)/analyze_geps: $(SRC_LLVM_DIR)/analyze_geps.cpp
+	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $^ $(LLVM_LDFLAGS) -o $@
+
+$(BUILDDIR)/jit_orc_run: $(SRC_LLVM_DIR)/jit_orc_run.cpp
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $^ $(LLVM_LDFLAGS) -o $@
 
 $(BUILDDIR)/replace_threadidx_with_call: $(SRC_LLVM_DIR)/replace_threadidx_with_call.cpp
