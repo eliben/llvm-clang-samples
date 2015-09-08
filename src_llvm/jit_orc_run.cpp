@@ -23,11 +23,10 @@ public:
 
   SimpleOrcJIT()
       : TM(EngineBuilder().selectTarget()), DL(TM->createDataLayout()),
-        CompileLayer(ObjectLayer, orc::SimpleCompiler(*TM)) {
-  }
+        CompileLayer(ObjectLayer, orc::SimpleCompiler(*TM)) {}
 
-  TargetMachine &getTargetMachine() { return *TM; }
-
+  // A simple SymbolResolver that doesn't support linking by always returning
+  // nullptr.
   struct NoLinkingResolver : public RuntimeDyld::SymbolResolver {
     RuntimeDyld::SymbolInfo findSymbol(const std::string &Name) {
       return nullptr;
@@ -61,12 +60,11 @@ public:
       Mangler::getNameWithPrefix(MangledNameStream, Name, DL);
     }
 
-    // Search modules in reverse order: from last added to first added.
-    // This is the opposite of the usual search order for dlsym, but makes more
-    // sense in a REPL where we want to bind to the newest available definition.
-    for (auto H : make_range(ModuleHandles.rbegin(), ModuleHandles.rend()))
-      if (auto Sym = CompileLayer.findSymbolIn(H, MangledName, true))
+    for (auto H : make_range(ModuleHandles.rbegin(), ModuleHandles.rend())) {
+      if (auto Sym = CompileLayer.findSymbolIn(H, MangledName, true)) {
         return Sym;
+      }
+    }
 
     return nullptr;
   }
