@@ -11,7 +11,7 @@ bar(2.0, 3.0) = 6.000000e+01
 
 PROG = 'jit_orc_run'
 
-class TestJITORCRun(SamplesTestCase):
+class TestJITOrcRun(SamplesTestCase):
     def test_foo(self):
         self.assertSampleOutput([PROG, 'foo'], 'twodoublefoo.ll',
                                 OUTPUT_TWODOUBLEFOO_FOO)

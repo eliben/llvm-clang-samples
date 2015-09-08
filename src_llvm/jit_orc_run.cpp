@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 // jit_orc_run LLVM sample. Demonstrates:
 //
-// * How to create a simple JIT based on LLVM's ORC API.
+// * How to create a simple JIT based on LLVM's Orc API.
 //
 // Expects a path to a textual IR file and a function name to invoke.
 // The function should have the signature: double foo(double, double)
@@ -23,11 +23,17 @@
 
 using namespace llvm;
 
-// A type encapsulating simple ORC JIT functionality. Loosely based on the
+// A type encapsulating simple Orc JIT functionality. Loosely based on the
 // KaleidoscopeJIT example in the LLVM tree. Doesn't support cross-module
 // symbol resolution; this JIT is best used with just a single module.
 class SimpleOrcJIT {
 public:
+  // This sample doesn't implement on-request or lazy compilation. It therefore
+  // uses Orc's eager compilation layer directly - IRCompileLayer. It also uses
+  // the basis object layer - ObjectLinkingLayer - directly.
+  // Orc's SimpleCompiler is used to actually compile the module; it runs LLVM's
+  // codegen and MC on the module, producing an object file in memory. No
+  // IR-level optimizations are run by the JIT.
   typedef orc::ObjectLinkingLayer<> ObjLayerT;
   typedef orc::IRCompileLayer<ObjLayerT> CompileLayerT;
   typedef CompileLayerT::ModuleSetHandleT ModuleHandleT;
@@ -54,7 +60,6 @@ public:
     auto H = CompileLayer.addModuleSet(std::move(MS),
                                        make_unique<SectionMemoryManager>(),
                                        make_unique<NoLinkingResolver>());
-
     ModuleHandles.push_back(H);
     return H;
   }
