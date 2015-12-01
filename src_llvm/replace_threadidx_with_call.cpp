@@ -37,7 +37,7 @@ public:
   virtual bool runOnFunction(Function &F) {
     bool Modified = false;
     for (Function::iterator I = F.begin(); I != F.end(); I++) {
-      BasicBlock *BB = I;
+      BasicBlock *BB = &*I;
 
       for (BasicBlock::iterator BI = BB->begin(), BE = BB->end(); BI != BE;) {
         // Note: taking BI++ out of the for statement is important. Since this

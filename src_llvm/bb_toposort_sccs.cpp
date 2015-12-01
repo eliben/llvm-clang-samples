@@ -39,7 +39,7 @@ public:
     outs() << "Topological sort of " << F.getName() << ":\n";
     // Initialize the color map by marking all the vertices white.
     for (Function::const_iterator I = F.begin(), IE = F.end(); I != IE; ++I) {
-      ColorMap[I] = TopoSorter::WHITE;
+      ColorMap[&*I] = TopoSorter::WHITE;
     }
 
     // The BB graph has a single entry vertex from which the other BBs should
