@@ -24,7 +24,7 @@ Last known LLVM build revision for the master branch
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The last upstream LLVM revision I've successfully built the ``master`` branch
-against is r249898 (09-Oct-2015). It may build with newer revisions, or it may
+against is r254425 (01-Dec-2015). It may build with newer revisions, or it may
 not. If you know it builds successfully with a newer one, please let me know and
 I'll update this note.
 
