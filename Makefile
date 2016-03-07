@@ -18,6 +18,7 @@
 # (downloaded from llvm.org), then LLVM_SRC_PATH can point to the main untarred
 # directory of the binary download (the directory that has bin/, lib/, include/
 # and other directories inside).
+# See the build_vs_released_binary.sh script for an example.
 LLVM_SRC_PATH := $$HOME/llvm/llvm_svn_rw
 
 # LLVM_BUILD_PATH is the directory in which you built LLVM - where you ran
