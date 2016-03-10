@@ -26,17 +26,10 @@ LLVM_SRC_PATH := $$HOME/llvm/llvm_svn_rw
 # For linking vs. a binary build of LLVM, point to the main untarred directory.
 # LLVM_BIN_PATH is the directory where binaries are placed by the LLVM build
 # process. It should contain the tools like opt, llc and clang. The default
-# reflects a debug build with autotools (configure & make), and needs to be
-# changed when a Ninja build is used (see below for example). For linking vs. a
-# binary build of LLVM, point it to the bin/ directory.
-LLVM_BUILD_PATH := $$HOME/llvm/build/svn-make-debug
-LLVM_BIN_PATH := $(LLVM_BUILD_PATH)/Debug+Asserts/bin
-
-# Run make BUILD_NINJA=1 to enable these paths
-ifdef BUILD_NINJA
-	LLVM_BUILD_PATH := $$HOME/llvm/build/svn-ninja-release
-	LLVM_BIN_PATH 	:= $(LLVM_BUILD_PATH)/bin
-endif
+# reflects a release build with CMake and Ninja. binary build of LLVM, point it
+# to the bin/ directory.
+LLVM_BUILD_PATH := $$HOME/llvm/build/svn-ninja-release
+LLVM_BIN_PATH 	:= $(LLVM_BUILD_PATH)/bin
 
 $(info -----------------------------------------------)
 $(info Using LLVM_SRC_PATH = $(LLVM_SRC_PATH))

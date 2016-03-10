@@ -17,7 +17,7 @@ set -x
 
 BINARY_DIR_PATH=$HOME/llvm/llvm3.8-binaries
 
-make -j4 \
+make -j8 \
   CXX=$BINARY_DIR_PATH/bin/clang++ \
   LLVM_SRC_PATH=$BINARY_DIR_PATH \
   LLVM_BUILD_PATH=$BINARY_DIR_PATH/bin \
