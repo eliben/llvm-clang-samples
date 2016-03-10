@@ -15,10 +15,12 @@
 set -eu
 set -x
 
-BINARY_DIR_PATH=$HOME/llvm/llvm3.7-binaries
+BINARY_DIR_PATH=$HOME/llvm/llvm3.8-binaries
 
 make -j4 \
   CXX=$BINARY_DIR_PATH/bin/clang++ \
   LLVM_SRC_PATH=$BINARY_DIR_PATH \
   LLVM_BUILD_PATH=$BINARY_DIR_PATH/bin \
   LLVM_BIN_PATH=$BINARY_DIR_PATH/bin
+
+make LLVM_BIN_PATH=$BINARY_DIR_PATH/bin test
