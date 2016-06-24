@@ -4,7 +4,6 @@
 // Eli Bendersky (eliben@gmail.com)
 // This code is in the public domain
 //------------------------------------------------------------------------------
-#include "llvm/IR/LLVMContext.h"
 #include "llvm/IR/Metadata.h"
 #include "llvm/IR/Module.h"
 #include "llvm/IRReader/IRReader.h"
@@ -22,7 +21,8 @@ int main(int argc, char **argv) {
 
   // Parse the input LLVM IR file into a module.
   SMDiagnostic Err;
-  std::unique_ptr<Module> Mod(parseIRFile(argv[1], Err, getGlobalContext()));
+  LLVMContext Context;
+  std::unique_ptr<Module> Mod(parseIRFile(argv[1], Err, Context));
   if (!Mod) {
     Err.print(argv[0], errs());
     return 1;

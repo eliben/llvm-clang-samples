@@ -1,7 +1,6 @@
 #include "llvm/ADT/STLExtras.h"
 #include "llvm/IR/DerivedTypes.h"
 #include "llvm/IR/IRBuilder.h"
-#include "llvm/IR/LLVMContext.h"
 #include "llvm/IR/Module.h"
 #include <memory>
 
@@ -40,7 +39,7 @@ void MakeFunction(Module* Mod, std::string name) {
 }
 
 int main(int argc, char** argv) {
-  LLVMContext &Context = getGlobalContext();
+  LLVMContext Context;
   std::unique_ptr<Module> Mod = make_unique<Module>("my module", Context);
 
   MakeFunction(Mod.get(), "foo");

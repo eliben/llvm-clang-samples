@@ -15,7 +15,6 @@
 #include "llvm/ExecutionEngine/Orc/CompileUtils.h"
 #include "llvm/ExecutionEngine/Orc/IRCompileLayer.h"
 #include "llvm/ExecutionEngine/Orc/ObjectLinkingLayer.h"
-#include "llvm/IR/LLVMContext.h"
 #include "llvm/IR/Mangler.h"
 #include "llvm/IRReader/IRReader.h"
 #include "llvm/Support/SourceMgr.h"
@@ -107,7 +106,8 @@ int main(int argc, char **argv) {
 
   // Parse the input LLVM IR file into a module.
   SMDiagnostic Err;
-  std::unique_ptr<Module> Mod(parseIRFile(argv[2], Err, getGlobalContext()));
+  LLVMContext Context;
+  std::unique_ptr<Module> Mod(parseIRFile(argv[2], Err, Context));
   if (!Mod) {
     Err.print(argv[0], errs());
     return 1;

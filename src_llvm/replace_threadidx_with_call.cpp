@@ -17,7 +17,6 @@
 #include "llvm/IR/Instruction.h"
 #include "llvm/IR/Instructions.h"
 #include "llvm/IR/LegacyPassManager.h"
-#include "llvm/IR/LLVMContext.h"
 #include "llvm/IR/Module.h"
 #include "llvm/IR/Operator.h"
 #include "llvm/IRReader/IRReader.h"
@@ -113,7 +112,8 @@ int main(int argc, char **argv) {
 
   // Parse the input LLVM IR file into a module.
   SMDiagnostic Err;
-  std::unique_ptr<Module> Mod(parseIRFile(argv[1], Err, getGlobalContext()));
+  LLVMContext Context;
+  std::unique_ptr<Module> Mod(parseIRFile(argv[1], Err, Context));
   if (!Mod) {
     Err.print(argv[0], errs());
     return 1;
