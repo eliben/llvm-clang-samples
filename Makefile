@@ -72,6 +72,7 @@ CLANG_INCLUDES := \
 CLANG_LIBS := \
 	-Wl,--start-group \
 	-lclangAST \
+	-lclangASTMatchers \
 	-lclangAnalysis \
 	-lclangBasic \
 	-lclangDriver \
@@ -82,7 +83,6 @@ CLANG_LIBS := \
 	-lclangParse \
 	-lclangSema \
 	-lclangEdit \
-	-lclangASTMatchers \
 	-lclangRewrite \
 	-lclangRewriteFrontend \
 	-lclangStaticAnalyzerFrontend \
@@ -91,6 +91,7 @@ CLANG_LIBS := \
 	-lclangSerialization \
 	-lclangToolingCore \
 	-lclangTooling \
+	-lclangFormat \
 	-Wl,--end-group
 
 # Internal paths in this project: where to find sources, and where to put
