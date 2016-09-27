@@ -113,7 +113,6 @@ all: make_builddir \
 	$(BUILDDIR)/access_debug_metadata \
 	$(BUILDDIR)/clang-check \
 	$(BUILDDIR)/rewritersample \
-	$(BUILDDIR)/matchers_replacements \
 	$(BUILDDIR)/matchers_rewriter \
 	$(BUILDDIR)/tooling_sample \
 	$(BUILDDIR)/plugin_print_funcnames.so
@@ -164,10 +163,6 @@ $(BUILDDIR)/rewritersample: $(SRC_CLANG_DIR)/rewritersample.cpp
 		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
 
 $(BUILDDIR)/tooling_sample: $(SRC_CLANG_DIR)/tooling_sample.cpp
-	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
-		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
-
-$(BUILDDIR)/matchers_replacements: $(SRC_CLANG_DIR)/matchers_replacements.cpp
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
 		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
 

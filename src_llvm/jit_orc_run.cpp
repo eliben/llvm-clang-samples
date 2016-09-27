@@ -15,6 +15,7 @@
 #include "llvm/ExecutionEngine/Orc/CompileUtils.h"
 #include "llvm/ExecutionEngine/Orc/IRCompileLayer.h"
 #include "llvm/ExecutionEngine/Orc/ObjectLinkingLayer.h"
+#include "llvm/ExecutionEngine/JITSymbol.h"
 #include "llvm/IR/Mangler.h"
 #include "llvm/IRReader/IRReader.h"
 #include "llvm/Support/SourceMgr.h"
@@ -43,11 +44,11 @@ public:
 
   // A simple SymbolResolver that doesn't support linking by always returning
   // nullptr.
-  struct NoLinkingResolver : public RuntimeDyld::SymbolResolver {
-    RuntimeDyld::SymbolInfo findSymbol(const std::string &Name) {
+  struct NoLinkingResolver : public JITSymbolResolver {
+    JITSymbol findSymbol(const std::string &Name) {
       return nullptr;
     }
-    RuntimeDyld::SymbolInfo findSymbolInLogicalDylib(const std::string &Name) {
+    JITSymbol findSymbolInLogicalDylib(const std::string &Name) {
       return nullptr;
     }
   };
@@ -71,7 +72,7 @@ public:
   }
 
   // Get the runtime address of the compiled symbol whose name is given.
-  orc::JITSymbol findSymbol(const std::string Name) {
+  JITSymbol findSymbol(const std::string Name) {
     std::string MangledName;
     {
       raw_string_ostream MangledNameStream(MangledName);
@@ -120,7 +121,7 @@ int main(int argc, char **argv) {
   SimpleOrcJIT JIT;
   JIT.addModule(std::move(Mod));
 
-  orc::JITSymbol FooSym = JIT.findSymbol(argv[1]);
+  JITSymbol FooSym = JIT.findSymbol(argv[1]);
   if (!FooSym) {
     errs() << "Unable to find symbol " << argv[1] << " in module\n";
     return 1;
