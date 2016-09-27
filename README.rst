@@ -11,8 +11,8 @@ that links against LLVM & Clang as libraries in version X may very well not
 compile or work in version X+1.
 
 Therefore, this repository has branches that track LLVM versions. For example,
-in branch ``llvm3.8`` the code should compile and work when linked against the
-released LLVM 3.8; The code in the ``master`` branch attempts to track the
+in branch ``llvm3.9`` the code should compile and work when linked against the
+released LLVM 3.9; The code in the ``master`` branch attempts to track the
 upstream trunk, but may sometimes lag behind. Also, note that as more samples
 are added I'll usually add them to ``master`` and will not backport them to
 older branches.
@@ -24,7 +24,7 @@ Last known LLVM build revision for the master branch
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The last upstream LLVM revision I've successfully built the ``master`` branch
-against is r277195 (29-Jul-2016). It may build with newer revisions, or it may
+against is r282536 (27-Sep-2016). It may build with newer revisions, or it may
 not. If you know it builds successfully with a newer one, please let me know and
 I'll update this note.
 
