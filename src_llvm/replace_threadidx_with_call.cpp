@@ -134,8 +134,9 @@ int main(int argc, char **argv) {
   PM.add(new ReplaceThreadIdxRefs(Tidx, Tidy, Tidz));
   PM.run(*Mod);
 
-  outs() << "Dumping the module after the pass has run:\n";
-  Mod->dump();
+  // Set LLVM_ENABLE_DUMP when building LLVM to use dump(
+  //outs() << "Dumping the module after the pass has run:\n";
+  //Mod->dump();
 
   return 0;
 }
