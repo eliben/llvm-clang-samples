@@ -14,6 +14,22 @@
 # directory should contain the configure script, the include/ and lib/
 # directories of LLVM, Clang in tools/clang/, etc.
 #
+# The most recent build from source of LLVM I did used the following cmake
+# invocation:
+#
+# $ cmake -DCMAKE_BUILD_TYPE=Release \
+#         -DLLVM_ENABLE_ASSERTIONS=ON \
+#         -DCMAKE_C_FLAGS=-DLLVM_ENABLE_DUMP \
+#         -DCMAKE_CXX_FLAGS=-DLLVM_ENABLE_DUMP \
+#         -DLLVM_TARGETS_TO_BUILD="X86" \
+#         -G Ninja
+#
+# Note that this is a release build with assertions enabled, and with
+# LLVM_ENABLE_DUMP explicitly passed. This is required to get the LLVM IR-level
+# 'dump' methods to work. With debug builds, assertions should be enabled by
+# default. Also note that a fairly recent version of cmake is required; the
+# latest I've been using is 3.5.2
+#
 # Alternatively, if you're building vs. a binary distribution of LLVM
 # (downloaded from llvm.org), then LLVM_SRC_PATH can point to the main untarred
 # directory of the binary download (the directory that has bin/, lib/, include/

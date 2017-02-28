@@ -37,8 +37,7 @@ public:
     for (auto II = BB.begin(), II_e = BB.end(); II != II_e; ++II) {
       if (GetElementPtrInst *GEP = dyn_cast<GetElementPtrInst>(II)) {
         outs() << "Found GEP:\n";
-        // Set LLVM_ENABLE_DUMP when building LLVM to use dump()
-        //GEP->dump();
+        GEP->dump();
         outs() << "  The type is: " << ToString(GEP->getType()) << "\n";
         outs() << "  The pointer operand is: "
                << ToString(GEP->getPointerOperand()) << "\n";
