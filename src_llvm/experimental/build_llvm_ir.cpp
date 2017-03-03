@@ -114,10 +114,10 @@ Function* MakeFunction(Module* Mod, std::string name) {
 
   Value *fa = Builder.CreateFAdd(arg1, arg2);
   Value *fb = Builder.CreateFAdd(fa, arg3);
+  Value *fc = Builder.CreateFAdd(arg1, arg2);
+  Value *fd = Builder.CreateFAdd(fb, fc);
 
-  // Add another instruction via the original builder. Note that it goes into
-  // the end of BB, since Builder still points there.
-  Builder.CreateRet(fb);
+  Builder.CreateRet(fd);
 
   return F;
 }
@@ -132,7 +132,6 @@ int main(int argc, char** argv) {
   std::string funcname = "foo";
 
   Function* Func = MakeFunction(Mod.get(), funcname);
-  Mod->dump();
 
   // This is required to initialize the MC layer for our (native) target.
   InitializeNativeTarget();
@@ -156,6 +155,7 @@ int main(int argc, char** argv) {
     return 1;
   }
   FPM->run(*Func);
+  Mod->dump();
 
   JIT.addModule(std::move(Mod));
 
