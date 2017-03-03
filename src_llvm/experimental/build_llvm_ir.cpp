@@ -11,8 +11,10 @@
 #include "llvm/IR/IRBuilder.h"
 #include "llvm/IR/Mangler.h"
 #include "llvm/IR/Module.h"
+#include "llvm/IR/Verifier.h"
 #include "llvm/Support/DynamicLibrary.h"
 #include "llvm/Support/TargetSelect.h"
+#include "llvm/Transforms/IPO/PassManagerBuilder.h"
 #include <memory>
 
 using namespace llvm;
@@ -92,7 +94,7 @@ private:
   std::vector<ModuleHandleT> ModuleHandles;
 };
 
-void MakeFunction(Module* Mod, std::string name) {
+Function* MakeFunction(Module* Mod, std::string name) {
   LLVMContext &Context = Mod->getContext();
   std::vector<Type*> Args(3, Type::getDoubleTy(Context));
   FunctionType *FT = FunctionType::get(Type::getDoubleTy(Context), Args, false);
@@ -116,6 +118,8 @@ void MakeFunction(Module* Mod, std::string name) {
   // Add another instruction via the original builder. Note that it goes into
   // the end of BB, since Builder still points there.
   Builder.CreateRet(fb);
+
+  return F;
 }
 
 // Signature of the function we expect.
@@ -127,7 +131,7 @@ int main(int argc, char** argv) {
 
   std::string funcname = "foo";
 
-  MakeFunction(Mod.get(), funcname);
+  Function* Func = MakeFunction(Mod.get(), funcname);
   Mod->dump();
 
   // This is required to initialize the MC layer for our (native) target.
@@ -136,6 +140,23 @@ int main(int argc, char** argv) {
 
   SimpleOrcJIT JIT;
   Mod->setDataLayout(JIT.getTargetMachine().createDataLayout());
+
+  PassManagerBuilder Builder;
+  Builder.OptLevel = 3;
+  Builder.SizeLevel = 0;
+  Builder.LoopVectorize = true;
+  Builder.SLPVectorize = true;
+  JIT.getTargetMachine().adjustPassManager(Builder);
+  auto FPM = llvm::make_unique<legacy::FunctionPassManager>(Mod.get());
+  Builder.populateFunctionPassManager(*FPM);
+  FPM->doInitialization();
+
+  if (verifyFunction(*Func, &errs())) {
+    errs() << "Error verifying function... exiting\n";
+    return 1;
+  }
+  FPM->run(*Func);
+
   JIT.addModule(std::move(Mod));
 
   JITSymbol FooSym = JIT.findSymbol(funcname);
