@@ -1,6 +1,6 @@
 #define MYCHECK(a) (0 && 4)
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
 
   // Warning here
   while (0 && 4) {

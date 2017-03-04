@@ -1,5 +1,5 @@
-#include <iostream>
 #include <exception>
+#include <iostream>
 #include <stdexcept>
 
 void foo(int i) {
@@ -8,11 +8,10 @@ void foo(int i) {
   }
 }
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
   try {
     foo(argc);
-  }
-  catch (std::exception& e) {
+  } catch (std::exception &e) {
     std::cerr << "Got exception: " << e.what() << std::endl;
   }
 

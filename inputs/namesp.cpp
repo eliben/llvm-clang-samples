@@ -1,37 +1,30 @@
 namespace Vroom {
-  int kwa;
+int kwa;
 
-  int foobar(int i) {
-    return i * 2;
-  }
+int foobar(int i) { return i * 2; }
 
-  constexpr double dodo();
+constexpr double dodo();
 
-  float bar3();
-  double foo2();
+float bar3();
+double foo2();
 
-  float bolly();
+float bolly();
 
-  struct Joe {
-    double bar3();
-  };
+struct Joe {
+  double bar3();
 };
-
+};
 
 int bolly();
 
-
 namespace Swing {
-  constexpr float juju = 2.0;
+constexpr float juju = 2.0;
 
-  float foobar(float i) {
-    return i * 2;
-  }
+float foobar(float i) { return i * 2; }
 
-  using ::bolly;
+using ::bolly;
 };
 
-
 namespace blagonda {
-  using Vroom::bolly;
+using Vroom::bolly;
 };

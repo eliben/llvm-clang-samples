@@ -4,12 +4,12 @@
 #include "llvm/IR/DataLayout.h"
 #include "llvm/IR/Instruction.h"
 #include "llvm/IR/Instructions.h"
+#include "llvm/IR/LegacyPassManager.h"
 #include "llvm/IR/Module.h"
 #include "llvm/IRReader/IRReader.h"
 #include "llvm/Pass.h"
-#include "llvm/IR/LegacyPassManager.h"
-#include "llvm/Support/raw_ostream.h"
 #include "llvm/Support/SourceMgr.h"
+#include "llvm/Support/raw_ostream.h"
 #include <string>
 #include <vector>
 
@@ -17,12 +17,9 @@ using namespace llvm;
 
 class AnalyzeLoops : public FunctionPass {
 public:
-  AnalyzeLoops()
-      : FunctionPass(ID) {}
+  AnalyzeLoops() : FunctionPass(ID) {}
 
-  void getAnalysisUsage(AnalysisUsage &AU) const {
-    AU.addRequired<LoopInfo>();
-  }
+  void getAnalysisUsage(AnalysisUsage &AU) const { AU.addRequired<LoopInfo>(); }
 
   virtual bool runOnFunction(Function &F) {
     LoopInfo &LI = getAnalysis<LoopInfo>();

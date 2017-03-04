@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-int* foo() {
+int *foo() {
 #ifdef FOO
   return 0;
 #else

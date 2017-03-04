@@ -1,12 +1,12 @@
 #include "llvm/ADT/STLExtras.h"
 #include "llvm/ExecutionEngine/JITSymbol.h"
-#include "llvm/ExecutionEngine/RTDyldMemoryManager.h"
-#include "llvm/ExecutionEngine/RuntimeDyld.h"
-#include "llvm/ExecutionEngine/SectionMemoryManager.h"
 #include "llvm/ExecutionEngine/Orc/CompileUtils.h"
 #include "llvm/ExecutionEngine/Orc/IRCompileLayer.h"
 #include "llvm/ExecutionEngine/Orc/LambdaResolver.h"
 #include "llvm/ExecutionEngine/Orc/RTDyldObjectLinkingLayer.h"
+#include "llvm/ExecutionEngine/RTDyldMemoryManager.h"
+#include "llvm/ExecutionEngine/RuntimeDyld.h"
+#include "llvm/ExecutionEngine/SectionMemoryManager.h"
 #include "llvm/IR/DerivedTypes.h"
 #include "llvm/IR/IRBuilder.h"
 #include "llvm/IR/Mangler.h"
@@ -43,9 +43,7 @@ public:
   // A simple SymbolResolver that doesn't support linking by always returning
   // nullptr.
   struct NoLinkingResolver : public JITSymbolResolver {
-    JITSymbol findSymbol(const std::string &Name) {
-      return nullptr;
-    }
+    JITSymbol findSymbol(const std::string &Name) { return nullptr; }
     JITSymbol findSymbolInLogicalDylib(const std::string &Name) {
       return nullptr;
     }
@@ -94,16 +92,18 @@ private:
   std::vector<ModuleHandleT> ModuleHandles;
 };
 
-Function* MakeFunction(Module* Mod, std::string name, Function* printdfunc) {
+Function *MakeFunction(Module *Mod, std::string name, Function *printdfunc) {
   LLVMContext &Context = Mod->getContext();
-  std::vector<Type*> Args(3, Type::getDoubleTy(Context));
+  std::vector<Type *> Args(3, Type::getDoubleTy(Context));
   FunctionType *FT = FunctionType::get(Type::getDoubleTy(Context), Args, false);
-  Function *F =
-      Function::Create(FT, Function::ExternalLinkage, name, Mod);
+  Function *F = Function::Create(FT, Function::ExternalLinkage, name, Mod);
   Function::arg_iterator arg_iter = F->arg_begin();
-  Value *arg1 = &*(arg_iter++); arg1->setName("arg1");
-  Value *arg2 = &*(arg_iter++); arg2->setName("arg2");
-  Value *arg3 = &*(arg_iter++); arg3->setName("arg3");
+  Value *arg1 = &*(arg_iter++);
+  arg1->setName("arg1");
+  Value *arg2 = &*(arg_iter++);
+  arg2->setName("arg2");
+  Value *arg3 = &*(arg_iter++);
+  arg3->setName("arg3");
 
   BasicBlock *BB = BasicBlock::Create(Context, "entry", F);
 
@@ -133,19 +133,19 @@ extern "C" double printd(double X) {
 // Signature of the function we expect.
 typedef double (*FooTy)(double, double, double);
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
   LLVMContext Context;
   std::unique_ptr<Module> Mod = make_unique<Module>("my module", Context);
 
   std::string funcname = "foo";
 
-  FunctionType *FT = FunctionType::get(Type::getVoidTy(Mod->getContext()),
-                                       {Type::getDoubleTy(Mod->getContext())},
-                                       false);
-  Function* printdfunc = Function::Create(FT, Function::ExternalLinkage,
-                                          "printd", Mod.get());
+  FunctionType *FT =
+      FunctionType::get(Type::getVoidTy(Mod->getContext()),
+                        {Type::getDoubleTy(Mod->getContext())}, false);
+  Function *printdfunc =
+      Function::Create(FT, Function::ExternalLinkage, "printd", Mod.get());
 
-  Function* Func = MakeFunction(Mod.get(), funcname, printdfunc);
+  Function *Func = MakeFunction(Mod.get(), funcname, printdfunc);
 
   // This is required to initialize the MC layer for our (native) target.
   InitializeNativeTarget();

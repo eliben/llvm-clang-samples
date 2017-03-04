@@ -46,8 +46,8 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "clang/ASTMatchers/ASTMatchers.h"
 #include "clang/ASTMatchers/ASTMatchFinder.h"
+#include "clang/ASTMatchers/ASTMatchers.h"
 #include "clang/Basic/SourceManager.h"
 #include "clang/Frontend/FrontendActions.h"
 #include "clang/Lex/Lexer.h"

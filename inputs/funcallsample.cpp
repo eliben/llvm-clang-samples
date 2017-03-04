@@ -1,18 +1,13 @@
-bool foo()
-{
-    return true;
-}
+bool foo() { return true; }
 
-void bar()
-{
+void bar() {
+  foo();
+  for (int i = 0; i < 10; ++i)
     foo();
-    for (int i = 0; i < 10; ++i)
-        foo();
 }
 
-int main()
-{
+int main() {
+  bar();
+  if (foo())
     bar();
-    if (foo())
-        bar();
 }

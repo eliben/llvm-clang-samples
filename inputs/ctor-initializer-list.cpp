@@ -1,38 +1,26 @@
 namespace detail {
 
-struct Base {
-};
+struct Base {};
 
-constexpr int foo2(int i) {
-  return 2 * i;
+constexpr int foo2(int i) { return 2 * i; }
 }
-
-}
-
-
 
 namespace ns {
 
-//constexpr int foo2(int i) {
-  //return 2*i;
+// constexpr int foo2(int i) {
+// return 2*i;
 //}
 
 using detail::foo2;
 
-constexpr float foo2(float f) {
-  return 2.2+f;
-}
+constexpr float foo2(float f) { return 2.2 + f; }
 
 float joe = foo2(45.4f);
 
 namespace Sambusak {
 
-constexpr double foo2(double d) {
-  return d * 2.2;
+constexpr double foo2(double d) { return d * 2.2; }
 }
-
-}
-
 }
 
 int iii = ns::foo2(10);
@@ -44,10 +32,8 @@ void bbbb() {
   int k = func(10);
 }
 
-template <typename T>
-class Foo : public detail::Base{
- public:
-
+template <typename T> class Foo : public detail::Base {
+public:
   typedef typename T::zoo_type arg_type;
 
   Foo(char c) : iguana(c) { f = 0.9; }
@@ -60,7 +46,7 @@ class Foo : public detail::Base{
 
   Foo() : detail::Base(), iguana(1) {}
 
- private:
+private:
   int kak;
   int iguana;
   float f;
@@ -68,4 +54,3 @@ class Foo : public detail::Base{
   struct Faborz {
   } faborz;
 };
-

@@ -40,9 +40,7 @@ public:
 
   SimpleOrcJIT()
       : TM(EngineBuilder().selectTarget()), DL(TM->createDataLayout()),
-        CompileLayer(ObjectLayer, orc::SimpleCompiler(*TM)) {
-    llvm::sys::DynamicLibrary::LoadLibraryPermanently(nullptr);
-  }
+        CompileLayer(ObjectLayer, orc::SimpleCompiler(*TM)) {}
 
   // A simple SymbolResolver that doesn't support linking by always returning
   // nullptr.

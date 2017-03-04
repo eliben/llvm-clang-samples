@@ -225,4 +225,4 @@ clean:
 	rm -rf $(BUILDDIR)/* *.dot test/*.pyc test/__pycache__
 
 format:
-	clang-format -style=file -i src_llvm/*.cpp src_llvm/*.h
+	find . -name "*.cpp" | xargs clang-format -style=file -i
