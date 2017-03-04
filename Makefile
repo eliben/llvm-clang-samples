@@ -219,6 +219,10 @@ $(BUILDDIR)/try_matcher: $(SRC_CLANG_DIR)/experimental/try_matcher.cpp
 	$(CXX) $(CXXFLAGS) $(LLVM_CXXFLAGS) $(CLANG_INCLUDES) $^ \
 		$(CLANG_LIBS) $(LLVM_LDFLAGS) -o $@
 
-.PHONY: clean
+.PHONY: clean format
+
 clean:
 	rm -rf $(BUILDDIR)/* *.dot test/*.pyc test/__pycache__
+
+format:
+	clang-format -style=file -i src_llvm/*.cpp src_llvm/*.h

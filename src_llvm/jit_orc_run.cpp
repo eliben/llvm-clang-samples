@@ -12,10 +12,10 @@
 //------------------------------------------------------------------------------
 #include <memory>
 
+#include "llvm/ExecutionEngine/JITSymbol.h"
 #include "llvm/ExecutionEngine/Orc/CompileUtils.h"
 #include "llvm/ExecutionEngine/Orc/IRCompileLayer.h"
 #include "llvm/ExecutionEngine/Orc/RTDyldObjectLinkingLayer.h"
-#include "llvm/ExecutionEngine/JITSymbol.h"
 #include "llvm/IR/Mangler.h"
 #include "llvm/IRReader/IRReader.h"
 #include "llvm/Support/SourceMgr.h"
@@ -40,14 +40,14 @@ public:
 
   SimpleOrcJIT()
       : TM(EngineBuilder().selectTarget()), DL(TM->createDataLayout()),
-        CompileLayer(ObjectLayer, orc::SimpleCompiler(*TM)) {}
+        CompileLayer(ObjectLayer, orc::SimpleCompiler(*TM)) {
+    llvm::sys::DynamicLibrary::LoadLibraryPermanently(nullptr);
+  }
 
   // A simple SymbolResolver that doesn't support linking by always returning
   // nullptr.
   struct NoLinkingResolver : public JITSymbolResolver {
-    JITSymbol findSymbol(const std::string &Name) {
-      return nullptr;
-    }
+    JITSymbol findSymbol(const std::string &Name) { return nullptr; }
     JITSymbol findSymbolInLogicalDylib(const std::string &Name) {
       return nullptr;
     }

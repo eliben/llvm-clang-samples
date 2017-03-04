@@ -94,7 +94,7 @@ private:
   std::vector<ModuleHandleT> ModuleHandles;
 };
 
-Function* MakeFunction(Module* Mod, std::string name) {
+Function* MakeFunction(Module* Mod, std::string name, Function* printdfunc) {
   LLVMContext &Context = Mod->getContext();
   std::vector<Type*> Args(3, Type::getDoubleTy(Context));
   FunctionType *FT = FunctionType::get(Type::getDoubleTy(Context), Args, false);
@@ -115,6 +115,9 @@ Function* MakeFunction(Module* Mod, std::string name) {
   Value *fa = Builder.CreateFAdd(arg1, arg2);
   Value *fb = Builder.CreateFAdd(fa, arg3);
   Value *fc = Builder.CreateFAdd(arg1, arg2);
+
+  Builder.CreateCall(printdfunc, {fc});
+
   Value *fd = Builder.CreateFAdd(fb, fc);
 
   Builder.CreateRet(fd);
@@ -122,6 +125,11 @@ Function* MakeFunction(Module* Mod, std::string name) {
   return F;
 }
 
+/// printd - printf that takes a double prints it as "%f\n", returning 0.
+extern "C" double printd(double X) {
+  fprintf(stderr, "%f\n", X);
+  return 0;
+}
 // Signature of the function we expect.
 typedef double (*FooTy)(double, double, double);
 
@@ -131,7 +139,13 @@ int main(int argc, char** argv) {
 
   std::string funcname = "foo";
 
-  Function* Func = MakeFunction(Mod.get(), funcname);
+  FunctionType *FT = FunctionType::get(Type::getVoidTy(Mod->getContext()),
+                                       {Type::getDoubleTy(Mod->getContext())},
+                                       false);
+  Function* printdfunc = Function::Create(FT, Function::ExternalLinkage,
+                                          "printd", Mod.get());
+
+  Function* Func = MakeFunction(Mod.get(), funcname, printdfunc);
 
   // This is required to initialize the MC layer for our (native) target.
   InitializeNativeTarget();
