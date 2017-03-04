@@ -36,26 +36,39 @@ public:
 
   SimpleOrcJIT()
       : TM(EngineBuilder().selectTarget()), DL(TM->createDataLayout()),
-        CompileLayer(ObjectLayer, orc::SimpleCompiler(*TM)) {}
+        CompileLayer(ObjectLayer, orc::SimpleCompiler(*TM)) {
+          std::string s;
+           llvm::sys::DynamicLibrary::LoadLibraryPermanently(nullptr, &s);
+           errs() << "$$ error from loading: " << s << "\n";
+        }
 
   TargetMachine &getTargetMachine() { return *TM; }
 
-  // A simple SymbolResolver that doesn't support linking by always returning
-  // nullptr.
-  struct NoLinkingResolver : public JITSymbolResolver {
-    JITSymbol findSymbol(const std::string &Name) { return nullptr; }
-    JITSymbol findSymbolInLogicalDylib(const std::string &Name) {
-      return nullptr;
-    }
-  };
+  template <typename T> static std::vector<T> singletonSet(T t) {
+    std::vector<T> Vec;
+    Vec.push_back(std::move(t));
+    return Vec;
+  }
 
-  // Add a module to the JIT.
   ModuleHandleT addModule(std::unique_ptr<Module> M) {
-    std::vector<std::unique_ptr<Module>> MS;
-    MS.push_back(std::move(M));
-    auto H = CompileLayer.addModuleSet(std::move(MS),
+    // We need a memory manager to allocate memory and resolve symbols for this
+    // new module. Create one that resolves symbols by looking back into the
+    // JIT.
+    auto Resolver = orc::createLambdaResolver(
+        [&](const std::string &Name) {
+          errs() << "$$ resolving " << Name << "\n";
+          if (auto Sym = findMangledSymbol(Name))
+            return Sym;
+          return JITSymbol(nullptr);
+        },
+        [](const std::string &S) {
+          errs() << "$$ external resolving " << S << "\n";
+          return nullptr;
+        });
+    auto H = CompileLayer.addModuleSet(singletonSet(std::move(M)),
                                        make_unique<SectionMemoryManager>(),
-                                       make_unique<NoLinkingResolver>());
+                                       std::move(Resolver));
+
     ModuleHandles.push_back(H);
     return H;
   }
@@ -67,19 +80,35 @@ public:
     CompileLayer.removeModuleSet(H);
   }
 
-  // Get the runtime address of the compiled symbol whose name is given.
   JITSymbol findSymbol(const std::string Name) {
+    errs() << "$$ findSymbol: " << Name << "\n";
+    return findMangledSymbol(mangle(Name));
+  }
+
+  std::string mangle(const std::string &Name) {
     std::string MangledName;
     {
       raw_string_ostream MangledNameStream(MangledName);
       Mangler::getNameWithPrefix(MangledNameStream, Name, DL);
     }
+    return MangledName;
+  }
 
-    for (auto H : make_range(ModuleHandles.rbegin(), ModuleHandles.rend())) {
-      if (auto Sym = CompileLayer.findSymbolIn(H, MangledName, true)) {
+  JITSymbol findMangledSymbol(const std::string &Name) {
+    errs() << "$$ findMangledSymbol: " << Name << "\n";
+    const bool ExportedSymbolsOnly = true;
+
+    // Search modules in reverse order: from last added to first added.
+    // This is the opposite of the usual search order for dlsym, but makes more
+    // sense in a REPL where we want to bind to the newest available definition.
+    for (auto H : make_range(ModuleHandles.rbegin(), ModuleHandles.rend()))
+      if (auto Sym = CompileLayer.findSymbolIn(H, Name, ExportedSymbolsOnly))
         return Sym;
-      }
-    }
+
+    // If we can't find the symbol in the JIT, try looking in the host process.
+    errs() << "$$ finding " << Name << " in host process\n";
+    if (auto SymAddr = RTDyldMemoryManager::getSymbolAddressInProcess(Name))
+      return JITSymbol(SymAddr, JITSymbolFlags::Exported);
 
     return nullptr;
   }
@@ -126,10 +155,10 @@ Function *MakeFunction(Module *Mod, std::string name, Function *printdfunc) {
 }
 
 /// printd - printf that takes a double prints it as "%f\n", returning 0.
-extern "C" double printd(double X) {
+extern "C" void printd(double X) {
   fprintf(stderr, "%f\n", X);
-  return 0;
 }
+
 // Signature of the function we expect.
 typedef double (*FooTy)(double, double, double);
 
@@ -137,6 +166,7 @@ int main(int argc, char **argv) {
   LLVMContext Context;
   std::unique_ptr<Module> Mod = make_unique<Module>("my module", Context);
 
+  printd(101.24);
   std::string funcname = "foo";
 
   FunctionType *FT =
