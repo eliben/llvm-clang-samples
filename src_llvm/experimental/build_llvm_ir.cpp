@@ -19,6 +19,9 @@
 
 using namespace llvm;
 
+// A type encapsulating simple Orc JIT functionality. Loosely based on the
+// KaleidoscopeJIT example in the LLVM tree. Doesn't support cross-module
+// symbol resolution; this JIT is best used with just a single module.
 class SimpleOrcJIT {
 public:
   // This sample doesn't implement on-request or lazy compilation. It therefore
@@ -34,10 +37,11 @@ public:
   SimpleOrcJIT()
       : TM(EngineBuilder().selectTarget()), DL(TM->createDataLayout()),
         CompileLayer(ObjectLayer, orc::SimpleCompiler(*TM)) {
-          std::string s;
-           llvm::sys::DynamicLibrary::LoadLibraryPermanently(nullptr, &s);
-           errs() << "$$ error from loading: " << s << "\n";
-        }
+    std::string s;
+    bool b = llvm::sys::DynamicLibrary::LoadLibraryPermanently(nullptr, &s);
+    errs() << "$$ LoadLibraryPermanently returned " << b
+           << "; error string=" << s << "\n";
+  }
 
   TargetMachine &getTargetMachine() { return *TM; }
 
@@ -58,7 +62,7 @@ public:
             return Sym;
           return JITSymbol(nullptr);
         },
-        [](const std::string &S) {
+        [](const std::string &S) { 
           errs() << "$$ external resolving " << S << "\n";
           return nullptr;
         });
@@ -152,8 +156,9 @@ Function *MakeFunction(Module *Mod, std::string name, Function *printdfunc) {
 }
 
 /// printd - printf that takes a double prints it as "%f\n", returning 0.
-extern "C" void printd(double X) {
+extern "C" double printd(double X) {
   fprintf(stderr, "%f\n", X);
+  return 0;
 }
 
 // Signature of the function we expect.
@@ -180,6 +185,12 @@ int main(int argc, char **argv) {
 
   SimpleOrcJIT JIT;
   Mod->setDataLayout(JIT.getTargetMachine().createDataLayout());
+  void* s = llvm::sys::DynamicLibrary::SearchForAddressOfSymbol("printd");
+  if (s != nullptr) {
+    errs() << "$$ " << s << "\n";
+  } else {
+    errs() << "$$ SearchForAddressOfSymbol unable to find printd\n";
+  }
 
   PassManagerBuilder Builder;
   Builder.OptLevel = 3;
