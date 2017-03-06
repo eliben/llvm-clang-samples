@@ -19,9 +19,6 @@
 
 using namespace llvm;
 
-// A type encapsulating simple Orc JIT functionality. Loosely based on the
-// KaleidoscopeJIT example in the LLVM tree. Doesn't support cross-module
-// symbol resolution; this JIT is best used with just a single module.
 class SimpleOrcJIT {
 public:
   // This sample doesn't implement on-request or lazy compilation. It therefore
