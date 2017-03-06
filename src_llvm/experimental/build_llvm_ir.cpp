@@ -38,9 +38,10 @@ public:
       : TM(EngineBuilder().selectTarget()), DL(TM->createDataLayout()),
         CompileLayer(ObjectLayer, orc::SimpleCompiler(*TM)) {
     std::string s;
-    bool b = llvm::sys::DynamicLibrary::LoadLibraryPermanently(nullptr, &s);
-    errs() << "$$ LoadLibraryPermanently returned " << b
-           << "; error string=" << s << "\n";
+    if (llvm::sys::DynamicLibrary::LoadLibraryPermanently(nullptr, &s)) {
+      errs() << "ERROR: LoadLibraryPermanently returned false"
+             << "; error string=" << s << "\n";
+    }
   }
 
   TargetMachine &getTargetMachine() { return *TM; }
@@ -57,15 +58,11 @@ public:
     // JIT.
     auto Resolver = orc::createLambdaResolver(
         [&](const std::string &Name) {
-          errs() << "$$ resolving " << Name << "\n";
           if (auto Sym = findMangledSymbol(Name))
             return Sym;
           return JITSymbol(nullptr);
         },
-        [](const std::string &S) { 
-          errs() << "$$ external resolving " << S << "\n";
-          return nullptr;
-        });
+        [](const std::string &S) { return nullptr; });
     auto H = CompileLayer.addModuleSet(singletonSet(std::move(M)),
                                        make_unique<SectionMemoryManager>(),
                                        std::move(Resolver));
@@ -82,7 +79,6 @@ public:
   }
 
   JITSymbol findSymbol(const std::string Name) {
-    errs() << "$$ findSymbol: " << Name << "\n";
     return findMangledSymbol(mangle(Name));
   }
 
@@ -96,7 +92,6 @@ public:
   }
 
   JITSymbol findMangledSymbol(const std::string &Name) {
-    errs() << "$$ findMangledSymbol: " << Name << "\n";
     const bool ExportedSymbolsOnly = true;
 
     // Search modules in reverse order: from last added to first added.
@@ -107,7 +102,6 @@ public:
         return Sym;
 
     // If we can't find the symbol in the JIT, try looking in the host process.
-    errs() << "$$ finding " << Name << " in host process\n";
     if (auto SymAddr = RTDyldMemoryManager::getSymbolAddressInProcess(Name))
       return JITSymbol(SymAddr, JITSymbolFlags::Exported);
 
@@ -168,7 +162,6 @@ int main(int argc, char **argv) {
   LLVMContext Context;
   std::unique_ptr<Module> Mod = make_unique<Module>("my module", Context);
 
-  printd(101.24);
   std::string funcname = "foo";
 
   FunctionType *FT =
@@ -185,12 +178,6 @@ int main(int argc, char **argv) {
 
   SimpleOrcJIT JIT;
   Mod->setDataLayout(JIT.getTargetMachine().createDataLayout());
-  void* s = llvm::sys::DynamicLibrary::SearchForAddressOfSymbol("printd");
-  if (s != nullptr) {
-    errs() << "$$ " << s << "\n";
-  } else {
-    errs() << "$$ SearchForAddressOfSymbol unable to find printd\n";
-  }
 
   PassManagerBuilder Builder;
   Builder.OptLevel = 3;
