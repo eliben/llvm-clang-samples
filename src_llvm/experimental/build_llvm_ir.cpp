@@ -1,3 +1,9 @@
+//------------------------------------------------------------------------------
+// Building LLVM IR via the C++ API and JIT-calling it.
+//
+// Eli Bendersky (eliben@gmail.com)
+// This code is in the public domain
+//------------------------------------------------------------------------------
 #include "llvm/ADT/STLExtras.h"
 #include "llvm/ExecutionEngine/JITSymbol.h"
 #include "llvm/ExecutionEngine/Orc/CompileUtils.h"
