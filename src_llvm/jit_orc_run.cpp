@@ -15,7 +15,7 @@
 #include "llvm/ExecutionEngine/JITSymbol.h"
 #include "llvm/ExecutionEngine/Orc/CompileUtils.h"
 #include "llvm/ExecutionEngine/Orc/IRCompileLayer.h"
-#include "llvm/ExecutionEngine/Orc/RTDyldObjectLinkingLayer.h"
+#include "llvm/ExecutionEngine/Orc/ObjectLinkingLayer.h"
 #include "llvm/IR/Mangler.h"
 #include "llvm/IRReader/IRReader.h"
 #include "llvm/Support/SourceMgr.h"
@@ -34,7 +34,7 @@ public:
   // Orc's SimpleCompiler is used to actually compile the module; it runs LLVM's
   // codegen and MC on the module, producing an object file in memory. No
   // IR-level optimizations are run by the JIT.
-  typedef orc::RTDyldObjectLinkingLayer<> ObjLayerT;
+  typedef orc::ObjectLinkingLayer<> ObjLayerT;
   typedef orc::IRCompileLayer<ObjLayerT> CompileLayerT;
   typedef CompileLayerT::ModuleSetHandleT ModuleHandleT;
 
