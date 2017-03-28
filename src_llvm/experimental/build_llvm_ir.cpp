@@ -3,8 +3,7 @@
 #include "llvm/ExecutionEngine/Orc/CompileUtils.h"
 #include "llvm/ExecutionEngine/Orc/IRCompileLayer.h"
 #include "llvm/ExecutionEngine/Orc/LambdaResolver.h"
-#include "llvm/ExecutionEngine/Orc/RTDyldObjectLinkingLayer.h"
-#include "llvm/ExecutionEngine/RTDyldMemoryManager.h"
+#include "llvm/ExecutionEngine/Orc/ObjectLinkingLayer.h"
 #include "llvm/ExecutionEngine/RuntimeDyld.h"
 #include "llvm/ExecutionEngine/SectionMemoryManager.h"
 #include "llvm/IR/DerivedTypes.h"
@@ -30,7 +29,7 @@ public:
   // Orc's SimpleCompiler is used to actually compile the module; it runs LLVM's
   // codegen and MC on the module, producing an object file in memory. No
   // IR-level optimizations are run by the JIT.
-  typedef orc::RTDyldObjectLinkingLayer<> ObjLayerT;
+  typedef orc::ObjectLinkingLayer<> ObjLayerT;
   typedef orc::IRCompileLayer<ObjLayerT> CompileLayerT;
   typedef CompileLayerT::ModuleSetHandleT ModuleHandleT;
 
@@ -189,7 +188,6 @@ int main(int argc, char **argv) {
   Builder.SizeLevel = 0;
   Builder.LoopVectorize = true;
   Builder.SLPVectorize = true;
-  JIT.getTargetMachine().adjustPassManager(Builder);
   auto FPM = llvm::make_unique<legacy::FunctionPassManager>(Mod.get());
   Builder.populateFunctionPassManager(*FPM);
   FPM->doInitialization();
