@@ -1,3 +1,9 @@
+//------------------------------------------------------------------------------
+// Building LLVM IR via the C++ API and JIT-calling it.
+//
+// Eli Bendersky (eliben@gmail.com)
+// This code is in the public domain
+//------------------------------------------------------------------------------
 #include "llvm/ADT/STLExtras.h"
 #include "llvm/ExecutionEngine/JITSymbol.h"
 #include "llvm/ExecutionEngine/Orc/CompileUtils.h"
@@ -36,10 +42,12 @@ public:
   SimpleOrcJIT()
       : TM(EngineBuilder().selectTarget()), DL(TM->createDataLayout()),
         CompileLayer(ObjectLayer, orc::SimpleCompiler(*TM)) {
-          std::string s;
-           llvm::sys::DynamicLibrary::LoadLibraryPermanently(nullptr, &s);
-           errs() << "$$ error from loading: " << s << "\n";
-        }
+    std::string s;
+    if (llvm::sys::DynamicLibrary::LoadLibraryPermanently(nullptr, &s)) {
+      errs() << "ERROR: LoadLibraryPermanently returned false"
+             << "; error string=" << s << "\n";
+    }
+  }
 
   TargetMachine &getTargetMachine() { return *TM; }
 
@@ -55,15 +63,11 @@ public:
     // JIT.
     auto Resolver = orc::createLambdaResolver(
         [&](const std::string &Name) {
-          errs() << "$$ resolving " << Name << "\n";
           if (auto Sym = findMangledSymbol(Name))
             return Sym;
           return JITSymbol(nullptr);
         },
-        [](const std::string &S) {
-          errs() << "$$ external resolving " << S << "\n";
-          return nullptr;
-        });
+        [](const std::string &S) { return nullptr; });
     auto H = CompileLayer.addModuleSet(singletonSet(std::move(M)),
                                        make_unique<SectionMemoryManager>(),
                                        std::move(Resolver));
@@ -80,7 +84,6 @@ public:
   }
 
   JITSymbol findSymbol(const std::string Name) {
-    errs() << "$$ findSymbol: " << Name << "\n";
     return findMangledSymbol(mangle(Name));
   }
 
@@ -94,7 +97,6 @@ public:
   }
 
   JITSymbol findMangledSymbol(const std::string &Name) {
-    errs() << "$$ findMangledSymbol: " << Name << "\n";
     const bool ExportedSymbolsOnly = true;
 
     // Search modules in reverse order: from last added to first added.
@@ -105,7 +107,6 @@ public:
         return Sym;
 
     // If we can't find the symbol in the JIT, try looking in the host process.
-    errs() << "$$ finding " << Name << " in host process\n";
     if (auto SymAddr = RTDyldMemoryManager::getSymbolAddressInProcess(Name))
       return JITSymbol(SymAddr, JITSymbolFlags::Exported);
 
@@ -154,8 +155,9 @@ Function *MakeFunction(Module *Mod, std::string name, Function *printdfunc) {
 }
 
 /// printd - printf that takes a double prints it as "%f\n", returning 0.
-extern "C" void printd(double X) {
+extern "C" double printd(double X) {
   fprintf(stderr, "%f\n", X);
+  return 0;
 }
 
 // Signature of the function we expect.
@@ -165,7 +167,6 @@ int main(int argc, char **argv) {
   LLVMContext Context;
   std::unique_ptr<Module> Mod = make_unique<Module>("my module", Context);
 
-  printd(101.24);
   std::string funcname = "foo";
 
   FunctionType *FT =
