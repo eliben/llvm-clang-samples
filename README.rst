@@ -76,3 +76,12 @@ with 'make', just run::
 Note that it expects to find binaries from the LLVM directory with which the
 samples were built and linked. Look at the ``emit_build_config`` rule in the
 Makefile for more information.
+
+License
+-------
+
+Unless stated otherwise, all the code in this repository is in the public
+domain. See the ``LICENSE`` file for more details. Some source files were taken
+almost verbatim from LLVM/Clang; for these, the LLVM license header comment is
+retained and LLVM's license applies (please see ``LICENSE.txt`` in the LLVM
+source tree).
