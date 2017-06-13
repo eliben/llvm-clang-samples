@@ -1,3 +1,9 @@
+//------------------------------------------------------------------------------
+// Experimental sample; use at your own peril.
+//
+// Eli Bendersky (eliben@gmail.com)
+// This code is in the public domain
+//------------------------------------------------------------------------------
 #include <sstream>
 #include <string>
 
