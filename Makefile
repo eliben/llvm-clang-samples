@@ -30,6 +30,11 @@
 # default. Also note that a fairly recent version of cmake is required; the
 # latest I've been using is 3.5.2
 #
+# It is recommended to use a recent Clang to build LLVM itself. For example if
+# you have a Clang binary release in $CLANGDIR, cmake should be run with:
+#
+# $ CC=$CLANGDIR/bin/clang CXX=$CLANGDIR/bin/clang++ cmake ....
+#
 # Alternatively, if you're building vs. a binary distribution of LLVM
 # (downloaded from llvm.org), then LLVM_SRC_PATH can point to the main untarred
 # directory of the binary download (the directory that has bin/, lib/, include/
@@ -53,12 +58,6 @@ $(info Using LLVM_BUILD_PATH = $(LLVM_BUILD_PATH))
 $(info Using LLVM_BIN_PATH = $(LLVM_BIN_PATH))
 $(info -----------------------------------------------)
 
-# CXX has to be a fairly modern C++ compiler that supports C++11. gcc 4.8 and
-# higher or Clang 3.2 and higher are recommended. Best of all, if you build LLVM
-# from sources, use the same compiler you built LLVM with.
-# Note: starting with release 3.7, llvm-config will inject flags that gcc may
-# not support (for example '-Wcovered-switch-default'). If you run into this
-# problem, build with CXX set to a modern clang++ binary instead of g++.
 CXX := g++
 CXXFLAGS := -fno-rtti -O0 -g
 PLUGIN_CXXFLAGS := -fpic
