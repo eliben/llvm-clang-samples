@@ -135,7 +135,9 @@ int main(int argc, char **argv) {
   PM.run(*Mod);
 
   outs() << "Dumping the module after the pass has run:\n";
-  Mod->dump();
+  // These dumps only work with LLVM built with a special cmake flag enabling
+  // dumps.
+  // Mod->dump();
 
   return 0;
 }

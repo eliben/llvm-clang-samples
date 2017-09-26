@@ -33,13 +33,15 @@ int main(int argc, char **argv) {
                                              E = Mod->named_metadata_end();
        I != E; ++I) {
     outs() << "Found MDNode:\n";
-    I->dump();
+    // These dumps only work with LLVM built with a special cmake flag enabling
+    // dumps.
+    // I->dump();
 
     for (unsigned i = 0, e = I->getNumOperands(); i != e; ++i) {
       Metadata *Op = I->getOperand(i);
       if (auto *N = dyn_cast<MDNode>(Op)) {
         outs() << "  Has MDNode operand:\n  ";
-        N->dump();
+        // N->dump();
         outs() << "  " << N->getNumOperands() << " operands\n";
       }
     }

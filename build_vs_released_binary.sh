@@ -15,7 +15,7 @@
 set -eu
 set -x
 
-BINARY_DIR_PATH=${BINARY_DIR_PATH:-$HOME/llvm/llvm3.8-binaries}
+BINARY_DIR_PATH=${BINARY_DIR_PATH:-$HOME/llvm/llvm5.0-binaries}
 
 make -j8 \
   CXX=$BINARY_DIR_PATH/bin/clang++ \

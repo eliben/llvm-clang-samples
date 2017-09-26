@@ -37,7 +37,9 @@ public:
     for (auto II = BB.begin(), II_e = BB.end(); II != II_e; ++II) {
       if (GetElementPtrInst *GEP = dyn_cast<GetElementPtrInst>(II)) {
         outs() << "Found GEP:\n";
-        GEP->dump();
+        // These dumps only work with LLVM built with a special cmake flag
+        // enabling dumps.
+        // GEP->dump();
         outs() << "  The type is: " << ToString(GEP->getType()) << "\n";
         outs() << "  The pointer operand is: "
                << ToString(GEP->getPointerOperand()) << "\n";
