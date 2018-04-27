@@ -6,6 +6,14 @@
 # This code is in the public domain
 #-------------------------------------------------------------------------------
 
+#  Changes for building against the Homebrew install of llvm on OSX platforms
+#  (provided by b.van straalen  Lawrence Berkeley National Lab)
+#  1. >brew install llvm --with-toolchain
+#  2. LLVM_SRC_PATH := /usr/local/opt/llvm
+#  3. LLVM_BUILD_PATH := $(LLVM_SRC_PATH)
+#  4. CXX:=$(LLVM_BUILD_PATH)/bin/clang++
+#  5. PLUGIN_LDFLAGS := -shared 
+
 # The following variables will likely need to be customized, depending on where
 # and how you built LLVM & Clang. They can be overridden by setting them on the
 # make command line: "make VARNAME=VALUE", etc.
