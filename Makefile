@@ -12,7 +12,10 @@
 #  2. LLVM_SRC_PATH := /usr/local/opt/llvm
 #  3. LLVM_BUILD_PATH := $(LLVM_SRC_PATH)
 #  4. CXX:=$(LLVM_BUILD_PATH)/bin/clang++
-#  5. PLUGIN_LDFLAGS := -shared 
+#  5. PLUGIN_LDFLAGS := -shared -undefined dynamic_lookup
+#  6. -Wl,--start-group \   changed to  -Wl, \       
+#  7  -Wl,--end-group    changed to  -Wl,
+
 
 # The following variables will likely need to be customized, depending on where
 # and how you built LLVM & Clang. They can be overridden by setting them on the
