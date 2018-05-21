@@ -114,6 +114,8 @@ CLANG_LIBS := \
 	-lclangStaticAnalyzerFrontend \
 	-lclangStaticAnalyzerCheckers \
 	-lclangStaticAnalyzerCore \
+	-lclangCrossTU \
+	-lclangIndex \
 	-lclangSerialization \
 	-lclangToolingCore \
 	-lclangTooling \
