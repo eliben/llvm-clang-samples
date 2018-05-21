@@ -6,17 +6,6 @@
 # This code is in the public domain
 #-------------------------------------------------------------------------------
 
-#  Changes for building against the Homebrew install of llvm on OSX platforms
-#  (provided by b.van straalen  Lawrence Berkeley National Lab)
-#  1. >brew install llvm --with-toolchain
-#  2. LLVM_SRC_PATH := /usr/local/opt/llvm
-#  3. LLVM_BUILD_PATH := $(LLVM_SRC_PATH)
-#  4. CXX:=$(LLVM_BUILD_PATH)/bin/clang++
-#  5. PLUGIN_LDFLAGS := -shared -undefined dynamic_lookup
-#  6. -Wl,--start-group \   changed to  -Wl, \       
-#  7  -Wl,--end-group    changed to  -Wl,
-
-
 # The following variables will likely need to be customized, depending on where
 # and how you built LLVM & Clang. They can be overridden by setting them on the
 # make command line: "make VARNAME=VALUE", etc.
@@ -51,6 +40,17 @@
 # directory of the binary download (the directory that has bin/, lib/, include/
 # and other directories inside).
 # See the build_vs_released_binary.sh script for an example.
+#
+#  Changes for building against the Homebrew install of llvm on OSX platforms
+#  (provided by b.van straalen  Lawrence Berkeley National Lab)
+#  1. >brew install llvm --with-toolchain
+#  2. LLVM_SRC_PATH := /usr/local/opt/llvm
+#  3. LLVM_BUILD_PATH := $(LLVM_SRC_PATH)
+#  4. CXX:=$(LLVM_BUILD_PATH)/bin/clang++
+#  5. PLUGIN_LDFLAGS := -shared -undefined dynamic_lookup
+#  6. -Wl,--start-group \   changed to  -Wl, \
+#  7  -Wl,--end-group    changed to  -Wl,
+
 LLVM_SRC_PATH := $$HOME/llvm/llvm_svn_rw
 
 # LLVM_BUILD_PATH is the directory in which you built LLVM - where you ran
