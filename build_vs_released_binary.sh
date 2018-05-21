@@ -16,7 +16,6 @@ set -eu
 set -x
 
 BINARY_DIR_PATH=${BINARY_DIR_PATH:-$HOME/llvm/llvm6.0-binaries}
-#BINARY_DIR_PATH=${BINARY_DIR_PATH:-$HOME/llvm/clang+llvm-6.0.0-x86_64-linux-gnu-ubuntu-14.04}
 
 make -j8 \
   CXX=$BINARY_DIR_PATH/bin/clang++ \
