@@ -3,6 +3,9 @@ LLVM & Clang library usage samples
 
 A collection of samples for using LLVM and Clang as libraries.
 
+.. image:: https://raw.github.com/eliben/llvm-clang-samples/master/stop.jpg
+  :align: center
+
 Branches
 --------
 
