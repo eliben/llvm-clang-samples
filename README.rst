@@ -1,3 +1,8 @@
+**Note (Sep-18-2018)**: this repository is now unmaintained. I have been working
+on other stuff recently and haven't had the time and stamina to keep chasing after
+LLVM/Clang's continously changing build requirements to maintain an out-of-source
+repository of samples. I may take maintainership up again in the future.
+
 LLVM & Clang library usage samples
 ==================================
 
