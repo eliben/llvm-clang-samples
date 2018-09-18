@@ -3,14 +3,13 @@ on other stuff recently and haven't had the time and stamina to keep chasing aft
 LLVM/Clang's continously changing build requirements to maintain an out-of-source
 repository of samples. I may take maintainership up again in the future.
 
+.. image:: https://raw.github.com/eliben/llvm-clang-samples/master/stop.jpg
+  :align: center
+
 LLVM & Clang library usage samples
 ==================================
 
 A collection of samples for using LLVM and Clang as libraries.
-
-.. image:: https://raw.github.com/eliben/llvm-clang-samples/master/stop.jpg
-  :align: center
-  :width: 225
 
 Branches
 --------
