@@ -1,7 +1,9 @@
-**Note (Sep-18-2018)**: this repository is now unmaintained. I have been working
-on other stuff recently and haven't had the time and stamina to keep chasing after
-LLVM/Clang's continously changing build requirements to maintain an out-of-source
-repository of samples. I may take maintainership up again in the future.
+**Note (Sep-18-2018)**: this repository is now unmaintained. Keeping
+out-of-source samples working with LLVM & Clang is tricky because of the
+continuously changing build requirements. I have been working on other stuff
+recently and haven't had the time and stamina to keep up-to-date.
+
+I may take maintainership up again in the future.
 
 .. image:: https://raw.github.com/eliben/llvm-clang-samples/master/stop.jpg
   :align: center
